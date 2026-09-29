@@ -1,0 +1,77 @@
+﻿[
+  {
+    "nodeId": "TN_001",
+    "concept": "Shadow Zone Generation",
+    "topic": "Earthquakes",
+    "factual_claims": [
+      "P-waves travel through solid, liquid, and gaseous materials.",
+      "S-waves travel only through solid materials.",
+      "A seismograph located at 105 to 145 degrees from the epicenter does not record P or S waves, creating a shadow zone.",
+      "The shadow zone of S-waves is much larger than that of P-waves, proving the outer core is liquid."
+    ],
+    "relationships": ["S-wave absorption -> Liquid outer core", "P-wave refraction -> Core boundary"],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 3, Page 27",
+    "evidence_excerpt": "The shadow zone of S-wave is not only larger in extent but it is also a little over 40 per cent of the earth surface. This proves that the outer core is liquid. P-waves are refracted, creating a smaller shadow zone.",
+    "currentness_evidence": "HISTORICAL_GEOLOGY_CONSTANTS"
+  },
+  {
+    "nodeId": "TN_002",
+    "concept": "Oceanic-Continental Convergence",
+    "topic": "Plate Tectonics",
+    "factual_claims": [
+      "When oceanic and continental plates converge, the denser oceanic plate subducts.",
+      "Subduction forms deep ocean trenches.",
+      "Melting of the subducted plate creates magma that rises to form continental volcanic arcs."
+    ],
+    "relationships": ["Density difference -> Subduction", "Subduction -> Trench formation", "Flux melting -> Volcanic arcs"],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 4, Page 35",
+    "evidence_excerpt": "At convergent boundaries where oceanic and continental crust collide, the denser oceanic plate is pushed beneath the lighter continental plate into the mantle, a process called subduction. This forms trenches and inland volcanic mountains.",
+    "currentness_evidence": "HISTORICAL_GEOLOGY_CONSTANTS"
+  },
+  {
+    "nodeId": "TN_003",
+    "concept": "Caldera Formation",
+    "topic": "Geomorphology",
+    "factual_claims": [
+      "Calderas are the most explosive of the earth's volcanoes.",
+      "They are usually so explosive that when they erupt they tend to collapse on themselves rather than building any tall structure.",
+      "The collapsed depressions are called calderas."
+    ],
+    "relationships": ["Extreme explosivity -> Structural collapse", "Collapse depression -> Caldera"],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 3, Page 29",
+    "evidence_excerpt": "These are the most explosive of the earth’s volcanoes. They are usually so explosive that when they erupt they tend to collapse on themselves rather than building any tall structure. The collapsed depressions are called calderas.",
+    "currentness_evidence": "HISTORICAL_GEOLOGY_CONSTANTS"
+  },
+  {
+    "nodeId": "TN_004",
+    "concept": "Meanders",
+    "topic": "Geomorphology",
+    "factual_claims": [
+      "Meanders are not a landform but a type of channel pattern.",
+      "They are formed due to propensity of water flowing over gentle gradients to work laterally on the banks.",
+      "Unconsolidated nature of alluvial deposits promotes meandering."
+    ],
+    "relationships": ["Gentle gradient + loose alluvium -> Lateral erosion", "Lateral erosion -> Meandering channel"],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 7, Page 64",
+    "evidence_excerpt": "In large flood and delta plains, rivers rarely flow in straight courses. Loop-like channel patterns called meanders develop over flood and delta plains. Meander is not a landform but is only a type of channel pattern.",
+    "currentness_evidence": "HISTORICAL_GEOLOGY_CONSTANTS"
+  },
+  {
+    "nodeId": "TN_005",
+    "concept": "Himalayan Frontal Fault",
+    "topic": "Seismic Geography",
+    "factual_claims": [
+      "The Himalayas are highly prone to earthquakes due to active continent-continent collision.",
+      "The Main Boundary Thrust (MBT) and Himalayan Frontal Fault (HFF) separate different tectonic zones in the region."
+    ],
+    "relationships": ["Continent collision -> ongoing tectonic stress", "Tectonic stress -> Shallow high-magnitude earthquakes"],
+    "sourceId": "OXFORD_ATLAS",
+    "section": "Part 3, Page 62",
+    "evidence_excerpt": "The entire Himalayan belt is situated at the boundary of the converging Indian and Eurasian plates. Thrust faults such as the MBT and HFF accumulate immense stress, placing the entire region in Seismic Zone V.",
+    "currentness_evidence": "HISTORICAL_GEOLOGY_CONSTANTS"
+  }
+]

@@ -1,0 +1,127 @@
+Reusing configuration cache.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+
+> Task :app:processDebugGoogleServices
+File google-services.json is missing.
+The Google Services Plugin cannot function without it.
+Searched locations: /app/applet/app/src/debug/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/Debug/google-services.json, /app/applet/app/google-services.json
+
+> Task :app:generateDebugResources
+> Task :app:generateDebugBuildConfig
+> Task :app:javaPreCompileDebug
+> Task :app:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugNavigationResources
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile
+> Task :app:compileDebugNavigationResources
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugAssets
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugUnitTestManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+> Task :app:kspDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///app/applet/app/src/main/java/com/example/database/AppDatabase.kt:26:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<AppDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/BookmarksScreen.kt:42:43 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/PracticeScreen.kt:59:17 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///app/applet/app/src/main/java/com/example/ui/theme/Theme.kt:65:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///app/applet/app/src/main/java/com/example/viewmodel/PracticeViewModel.kt:182:34 Condition is always 'true'.
+
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException: Cannot invoke "ksp.com.intellij.openapi.application.Application.getService(java.lang.Class)" because the return value of "ksp.com.intellij.openapi.application.ApplicationManager.getApplication()" is null
+	at ksp.com.intellij.openapi.fileEditor.FileDocumentManager.getInstance(FileDocumentManager.java:35)
+	at ksp.com.intellij.openapi.fileTypes.BinaryFileTypeDecompilers.lambda$notifyDecompilerSetChange$1(BinaryFileTypeDecompilers.java:29)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+> Task :app:kspDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+
+> Task :app:testDebugUnitTest
+
+DirectLiveTraceTest > fullDirectTrace STANDARD_OUT
+    STARTING IMPORT
+    === FULL DIRECT TRACE START ===
+
+    --- Step 1: Onboarding ---
+    User selects profile: GROUP_A
+
+    --- Step 2: Topic Selection ---
+    Rendered Topics Count: 45
+    User selects topic: '24. Structure and Physiography' (Available for GROUP_A: 200)
+
+    --- Step 3: Test Sessions (4 Formats) ---
+
+    Starting test for format: 'Direct Fact'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 110 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+    User bookmarks Q1.
+
+    Starting test for format: 'Matching Pairs'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 410 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+
+    Starting test for format: 'Assertion-Reason'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 559 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+
+    Starting test for format: 'Statement-based'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 203 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+
+    --- Step 4: Results & Bookmarks Dashboard ---
+    Rendered Bookmarks count: 1
+      - Bookmark ID: 369
+
+    --- Step 5: Trap Dashboard ---
+    Rendered Trap Analytics count: 1
+      - Trap: Factual Inversion, Frequency: 4
+    === FULL DIRECT TRACE END ===
+
+DirectLiveTraceTest > fullDirectTrace PASSED
+
+> Task :app:finalizeTestRoborazziDebug SKIPPED
+
+BUILD SUCCESSFUL in 25s
+33 actionable tasks: 33 executed
+Configuration cache entry reused.

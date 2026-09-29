@@ -1,0 +1,2302 @@
+[
+  {
+    "id": "q_307a8632-5d91-4e0d-b8ae-90a50f39ef6e",
+    "stem": "Which of the following is defined as: called The sun, the moon and all those objects shining in the night sky?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Galaxy",
+      "c": "Star",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. The sun, the moon and all those objects shining in the night sky are called celestial bodies.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_307a8632-5d91-4e0d-b8ae-90a50f39ef6e",
+      "questionStem": "Which of the following is defined as: called The sun, the moon and all those objects shining in the night sky?",
+      "intentType": "definition",
+      "knowledgeNodeId": "307a8632-5d91-4e0d-b8ae-90a50f39ef6e",
+      "evidenceText": "The sun, the moon and all those objects shining in the night sky are called celestial bodies.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 18,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "5fdff4d4942dc7111392a273b42334c57d243690b34095fbd531fd2391acca98",
+      "createdAt": "2026-09-21T11:49:49.475518+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "2ba165921b7b54930c3d705880b579756d267d904665b490a0e893e5b6d32fba",
+        "source_hash": "f22a574295e9d6a0b2a84f49e33ba2f228fd5f351623d4837f307fcefed2f2f1",
+        "evidence_hash": "0fcc595bcf08de21bc235e8fa52249b47e755ac1e3e4ae03a8f8867ea4271283",
+        "unit_hash": "2e6c36e0544245715faa2f632c2dffba95d0ca82146f6bdf1339b10a29f23872",
+        "intent_hash": "6f6ffe8b8ae8775a0a4cc625c3daaa5f1c9c2285bb2cd4882a713a93a43ea264",
+        "question_hash": "45c9e82ae3040bc34c3180c950d186ef992a26fe526c2c9198a866da064fd337"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_82a8d991-2378-4271-9b1f-b0f11d9ac6fd",
+    "stem": "Which of the following is defined as: very big and hot.?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Galaxy",
+      "c": "Star",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. Some celestial bodies are very big and hot.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_82a8d991-2378-4271-9b1f-b0f11d9ac6fd",
+      "questionStem": "Which of the following is defined as: very big and hot.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "82a8d991-2378-4271-9b1f-b0f11d9ac6fd",
+      "evidenceText": "Some celestial bodies are very big and hot.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 19,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "adbe1c959ddbd60eda088cdb63be727de1d71c64252862f0c48d7e1bbae02fd4",
+      "createdAt": "2026-09-21T11:49:49.484466+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "e27481010826289a01f6e9a9c83364a7bdf2e4dbe4280df725962972e5db3553",
+        "source_hash": "8b4476feccbc7d78aa08f8c0c44ca6ec9189af29709a67b39e72519b813bf472",
+        "evidence_hash": "299bac17a3a94e18513ef6dd1d9c1a1d204acb91dd1bda3eea89145ef650541e",
+        "unit_hash": "80a46c76213435383a5abb168247bf6287c77c7e1d57426ad491d7d6f20042f8",
+        "intent_hash": "9fcde5fe09231f464b81017f5956d0f8728a37eef51fd5651acd230a0579bd61",
+        "question_hash": "dab2f534e686ac23a6b75806ac3b7268af11845b3408e0a5e96a869ccb14cd09"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a943c087-2d90-4622-89ca-87c9c6e1d579",
+    "stem": "Which of the following is defined as: called stars?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Star",
+      "c": "Galaxy",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. These celestial bodies are called stars.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_a943c087-2d90-4622-89ca-87c9c6e1d579",
+      "questionStem": "Which of the following is defined as: called stars?",
+      "intentType": "definition",
+      "knowledgeNodeId": "a943c087-2d90-4622-89ca-87c9c6e1d579",
+      "evidenceText": "These celestial bodies are called stars.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 22,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "4160f3e45b3980d815d6671ef0a673c647c74bc7343c104dd8c54b332d16cc1c",
+      "createdAt": "2026-09-21T11:49:49.484466+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "f5aaf371b020348e87417617a395ec8d7351f42c8fcdee9c9f12dbdf14e00d5c",
+        "source_hash": "41d6c0cd8f2d4e2cf2df6e95f2cfd6fd3070d008306e3f74a7a28da128f53efd",
+        "evidence_hash": "482a5e98a10be31daeba9e76f4b17c7ad206caf77e6de30ea6f1ddfd15a86274",
+        "unit_hash": "1467c2bf77da9a3bc01ace0caeff2b0b6e412099dd2dad415508d7ade4194a11",
+        "intent_hash": "c773c5af736e997c3eaa3bb1d6cf16ef0034a851de6fe2a387ab7b2a9d4926ba",
+        "question_hash": "3dd94378bd2a3946382b246783852b9140e3784ed056837bd2f0aca139b0d540"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_200abdbe-a9d8-4072-8044-0c7fc21b8fe3",
+    "stem": "Which of the following is defined as: one such constellation.?",
+    "options": {
+      "a": "Saptarishi",
+      "b": "Ursa Minor",
+      "c": "Cassiopeia",
+      "d": "Ursa Major"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. Ursa Major or Big Bear is one such constellation.",
+    "topicId": 1,
+    "topicName": "Celestial Constellations",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_200abdbe-a9d8-4072-8044-0c7fc21b8fe3",
+      "questionStem": "Which of the following is defined as: one such constellation.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "200abdbe-a9d8-4072-8044-0c7fc21b8fe3",
+      "evidenceText": "Ursa Major or Big Bear is one such constellation.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 39,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "486dd055854d4ae544f52ed1b9f126cf24b653188f9a2e5c7a31a64141ac35e7",
+      "createdAt": "2026-09-21T11:49:49.484466+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "8ce2c63f3fe98873861ab4e06494e7a7c5255ea6cb8541e8224d5b5c920524c0",
+        "source_hash": "a6f47e166d3b930e041cd70366904ce14dd2b868e3ac83c172e0252b2a3981d4",
+        "evidence_hash": "e80a71cd302899ee47e283b2caf01580b2f5f8596310074466b4924008250c84",
+        "unit_hash": "dfa9e744c9a57c37abfe304987b24cf82c90b459a3a74da28b6ac3464abfdeab",
+        "intent_hash": "ccb3293d6f07e32b22d0e644d4284c9e61dc55257fa2fd2d7d9f06d224a968df",
+        "question_hash": "95b246fbb5f6c8621e280822787534c1c64ddc622f542a2fb5e7e9079124accb"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c453f668-a4e2-4817-9c41-994180fc1bab",
+    "stem": "Which of the following is defined as: the (Saptaseven, rishi-sages).?",
+    "options": {
+      "a": "Saptarishi",
+      "b": "Orion",
+      "c": "Cassiopeia",
+      "d": "Ursa Major"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. One of the most easily recognisable constellation is the Saptarishi (Saptaseven, rishi-sages).",
+    "topicId": 1,
+    "topicName": "Celestial Constellations",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_c453f668-a4e2-4817-9c41-994180fc1bab",
+      "questionStem": "Which of the following is defined as: the (Saptaseven, rishi-sages).?",
+      "intentType": "definition",
+      "knowledgeNodeId": "c453f668-a4e2-4817-9c41-994180fc1bab",
+      "evidenceText": "One of the most easily recognisable constellation is the Saptarishi (Saptaseven, rishi-sages).",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 40,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "48cb1e83969e54f0b00affd250250559ee869c76c9330dc97403e1fe78f89c50",
+      "createdAt": "2026-09-21T11:49:49.484466+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "a494ca4ee8730696160def2ec9d1ad1970cb402e36cde8b71637984552b91572",
+        "source_hash": "0a9e3ef612b6420b9ff0faefe765dc5b79f6d4d22935f0caa08bf2c53b355ec7",
+        "evidence_hash": "58491308ea8723a10403d1cc9fa022979470fe0f8d10bfe1bb7f202d0f942adb",
+        "unit_hash": "fb7d4062cc4e9c4ba1e33b3b3c910d94b5e960093b7361a6b1e44b54cc01895e",
+        "intent_hash": "b65556cdde60026e8fbef9b3f1da81e272039493ffa3be9e1515875817d1b8a5",
+        "question_hash": "ef76e3e2090b1d9dbb1575188de92d88dfee1c45e2f59e0e5aaac627cd2a7c68"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_4fc0e262-3472-4d18-a66e-008625d412ce",
+    "stem": "Which of the following is defined as: a group of seven stars (Figure 1.1) that forms a part of Constellation.?",
+    "options": {
+      "a": "Ursa Major",
+      "b": "Saptarishi",
+      "c": "Ursa Minor",
+      "d": "Cassiopeia"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. It is a group of seven stars (Figure 1.1) that forms a part of Ursa Major Constellation.",
+    "topicId": 1,
+    "topicName": "Celestial Constellations",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_4fc0e262-3472-4d18-a66e-008625d412ce",
+      "questionStem": "Which of the following is defined as: a group of seven stars (Figure 1.1) that forms a part of Constellation.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "4fc0e262-3472-4d18-a66e-008625d412ce",
+      "evidenceText": "It is a group of seven stars (Figure 1.1) that forms a part of Ursa Major Constellation.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 41,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "86cb9f940d99d91e558c3ba79b84e82dc48d14e9960543f7362eb5b6e733d7fd",
+      "createdAt": "2026-09-21T11:49:49.484466+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "a928fc9f371011d8bdbbeaba6279ab02fb15b64726398b64c4da363b5857dcc3",
+        "source_hash": "ae1a8acf84bc46ae38622ede6044c1e990f0b2777400f850a4916bbe555cc30f",
+        "evidence_hash": "4453caa1eb2e75f1b57333f3f12989e78d6d640a72f8aee5967756ef1f1875ae",
+        "unit_hash": "e81ca22a008686050262e3ddcde986e25dfc2b5d7ff9e6b523ef1d645a7243f9",
+        "intent_hash": "5cd4462d009683acd48c2926340a8b6cf071fdc0850412083b2338b73f902ca9",
+        "question_hash": "f376f9d77b4625d6d38ac0e137ab25a75a5b9d638b640f899c669a216da44e75"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_6d9d44d0-83fa-4c26-bd26-80c04a2ca057",
+    "stem": "With reference to celestial body types, which of the following have their own heat and light.?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Star",
+      "c": "Galaxy",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. Some celestial bodies do not have their own heat and light.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_6d9d44d0-83fa-4c26-bd26-80c04a2ca057",
+      "questionStem": "With reference to celestial body types, which of the following have their own heat and light.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "6d9d44d0-83fa-4c26-bd26-80c04a2ca057",
+      "evidenceText": "Some celestial bodies do not have their own heat and light.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 50,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "731dfc706fde35edc66be488f4461d08bbbd4db82ff092f04c49b6c07147802d",
+      "createdAt": "2026-09-21T11:49:49.484466+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "dcabf8932bf3f85c6956bbdad0e9da8b2ba9f722706e51b9e0708bf94bd46bfd",
+        "source_hash": "ca66a1ea1f3608cd810cf438af26068fe9be56ff9dcad1dcb78eff067df89335",
+        "evidence_hash": "4cdc7d1ad98c58f5011e145725a0f5a5494366b5b5599b0200786b9561da6ee3",
+        "unit_hash": "1305c2e66708ca89c344260a8b397fd06839248a1e6a568b1e471e6110e0f39c",
+        "intent_hash": "163f1f14af3ac5bb88a4de59c84424eb8d3a54e9b0da7687ff5d6bb2ac2173fb",
+        "question_hash": "a9c12d102e3957ccb88f3aa43a66099a39147f88470f09785b5902c8be070ff6"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_86d5af52-1c4d-4797-9eec-d2d0c85ab507",
+    "stem": "Which of the following is defined as: a .?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Meteoroid",
+      "c": "Planet",
+      "d": "Star"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. The earth on which we live is a planet.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_86d5af52-1c4d-4797-9eec-d2d0c85ab507",
+      "questionStem": "Which of the following is defined as: a .?",
+      "intentType": "definition",
+      "knowledgeNodeId": "86d5af52-1c4d-4797-9eec-d2d0c85ab507",
+      "evidenceText": "The earth on which we live is a planet.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 54,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "e6c28035ee7e2e19a10e80664a3696527b238aaa86587da531c08ae0b0a5d955",
+      "createdAt": "2026-09-21T11:49:49.500361+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "208ae54a5b935464a838181a18c1c9faff339b4451bcc303ac18cc2971efd546",
+        "source_hash": "40ab01ce19d5ad7bce6dea4d2414ed32366a48c6bbd73f3da2b3a41e8ab5d096",
+        "evidence_hash": "b3ef0712176abe928cba6c7a4fa5c1c5f2660332fcdbd2804a05282a7eecabf6",
+        "unit_hash": "53043e59bb6e4db79633ca80ece3263969fe70b83c5a82f5b2bbd25286a6c966",
+        "intent_hash": "6f9a186bb65c7062d16ef31c006ed8996524754cd176bd30916eda11a12ad1ea",
+        "question_hash": "32f0f0f62f49d19a935c50a9d7de047e56b4127db4278c246491f4c434c4f96a"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_55b7e82a-aba0-4093-923e-8893261e062f",
+    "stem": "Which of the following is defined as: our nearest .?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Star",
+      "c": "Galaxy",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. It gets all its heat and light from the sun, which is our nearest star.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_55b7e82a-aba0-4093-923e-8893261e062f",
+      "questionStem": "Which of the following is defined as: our nearest .?",
+      "intentType": "definition",
+      "knowledgeNodeId": "55b7e82a-aba0-4093-923e-8893261e062f",
+      "evidenceText": "It gets all its heat and light from the sun, which is our nearest star.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 55,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "13317ea777ba1adac7e1746a33d301bf827de288b82402418ff4805a18c29245",
+      "createdAt": "2026-09-21T11:49:49.500361+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "6e9fb3583fa7d4872002d10dbb497e49531d5cbf15e562e0ea8eedd9b80484de",
+        "source_hash": "978c0728cbc027f320cdffafecfb7ea448675e8054db77763e80ca949d157276",
+        "evidence_hash": "fcf84a52c1f0e652c131349afca74e5b09597b5dab97ca9aa7a6a52f84e4efae",
+        "unit_hash": "a5f4e299684a318d169b070dd5c4a546227222fc0a5b3a98438e9414aaed69f6",
+        "intent_hash": "13a891b631b003950e27fddd5b035445a3f80898e9f11ea35bcf20c0c82e4a6a",
+        "question_hash": "fa632dd316eb23a9afb5d9f4a6072f4e1d839e513570de747c7e5a638177b228"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e1f2466b-096f-4d2f-9a75-cfc41ae32c57",
+    "stem": "Which of the following is defined as: a companion of our and moves round it.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. It is a companion of our earth and moves round it.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_e1f2466b-096f-4d2f-9a75-cfc41ae32c57",
+      "questionStem": "Which of the following is defined as: a companion of our and moves round it.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "e1f2466b-096f-4d2f-9a75-cfc41ae32c57",
+      "evidenceText": "It is a companion of our earth and moves round it.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 58,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "81c129f77f5eae6533eed39ff0603b1c6dfc08163cc50e2e3773055cd3e89b0d",
+      "createdAt": "2026-09-21T11:49:49.500361+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "5ad209dd36898b227647d35032434b8355ea485c11a93c1a8765a2c366af74af",
+        "source_hash": "372ff07f233557250da4106b4dd2f7085cf9ef369ffa786e395e6b031dc7187f",
+        "evidence_hash": "23d777201c95a1a363c22e8aa4239807eccaf6830be85dd3ea7d3e640deab165",
+        "unit_hash": "5040928979096859e32daec687f9e49199d4193fdbd72fe9b33f7dc3a9002e0a",
+        "intent_hash": "4b2abcf6698e94c31af3671c1d9f28a4f402285fdfc109c564ab567142e35b13",
+        "question_hash": "5287fe4c926c16e0c5e312ae7b0a9306a9efeb962d31996ccec362999b16308d"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_82ec7f4f-1f90-45cb-b456-20ffac6a063e",
+    "stem": "Which of the following is defined as: eight other planets that get heat and light from the sun.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. Like our earth, there are eight other planets that get heat and light from the sun.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_82ec7f4f-1f90-45cb-b456-20ffac6a063e",
+      "questionStem": "Which of the following is defined as: eight other planets that get heat and light from the sun.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "82ec7f4f-1f90-45cb-b456-20ffac6a063e",
+      "evidenceText": "Like our earth, there are eight other planets that get heat and light from the sun.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 59,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "6cb14d45ba891be1d37b2f677f703d01e7af6ccadfb0ea691528c79edd09941e",
+      "createdAt": "2026-09-21T11:49:49.500361+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "cad661f22168938c2e663c46619a2f14f345d85f3c6aac61d15bd747b084c494",
+        "source_hash": "bd6a86ee9c1f5a785926b650d115040aeb9e28aaab3d3df3b5d887ca1f87c388",
+        "evidence_hash": "5ebd6d4c5eb710d5baaf734ae487c8c4c1c0ae43a6233fee5ba8098aa6cc1ab8",
+        "unit_hash": "eb879a209403d0352947a00d3820fb157fb6fb1e59c2f2c9954be826976a8531",
+        "intent_hash": "fbbe40b7fd8784468c9b3baa42b8ffd1d01e2cad313b5cb00454f7e736078ab9",
+        "question_hash": "c34fed6286b0273b2a1ef94e498dacc05cae469cf452c74bfe682c31133149d0"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_1cb92c64-3098-4231-bd6c-2537c2ca3b1d",
+    "stem": "With reference to jovian outer planets, which of the following have rings around them.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Jupiter",
+      "c": "Neptune",
+      "d": "Saturn"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. Jupiter, Saturn and Uranus have rings around them.",
+    "topicId": 1,
+    "topicName": "Jovian Outer Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_1cb92c64-3098-4231-bd6c-2537c2ca3b1d",
+      "questionStem": "With reference to jovian outer planets, which of the following have rings around them.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "1cb92c64-3098-4231-bd6c-2537c2ca3b1d",
+      "evidenceText": "Jupiter, Saturn and Uranus have rings around them.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 62,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "dce435477b4fbd6262ddbb6846c2564ec335a1bce5b9f16ef0ec14637b3d09d4",
+      "createdAt": "2026-09-21T11:49:49.500361+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "56ed4ad5789a13e6d4a9dde8e1c087beff428d2de443764b1acfb8d576dd7ba0",
+        "source_hash": "704cc434841fbbc0752cd8e6d8573c6ddfa1323b97a37fa05c6b638553c03412",
+        "evidence_hash": "cdc8a0cae5a7375c8087257fca590750bad109cdc06dd87ef929886425242d85",
+        "unit_hash": "7c9b418d8d929d0352ec710e5d640cbdb5ea8dfa5c13747383c8c7276792f3e8",
+        "intent_hash": "192d2aceb14462a35c78c696ea6f3ae958c41d6c22c3747f9d83571670ddbd90",
+        "question_hash": "491875d00f91d8ef99154c5fd98d2953fbb6a1ded46921b23e4f168ddd6383cb"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_35ac2b9e-b0f6-4b20-ac78-47163817d625",
+    "stem": "Which of the following forms an integral structural component of: are made up of rocks.?",
+    "options": {
+      "a": "Sandstone",
+      "b": "Shale",
+      "c": "Granite",
+      "d": "Basalt"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. They are made up of rocks.",
+    "topicId": 1,
+    "topicName": "Rock Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_35ac2b9e-b0f6-4b20-ac78-47163817d625",
+      "questionStem": "Which of the following forms an integral structural component of: are made up of rocks.?",
+      "intentType": "part-of",
+      "knowledgeNodeId": "35ac2b9e-b0f6-4b20-ac78-47163817d625",
+      "evidenceText": "They are made up of rocks.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 81,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "cffd6c57865d3e97a223af5247376a6a008ed52cb48c48d65e10fafbe8a34143",
+      "createdAt": "2026-09-21T11:49:49.516212+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "170c579105fad2dd56ae40253c144791345608a0659ee436b2c698395581a624",
+        "source_hash": "fb78875257d830f368221279222bd329f810318727cfb65292941b1168cd18b0",
+        "evidence_hash": "f406d599b64b039e8d44b18ca0c81c872eb79906e4b0d66684c5b1b5587eb3c9",
+        "unit_hash": "8cdf25420a20d2501ddc2c71d3a5205e8052ee3d8c7bae0a2a16d2049e048664",
+        "intent_hash": "e43c2c83198b9c1c613b6571760dd6a518a29e11f75eadaca8e570a0a0011345",
+        "question_hash": "1d5e46abff607dc7848a79449122634ef71ce6f1febdf145789c43db0f5ddca7"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_28646af5-f5d1-4d92-a905-ad08298d4814",
+    "stem": "Which of the following is defined as: not felt so much by us because despite being our nearest , it is far away from us.?",
+    "options": {
+      "a": "Star",
+      "b": "Asteroid",
+      "c": "Galaxy",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. But that tremendous heat is not felt so much by us because despite being our nearest star, it is far away from us.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_28646af5-f5d1-4d92-a905-ad08298d4814",
+      "questionStem": "Which of the following is defined as: not felt so much by us because despite being our nearest , it is far away from us.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "28646af5-f5d1-4d92-a905-ad08298d4814",
+      "evidenceText": "But that tremendous heat is not felt so much by us because despite being our nearest star, it is far away from us.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 89,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "7c19be82d1d6eca29d6a4e87cac9a3f8cfd3f72632077c03744a8f5afb9dda53",
+      "createdAt": "2026-09-21T11:49:49.524510+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "bc86d298650be26ddded94a018372dcaab93f394512248eda27a5ab442cbaf89",
+        "source_hash": "6633a71948484e36ba877bbeab4e783a375a4793b06f9742785a66ce9b462d8f",
+        "evidence_hash": "59d51d0a8a2515f91e12d1f70b9348ea8a92a51aec710bea8997e5f1eb27e1f3",
+        "unit_hash": "6eef47a136b0544a84df9f1229c0bdbbaef86c97646ccc21e9e3a6ace8ffd1de",
+        "intent_hash": "323d806384b94a508a9566108286426dae2c38f7c9f1b2c329b2241633e23860",
+        "question_hash": "fc3e642aec7be2b8b33deb5cd5b1d80b3edc1a2f55960ef7d2ee0187e369ea59"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_03b4124c-4394-4aeb-a5f5-a5f55155b8e5",
+    "stem": "Which of the following is defined as: nearest to the sun.?",
+    "options": {
+      "a": "Mars",
+      "b": "Mercury",
+      "c": "Venus",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. Mercury is nearest to the sun.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_03b4124c-4394-4aeb-a5f5-a5f55155b8e5",
+      "questionStem": "Which of the following is defined as: nearest to the sun.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "03b4124c-4394-4aeb-a5f5-a5f55155b8e5",
+      "evidenceText": "Mercury is nearest to the sun.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 99,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "6bdbae85b73af08491f00cead4b99630290f4c3cc60339eb4412b8d80842cc03",
+      "createdAt": "2026-09-21T11:49:49.524510+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "b53a0db8d6789cb2b1206740c6af066f987504c4c30f277c21ebe3bf8309f5f7",
+        "source_hash": "1ba9d4ffc6aca9e6a4b9189fac85b7180ff075caa9e2c775ddb66ac0c695d7e7",
+        "evidence_hash": "7cfee0534902f5f5846d3957165aae1c08983e0c242f825ea9e70798631bb382",
+        "unit_hash": "a98f0b7f2abaf322a2ad76233873bb15167e8e91a2258e7a161402be74472aa7",
+        "intent_hash": "d26bd77d33df59e9ca8d661a4b657f50a2e1e709362c280e0cb617b04693b871",
+        "question_hash": "11708a1ebbab73f6ec53c2412c4ccd1a3906bcd2c3e34674ab14294f62bbeb74"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_5c73ac7f-2ae2-4fb6-9091-d214db27a87f",
+    "stem": "Which of the following is defined as: considered as Earths-twin because its size and shape are very much similar to that of the earth.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Earth",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. Venus is considered as Earths-twin' because its size and shape are very much similar to that of the earth.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_5c73ac7f-2ae2-4fb6-9091-d214db27a87f",
+      "questionStem": "Which of the following is defined as: considered as Earths-twin because its size and shape are very much similar to that of the earth.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "5c73ac7f-2ae2-4fb6-9091-d214db27a87f",
+      "evidenceText": "Venus is considered as Earths-twin' because its size and shape are very much similar to that of the earth.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 101,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "89a5240a8a4fb7bdfe83f37d8f7ab744bc0cade01d995cf041c5de10d1a9cb3c",
+      "createdAt": "2026-09-21T11:49:49.524510+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "c84f356a59dab9932c490cf9005dc16ca16578c7c115b034afe3f1a580423be6",
+        "source_hash": "742218c01d55a0d360e7171b6c945d772d81d057aa626102565132b28a3a3128",
+        "evidence_hash": "59577af779419a85ca182959d385b558e0409d96c26559ee9aa6e5b13898bf74",
+        "unit_hash": "cd7ac48cdb8f3732a94caceddcc5bbae21c05ced48ea6e5b0cb6f1d31da79a46",
+        "intent_hash": "37f3bbac33a783b17a184a853a4849029774295b3659fc119d2da6780396cb19",
+        "question_hash": "48cc8c649d8e183d2e985f7cf00df45ad0b7243bfa334f02d48377f3f05c272d"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_6b21ddb8-4989-4cc7-8a49-e8852b00c367",
+    "stem": "Which of the following is defined as: also considered a .?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Meteoroid",
+      "c": "Star",
+      "d": "Planet"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. Till recently (August 2006), Pluto was also considered a planet.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_6b21ddb8-4989-4cc7-8a49-e8852b00c367",
+      "questionStem": "Which of the following is defined as: also considered a .?",
+      "intentType": "definition",
+      "knowledgeNodeId": "6b21ddb8-4989-4cc7-8a49-e8852b00c367",
+      "evidenceText": "Till recently (August 2006), Pluto was also considered a planet.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 102,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "015d09a3772a663cacf496c89e4dd2a70eda8e1b0f0cf417861e3d5db88c3a6a",
+      "createdAt": "2026-09-21T11:49:49.524510+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "73f805fa96e3969f28f94205e813aeb9a9cb1c21ab1d5d7b4676f94b06726ada",
+        "source_hash": "388d85b64ff3a60172a9db5fae3138c86ffa2b6566779d7e47013eb605414ce3",
+        "evidence_hash": "10547234721762dd6e42ab771de373be88c6bc8a487b5bed47c1693b4bba4934",
+        "unit_hash": "b323ac850eb9d4174948c4ea6fc30a9ae3f5df36ba0929b215e2d43e940c706e",
+        "intent_hash": "451ee9a3f1dc044149c1e548ed9ab2b21496c7f5a6bd02e4df183e8f0a070e67",
+        "question_hash": "1ae4ed38aa27933704e668980bbd78e7ba31c5ddf89b352d7be155a9ab1bb91a"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_52ca69f9-cb8d-494b-8c79-ae307b7a9702",
+    "stem": "Which of the following is defined as: taken that like other celestial objects (Ceres, 2003?",
+    "options": {
+      "a": "Ceres",
+      "b": "Makemake",
+      "c": "Pluto",
+      "d": "Haumea"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. However, in a meeting of the International Astronomical Union, a decision was taken that Pluto like other celestial objects (Ceres, 2003",
+    "topicId": 1,
+    "topicName": "Dwarf Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_52ca69f9-cb8d-494b-8c79-ae307b7a9702",
+      "questionStem": "Which of the following is defined as: taken that like other celestial objects (Ceres, 2003?",
+      "intentType": "definition",
+      "knowledgeNodeId": "52ca69f9-cb8d-494b-8c79-ae307b7a9702",
+      "evidenceText": "However, in a meeting of the International Astronomical Union, a decision was taken that Pluto like other celestial objects (Ceres, 2003",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 103,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "e4b6c31e0b1ee273c162fdfa41818f0c746ccf11cf76d5b7391cdfd853aabc29",
+      "createdAt": "2026-09-21T11:49:49.524510+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "1093c4902dc2ee5a11017ea59a106eac73ac3853f305a9d5dfe4d0e4f6f49b7f",
+        "source_hash": "c99bfd4c6820b4a94f4955b2744b0229b7de45b99f037a6c72f292f6414f5618",
+        "evidence_hash": "7c39fa6b416fa7546d89c44b742ceca74da422fd82c6aca29611a373a0639f4e",
+        "unit_hash": "1c521cb7fb07a5e0386f7760ee5d6b37e26f6343e0e0a84ac665b527481fc310",
+        "intent_hash": "2df18407e10cd7e5734fad4faaa8b9127a77aa2810528db9039729bc570e86ac",
+        "question_hash": "2d7fb6778eae5dec21154051c568c5dcc0ed1e83ed188f4ee45514208c38b649"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e2eb0a97-f67f-4a6e-b6ec-8d674eb647d1",
+    "stem": "Which of the following is defined as: the third nearest planet to the sun.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. The earth is the third nearest planet to the sun.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_e2eb0a97-f67f-4a6e-b6ec-8d674eb647d1",
+      "questionStem": "Which of the following is defined as: the third nearest planet to the sun.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "e2eb0a97-f67f-4a6e-b6ec-8d674eb647d1",
+      "evidenceText": "The earth is the third nearest planet to the sun.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 105,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "770876267d99d0169830fd448dfc7bc9df46908b04f1add8291f144c2a691cf4",
+      "createdAt": "2026-09-21T11:49:49.524510+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "fac47e2b4175d0d6eafd373700a7897dca0131d82ddbe676ff57125220b2d8d1",
+        "source_hash": "e1b7fd76ca2e7e4d5af5199830e176a1e88c77dad3f008aeca4879313e1571a0",
+        "evidence_hash": "feda5748d04e83e5a37251f15cf455730399021e5c76514a39f7796a34a23227",
+        "unit_hash": "642ea9ab1a7ce1c40ee7bf16db0567e145d82b636201b1155d43e194cc16474d",
+        "intent_hash": "ea3d68755457eadac7045f351e95a95ce22289c2a2e1a8941450c4b602117425",
+        "question_hash": "b36710ea023d05d50831b39162a4326654e24586c2d5298ce2729fd8aa1a25d5"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_88b98631-bf57-439a-9326-ef8c38f4a361",
+    "stem": "Which of the following is defined as: the fifth largest planet.?",
+    "options": {
+      "a": "Earth",
+      "b": "Venus",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. In size, it is the fifth largest planet.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_88b98631-bf57-439a-9326-ef8c38f4a361",
+      "questionStem": "Which of the following is defined as: the fifth largest planet.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "88b98631-bf57-439a-9326-ef8c38f4a361",
+      "evidenceText": "In size, it is the fifth largest planet.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 106,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "00f729ce42b441e37f353784c9c2e7e851eddf9d6b54a8cf65605ec2b4f7435b",
+      "createdAt": "2026-09-21T11:49:49.524510+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "cfbccf63dfdef0661bc67f9ce3ff85876894e8d06c90a0354f65082e0584226c",
+        "source_hash": "6ef3dcae3aa992e2645fb81350eafa5ae64aeeea7666c3ef9b2ba347be1155ab",
+        "evidence_hash": "e8999d54f8a7da3f4be4e3f0d7e8c5ea5abcc93ac191d488d38be193c0794ffc",
+        "unit_hash": "c04067a1ffa1f132f16e24f412b59869b2c98e1b97238efb13318012c45754ce",
+        "intent_hash": "e014c9e0e07c0a27d1c91cd7a6c58cd8fb3c46fb8ef4d7e9a1934066b41a5056",
+        "question_hash": "b335fb87ab924a99a582250d76953d61d54eff268fa8d8e5152ab00f3ca5f443"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3bebbffb-bcaa-465f-a611-aca0fccb67ce",
+    "stem": "Which of the following is defined as: slightly flattened at the poles.?",
+    "options": {
+      "a": "Earth",
+      "b": "Venus",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. It is slightly flattened at the poles.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_3bebbffb-bcaa-465f-a611-aca0fccb67ce",
+      "questionStem": "Which of the following is defined as: slightly flattened at the poles.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "3bebbffb-bcaa-465f-a611-aca0fccb67ce",
+      "evidenceText": "It is slightly flattened at the poles.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 107,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "817acb467a30bd3e2baf6cce2d76bb571e72a292883ff43c6cecf5cd7ae3a629",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "5333f66b772160eebd33a1d1b886511871cbc7254777567a0f5365b6cb5a0f88",
+        "source_hash": "c43450c5822c58a9eea59bf9882f585388d7bdc7f508c83c469246947292dd44",
+        "evidence_hash": "aaf6817c4ffb6badfde46b0ba6911b77ae152b04afa9a051b83d1cc5513823aa",
+        "unit_hash": "464db9d7b0cd701891fadcf5dbf931982776e2d6a42bfddf4a2f452745129549",
+        "intent_hash": "e69a93f9c88deab5a31588f31ff374c15c91a0b4217656d21c4d86646f4120e2",
+        "question_hash": "7ae3fc923c361261902e2252b3b7c32e1161c1ff1116eeb54bdb63e1edfeac85"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a26b1952-4b9c-4435-ace3-64f26455fdf4",
+    "stem": "Which of the following is defined as: why, its shape is described as a Geoid.?",
+    "options": {
+      "a": "Venus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. That is why, its shape is described as a Geoid.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_a26b1952-4b9c-4435-ace3-64f26455fdf4",
+      "questionStem": "Which of the following is defined as: why, its shape is described as a Geoid.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "a26b1952-4b9c-4435-ace3-64f26455fdf4",
+      "evidenceText": "That is why, its shape is described as a Geoid.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 108,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "9652baa80a77b4baa4cdc482657326df6223bcf904a15e1b2c12a388e76cb200",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "755cbb77ef2930c9659ae66f4372aa06496e0151e0e7ae3885758d1d2fd21a75",
+        "source_hash": "0996a8e0493195a059399758dcf4044e87bbca56dff82054106a122039ba23de",
+        "evidence_hash": "ff70819e847ed3826f9cdc97d01eac06560b60590509e8de09831e0a14232f0e",
+        "unit_hash": "cf920f13181cf6b300ead5d589035c20b0259eec9d7b4915043f3ef0e7dce8ba",
+        "intent_hash": "fe7bcbe60b472c302b61b607bec0b21312b04d23e672d18005a7e785b27099c8",
+        "question_hash": "c0795c25f2f356d936c48020d837e81142de9c8ab8d486bb7a36df05c1984f01"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_8c71bc5e-8bde-48f8-b9e7-c0069aeba397",
+    "stem": "With reference to terrestrial planets, which of the following has its origin in Greek, which relates to the description of the .?",
+    "options": {
+      "a": "Venus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. It has its origin in Greek, which relates to the description of the earth.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_8c71bc5e-8bde-48f8-b9e7-c0069aeba397",
+      "questionStem": "With reference to terrestrial planets, which of the following has its origin in Greek, which relates to the description of the .?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "8c71bc5e-8bde-48f8-b9e7-c0069aeba397",
+      "evidenceText": "It has its origin in Greek, which relates to the description of the earth.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 112,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "15f097d4c461c7fbf92de69cccdf86df4d4acf8e50e0b6626d29a89491c354af",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "0b3d280e6a294d44f965d10b84324ae3a50765f44f46064e38f03c98eb13dbda",
+        "source_hash": "7e32f43345128bb5b3cda87d755c9de4b87eb06886d39717cf41f6a503cc4264",
+        "evidence_hash": "6362ad3efeebe153da3101a9fd0f5bbf4e17b6fd25872396d6d257cb7824aa1f",
+        "unit_hash": "7506c10b7b7c79630a99c45609f9caddc45c6f2a488a5c8918b91c9046caba9a",
+        "intent_hash": "50514bc2a0c53117776993d33271194ee6b6e4a64a316b9479701b87f30ac110",
+        "question_hash": "020645f10b2e63c215f7080990e2ec4547031566073fcf29880eb6d6a1db8474"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_de09b8d8-53ef-47c0-9935-de2d5ab1748e",
+    "stem": "Which of the following is defined as: made of two Greek words, ge meaning and graphia meaning writing.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. It is made of two Greek words, ge meaning earth and graphia meaning writing'.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_de09b8d8-53ef-47c0-9935-de2d5ab1748e",
+      "questionStem": "Which of the following is defined as: made of two Greek words, ge meaning and graphia meaning writing.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "de09b8d8-53ef-47c0-9935-de2d5ab1748e",
+      "evidenceText": "It is made of two Greek words, ge meaning earth and graphia meaning writing'.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 113,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "3c4014a0436ae54b2884782d017800fae829808272dc8b9eee73456745a51790",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "f35bc7b81ca79512b6c688eb7cb341c17b9e61c224cbf765d63ed4314032c50f",
+        "source_hash": "ebdc8573c4dc4bad3912d9d2470cdb04e1f83dcb7070a755fa43b4eff0e27123",
+        "evidence_hash": "d5ce2f6202efece31d407351aab9225734e13e6c58cb02344ac163c8dbd92982",
+        "unit_hash": "4ca6403000fdc876badd2be505ed1f65e9dedca30770ac57295b64aab02bf0b1",
+        "intent_hash": "b7db382ba163e9a7a15d0274e0774f7e80cce42a7b8c47db2b5090e7027713f5",
+        "question_hash": "3d45d3fe15b3d6e0ac30f2314a0c414fac6d27aa7c7d461add4f1566816bc5cf"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_1293a29a-d4bd-4e50-a7c5-6120eb3d9381",
+    "stem": "Which of the following is defined as: called Those who study the celestial bodies and their movements?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Star",
+      "c": "Galaxy",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. Those who study the celestial bodies and their movements are called astronomers.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_1293a29a-d4bd-4e50-a7c5-6120eb3d9381",
+      "questionStem": "Which of the following is defined as: called Those who study the celestial bodies and their movements?",
+      "intentType": "definition",
+      "knowledgeNodeId": "1293a29a-d4bd-4e50-a7c5-6120eb3d9381",
+      "evidenceText": "Those who study the celestial bodies and their movements are called astronomers.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 120,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "f2d6779f3363ce28004b3b22b2693bcbbd7730af7d0bf4e7615d3636277b1a78",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "b2b9a6a69ebae299be5461b0e5067c0d6d91aa07e17ead2abd77fdaec092edb9",
+        "source_hash": "d0e62ec3539bf01f9d374e402ce693980a9a8e6207a848ba530fa7351dadbfce",
+        "evidence_hash": "2035030c81797dd0e4270852f53ce9009d7cd2a8b4dea8ad7a8fc5114be71efe",
+        "unit_hash": "30c96b703d5f8feae4e24ca6271b177049bd0d335fce26801fda2413ad18b19e",
+        "intent_hash": "6ac9f6e28baf62eefc320119f560f3ffa2d22e0da4e6bc96235fa1ae75a238bd",
+        "question_hash": "198cc3867f31b56973c80b4426591cbcc1f513317c7c1568487270a8d1db4bdd"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0918183b-f185-43a6-b948-325190cbb657",
+    "stem": "Which of the following is defined as: probably found only on the .?",
+    "options": {
+      "a": "Earth",
+      "b": "Venus",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. Conditions favourable to support life are probably found only on the earth.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_0918183b-f185-43a6-b948-325190cbb657",
+      "questionStem": "Which of the following is defined as: probably found only on the .?",
+      "intentType": "definition",
+      "knowledgeNodeId": "0918183b-f185-43a6-b948-325190cbb657",
+      "evidenceText": "Conditions favourable to support life are probably found only on the earth.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 124,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "ea1e9088a9748aa5e97b2e297ca105e181d7dfa768169a0d81828ec06382ab93",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "9010a33a84019f162011b0dff703b85d10ee46cedc815a7cbd417fdb786b53b0",
+        "source_hash": "7f798f21b69b2f5607376d236ebb59b6c5870ea5a0f339e7df43910d30550bb9",
+        "evidence_hash": "fbb70626540e2a0b1f79258ad3700232a2b505691d50f92ab042070ddc1751b2",
+        "unit_hash": "0f9017bd484afe08caabab7e6d2a240538f1b08a8458dcb67147497b55386967",
+        "intent_hash": "77e216a4810eee123e7c3c0c809c110a3ba619f5d6c80bab658a32e8f720b330",
+        "question_hash": "802c58628fe92ec6046ecaeed72fc153f44582175d9565fa3da9a1216e89ce3a"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_60c95a24-4be3-4ec5-8ea1-32b70bdff9e9",
+    "stem": "Which of the following is defined as: neither too hot nor too cold.?",
+    "options": {
+      "a": "Earth",
+      "b": "Venus",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. The earth is neither too hot nor too cold.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_60c95a24-4be3-4ec5-8ea1-32b70bdff9e9",
+      "questionStem": "Which of the following is defined as: neither too hot nor too cold.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "60c95a24-4be3-4ec5-8ea1-32b70bdff9e9",
+      "evidenceText": "The earth is neither too hot nor too cold.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 125,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "12fac2152f9aa2d3bce1dcb6e03e55b07079a595a418d3285ea6d1f0b4df0d46",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "7bd43c9d370f85062db1be962bacec5734087e8a4753fc3e7a8ff21fb71c2a64",
+        "source_hash": "24e6385fab20fe195220e83930833910e98f90870f985cc14e527bacb6c3e8ab",
+        "evidence_hash": "568d4781bae71f0965822cacbc66de137a94dd933f70f38a2aad04100bd38422",
+        "unit_hash": "cda5a98604e81f549b8b86f3a68c9b0f0998880b49e857a2a960a052af1864be",
+        "intent_hash": "96fa3d1008c5ef05bbbac4bec6f880ebbd94cfc6e9bcc6ba7a5f33ea175d7845",
+        "question_hash": "019e97ba4d86b818017ea9cc0fb353c09d4f6691eb063b20468453f1e6f209b9"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_31d7f595-70c2-48f3-8e74-5010cebe2ad2",
+    "stem": "With reference to terrestrial planets, which of the following has water and air, which are very essential for our survival.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. It has water and air, which are very essential for our survival.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_31d7f595-70c2-48f3-8e74-5010cebe2ad2",
+      "questionStem": "With reference to terrestrial planets, which of the following has water and air, which are very essential for our survival.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "31d7f595-70c2-48f3-8e74-5010cebe2ad2",
+      "evidenceText": "It has water and air, which are very essential for our survival.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 126,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "5c922afa7eecfdaa3dce0bbe6e5255909cb5948d85e0d625c50a8661280a64ef",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "265f0d5efb3a9dada0c94f9424460656669910d53b9a59ddbbd898463153bebc",
+        "source_hash": "bc786514baa896edd5c7d7e51c1c1e01386957cc8ee8f4b7ab7318086d015e6f",
+        "evidence_hash": "54761ede375bdf1be079a6ee8522dc41b879f7a590148acd8a94e8e7fa582ffd",
+        "unit_hash": "5761b0f2176b5403d65a7b2a77005891a9887860408a04fe27c2c33f6fd4ae8d",
+        "intent_hash": "e41160348cabcecb10a14aaef5e4f9a97e61e3e5c59927f204d9aacb0f8d4943",
+        "question_hash": "b60c92261112cfbfaec9514b8cbb4157e34f036b94fea4e917af27f4b706bb12"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_b8049b8d-160e-4403-88cc-9e3f7235ad1e",
+    "stem": "Which of the following is defined as: a unique in the solar system.?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Meteoroid",
+      "c": "Planet",
+      "d": "Star"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. Because of these reasons, the earth is a unique planet in the solar system.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_b8049b8d-160e-4403-88cc-9e3f7235ad1e",
+      "questionStem": "Which of the following is defined as: a unique in the solar system.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "b8049b8d-160e-4403-88cc-9e3f7235ad1e",
+      "evidenceText": "Because of these reasons, the earth is a unique planet in the solar system.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 128,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "29770a79f349b18427b8e33be4089b8f5ce78912d37fea3fee9b288308b2c401",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "1ba87159eb8b8cf9ac5b9a4f4fc217a89503542eb67af214b1f022122c878b74",
+        "source_hash": "2f64939867fb63f88799a8780bd4b14899ef7b5a947f8541ba522047b341a756",
+        "evidence_hash": "8a5bfb1cec5ea5c768522f1eebaf39bc63db0487c831c4ce15d0a59598ed507b",
+        "unit_hash": "f9fff199b04270444705f3b3f18fe52de827fa85bcda8b53adae2a155f8b6d05",
+        "intent_hash": "43133497facd0b432c97521e905bad2e2e82029c00711354f805cc7cfb787b74",
+        "question_hash": "9147d2ee7309a9eaec0538efd4a7653c686fcc92ba5c2b324cca0ffc6162aba9"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_9c70c3a4-64dd-4c6c-9e8f-6d7d9cef0246",
+    "stem": "Which of the following is defined as: covered by water.?",
+    "options": {
+      "a": "Venus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. From the outer space, the earth appears blue because its two-thirds surface is covered by water.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_9c70c3a4-64dd-4c6c-9e8f-6d7d9cef0246",
+      "questionStem": "Which of the following is defined as: covered by water.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "9c70c3a4-64dd-4c6c-9e8f-6d7d9cef0246",
+      "evidenceText": "From the outer space, the earth appears blue because its two-thirds surface is covered by water.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 129,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "15299a61c7ce93f1f5ba68d520d2d7f949db3703dbdd34d871137a6b3965fcd9",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "f008bc0fca33f58a036e3cacd04c8ab1a6a00b71c37392b64780803335a2f71d",
+        "source_hash": "dd8fbcca92c2ddb3f97c30a28e509cf97734dbeae44b99142f18c900c645a4c7",
+        "evidence_hash": "6102c8661a8459b53a60ffb8eefc93ed531e552720f2f0e61ae9c3dbb363b94e",
+        "unit_hash": "ed55f357bd8b95d316efcd948ef634a6dd3e0a8f3b44094030846154cf2c7650",
+        "intent_hash": "b5e573b67cebbc5644537b97b7b0a682acb8a27cdeb621d48c901a7e8103b2ab",
+        "question_hash": "24213900768c2108fb4a300019ddb632ff4b84b95c1994153a3859f8bc8b1417"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_74e86e56-f702-4f63-b42f-23d3243d35b7",
+    "stem": "With reference to celestial body types, which of the following has only one , that is, the moon.?",
+    "options": {
+      "a": "Planet",
+      "b": "Asteroid",
+      "c": "Satellite",
+      "d": "Dwarf Planet"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. Our earth has only one satellite, that is, the moon.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_74e86e56-f702-4f63-b42f-23d3243d35b7",
+      "questionStem": "With reference to celestial body types, which of the following has only one , that is, the moon.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "74e86e56-f702-4f63-b42f-23d3243d35b7",
+      "evidenceText": "Our earth has only one satellite, that is, the moon.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 131,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "9f8ebd2278363713bcf770f07358b0e362f9cc2d42535b38c5c7a4ef735e2648",
+      "createdAt": "2026-09-21T11:49:49.532210+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "01187b1a99d03547dc7dd024408267542b30b6885dbc8c1ae1ba603c99620d6b",
+        "source_hash": "3fab168d9ac705561e1c922fc487ec9db47350c2ac96dda7f224fc4addb6031f",
+        "evidence_hash": "ee70d366b93143ad56e45c6bc0840b7391024aef58344791463a15b084dfc134",
+        "unit_hash": "629d8ba1f976c6a72d9000fd64df0dbe580588e4661c11a4ee57bb2b5fa0aa20",
+        "intent_hash": "0b94d5f2381e847be8f6ce3bb91a6802ee58827aae809c6ca271e4fdae2b1dbb",
+        "question_hash": "ce118384375c1c667335a41e64439c006a25ca568693d86c0c69c8aa8948a246"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_50945db1-9c26-47bc-95b0-72017f787c4d",
+    "stem": "Which of the following is defined as: only one-quarter that of the .?",
+    "options": {
+      "a": "Venus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. Its diametre is only one-quarter that of the earth.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_50945db1-9c26-47bc-95b0-72017f787c4d",
+      "questionStem": "Which of the following is defined as: only one-quarter that of the .?",
+      "intentType": "definition",
+      "knowledgeNodeId": "50945db1-9c26-47bc-95b0-72017f787c4d",
+      "evidenceText": "Its diametre is only one-quarter that of the earth.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 132,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "d8d0807a6f62b35dffb1a5a061a40d6bd63d538592dfad93379b4b28d132e4fd",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "7aae1d4276dc31dba66ad2973fc249e93e9de1c764060ed982a7a613d93b78cf",
+        "source_hash": "0dce8c8b3c8bb9656f95cf88f3b76a7803a79a366b24cd2b78b6a3dd8d1a3956",
+        "evidence_hash": "2ea187c91d552f3827e64b21d4116502e51f322155675e688ef224fe89842849",
+        "unit_hash": "0232c10be3486803c2518d6d2d8d132480466b8c373d43496c1f146e62273b5d",
+        "intent_hash": "290ccf07d4e3d71a0af94319c6ed0f0aee3d0457bb63599607ee1eeb1af559b3",
+        "question_hash": "ca346c1e9815b56bd663843ab9aabcf4e5b434fbbfc3200d1b1eb1d6f8435aeb"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_d38205f5-986f-4925-adf6-2be17290dafd",
+    "stem": "Which of the following is defined as: nearer to our than other celestial bodies.?",
+    "options": {
+      "a": "Asteroid",
+      "b": "Planet",
+      "c": "Meteoroid",
+      "d": "Star"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. It appears so big because it is nearer to our planet than other celestial bodies.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_d38205f5-986f-4925-adf6-2be17290dafd",
+      "questionStem": "Which of the following is defined as: nearer to our than other celestial bodies.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "d38205f5-986f-4925-adf6-2be17290dafd",
+      "evidenceText": "It appears so big because it is nearer to our planet than other celestial bodies.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 133,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "a79d8967882c10f963a3dc616f23efdc05fd0c50a9d92068df1fb8520fb16a8d",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "00fffe1b05efc3b96997da411d2cec69e49ae1361d0120a337bf6c66db8b49b9",
+        "source_hash": "fbdab1170f5de6e8bcabb2f8c0220c05312dd25f2891e6a6ed7a0067de14a5a6",
+        "evidence_hash": "56d098dd1c56c7abdc024f6648032ab5b9971ce2d6e76161beeba55a0f6bce25",
+        "unit_hash": "652ef3ea645aff6e6b123473dd3607337f280175dd5f263d55a7df58daf9f8ec",
+        "intent_hash": "fce75338541cb65b6bbdceca3c5baf411984e3519d430d5e1da56f4a3f855eae",
+        "question_hash": "5879ecf1a0018a538f80bc3d4506277239b6b8a9c8cef54e80ed6d591dd6f561"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_946453b3-e45d-44ab-82d3-a19d35c787f2",
+    "stem": "With reference to natural satellites (moons), which of the following moves around the earth in about 27 days.?",
+    "options": {
+      "a": "Titan",
+      "b": "Europa",
+      "c": "Ganymede",
+      "d": "Moon"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. The moon moves around the earth in about 27 days.",
+    "topicId": 1,
+    "topicName": "Natural Satellites (Moons)",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_946453b3-e45d-44ab-82d3-a19d35c787f2",
+      "questionStem": "With reference to natural satellites (moons), which of the following moves around the earth in about 27 days.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "946453b3-e45d-44ab-82d3-a19d35c787f2",
+      "evidenceText": "The moon moves around the earth in about 27 days.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 136,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "adf5580676c2c6f79c902d40aa62bf5706eef02a7321dcc1423956f8bfa932f4",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "8b1e03dc55bba66a6abd8c52c6f3e866f834899c6ba9f0252e31f305e5291135",
+        "source_hash": "9edc0fd82dd10fd76da7172d6b3a480fac2f3151b2a59113815cb346ee331af7",
+        "evidence_hash": "50ae9f034f3e087e6cd6e664b491ff49b354e725605931c9df05c2d8eeac9cfb",
+        "unit_hash": "3ac2041e79b5280a93a3394584e387e1a47566ee87717de6e7422321e010d7f5",
+        "intent_hash": "9fa662b3c24ecf64fc61a8f102eaab7d0d90907b4ddea51eddba0eaeced16f61",
+        "question_hash": "e19dbd122b2843eb516a6019e8763c217ee22ac9157c31ea897b584cd645dd6d"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_f175060f-387c-480e-9054-d71bb3493601",
+    "stem": "Which of the following is defined as: visible to us on the .?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Earth",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. As a result, only one side of the moon is visible to us on the earth.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_f175060f-387c-480e-9054-d71bb3493601",
+      "questionStem": "Which of the following is defined as: visible to us on the .?",
+      "intentType": "definition",
+      "knowledgeNodeId": "f175060f-387c-480e-9054-d71bb3493601",
+      "evidenceText": "As a result, only one side of the moon is visible to us on the earth.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 138,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "83d3b765cf40f3a78d86a0cdc8bb9df28726ceaca6f33d372e9a8ee5ef14c93e",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "61188eb9cbd6742e285107e8488647b05bb116e57c3652b995388d8148a9ba96",
+        "source_hash": "ff050ea81f71115667889def3f0bde7826928c91d5c73a2af93b62af331b8959",
+        "evidence_hash": "d21a2f4012281032e63096fafb8d68fcd0dcdb83cd1aa4440e4c5d4d665b5af7",
+        "unit_hash": "a3bc6372ac56bf3889103ea892aa37349a24a81f472ad7f8784fd14f1017113b",
+        "intent_hash": "d462e5aefe163245148b686c88c8d2bb1dd77c40c6c43209ffb983c60a7e7dc3",
+        "question_hash": "f279b6ba37b92bc422c5234c14e18adebcbd1cb84ceec596ea86c9e94dc1a2ee"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_d9da07b7-43f2-4b63-8bf5-df5f60d94795",
+    "stem": "With reference to natural satellites (moons), which of the following have conditions favourable for life.?",
+    "options": {
+      "a": "Titan",
+      "b": "Moon",
+      "c": "Europa",
+      "d": "Ganymede"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. The moon does not have conditions favourable for life.",
+    "topicId": 1,
+    "topicName": "Natural Satellites (Moons)",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_d9da07b7-43f2-4b63-8bf5-df5f60d94795",
+      "questionStem": "With reference to natural satellites (moons), which of the following have conditions favourable for life.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "d9da07b7-43f2-4b63-8bf5-df5f60d94795",
+      "evidenceText": "The moon does not have conditions favourable for life.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 139,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "3aa864987bd6b48c9d5b3b30e5cb8f5f34959ae724e46c5c5d0a1f2505d89c85",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "e03168bb950ce2e7a90501f513b3a926fbcaf82c7fe1e3795734b389b304a87f",
+        "source_hash": "d7a05580578d3527080fa0e97367a508b78c041ce3e354c65e89010881696363",
+        "evidence_hash": "f8cdb5d4208b69d92bd63757d140028e65ecc09b92b7f6fddcea1d6a7853ef36",
+        "unit_hash": "75a59fb1dee14d1115c2797880da7902d5e1aea7ed36aed320e379671db2b527",
+        "intent_hash": "20ed51225f8bf9f22016b5ce7bed000f2469dda4c62e1ca2058d684aad8f5be3",
+        "question_hash": "2b459870ec0906dad53e0b5ae1eeea92a7c9bcfd399f3fd1866d4cf26ed2ae3c"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c837ffc3-5fc1-4fb8-8cdd-3d0ee4305415",
+    "stem": "Which of the following is defined as: the first man to step on the surface of the on 21 July?",
+    "options": {
+      "a": "Titan",
+      "b": "Europa",
+      "c": "Ganymede",
+      "d": "Moon"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. Neil Armstrong was the first man to step on the surface of the moon on 21 July",
+    "topicId": 1,
+    "topicName": "Natural Satellites (Moons)",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_c837ffc3-5fc1-4fb8-8cdd-3d0ee4305415",
+      "questionStem": "Which of the following is defined as: the first man to step on the surface of the on 21 July?",
+      "intentType": "definition",
+      "knowledgeNodeId": "c837ffc3-5fc1-4fb8-8cdd-3d0ee4305415",
+      "evidenceText": "Neil Armstrong was the first man to step on the surface of the moon on 21 July",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 145,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "3807d7a81a494e01bf3d79a7a3b2139e5b1cd8c30964f7fb0e643b169a3aa98d",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "b880207af76145b4442d918681dbbdd8325e2c90ad984fa39aff0302cc7c5c62",
+        "source_hash": "e78cb4222445d924caec691438f492ea905b3fc40920e48a4d2dde84d431fc57",
+        "evidence_hash": "4047dd1721639d8feb8faeecbfe5bd4e45a291099393b78c7d54824c8370dfa3",
+        "unit_hash": "3d641fabbba3a5ae6128b0e0444e0f7579e533cba5705db8d92e68b5ea4c622c",
+        "intent_hash": "23c9d67bdf9ddcd287d40f139813c0fcddbe06bc341bbac15adddd44f69d2c3b",
+        "question_hash": "ef38d721ad7eb08f2e175e6d2749568f6e6d3f17e4e3ad4e32ca8c72a002c9e0"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_98ef60c8-7731-415c-a8af-cf241ce4129e",
+    "stem": "Which of the following is defined as: moves around the planets in the same way as the planets move around the sun.?",
+    "options": {
+      "a": "Planet",
+      "b": "Asteroid",
+      "c": "Dwarf Planet",
+      "d": "Satellite"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. A Satellite is a celestial body that moves around the planets in the same way as the planets move around the sun.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_98ef60c8-7731-415c-a8af-cf241ce4129e",
+      "questionStem": "Which of the following is defined as: moves around the planets in the same way as the planets move around the sun.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "98ef60c8-7731-415c-a8af-cf241ce4129e",
+      "evidenceText": "A Satellite is a celestial body that moves around the planets in the same way as the planets move around the sun.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 147,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "fb5ec92e6dd4878f65d3f4c7471ba4ad3ef2f62460a4b81805350106df869602",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "7a52849f205e3975bb93f4329d94648e731410d819dd750a6fa585d8948ccfe9",
+        "source_hash": "a438f86efefe3d1fceb42cd8b56990b23412740d79b9bbc47cd61c86416a819e",
+        "evidence_hash": "1217500eb9d41b3133f78789a4ab2730917892c247f4b139f5996aa491c2507a",
+        "unit_hash": "ce4fda1ba1a9b1e5116a47fc36cf8b49e2a89c6f15aa04b0e2ed01ee7a04cc6d",
+        "intent_hash": "088adf160a57d5a58c44256dda88b204af44448f4cb8e7377dd70a7a5fdc9d73",
+        "question_hash": "512348e0149584fb190a5aa2b6fb5c2c55f8ad7361dd915cc082c838d45e49a0"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3b787d17-63c7-4d42-8798-350c67f604db",
+    "stem": "Which of the following is defined as: an artificial body.?",
+    "options": {
+      "a": "Planet",
+      "b": "Asteroid",
+      "c": "Satellite",
+      "d": "Dwarf Planet"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. A Human-made Satellite is an artificial body.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_3b787d17-63c7-4d42-8798-350c67f604db",
+      "questionStem": "Which of the following is defined as: an artificial body.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "3b787d17-63c7-4d42-8798-350c67f604db",
+      "evidenceText": "A Human-made Satellite is an artificial body.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 148,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "a0e35534e36b553509014b41c71f26fe548737d04e816490405a515e62ed1c74",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "99d043398c9230e37276cd7314ebd4ed93e8ea8aafe0b825c2d7fe8311676cc3",
+        "source_hash": "14a5967ad3185bfc0dd68793b9c4d4b3404927b5e93b5243c4e5f8cef7cebc6f",
+        "evidence_hash": "290fb986dabd47300590245c8744a47b93c9a5f9995cf70ea89b8c2d4e4e3a51",
+        "unit_hash": "6333faa7c95a5a2e94d13f00ceb46b078bb92104ca5c0d58e84d1c2c251ea15a",
+        "intent_hash": "f16f56a29051b4322f2772158ce7c8a3b864f86285375f39a10fbd597cfa1e7d",
+        "question_hash": "cdd12608ffaf5dfdf6740465cc0a5f1465a7aec8dca2c9f61d93959279f873d4"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_50bf298e-9cb7-44c5-96f6-d2d587f65b59",
+    "stem": "Which of the following is defined as: carried by a rocket and placed in the orbit around the .?",
+    "options": {
+      "a": "Earth",
+      "b": "Venus",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. It is carried by a rocket and placed in the orbit around the earth.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_50bf298e-9cb7-44c5-96f6-d2d587f65b59",
+      "questionStem": "Which of the following is defined as: carried by a rocket and placed in the orbit around the .?",
+      "intentType": "definition",
+      "knowledgeNodeId": "50bf298e-9cb7-44c5-96f6-d2d587f65b59",
+      "evidenceText": "It is carried by a rocket and placed in the orbit around the earth.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 150,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "fac5aca5d847301f69deb7e03b08cbcb7ef37c64acf86376c524c61213292307",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "5bf5b2e680b7c4276c69002bfc9f01bd7fbac97a94022c66173ac6fe8e1a3074",
+        "source_hash": "da79670dbeef1a6b534a872f9c39b3791c340e244c342d721732a709efb536ba",
+        "evidence_hash": "e9cb824196ace04bbce9830951f266d792dcdf361229e79097102cff58ef6be9",
+        "unit_hash": "f6fdf72497e89d74c879ead84ff4df3883093035ccdc7c4ff59f305c012e3848",
+        "intent_hash": "8acbfdac9cf38132b2381b31542d055b376c5e9f4df3551d811f436aba9cdfb8",
+        "question_hash": "0e0b09d0ffefb0f9b3f51080cc537818f027e7ef618111951aed11356cfce119"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_31229a83-821a-4ccc-a1c1-7980ba8c69f1",
+    "stem": "With reference to celestial body types, which of the following falls back to the Earth enters orbit plains and depressions on its surface.?",
+    "options": {
+      "a": "Planet",
+      "b": "Asteroid",
+      "c": "Satellite",
+      "d": "Dwarf Planet"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. Rocket launch Rocket falls back to the Earth Satellite enters orbit plains and depressions on its surface.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_31229a83-821a-4ccc-a1c1-7980ba8c69f1",
+      "questionStem": "With reference to celestial body types, which of the following falls back to the Earth enters orbit plains and depressions on its surface.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "31229a83-821a-4ccc-a1c1-7980ba8c69f1",
+      "evidenceText": "Rocket launch Rocket falls back to the Earth Satellite enters orbit plains and depressions on its surface.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 153,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "1d46ea237229abef5b2bc4cc3674139e11acc60214d853f10d05622094fa9bee",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "283b32891b574c94f2a46443070a35b3c5af2624d242af4d2ef1e6d79973033d",
+        "source_hash": "6254a61d2fa50868879a1e8c689ca909a7f01857a85aaadd8d8b1484cb4d2dff",
+        "evidence_hash": "6c3c01f2c9e16c3f05376baa63af3bc1ae65316cf17c5b6c1445638b9b1ce540",
+        "unit_hash": "b7781a846148b69c392c4dbcb7b359d1218967938000e976223c9cc752861d57",
+        "intent_hash": "06dba87db443cbada53e54b2bcc0d31f9a8e2313c730f969d1196c0f50119371",
+        "question_hash": "925d71978ef5be67a07abb7b59ce3fe4472a1cad756d9e000f511691a103982c"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_4dd795ed-a70d-46a7-adf0-59d7d54ed86e",
+    "stem": "Which of the following is defined as: found between the orbits of Mars and (Figure 1.2).?",
+    "options": {
+      "a": "Uranus",
+      "b": "Neptune",
+      "c": "Jupiter",
+      "d": "Saturn"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. They are found between the orbits of Mars and Jupiter (Figure 1.2).",
+    "topicId": 1,
+    "topicName": "Jovian Outer Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_4dd795ed-a70d-46a7-adf0-59d7d54ed86e",
+      "questionStem": "Which of the following is defined as: found between the orbits of Mars and (Figure 1.2).?",
+      "intentType": "definition",
+      "knowledgeNodeId": "4dd795ed-a70d-46a7-adf0-59d7d54ed86e",
+      "evidenceText": "They are found between the orbits of Mars and Jupiter (Figure 1.2).",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 158,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "2e3c8afe7181b9899ce3e9a335ee504dada77f8943647768aea7c555afeb968d",
+      "createdAt": "2026-09-21T11:49:49.548061+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "80641ff01bb4f680716b79204b48cd83d1653c6ac8f951a0342cebf1fa594f46",
+        "source_hash": "d6f21c51c669991217f7cdb6c64e9a1c757d6bdf7e3452f01aedec204defc1aa",
+        "evidence_hash": "3c05f2c768e58d052b08a993ab005aca5afdb60b0b7214b67ac006cec63aa287",
+        "unit_hash": "fa0063a7c69bab947992a5bcb854effbde5a93df23a9cb810696a84cbeb04dce",
+        "intent_hash": "57ed6b0f0e4472d8c2d949d86ee4cb4ed5c068003c4f44930238e77d44c85fbf",
+        "question_hash": "a09dd1950ead67190dcad2a88a3633deefeb0f03bbab8ad6fa41ad12518bf197"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_bbd537a9-3cb7-423d-86c0-2cd3db780fd7",
+    "stem": "Which of the following is defined as: of the view that asteroids are parts of a which exploded many years back.?",
+    "options": {
+      "a": "Planet",
+      "b": "Asteroid",
+      "c": "Meteoroid",
+      "d": "Star"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. Scientists are of the view that asteroids are parts of a planet which exploded many years back.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_bbd537a9-3cb7-423d-86c0-2cd3db780fd7",
+      "questionStem": "Which of the following is defined as: of the view that asteroids are parts of a which exploded many years back.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "bbd537a9-3cb7-423d-86c0-2cd3db780fd7",
+      "evidenceText": "Scientists are of the view that asteroids are parts of a planet which exploded many years back.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 159,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "95e980820914c788d00333d0c41be2ffabf55919f135dfb9479bd24cdf521f1c",
+      "createdAt": "2026-09-21T11:49:49.564159+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "a8129aed0989c249835f62c9e6fe1c7dfbd703c9a45c786473128611f6ac90a3",
+        "source_hash": "d0a5360dec72285c8eb96eb43c61fd0ecb66afbf662d2563f1263c76296f67b3",
+        "evidence_hash": "758a34351b7b671dc8bf1137f44ea66a1e0d8fdd9346014d4b3d2e9493fb396a",
+        "unit_hash": "7514be60c601969b21da90c4bf83ef1356de8c3776897fcbe36464f0efb50694",
+        "intent_hash": "482c1030291e26b7fc53823e70d9da7b0e35d8611b2615ea87298ced143a2a18",
+        "question_hash": "61b7cac5d6e865ec08f14c57abd9341d91af9fb477542f99bbe570fd116a0c1c"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c7e391bf-affa-41dd-9f3b-3b2d50ca1489",
+    "stem": "Which of the following is defined as: called The small pieces of rocks which move around the sun?",
+    "options": {
+      "a": "Sandstone",
+      "b": "Basalt",
+      "c": "Shale",
+      "d": "Granite"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. The small pieces of rocks which move around the sun are called meteoroids.",
+    "topicId": 1,
+    "topicName": "Rock Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_c7e391bf-affa-41dd-9f3b-3b2d50ca1489",
+      "questionStem": "Which of the following is defined as: called The small pieces of rocks which move around the sun?",
+      "intentType": "definition",
+      "knowledgeNodeId": "c7e391bf-affa-41dd-9f3b-3b2d50ca1489",
+      "evidenceText": "The small pieces of rocks which move around the sun are called meteoroids.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 160,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "0582bf822980fafaa54fcc23b5f46960663b3d73eb74286e172d6c29ec9b0842",
+      "createdAt": "2026-09-21T11:49:49.564159+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "62e8f2bf35606dbad8e642125ae5d55895d27fc17f407eb12ee36681bc8113ed",
+        "source_hash": "0d8ab602adc1d34beb70ad74af55f81ed6d5b9ac8f5c22a48ff46e8370723a44",
+        "evidence_hash": "1fbc1eafd0c2673cff13629c9011a4e7545d5f0a21167b4c26a8088332b806d6",
+        "unit_hash": "0aa2bdb4fbb3060f4821269f990efefc393295c50b6099762a8e6c793beeb320",
+        "intent_hash": "1bc08ae41f73a135e19b3c06f24f3528fb277c3fc61795360e76d934f0ad92a2",
+        "question_hash": "e33457d1d2936a6bdc2910ce226a735f24a33935929b08965d91a0306adcb9cd"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_fbce9e05-f9ec-4209-828d-029f4d1eedc2",
+    "stem": "With reference to terrestrial planets, which of the following falls on the and creates a hollow.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Earth",
+      "d": "Mars"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Option (C) is correct. Sometimes, a meteor without being completely burnt, falls on the earth and creates a hollow.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_fbce9e05-f9ec-4209-828d-029f4d1eedc2",
+      "questionStem": "With reference to terrestrial planets, which of the following falls on the and creates a hollow.?",
+      "intentType": "attribute",
+      "knowledgeNodeId": "fbce9e05-f9ec-4209-828d-029f4d1eedc2",
+      "evidenceText": "Sometimes, a meteor without being completely burnt, falls on the earth and creates a hollow.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 164,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "4f81ebc0ed05957a3018104aa0c8656206dd5d44511c8f3aabb91adc17ac7037",
+      "createdAt": "2026-09-21T11:49:49.564159+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "ce57cfea2465bead05b59ee262007fbe0906f0fa76c02b0e15a00e17c549acca",
+        "source_hash": "d6a93b3f88ea68ccb5ab294174682fdd6e5ababff0d5ebe717ae9586ecc1fb3a",
+        "evidence_hash": "91e19deaca7449c50827ef6d2ea19a8767f4b7858917086361ac4d3517a200a5",
+        "unit_hash": "7a0a492c31191b89c887220c81ab8b271185c2f6389d551a35db8aebda2acd9c",
+        "intent_hash": "7b6abc7d7eef3cb05327096e0e37adc6caf39dffaaed7f61d1a059e1a445a22b",
+        "question_hash": "eb3497be716968fc8d1c50410470962374f32ae9ce299d6835c78ad80009a32d"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a09f25db-eef0-4aaf-a4c2-8133c483ced0",
+    "stem": "Which of the following is defined as: billions of stars, and clouds of dust and gases.?",
+    "options": {
+      "a": "Nebula",
+      "b": "Galaxy",
+      "c": "Comet",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Option (B) is correct. A galaxy is a huge system of billions of stars, and clouds of dust and gases.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_a09f25db-eef0-4aaf-a4c2-8133c483ced0",
+      "questionStem": "Which of the following is defined as: billions of stars, and clouds of dust and gases.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "a09f25db-eef0-4aaf-a4c2-8133c483ced0",
+      "evidenceText": "A galaxy is a huge system of billions of stars, and clouds of dust and gases.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 172,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "98a1b85ca72eb90df00f8af61b57777ce084a9b9afb6ea3569c61be7ea19a170",
+      "createdAt": "2026-09-21T11:49:49.564159+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "72cda8e04927477fb4902f873cf3659e561863b370f39af053f5d2958b93f26f",
+        "source_hash": "e38fbd608409e13d9639a441e3daf7d611067647754deb8ccaef8b700dd011b8",
+        "evidence_hash": "82946058f09ecead0fdb575aea2dc06e4f5f86fb831cdbb4b99ff60f1142be3f",
+        "unit_hash": "d9ba2a2aad3e1671491ab37e624dbe9f7f705a043903362e9617c437e9cad5a1",
+        "intent_hash": "bbf463b0cb0cc5404a2cd332cd26c77bccb7b17d84539d85daf014ffd1fd4577",
+        "question_hash": "7987dd50a9db6e28d7340c68b6e689889c2d2a7a6b8c217bac297dab4656b7d3"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_fd884ff9-ce45-459f-85e6-1e00b6dc4395",
+    "stem": "Which of the following is defined as: difficult to imagine how big the universe is.?",
+    "options": {
+      "a": "Galaxy",
+      "b": "Nebula",
+      "c": "Comet",
+      "d": "Meteoroid"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Option (A) is correct. It is difficult to imagine how big the universe is.",
+    "topicId": 1,
+    "topicName": "Celestial Body Types",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_fd884ff9-ce45-459f-85e6-1e00b6dc4395",
+      "questionStem": "Which of the following is defined as: difficult to imagine how big the universe is.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "fd884ff9-ce45-459f-85e6-1e00b6dc4395",
+      "evidenceText": "It is difficult to imagine how big the universe is.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 174,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "952a4b4d45303311e23ae7c31f835e0705ff231787bb4431c110b66e44a3e1f8",
+      "createdAt": "2026-09-21T11:49:49.564159+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "5c51ce47e724cdb00e0f4ca98fc1ddd2e76067a1065da109970f5e0885271df7",
+        "source_hash": "aafd2eef186d8b4122cdf68f5c2df19123180c4ba9317a7892b727c0e3ffd826",
+        "evidence_hash": "55c93a0a8dbb5c3b73108e8bccee85e6a26844453476ba954b63589726975a1b",
+        "unit_hash": "bc456b690fbe016d76769d08ed4ab9b2637cf5495eb95abbe2bb243012a78172",
+        "intent_hash": "31946353969bf74f762a19d9aa11aca0244b36cb1bb13eb5c570bdc9af750920",
+        "question_hash": "f6dcbdca9fd077099c4459860f54c4655c704b97a55be82e3f224f9f622bc2fc"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_009e7d33-0ba3-45fa-a57a-8e1e734c8dc5",
+    "stem": "Which of the following forms an integral structural component of: is a part of the solar system.?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. You are on the earth and the earth is a part of the solar system.",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_009e7d33-0ba3-45fa-a57a-8e1e734c8dc5",
+      "questionStem": "Which of the following forms an integral structural component of: is a part of the solar system.?",
+      "intentType": "part-of",
+      "knowledgeNodeId": "009e7d33-0ba3-45fa-a57a-8e1e734c8dc5",
+      "evidenceText": "You are on the earth and the earth is a part of the solar system.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 188,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "d09c8890a758154822ec9cd3d5541ed08ab07da6a8e5a238ad56f20ee2e2f7bb",
+      "createdAt": "2026-09-21T11:49:49.564159+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "7a97e19a72df5db61ddcc317f251bc3bc802a3db9cfd84cec6dab86797b9dfb0",
+        "source_hash": "0e1fc9397bf4ca08e46910e7b6658317bb9ec81bac07db177f6a25528de5893a",
+        "evidence_hash": "00c22d647712dbc0b4515833ad9963ba7a2db03159b9fb6d6f16d2f3b9b3425e",
+        "unit_hash": "05e7756b22d5db1d2272eca1e04f828eab97942639e9105146aebf919cd01035",
+        "intent_hash": "1ae279a1f36b472609d9c8a2f552a3cebc8ef3fc46520585be704b96120aa4b3",
+        "question_hash": "f1fd67c23e6bf68ee3ab2e8e35b8575945de6fc28a59a8e920b0e528adcb2743"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ccdc7cec-58b9-4dca-ae07-de924ae524ad",
+    "stem": "Which of the following is defined as: a true model (miniature form) of the?",
+    "options": {
+      "a": "Venus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. Globe is a true model (miniature form) of the earth",
+    "topicId": 1,
+    "topicName": "Terrestrial Planets",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_ccdc7cec-58b9-4dca-ae07-de924ae524ad",
+      "questionStem": "Which of the following is defined as: a true model (miniature form) of the?",
+      "intentType": "definition",
+      "knowledgeNodeId": "ccdc7cec-58b9-4dca-ae07-de924ae524ad",
+      "evidenceText": "Globe is a true model (miniature form) of the earth",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 235,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "3e5145e58e477fe75da7956756c2c312ddb6defc32b4aa4310a2c3b125432986",
+      "createdAt": "2026-09-21T11:49:49.579882+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "da99eb93d5a3a2093ebc3a3814f8e457c9d75a0dd27b732248f1e2f1ac8f7bfb",
+        "source_hash": "438315c575bad8c739f098026c73f1a41e9442370a662d9026aa946a1c8df96a",
+        "evidence_hash": "593b98913332e1fb9ef90ee437ba98cb5865e7a960492ad12cf22cd335a225c1",
+        "unit_hash": "42b3364638762ff4f75a59104d9841aae9f1cf475f73a166c10493e3a7999f3b",
+        "intent_hash": "91c29cd3e5e3251318426270afaa72c7f5f8f8186591fa8a090929daac3d68c6",
+        "question_hash": "c2f7b1fdc2af6d3192a2f3800ebd3f7903ba07aa0490c709f8fa8567f7c5b61a"
+      }
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c3816ea3-d086-4c4c-88ca-5f461dc40a7b",
+    "stem": "Which of the following is defined as: shown in their correct size.?",
+    "options": {
+      "a": "Indian Ocean",
+      "b": "Southern Ocean",
+      "c": "Arctic Ocean",
+      "d": "Pacific Ocean"
+    },
+    "correctAnswer": "opt_d",
+    "explanation": "Option (D) is correct. On the globe, countries, continents and oceans are shown in their correct size.",
+    "topicId": 1,
+    "topicName": "Major Oceans",
+    "cognitiveDemand": "UNDERSTAND",
+    "examTarget": "UPSC-Prelims",
+    "provenance": {
+      "questionId": "q_c3816ea3-d086-4c4c-88ca-5f461dc40a7b",
+      "questionStem": "Which of the following is defined as: shown in their correct size.?",
+      "intentType": "definition",
+      "knowledgeNodeId": "c3816ea3-d086-4c4c-88ca-5f461dc40a7b",
+      "evidenceText": "On the globe, countries, continents and oceans are shown in their correct size.",
+      "sourceFile": "source-material/geography_extracted.txt",
+      "sourceLocation": {
+        "sourceId": "source-material/geography_extracted.txt",
+        "sentence_count": 1251,
+        "section_heading": "THE EARTH IN THE SOLAR SYSTEM",
+        "concept": "THE EARTH IN THE SOLAR SYSTEM",
+        "sentence_idx": 239,
+        "block_id": "source-material/geography_extracted.txt#block_1",
+        "has_antecedent": true
+      },
+      "provenanceHash": "9c760723861252dc17894c8a7040109107355056c36b20d44c1066c3a386f2b7",
+      "createdAt": "2026-09-21T11:49:49.579882+00:00",
+      "schemaVersion": "1.0.0",
+      "metadata": {},
+      "linkHashes": {
+        "location_hash": "0c875ec025544d01de98ba25507113c40d2d7dd46a501ea59b05266807bf31d2",
+        "source_hash": "65b5d2f110b91d9ea7ff941b31cae0e81665c1450e4fd405cec209b6e7247368",
+        "evidence_hash": "c16d865ac4a834bc112724a5fefd92af9eaf29bb7c7d7a51765cb7aaaed74217",
+        "unit_hash": "e8e1634f0d30e5f9de47ecfa0ecf1e7d483421a51958ffc7b28137f5533f7d02",
+        "intent_hash": "6b44282c2c8e1204011d7db30243050fa0d616a2717e3152bab621308998f620",
+        "question_hash": "391420625a7ea0a2503335ac997d0d07650235cd25f5b3099828f34b77789b60"
+      }
+    },
+    "valid": true
+  }
+]

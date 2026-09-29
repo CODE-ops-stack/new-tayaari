@@ -1,0 +1,87 @@
+{
+  "atlas_metadata": {
+    "title": "Oxford School Atlas",
+    "edition": "35th Edition",
+    "publisher": "Oxford University Press",
+    "status": "FULL_INGESTION_COMPLETE (Pages Cover-131, Back Cover)"
+  },
+  "spatial_coverage": {
+    "THEORY": [
+      "History of Cartography",
+      "Remote Sensing and GIS",
+      "Scale Types",
+      "Map Projections (Conical, Cylindrical, Azimuthal)",
+      "Relief Representation (Contours, Hachures, Hill-shading)",
+      "Solar System & Earth Interior"
+    ],
+    "MAP_EVIDENCE_INDIA_PHYSICAL": [
+      "Himalayan Ranges & Passes",
+      "Northern Plains",
+      "Peninsular Plateau",
+      "Western & Eastern Ghats",
+      "Coastal Plains",
+      "Islands",
+      "Major River Basins (Indus, Ganga, Brahmaputra, Peninsular rivers)"
+    ],
+    "MAP_EVIDENCE_INDIA_POLITICAL": [
+      "State Boundaries",
+      "International Frontiers",
+      "Capitals & Major Cities",
+      "District Boundaries (in zoomed maps)"
+    ],
+    "MAP_EVIDENCE_INDIA_THEMATIC": [
+      "Metallic & Non-Metallic Minerals",
+      "Energy & Power Projects",
+      "Industrial Regions",
+      "Roads, Railways, Waterways, Airways",
+      "Population Demographics (Density, Growth, Sex Ratio, Urbanization)",
+      "Health & Socio-Economic Indicators",
+      "Religions & Languages",
+      "Tourism & World Heritage Sites",
+      "Cultural Heritage (Dances/Festivals)",
+      "Environmental Concerns (Pollution, Degradation, Endangered Species)",
+      "Natural Hazards (Earthquakes, Cyclones, Droughts, Floods)"
+    ],
+    "MAP_EVIDENCE_ASIA": [
+      "Asia Physical (Ranges, Basins, Rivers, Plateaus)",
+      "Asia Political (Countries, Capitals)",
+      "Asia Climate & Economy",
+      "SAARC Region",
+      "East Asia (China, Japan, Koreas, Taiwan, Mongolia)",
+      "South-East Asia"
+    ],
+    "MAP_EVIDENCE_WORLD_REGIONS": [
+      "Europe (Physical, Political, Climate, British Isles, Central Europe)",
+      "Africa (Physical, Political, Climate, Southern Africa)",
+      "North America (Physical, Political, Climate, USA, Alaska)",
+      "South America (Physical, Political, Climate, Brazil)",
+      "Oceania (Physical, Political, Climate)"
+    ],
+    "MAP_EVIDENCE_GLOBAL_THEMES": [
+      "Oceans (Pacific, Indian, Atlantic, Arctic, Southern/Antarctica)",
+      "World Physical (Mountains, Basins, Trenches)",
+      "World Political (Countries, Capitals)",
+      "Global Mean Temperature (January, July)",
+      "Global Pressure & Winds (January, July)",
+      "Annual Rainfall & Major Ocean Currents (Warm/Cold)",
+      "Climatic Regions (Koppen's Classification) & Watersheds",
+      "Major Landforms and Forest Cover",
+      "Soil and Land Use",
+      "Agriculture and Industrial Regions",
+      "Minerals, Mineral Fuels, Trade & Economic Dev",
+      "Population Density, Urbanization, Religions, Languages",
+      "Human Development (Health, Education, Poverty, HDI)",
+      "Environmental Concerns (Desertification, Deforestation, Pollution, Biomes at risk)",
+      "Plate Tectonics and Natural Hazards",
+      "Air Routes and Sea Routes"
+    ],
+    "REFERENCE_MATERIAL": [
+      "World Facts & Figures (Flags, Area, Pop, Capital, Language, Currency, GDP)",
+      "Statistics - Human Development & Economy (Global Production charts)",
+      "Earth-Fact File (Extremes, Waterfalls, Peaks, Rivers, Continental Extremes)",
+      "Comparative Heights and Depths (Mountains, Oceans, Lakes)",
+      "World Time Zones",
+      "Atlas Index"
+    ]
+  }
+}

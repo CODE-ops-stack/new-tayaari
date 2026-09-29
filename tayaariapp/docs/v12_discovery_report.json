@@ -1,0 +1,550 @@
+{
+  "SOURCES PROCESSED": 5,
+  "SOURCE UNITS": 1204,
+  "VALID NODES": 23,
+  "REJECTED NODES": 3785,
+  "OPPORTUNITIES": 17,
+  "ACCEPTED": 17,
+  "REJECTED BY GATE": 0,
+  "COGNITIVE MIX": {
+    "COMPARE": 5,
+    "RECALL": 12
+  },
+  "EXAMPLES": [
+    {
+      "text": "Which of the following statements accurately compares The  average  density  of oceanic  crust and continental  crust?",
+      "options": [
+        "The  average  density  of oceanic  crust is 3.0  g/cm 3, whereas continental  crust has an  average  of  2.7 g/cm 3 .",
+        "The  average  density  of oceanic  crust has the  highest  share  of  out-migrants, whereas continental  crust has an  average  of  2.7 g/cm 3 .",
+        "The  average  density  of oceanic  crust has an  average  of  2.7 g/cm 3 , whereas continental  crust is 3.0  g/cm 3.",
+        "The  average  density  of oceanic  crust is 3.0  g/cm 3, whereas continental  crust reduces visibility  to one  to  two  kilometers."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to source-material\\question_extracted.txt: 'The  average  density  of oceanic  crust  is  3.0  g/cm 3 ,  while continental  crust  has  an  average  of  2.7 g/cm 3 .'. This confirms the compare relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "COMPARISON",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The  average  density  of oceanic  crust  is  3.0  g/cm 3 ,  while continental  crust  has  an  average  of  2.7 g/cm 3 ."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Swapped predicates and cross-polled verified predicates to test deep conceptual distinction."
+      },
+      "questionId": "Q-PROD-V12-5c725fc7"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'The example of open channel flow'?",
+      "options": [
+        "It includes the  aggregate  distribution  of  the population  according  to  different occupations  in  society,  defined  by  skill level,  and  economic  status.",
+        "It includes immense reserves of metallic minerals.",
+        "It includes flow in canal, river, etc.",
+        "It includes crop  cultivation  and raising  animals."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to source-material\\question_extracted.txt: 'The example of open channel flow includes flow in canal, river, etc.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The example of open channel flow includes flow in canal, river, etc."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-ad9a8717"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'The  Nile basin  is  huge  and'?",
+      "options": [
+        "It includes the  aggregate  distribution  of  the population  according  to  different occupations  in  society,  defined  by  skill level,  and  economic  status.",
+        "It includes immense reserves of metallic minerals.",
+        "It includes the  economic  growth  potential  from changes  in  a  population's  age  structure, typically  when  the  working-age population  grows  larger  relative  to dependents.",
+        "It includes parts  of Tanzania,  Burundi,  Rwanda,  Congo (Kinshasa),  Kenya."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'The  Nile basin  is  huge  and  includes  parts  of Tanzania,  Burundi,  Rwanda,  Congo (Kinshasa),  Kenya.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The  Nile basin  is  huge  and  includes  parts  of Tanzania,  Burundi,  Rwanda,  Congo (Kinshasa),  Kenya."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-518874c5"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'Mixed farming'?",
+      "options": [
+        "It includes the  long-term  conditions  of  a  specific region.",
+        "It includes crop  cultivation  and raising  animals.",
+        "It includes terai.",
+        "It includes species  diversity,  genetic  diversity,  and ecosystem  diversity."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to source-material\\question_extracted.txt: 'Mixed farming  includes  crop  cultivation  and raising  animals.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Mixed farming  includes  crop  cultivation  and raising  animals."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-b80b9ddf"
+    },
+    {
+      "text": "Which of the following statements accurately compares Pastoral  farming and dairy  farming?",
+      "options": [
+        "Pastoral  farming focuses on milk production from cows, whereas dairy  farming involves livestock,  such  as  cattle,  sheep, and  goats.",
+        "Pastoral  farming has the  highest  share  of  out-migrants, whereas dairy  farming focuses on milk production from cows.",
+        "Pastoral  farming involves livestock,  such  as  cattle,  sheep, and  goats, whereas dairy  farming focuses on milk production from cows.",
+        "Pastoral  farming involves livestock,  such  as  cattle,  sheep, and  goats, whereas dairy  farming has an  average  of  2.7 g/cm 3 ."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to source-material\\question_extracted.txt: 'Pastoral  farming involves  livestock,  such  as  cattle,  sheep, and  goats,  while  dairy  farming  focuses on milk production from cows.'. This confirms the compare relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "COMPARISON",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Pastoral  farming involves  livestock,  such  as  cattle,  sheep, and  goats,  while  dairy  farming  focuses on milk production from cows."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Swapped predicates and cross-polled verified predicates to test deep conceptual distinction."
+      },
+      "questionId": "Q-PROD-V12-1821f5de"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'Climate'?",
+      "options": [
+        "It refers to crop  cultivation  and raising  animals.",
+        "It refers to the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "It refers to terai.",
+        "It refers to the  long-term  conditions  of  a  specific region."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'Climate  refers to  the  long-term  conditions  of  a  specific region.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Climate  refers to  the  long-term  conditions  of  a  specific region."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-436bb1c0"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'Eastern  Ghats'?",
+      "options": [
+        "It comprises species  diversity,  genetic  diversity,  and ecosystem  diversity.",
+        "It comprises the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "It comprises the  long-term  conditions  of  a  specific region.",
+        "It comprises flow in canal, river, etc."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to source-material\\question_extracted.txt: 'Eastern  Ghats comprises  the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Eastern  Ghats comprises  the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-46315c49"
+    },
+    {
+      "text": "Which of the following statements accurately compares The  central stretch  of  Arabian  Sea and the  southern  stretch?",
+      "options": [
+        "The  central stretch  of  arabian  sea has the  highest  share  of  out-migrants, whereas the  southern  stretch is known  as  the  Malabar  coast.",
+        "The  central stretch  of  arabian  sea is called  the Kannad  Plain, whereas the  southern  stretch reduces visibility  to one  to  two  kilometers.",
+        "The  central stretch  of  arabian  sea is called  the Kannad  Plain, whereas the  southern  stretch is known  as  the  Malabar  coast.",
+        "The  central stretch  of  arabian  sea is known  as  the  Malabar  coast, whereas the  southern  stretch is called  the Kannad  Plain."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to source-material\\question_extracted.txt: 'The  central stretch  of  Arabian  Sea  is  called  the Kannad  Plain,  while  the  southern  stretch is  known  as  the  Malabar  coast.'. This confirms the compare relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "COMPARISON",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The  central stretch  of  Arabian  Sea  is  called  the Kannad  Plain,  while  the  southern  stretch is  known  as  the  Malabar  coast."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Swapped predicates and cross-polled verified predicates to test deep conceptual distinction."
+      },
+      "questionId": "Q-PROD-V12-6900579e"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'The  swampy  belt  of the plains'?",
+      "options": [
+        "It is known as crop  cultivation  and raising  animals.",
+        "It is known as terai.",
+        "It is known as the  economic  growth  potential  from changes  in  a  population's  age  structure, typically  when  the  working-age population  grows  larger  relative  to dependents.",
+        "It is known as the  aggregate  distribution  of  the population  according  to  different occupations  in  society,  defined  by  skill level,  and  economic  status."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to source-material\\question_extracted.txt: 'The  swampy  belt  of the plains is known as terai.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The  swampy  belt  of the plains is known as terai."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-8dfd387f"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'Ecological  diversity'?",
+      "options": [
+        "It includes parts  of Tanzania,  Burundi,  Rwanda,  Congo (Kinshasa),  Kenya.",
+        "It includes the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "It includes 97.25%,  Ice  caps-  2.05%,  Groundwater- 0.68%,  Lakes-  0.1%,  Soil  moisture- 0.005%  ,  Atmosphere-  0.001%  ,  Streams and  river-  0.0001%  ,  Biosphere-  0.00004% .",
+        "It includes species  diversity,  genetic  diversity,  and ecosystem  diversity."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'Ecological  diversity  includes species  diversity,  genetic  diversity,  and ecosystem  diversity.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Ecological  diversity  includes species  diversity,  genetic  diversity,  and ecosystem  diversity."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-71eb40e3"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'The  agricultural  population'?",
+      "options": [
+        "It includes the  economic  growth  potential  from changes  in  a  population's  age  structure, typically  when  the  working-age population  grows  larger  relative  to dependents.",
+        "It includes crop  cultivation  and raising  animals.",
+        "It includes the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "It includes cultivators  and  agricultural labourers and their family members."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'The  agricultural  population includes  cultivators  and  agricultural labourers and their family members.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The  agricultural  population includes  cultivators  and  agricultural labourers and their family members."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-fd84fabc"
+    },
+    {
+      "text": "Which of the following statements accurately compares Uttar  Pradesh and Maharashtra?",
+      "options": [
+        "Uttar  pradesh has the  highest  share  of  out-migrants, whereas Maharashtra has the  highest  share  of in-migrants.",
+        "Uttar  pradesh has the  highest  share  of  out-migrants, whereas Maharashtra focuses on milk production from cows.",
+        "Uttar  pradesh has the  highest  share  of in-migrants, whereas Maharashtra has the  highest  share  of  out-migrants.",
+        "Uttar  pradesh reduces visibility  to  less  than  one kilometer, whereas Maharashtra has the  highest  share  of in-migrants."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to source-material\\question_extracted.txt: 'Uttar  Pradesh  has the  highest  share  of  out-migrants  while Maharashtra  has  the  highest  share  of in-migrants.'. This confirms the compare relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "COMPARISON",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Uttar  Pradesh  has the  highest  share  of  out-migrants  while Maharashtra  has  the  highest  share  of in-migrants."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Swapped predicates and cross-polled verified predicates to test deep conceptual distinction."
+      },
+      "questionId": "Q-PROD-V12-8216311d"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'Demographic  dividend'?",
+      "options": [
+        "It refers to the  economic  growth  potential  from changes  in  a  population's  age  structure, typically  when  the  working-age population  grows  larger  relative  to dependents.",
+        "It refers to immense reserves of metallic minerals.",
+        "It refers to species  diversity,  genetic  diversity,  and ecosystem  diversity.",
+        "It refers to parts  of Tanzania,  Burundi,  Rwanda,  Congo (Kinshasa),  Kenya."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to source-material\\question_extracted.txt: 'Demographic  dividend  refers to  the  economic  growth  potential  from changes  in  a  population's  age  structure, typically  when  the  working-age population  grows  larger  relative  to dependents.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Demographic  dividend  refers to  the  economic  growth  potential  from changes  in  a  population's  age  structure, typically  when  the  working-age population  grows  larger  relative  to dependents."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-5910a77c"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'Occupational  structure'?",
+      "options": [
+        "It refers to crop  cultivation  and raising  animals.",
+        "It refers to species  diversity,  genetic  diversity,  and ecosystem  diversity.",
+        "It refers to immense reserves of metallic minerals.",
+        "It refers to the  aggregate  distribution  of  the population  according  to  different occupations  in  society,  defined  by  skill level,  and  economic  status."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'Occupational  structure  refers to  the  aggregate  distribution  of  the population  according  to  different occupations  in  society,  defined  by  skill level,  and  economic  status.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Occupational  structure  refers to  the  aggregate  distribution  of  the population  according  to  different occupations  in  society,  defined  by  skill level,  and  economic  status."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-b6b91741"
+    },
+    {
+      "text": "Which of the following statements accurately compares Fog and mist?",
+      "options": [
+        "Fog reduces visibility  to  less  than  one kilometer, whereas mist focuses on milk production from cows.",
+        "Fog reduces visibility  to one  to  two  kilometers, whereas mist reduces visibility  to  less  than  one kilometer.",
+        "Fog involves livestock,  such  as  cattle,  sheep, and  goats, whereas mist reduces visibility  to one  to  two  kilometers.",
+        "Fog reduces visibility  to  less  than  one kilometer, whereas mist reduces visibility  to one  to  two  kilometers."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'Fog reduces  visibility  to  less  than  one kilometer,  while  mist  reduces  visibility  to one  to  two  kilometers.'. This confirms the compare relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "COMPARISON",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Fog reduces  visibility  to  less  than  one kilometer,  while  mist  reduces  visibility  to one  to  two  kilometers."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Swapped predicates and cross-polled verified predicates to test deep conceptual distinction."
+      },
+      "questionId": "Q-PROD-V12-5fb24d5a"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'Out  of  total  water resources  on  earth  Ocean'?",
+      "options": [
+        "It comprises 97.25%,  Ice  caps-  2.05%,  Groundwater- 0.68%,  Lakes-  0.1%,  Soil  moisture- 0.005%  ,  Atmosphere-  0.001%  ,  Streams and  river-  0.0001%  ,  Biosphere-  0.00004% .",
+        "It comprises species  diversity,  genetic  diversity,  and ecosystem  diversity.",
+        "It comprises terai.",
+        "It comprises cultivators  and  agricultural labourers and their family members."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to source-material\\question_extracted.txt: 'Out  of  total  water resources  on  earth  Ocean  comprises 97.25%,  Ice  caps-  2.05%,  Groundwater- 0.68%,  Lakes-  0.1%,  Soil  moisture- 0.005%  ,  Atmosphere-  0.001%  ,  Streams and  river-  0.0001%  ,  Biosphere-  0.00004% .'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Out  of  total  water resources  on  earth  Ocean  comprises 97.25%,  Ice  caps-  2.05%,  Groundwater- 0.68%,  Lakes-  0.1%,  Soil  moisture- 0.005%  ,  Atmosphere-  0.001%  ,  Streams and  river-  0.0001%  ,  Biosphere-  0.00004% ."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-418aaaef"
+    },
+    {
+      "text": "Which of the following best describes the geographic concept of 'The Chota Nagpur plateau'?",
+      "options": [
+        "It comprises immense reserves of metallic minerals.",
+        "It comprises flow in canal, river, etc.",
+        "It comprises parts  of Tanzania,  Burundi,  Rwanda,  Congo (Kinshasa),  Kenya.",
+        "It comprises terai."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to source-material\\supplementary_corpus.txt: 'The Chota Nagpur plateau comprises immense reserves of metallic minerals.'. This confirms the recall relationship and invalidates the distractors.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\supplementary_corpus.txt",
+            "evidenceExcerpt": "The Chota Nagpur plateau comprises immense reserves of metallic minerals."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Cross-polled verified definitions from the corpus."
+      },
+      "questionId": "Q-PROD-V12-9c0c1a67"
+    }
+  ],
+  "REJECTED EXAMPLES": [
+    {
+      "sentence": "| Topic | Tier | Current Count | Target Quota | Ga",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "|---|---|---|---|---|---|",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 1. The Earth in the Solar System | Basic | 32 | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 1. The Earth in the Solar System | Medium | 1 | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 1. The Earth in the Solar System | Advanced | 1 ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 2. Globe: Latitudes and Longitudes | Basic | 12 ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 2. Globe: Latitudes and Longitudes | Medium | 0 ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 2. Globe: Latitudes and Longitudes | Advanced | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 3. Motions of the Earth | Basic | 2 | 15 | 13 | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 3. Motions of the Earth | Medium | 0 | 10 | 10 |",
+      "reason": "Block type is TABLE_OR_META"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+Reusing configuration cache.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+
+> Task :app:processDebugGoogleServices
+File google-services.json is missing.
+The Google Services Plugin cannot function without it.
+Searched locations: /app/applet/app/src/debug/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/Debug/google-services.json, /app/applet/app/google-services.json
+
+> Task :app:generateDebugResources
+> Task :app:generateDebugBuildConfig
+> Task :app:javaPreCompileDebug
+> Task :app:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugNavigationResources
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile
+> Task :app:compileDebugNavigationResources
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:processDebugMainManifest
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugAssets
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugUnitTestManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+> Task :app:kspDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///app/applet/app/src/main/java/com/example/database/AppDatabase.kt:26:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<AppDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/BookmarksScreen.kt:42:43 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/PracticeScreen.kt:59:17 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///app/applet/app/src/main/java/com/example/ui/theme/Theme.kt:65:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///app/applet/app/src/main/java/com/example/viewmodel/PracticeViewModel.kt:180:34 Condition is always 'true'.
+
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:kspDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+
+> Task :app:testDebugUnitTest
+
+LiveTopicSelectionTest > reVerifyTopicSelection STANDARD_OUT
+    STARTING IMPORT
+    === LIVE TOPIC AVAILABILITY START ===
+    Total Topics Seeded: 45
+    Topic '1. The Earth in the Solar System' -> Group A: 34 | Group B: 33 | Group C: 32
+    Topic '2. Globe: Latitudes and Longitudes' -> Group A: 12 | Group B: 9 | Group C: 9
+    Topic '3. Motions of the Earth' -> Group A: 2 | Group B: 0 | Group C: 0
+    Topic '5. Major Domains of the Earth' -> Group A: 3 | Group B: 0 | Group C: 0
+    Topic '6. Major Landforms of the Earth' -> Group A: 2 | Group B: 0 | Group C: 0
+    Topic '7. Our Country - India' -> Group A: 10 | Group B: 0 | Group C: 0
+    Topic '11. Interior of the Earth' -> Group A: 12 | Group B: 11 | Group C: 10
+    Topic '13. Geomorphic Processes' -> Group A: 17 | Group B: 17 | Group C: 15
+    Topic '14. Landforms and their Evolution' -> Group A: 1 | Group B: 0 | Group C: 0
+    Topic '15. Composition and Structure of Atmosphere' -> Group A: 6 | Group B: 6 | Group C: 6
+    Topic '16. Solar Radiation, Heat Balance and Temperature' -> Group A: 4 | Group B: 2 | Group C: 2
+    Topic '17. Atmospheric Circulation and Weather Systems' -> Group A: 6 | Group B: 1 | Group C: 1
+    Topic '18. Water in the Atmosphere' -> Group A: 3 | Group B: 0 | Group C: 0
+    Topic '19. World Climate and Climate Change' -> Group A: 33 | Group B: 32 | Group C: 32
+    Topic '20. Water (Oceans)' -> Group A: 14 | Group B: 14 | Group C: 14
+    Topic '21. Movements of Ocean Water' -> Group A: 3 | Group B: 3 | Group C: 3
+    Topic '22. Biodiversity and Conservation' -> Group A: 2 | Group B: 2 | Group C: 2
+    Topic '23. India - Location' -> Group A: 9 | Group B: 9 | Group C: 9
+    Topic '24. Structure and Physiography' -> Group A: 200 | Group B: 190 | Group C: 183
+    Topic '25. Drainage System' -> Group A: 195 | Group B: 167 | Group C: 152
+    Topic '26. Climate' -> Group A: 30 | Group B: 26 | Group C: 25
+    Topic '27. Natural Vegetation' -> Group A: 38 | Group B: 28 | Group C: 26
+    Topic '28. Natural Hazards and Disasters' -> Group A: 3 | Group B: 2 | Group C: 2
+    Topic '35. Transport and Communication' -> Group A: 11 | Group B: 11 | Group C: 11
+    Topic '37. Population: Distribution, Density, Growth and Composition' -> Group A: 73 | Group B: 71 | Group C: 70
+    Topic '39. Land Resources and Agriculture' -> Group A: 185 | Group B: 156 | Group C: 148
+    Topic '40. Water Resources' -> Group A: 16 | Group B: 16 | Group C: 16
+    Topic '41. Mineral and Energy Resources' -> Group A: 124 | Group B: 105 | Group C: 99
+    Topic '43. Transport and Communication (India)' -> Group A: 6 | Group B: 0 | Group C: 0
+    Topic '45. Unclassified (Requires Deeper Mapping)' -> Group A: 21 | Group B: 0 | Group C: 0
+    === LIVE TOPIC AVAILABILITY END ===
+
+LiveTopicSelectionTest > reVerifyTopicSelection PASSED
+
+> Task :app:finalizeTestRoborazziDebug SKIPPED
+
+BUILD SUCCESSFUL in 19s
+33 actionable tasks: 33 executed
+Configuration cache entry reused.

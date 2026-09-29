@@ -1,0 +1,971 @@
+{
+  "sources": [
+    {
+      "sourceId": "SRC-001",
+      "filename": "Copy of our environmemnt class 7 - .pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 19029293,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-002",
+      "filename": "Earth's Magnetic Field, Dynamo theory, Magnetosphere - PMF IAS (1).pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 0,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-003",
+      "filename": "Environment (Apr 2025 - Nov 2025)_compressed.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Environment",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 11475969,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-004",
+      "filename": "Fundamental of Physical Geography (Class XI) 2.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Physical Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 6268672,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-005",
+      "filename": "Fundamentals of Human Geography (Class XII) 1.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Human Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 14069524,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-006",
+      "filename": "GEOGRAPHY 4.0 ENGLISH pdf (2)_new 21.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 16366821,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-007",
+      "filename": "geography_questions_in_UPSC_Prelims_05c936a1aa(1).pdf",
+      "sourceType": "EXAM",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 1785934,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-008",
+      "filename": "Geogrophy.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 17923023,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-009",
+      "filename": "Geomagnetism & Geomagnetic Reversal - UPSC - UPSC Notes A LotusArise IAS.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 0,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-010",
+      "filename": "India People and Economy (Class XII).pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Indian Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 6567166,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-011",
+      "filename": "India Physical Environment (Class XI) 2.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Indian Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 6127693,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-012",
+      "filename": "NCERT-Class-10-Geography.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC",
+        "RRB"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 8476189,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-013",
+      "filename": "NCERT-Class-9-Geography-1.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC",
+        "RRB"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 5059481,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-014",
+      "filename": "newGeography.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 3384356,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-015",
+      "filename": "Practical Work in Geography Part 1.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Practical Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 7343326,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-016",
+      "filename": "Practical Work in Geography Part 2.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Practical Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 4436871,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-017",
+      "filename": "question.pdf",
+      "sourceType": "EXAM",
+      "subject": "Mixed",
+      "examRelevance": [
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 1203814,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-018",
+      "filename": "social science class 8.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 15380205,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-019",
+      "filename": "VisionIAS Research And Analysis January 2025 Geography (10 Years UPSC PYQ Trend Analysis) (1)_compressed (1).pdf",
+      "sourceType": "PATTERN",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 16786993,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-020",
+      "filename": "fatman Geography 2nd Edition_Part1 new.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "BPSC"
+      ],
+      "readabilityStatus": "OCR_RECOVERED",
+      "extractionMethod": "Tesseract_OCR",
+      "size": 14406104,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "Requires OCR",
+      "priority": 2
+    },
+    {
+      "sourceId": "SRC-021",
+      "filename": "fatman Geography 2nd Edition_Part2_new 2.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "BPSC"
+      ],
+      "readabilityStatus": "OCR_RECOVERED",
+      "extractionMethod": "Tesseract_OCR",
+      "size": 13741852,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "Requires OCR",
+      "priority": 2
+    },
+    {
+      "sourceId": "SRC-022",
+      "filename": "fatman Geography 2nd Edition_Part5.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "BPSC"
+      ],
+      "readabilityStatus": "OCR_RECOVERED",
+      "extractionMethod": "Tesseract_OCR",
+      "size": 13334563,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "Requires OCR",
+      "priority": 2
+    },
+    {
+      "sourceId": "SRC-024",
+      "filename": "oxford-student-atlas-35-edition-freeupscmaterials.org__compressed.pdf",
+      "sourceType": "SPECIALIZED",
+      "subject": "Map Work",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "UNRECOVERABLE",
+      "extractionMethod": "FAILED",
+      "size": 3638964,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "Corrupted/Blank",
+      "priority": 0
+    },
+    {
+      "sourceId": "SRC-025",
+      "filename": "fatman Geography 2nd Edition_Part3.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "BPSC"
+      ],
+      "readabilityStatus": "UNRECOVERABLE",
+      "extractionMethod": "FAILED",
+      "size": 3580706,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "Corrupted/Blank",
+      "priority": 0
+    },
+    {
+      "sourceId": "SRC-026",
+      "filename": "fatman Geography 2nd Edition_Part4.pdf",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "BPSC"
+      ],
+      "readabilityStatus": "UNRECOVERABLE",
+      "extractionMethod": "FAILED",
+      "size": 3589021,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "Corrupted/Blank",
+      "priority": 0
+    },
+    {
+      "sourceId": "SRC-027",
+      "filename": "consolidated_grounding_merged.md",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 106756,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-028",
+      "filename": "geography-syllabus.md",
+      "sourceType": "PATTERN",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 8964,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-029",
+      "filename": "geography-syllabus-gs.md",
+      "sourceType": "PATTERN",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 2015,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-030",
+      "filename": "pyq-analysis-prelims.md",
+      "sourceType": "PATTERN",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 3142,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-031",
+      "filename": "examiner-pattern-guide.md",
+      "sourceType": "PATTERN",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 2525,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-032",
+      "filename": "exam-complexity-profiles.md",
+      "sourceType": "PATTERN",
+      "subject": "Mixed",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 504,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-033",
+      "filename": "gap_report.txt",
+      "sourceType": "PATTERN",
+      "subject": "Mixed",
+      "examRelevance": [
+        "UPSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 15759,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-034",
+      "filename": "question_extracted.txt",
+      "sourceType": "EXAM",
+      "subject": "Mixed",
+      "examRelevance": [
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 587484,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-035",
+      "filename": "extracted_ssc_qs.json",
+      "sourceType": "EXAM",
+      "subject": "Mixed",
+      "examRelevance": [
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 292036,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-036",
+      "filename": "geography_extracted.txt",
+      "sourceType": "EXAM",
+      "subject": "Geography",
+      "examRelevance": [
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 93490,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-037",
+      "filename": "geography_extracted_2.txt",
+      "sourceType": "EXAM",
+      "subject": "Geography",
+      "examRelevance": [
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "PyMuPDF/Native",
+      "size": 61976,
+      "pageCount": 0,
+      "provenance": "Supplied by User",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "SRC-ASSETS-001",
+      "filename": "consolidated_grounding.md",
+      "sourceType": "KNOWLEDGE",
+      "subject": "Geography",
+      "examRelevance": [
+        "UPSC",
+        "SSC"
+      ],
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Native",
+      "size": 570204,
+      "pageCount": 0,
+      "provenance": "Application Assets",
+      "knownProblems": "None",
+      "priority": 1
+    },
+    {
+      "sourceId": "CCAB2_PART01",
+      "parentSourceId": "CCAB2_SOURCE_SET",
+      "filename": "media_1787474758984.pdf",
+      "pageCount": 20,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Native Text",
+      "provenance": "Replacement source via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "CCAB2_PART02",
+      "parentSourceId": "CCAB2_SOURCE_SET",
+      "filename": "media_1787474759161.pdf",
+      "pageCount": 27,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Native Text",
+      "provenance": "Replacement source via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "CCAB2_PART03",
+      "parentSourceId": "CCAB2_SOURCE_SET",
+      "filename": "media_1787474759426.pdf",
+      "pageCount": 41,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Native Text",
+      "provenance": "Replacement source via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "CCAB2_PART04",
+      "parentSourceId": "CCAB2_SOURCE_SET",
+      "filename": "media_1787474759728.pdf",
+      "pageCount": 40,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Native Text",
+      "provenance": "Replacement source via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "CCAB2_PART05",
+      "parentSourceId": "CCAB2_SOURCE_SET",
+      "filename": "media_1787474760067.pdf",
+      "pageCount": 40,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Native Text",
+      "provenance": "Replacement source via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "CCAB2_PART06",
+      "parentSourceId": "CCAB2_SOURCE_SET",
+      "filename": "media_1787474874929.pdf",
+      "pageCount": 39,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Native Text",
+      "provenance": "Replacement source via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART01",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_1.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Cover, Index, Pages 1-3)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART02",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_2.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 4-9)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART03",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_3.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 10-15)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART04",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_4.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 16-21)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART05",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_5.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 22-27)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART06",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_6.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 28-33)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART07",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_7.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 34-39)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART08",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_8.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 40-45)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART09",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_9.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 46-51)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART10",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_10.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 52-57)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART11",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_11.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 58-63)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART12",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_12.pdf",
+      "pageCount": 5,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 64-68)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART13",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_13.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 69-74)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART14",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_14.pdf",
+      "pageCount": 6,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 75-80)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART15",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_15.pdf",
+      "pageCount": 5,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 81-85)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "FATMAN-FRESH-PART16",
+      "parentSourceId": "FATMAN_SOURCE_SET",
+      "filename": "media_fatman_16.pdf",
+      "pageCount": 5,
+      "readabilityStatus": "FULLY_READABLE",
+      "extractionMethod": "Vision_OCR",
+      "partLabel": "Parmar SSC Geography (Pages 86-90)",
+      "provenance": "Supplied by User via .user_uploaded",
+      "subject": "Geography",
+      "sourceType": "KNOWLEDGE"
+    },
+    {
+      "sourceId": "OXFORD_ATLAS_PART01",
+      "parentSourceId": "OXFORD_ATLAS_SOURCE_SET",
+      "filename": "oxford_atlas_fresh_batch1.pdf",
+      "pageCount": 16,
+      "edition": "35th Edition",
+      "readabilityStatus": "FULLY_READABLE",
+      "textStatus": "FULLY_READABLE",
+      "mapStatus": "GOOD",
+      "extractionMethod": "Vision",
+      "partLabel": "Oxford School Atlas (Pages Cover, Contents, 4-24)",
+      "provenance": "Supplied by User as Fresh Source",
+      "relationshipToOld": "REPLACEMENT (New uncorrupted scan of 35th Edition)",
+      "subject": "Geography",
+      "sourceType": "MAPS_AND_SPATIAL"
+    },
+    {
+      "sourceId": "OXFORD_ATLAS_PART02",
+      "parentSourceId": "OXFORD_ATLAS_SOURCE_SET",
+      "filename": "oxford_atlas_fresh_batch2a.pdf",
+      "pageCount": 16,
+      "edition": "35th Edition",
+      "readabilityStatus": "FULLY_READABLE",
+      "textStatus": "FULLY_READABLE",
+      "mapStatus": "GOOD",
+      "extractionMethod": "Vision",
+      "partLabel": "Oxford School Atlas (Pages 46-61)",
+      "provenance": "Supplied by User as Fresh Source",
+      "relationshipToOld": "REPLACEMENT (New uncorrupted scan of 35th Edition)",
+      "subject": "Geography",
+      "sourceType": "MAPS_AND_SPATIAL"
+    },
+    {
+      "sourceId": "OXFORD_ATLAS_PART03",
+      "parentSourceId": "OXFORD_ATLAS_SOURCE_SET",
+      "filename": "oxford_atlas_fresh_batch2b.pdf",
+      "pageCount": 16,
+      "edition": "35th Edition",
+      "readabilityStatus": "FULLY_READABLE",
+      "textStatus": "FULLY_READABLE",
+      "mapStatus": "GOOD",
+      "extractionMethod": "Vision",
+      "partLabel": "Oxford School Atlas (Pages 62-77)",
+      "provenance": "Supplied by User as Fresh Source",
+      "relationshipToOld": "REPLACEMENT (New uncorrupted scan of 35th Edition)",
+      "subject": "Geography",
+      "sourceType": "MAPS_AND_SPATIAL"
+    },
+    {
+      "sourceId": "OXFORD_ATLAS_PART04",
+      "parentSourceId": "OXFORD_ATLAS_SOURCE_SET",
+      "filename": "oxford_atlas_fresh_batch3a.pdf",
+      "pageCount": 16,
+      "edition": "35th Edition",
+      "readabilityStatus": "FULLY_READABLE",
+      "textStatus": "FULLY_READABLE",
+      "mapStatus": "GOOD",
+      "extractionMethod": "Vision",
+      "partLabel": "Oxford School Atlas (Pages 78-93)",
+      "provenance": "Supplied by User as Fresh Source",
+      "relationshipToOld": "REPLACEMENT (New uncorrupted scan of 35th Edition)",
+      "subject": "Geography",
+      "sourceType": "MAPS_AND_SPATIAL"
+    },
+    {
+      "sourceId": "OXFORD_ATLAS_PART05",
+      "parentSourceId": "OXFORD_ATLAS_SOURCE_SET",
+      "filename": "oxford_atlas_fresh_batch3b.pdf",
+      "pageCount": 16,
+      "edition": "35th Edition",
+      "readabilityStatus": "FULLY_READABLE",
+      "textStatus": "FULLY_READABLE",
+      "mapStatus": "GOOD",
+      "extractionMethod": "Vision",
+      "partLabel": "Oxford School Atlas (Pages 94-111)",
+      "provenance": "Supplied by User as Fresh Source",
+      "relationshipToOld": "REPLACEMENT (New uncorrupted scan of 35th Edition)",
+      "subject": "Geography",
+      "sourceType": "MAPS_AND_SPATIAL"
+    },
+    {
+      "sourceId": "OXFORD_ATLAS_PART06",
+      "parentSourceId": "OXFORD_ATLAS_SOURCE_SET",
+      "filename": "oxford_atlas_fresh_batch4.pdf",
+      "pageCount": 21,
+      "edition": "35th Edition",
+      "readabilityStatus": "FULLY_READABLE",
+      "textStatus": "FULLY_READABLE",
+      "mapStatus": "GOOD",
+      "extractionMethod": "Vision",
+      "partLabel": "Oxford School Atlas (Pages 112-131, Back Cover)",
+      "provenance": "Supplied by User as Fresh Source",
+      "relationshipToOld": "REPLACEMENT (New uncorrupted scan of 35th Edition)",
+      "subject": "Geography",
+      "sourceType": "MAPS_AND_SPATIAL"
+    }
+  ]
+}

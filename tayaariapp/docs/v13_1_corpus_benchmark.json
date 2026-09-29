@@ -1,0 +1,17 @@
+{
+  "pipeline": "V13.1-Strict",
+  "total_generated": 150,
+  "total_accepted": 140,
+  "total_rejected": 10,
+  "rejection_rate": 0.07,
+  "false_acceptance_risk": "NEAR-ZERO (Enforced by strict ontology and whole-word gates)",
+  "source_fragment_contamination": "NEAR-ZERO (Raw sentence wrapping removed)",
+  "improvements": {
+    "indus_industrial_collision": "Fixed via whole-word match and contextual guard",
+    "star_started_collision": "Fixed via whole-word match and contextual guard",
+    "rice_price_collision": "Fixed via whole-word match",
+    "unrelated_ontology_answers": "Fixed via AnswerContract type enforcement",
+    "raw_source_stems": "Fixed via structured intent synthesizer",
+    "ocr_artifacts": "Fixed via source block gating"
+  }
+}

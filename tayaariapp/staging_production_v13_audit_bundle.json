@@ -1,0 +1,740 @@
+{
+  "generated_at": "2026-09-10T10:37:52.927620+00:00",
+  "pipeline": "V13-Direct",
+  "quarantine_note": "PRODUCTION DB NOT MODIFIED. Quarantined for independent audit.",
+  "pyq_policy": "PYQ corpus: exam-design evidence only. No PYQ stems/options copied.",
+  "quality_gates": [
+    "EntityQualityGate",
+    "EvidenceQualityGate",
+    "OntologyDetectionGate",
+    "CorrectAnswerCanonicalizationGate",
+    "StemBuildGate",
+    "ThisEntityGate",
+    "AnswerDefensibilityGate",
+    "DistractorSiblingGate",
+    "StemLeakageGate",
+    "ExactDuplicateGate",
+    "NearDuplicateGate(82%)",
+    "SameFactLogicGate",
+    "AdversarialSelfAudit(5-checks)"
+  ],
+  "metrics": {
+    "generated_at": "2026-09-10T10:37:52.927620+00:00",
+    "elapsed_seconds": 34.1,
+    "pipeline": "V13-Direct",
+    "sources_used": [
+      "NCERT Class VI Geography",
+      "NCERT/Fatman Composite Extract 2",
+      "NCERT Class XI Physical Geography",
+      "NCERT Class XI India Environment",
+      "NCERT Class XII Human Geography",
+      "NCERT Class XII India Economy",
+      "NCERT Class IX Geography",
+      "NCERT Class X Geography",
+      "Supplementary Verified Corpus"
+    ],
+    "candidates_generated_pre_gate": 136,
+    "accepted": 135,
+    "rejected_total": 4640,
+    "rejection_reasons": {
+      "NO_ONTOLOGY_CATEGORY": 1961,
+      "ENTITY_INVALID": 1460,
+      "EVIDENCE_INVALID": 106,
+      "NEAR_DUPLICATE": 20,
+      "STEM_ANSWER_LEAKAGE": 506,
+      "CORRECT_ANSWER_NOT_IN_CATEGORY": 373,
+      "FACTUAL_WRONG_CAT_PLANET_FOR_NON_SOLAR": 32,
+      "SAME_FACT": 124,
+      "STEM_BUILD_FAILED": 49,
+      "FACTUAL_SMALLER_THAN_SELF": 1,
+      "FACTUAL_PERIHELION_NOT_PLANET": 1,
+      "FACTUAL_PENINSULA_DEF_WRONG_ANS": 1,
+      "EXACT_DUPLICATE": 5,
+      "UNKNOWN": 1
+    },
+    "cognitive_distribution": {
+      "UNDERSTAND": 119,
+      "RECALL": 2,
+      "APPLY": 11,
+      "COMPARE": 3
+    },
+    "exam_distribution": {
+      "SSC_CGL": 27,
+      "BPSC": 31,
+      "RRB_NTPC": 26,
+      "UPSC_CSE": 50,
+      "SSC_CHSL": 1
+    },
+    "difficulty_distribution": {
+      "Standard": 135
+    },
+    "topic_distribution": {
+      "Physical Geography": 34,
+      "The Earth in the Solar System": 9,
+      "Maps": 7,
+      "Major Domains of the Earth": 10,
+      "Major Landforms of the Earth": 33,
+      "India: Climate, Vegetation and Wildlife": 3,
+      "Oceanography": 2,
+      "Our Country — India": 5,
+      "Mineral and Power Resources": 3,
+      "Globe: Latitudes and Longitudes": 5,
+      "Drainage and Rivers of India": 8,
+      "Indian Monsoon and Climate": 2,
+      "Agriculture": 2,
+      "Industries": 4,
+      "Energy Resources": 2,
+      "Transport and Communication": 3,
+      "International Trade": 3
+    },
+    "currentness_distribution": {
+      "HISTORICAL": 135
+    },
+    "topics_covered": 17,
+    "exact_duplicates_caught": 5,
+    "near_duplicates_caught": 20,
+    "same_fact_caught": 124,
+    "stem_invalid_caught": 49,
+    "adversarial_audit": {
+      "sample_size": 136,
+      "pass": 136,
+      "revise": 3,
+      "reject": 1,
+      "final_accepted": 135,
+      "rejection_details": [
+        {
+          "stem": "Which of the following is associated with the condition: Metamorphic rocks are r",
+          "flags": [
+            "CORRECT_NOT_IN_EVIDENCE"
+          ]
+        }
+      ]
+    },
+    "source_stats": {
+      "NCERT Class VI Geography": {
+        "generated": 16,
+        "accepted": 16,
+        "rejected": 107
+      },
+      "NCERT/Fatman Composite Extract 2": {
+        "generated": 9,
+        "accepted": 9,
+        "rejected": 88
+      },
+      "NCERT Class XI Physical Geography": {
+        "generated": 33,
+        "accepted": 33,
+        "rejected": 245
+      },
+      "NCERT Class XI India Environment": {
+        "generated": 20,
+        "accepted": 20,
+        "rejected": 91
+      },
+      "NCERT Class XII Human Geography": {
+        "generated": 31,
+        "accepted": 31,
+        "rejected": 84
+      },
+      "NCERT Class XII India Economy": {
+        "generated": 24,
+        "accepted": 24,
+        "rejected": 100
+      },
+      "NCERT Class IX Geography": {
+        "generated": 0,
+        "accepted": 0,
+        "rejected": 0
+      },
+      "NCERT Class X Geography": {
+        "generated": 3,
+        "accepted": 3,
+        "rejected": 21
+      },
+      "Supplementary Verified Corpus": {
+        "generated": 0,
+        "accepted": 0,
+        "rejected": 3
+      }
+    }
+  },
+  "audit_summary": {
+    "sample_size": 136,
+    "pass": 136,
+    "revise": 3,
+    "reject": 1,
+    "final_accepted": 135,
+    "rejection_details": [
+      {
+        "stem": "Which of the following is associated with the condition: Metamorphic rocks are r",
+        "flags": [
+          "CORRECT_NOT_IN_EVIDENCE"
+        ]
+      }
+    ]
+  },
+  "sample_accepted": [
+    {
+      "id": "b080272e-b700-4859-b4e4-fc9e90be1622",
+      "stem": "With reference to physical geography, which of the following is correctly described: Countless twinkling stars in the night sky are similar to the sun?",
+      "options": {
+        "a": "Star",
+        "b": "Meteoroid",
+        "c": "Planet",
+        "d": "Comet"
+      },
+      "correctAnswer": "opt_a",
+      "correctAnswerText": "Star",
+      "explanation": "Option (A) is correct. Countless twinkling stars in the night sky are similar to the sun. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "SSC_CGL",
+      "topicId": 6,
+      "topicName": "Physical Geography",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0001",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "b080272e-b700-4859-b4e4-fc9e90be1622",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "Countless twinkling stars in the night sky are similar to the sun.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "Countless twinkling stars in the night sky",
+        "generatedAt": "2026-09-10T10:37:19.008554+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "b",
+          "optionText": "Meteoroid",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Meteoroid is a different celestial types and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Planet",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Planet is a different celestial types and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Comet",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Comet is a different celestial types and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "cc5e9fe4-430b-4ba4-8c85-049baaf15486",
+      "stem": "Which of the following is correctly described as 'such constellation'?",
+      "options": {
+        "a": "Ursa Major",
+        "b": "Saptarishi",
+        "c": "Gemini",
+        "d": "Scorpius"
+      },
+      "correctAnswer": "opt_a",
+      "correctAnswerText": "Ursa Major",
+      "explanation": "Option (A) is correct. Ursa Major or Big Bear is one such constellation. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "BPSC",
+      "topicId": 1,
+      "topicName": "The Earth in the Solar System",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0002",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "cc5e9fe4-430b-4ba4-8c85-049baaf15486",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "Ursa Major or Big Bear is one such constellation.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "Ursa Major or Big Bear",
+        "generatedAt": "2026-09-10T10:37:19.035600+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "b",
+          "optionText": "Saptarishi",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Saptarishi is a different stars constellations and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Gemini",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Gemini is a different stars constellations and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Scorpius",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Scorpius is a different stars constellations and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "648fb98e-a368-45df-a73b-bf84b8a0e187",
+      "stem": "Which planet is nearest to the sun?",
+      "options": {
+        "a": "Earth",
+        "b": "Neptune",
+        "c": "Mercury",
+        "d": "Venus"
+      },
+      "correctAnswer": "opt_c",
+      "correctAnswerText": "Mercury",
+      "explanation": "Option (C) is correct. Mercury is nearest to the sun. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "RECALL",
+      "examTarget": "RRB_NTPC",
+      "topicId": 1,
+      "topicName": "The Earth in the Solar System",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0003",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "648fb98e-a368-45df-a73b-bf84b8a0e187",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "Mercury is nearest to the sun.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "Mercury",
+        "generatedAt": "2026-09-10T10:37:19.052647+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "a",
+          "optionText": "Earth",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Earth is a different planets and does not match the described fact."
+        },
+        {
+          "option": "b",
+          "optionText": "Neptune",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Neptune is a different planets and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Venus",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Venus is a different planets and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "f1d6e1ac-5043-4cff-96b6-9cce73ff14f1",
+      "stem": "With reference to physical geography, which of the following is correctly described: However, in a meeting of the International Astronomical Union, a decision was taken that Pluto like other celestial objects (Ceres, 2003?",
+      "options": {
+        "a": "Iron ore",
+        "b": "Mica",
+        "c": "Gold",
+        "d": "Copper"
+      },
+      "correctAnswer": "opt_b",
+      "correctAnswerText": "Mica",
+      "explanation": "Option (B) is correct. However, in a meeting of the International Astronomical Union, a decision was taken that Pluto like other celestial objects (Ceres, 2003. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "UPSC_CSE",
+      "topicId": 6,
+      "topicName": "Physical Geography",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0004",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "f1d6e1ac-5043-4cff-96b6-9cce73ff14f1",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "However, in a meeting of the International Astronomical Union, a decision was taken that Pluto like other celestial objects (Ceres, 2003",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "However, in a meeting of the International Astronomical Union, a decision",
+        "generatedAt": "2026-09-10T10:37:19.055645+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "a",
+          "optionText": "Iron ore",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Iron ore is a different minerals and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Gold",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Gold is a different minerals and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Copper",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Copper is a different minerals and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "5e5adebf-366b-4545-98dd-5b2047184908",
+      "stem": "Which of the following is correctly described as 'third nearest planet to the sun'?",
+      "options": {
+        "a": "Mercury",
+        "b": "Earth",
+        "c": "Mars",
+        "d": "Uranus"
+      },
+      "correctAnswer": "opt_b",
+      "correctAnswerText": "Earth",
+      "explanation": "Option (B) is correct. The earth is the third nearest planet to the sun. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "SSC_CGL",
+      "topicId": 1,
+      "topicName": "The Earth in the Solar System",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0005",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "5e5adebf-366b-4545-98dd-5b2047184908",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "The earth is the third nearest planet to the sun.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "earth",
+        "generatedAt": "2026-09-10T10:37:19.057825+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "a",
+          "optionText": "Mercury",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Mercury is a different planets and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Mars",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Mars is a different planets and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Uranus",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Uranus is a different planets and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "60d5d1dd-c83b-45fe-9cb9-2dc3b6757322",
+      "stem": "Which of the following is correctly described as 'artificial body'?",
+      "options": {
+        "a": "Satellite",
+        "b": "Comet",
+        "c": "Meteoroid",
+        "d": "Planet"
+      },
+      "correctAnswer": "opt_a",
+      "correctAnswerText": "Satellite",
+      "explanation": "Option (A) is correct. A Human-made Satellite is an artificial body. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "RRB_NTPC",
+      "topicId": 6,
+      "topicName": "Physical Geography",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0006",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "60d5d1dd-c83b-45fe-9cb9-2dc3b6757322",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "A Human-made Satellite is an artificial body.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "Human-made Satellite",
+        "generatedAt": "2026-09-10T10:37:19.068355+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "b",
+          "optionText": "Comet",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Comet is a different celestial types and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Meteoroid",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Meteoroid is a different celestial types and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Planet",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Planet is a different celestial types and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "4af2462c-e819-4ee3-9167-2cf2cf16681f",
+      "stem": "With reference to physical geography, which of the following is correctly described: The small pieces of rocks which move around the sun are called meteoroids?",
+      "options": {
+        "a": "Satellite",
+        "b": "Asteroid",
+        "c": "Galaxy",
+        "d": "Meteoroid"
+      },
+      "correctAnswer": "opt_d",
+      "correctAnswerText": "Meteoroid",
+      "explanation": "Option (D) is correct. The small pieces of rocks which move around the sun are called meteoroids. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "UPSC_CSE",
+      "topicId": 1,
+      "topicName": "The Earth in the Solar System",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0007",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "4af2462c-e819-4ee3-9167-2cf2cf16681f",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "The small pieces of rocks which move around the sun are called meteoroids.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "meteoroids",
+        "generatedAt": "2026-09-10T10:37:19.076729+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "a",
+          "optionText": "Satellite",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Satellite is a different celestial types and does not match the described fact."
+        },
+        {
+          "option": "b",
+          "optionText": "Asteroid",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Asteroid is a different celestial types and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Galaxy",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Galaxy is a different celestial types and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "2f331789-3eeb-4fdb-8513-14205d957f42",
+      "stem": "With reference to physical geography, which of the following is correctly described: Maps showing cities, towns and villages, and different countries and states of the world with their boundaries are called political maps?",
+      "options": {
+        "a": "Road Map",
+        "b": "Political Map",
+        "c": "Topographic Map",
+        "d": "Physical Map"
+      },
+      "correctAnswer": "opt_b",
+      "correctAnswerText": "Political Map",
+      "explanation": "Option (B) is correct. Maps showing cities, towns and villages, and different countries and states of the world with their boundaries are called political maps. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "SSC_CGL",
+      "topicId": 4,
+      "topicName": "Maps",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0008",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "2f331789-3eeb-4fdb-8513-14205d957f42",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "Maps showing cities, towns and villages, and different countries and states of the world with their boundaries are called political maps.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "political maps",
+        "generatedAt": "2026-09-10T10:37:19.201196+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "a",
+          "optionText": "Road Map",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Road Map is a different map types and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Topographic Map",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Topographic Map is a different map types and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Physical Map",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Physical Map is a different map types and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "986e2352-678f-41e1-ab1a-74a181043207",
+      "stem": "Which of the following is correctly described as 'narrow zone where we find land, water and air together, which contains all forms of life'?",
+      "options": {
+        "a": "Lithosphere",
+        "b": "Atmosphere",
+        "c": "Biosphere",
+        "d": "Hydrosphere"
+      },
+      "correctAnswer": "opt_c",
+      "correctAnswerText": "Biosphere",
+      "explanation": "Option (C) is correct. The Biosphere is the narrow zone where we find land, water and air together, which contains all forms of life. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "RRB_NTPC",
+      "topicId": 5,
+      "topicName": "Major Domains of the Earth",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0009",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "986e2352-678f-41e1-ab1a-74a181043207",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "The Biosphere is the narrow zone where we find land, water and air together, which contains all forms of life.",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "Biosphere",
+        "generatedAt": "2026-09-10T10:37:19.227015+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "a",
+          "optionText": "Lithosphere",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Lithosphere is a different domains and does not match the described fact."
+        },
+        {
+          "option": "b",
+          "optionText": "Atmosphere",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Atmosphere is a different domains and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Hydrosphere",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Hydrosphere is a different domains and does not match the described fact."
+        }
+      ],
+      "valid": true
+    },
+    {
+      "id": "1d425e43-f75c-4b53-867b-303f577aee65",
+      "stem": "With reference to physical geography, which of the following is correctly described: Asia is separated from Europe by the Ural mountains on the west (Figure?",
+      "options": {
+        "a": "Canyon",
+        "b": "Mountain",
+        "c": "Plateau",
+        "d": "Archipelago"
+      },
+      "correctAnswer": "opt_b",
+      "correctAnswerText": "Mountain",
+      "explanation": "Option (B) is correct. Asia is separated from Europe by the Ural mountains on the west (Figure. [Source: NCERT Class VI Geography]",
+      "cognitiveDemand": "UNDERSTAND",
+      "examTarget": "BPSC",
+      "topicId": 6,
+      "topicName": "Major Landforms of the Earth",
+      "tier": "Standard",
+      "format": "Direct Fact",
+      "pdfSequenceNumber": "V13-PROD-0010",
+      "currentnessStatus": "HISTORICAL",
+      "provenance": {
+        "questionId": "1d425e43-f75c-4b53-867b-303f577aee65",
+        "sourceId": "ncert_vi_geo",
+        "sourceLabel": "NCERT Class VI Geography",
+        "evidenceExcerpt": "Asia is separated from Europe by the Ural mountains on the west (Figure",
+        "currentnessStatus": "HISTORICAL",
+        "entity": "Asia",
+        "generatedAt": "2026-09-10T10:37:19.236230+00:00"
+      },
+      "distractorDissections": [
+        {
+          "option": "a",
+          "optionText": "Canyon",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Canyon is a different landforms and does not match the described fact."
+        },
+        {
+          "option": "c",
+          "optionText": "Plateau",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Plateau is a different landforms and does not match the described fact."
+        },
+        {
+          "option": "d",
+          "optionText": "Archipelago",
+          "trapType": "FACT_DISTORTION",
+          "rationale": "Archipelago is a different landforms and does not match the described fact."
+        }
+      ],
+      "valid": true
+    }
+  ],
+  "sample_rejected": [
+    {
+      "reason": "NO_ONTOLOGY_CATEGORY",
+      "entity": "whole sky",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "ENTITY_INVALID",
+      "entity": "you can watch the night sky best, provided it",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "NO_ONTOLOGY_CATEGORY",
+      "entity": "celestial bodies",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "ENTITY_INVALID",
+      "entity": "Some celestial bodies",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "ENTITY_INVALID",
+      "entity": "These celestial bodies",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "ENTITY_INVALID",
+      "entity": "sun",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "ENTITY_INVALID",
+      "entity": "But we do not feel their heat or light, and they look so tin",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "EVIDENCE_INVALID",
+      "evidence": "circle part of the paper on the glass front and wrap the wit",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "ENTITY_INVALID",
+      "entity": "You must",
+      "source": "ncert_vi_geo"
+    },
+    {
+      "reason": "ENTITY_INVALID",
+      "entity": "One of the most easily recognisable constellation",
+      "source": "ncert_vi_geo"
+    }
+  ]
+}

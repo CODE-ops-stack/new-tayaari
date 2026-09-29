@@ -1,0 +1,49 @@
+{
+  "Valid claims": 1,
+  "Question opportunities": 0,
+  "Accepted": 0,
+  "Rejected": 3761,
+  "Examples": [],
+  "RejectedExamples": [
+    {
+      "sentence": "| Topic | Tier | Current Count | Target Quota | Gap | Recommended Source | |---|---|---|---|---|---| | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Basic | 32 | 15 | -17 | - | | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Medium | 1 | 10 | 9 | NCERT chapters related to 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Basic | 12 | 15 | 3 | NCERT chapters related to 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Medium | 0 | 10 | 10 | NCERT chapters related to 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) | | 3.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "contents": [
+    {
+      "parts": [
+        {
+          "text": "Write a JSON object containing a difficult UPSC-level multiple choice question about Indian Rivers, with 4 options and correct answer. Do not include markdown tags."
+        }
+      ]
+    }
+  ],
+  "generationConfig": {
+    "responseMimeType": "application/json",
+    "maxOutputTokens": 8192
+  }
+}

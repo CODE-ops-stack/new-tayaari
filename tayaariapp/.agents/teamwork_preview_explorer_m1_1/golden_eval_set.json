@@ -1,0 +1,2274 @@
+{
+  "version": "1.0.0",
+  "name": "V13 Golden Evaluation Dataset",
+  "description": "Gold standard evaluation dataset for benchmarking educational knowledge extraction pipelines against real NCERT, SSC PYQ, and Geography study corpus. Contains verified positive examples spanning all 14 R2 semantic intents and realistic negative examples spanning 6 corpus failure categories.",
+  "schema_definition": {
+    "type": "object",
+    "required": [
+      "version",
+      "metadata",
+      "examples"
+    ],
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "metadata": {
+        "type": "object"
+      },
+      "examples": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "text",
+            "expected_label",
+            "intent",
+            "provenance"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "expected_label": {
+              "type": "string",
+              "enum": [
+                "positive",
+                "negative"
+              ]
+            },
+            "intent": {
+              "type": "string",
+              "enum": [
+                "definition",
+                "attribute",
+                "cause/effect",
+                "comparison",
+                "spatial",
+                "distribution",
+                "classification",
+                "quantity",
+                "sequence",
+                "condition",
+                "exception",
+                "process",
+                "part-of",
+                "member-of",
+                "none"
+              ]
+            },
+            "rejection_category": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "mcq_leakage",
+                "watermark_header",
+                "syntactic_fragment",
+                "broken_reading_order",
+                "table_formatting_artifact",
+                "anaphoric_unresolved",
+                null
+              ]
+            },
+            "rejection_reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "type": "object",
+              "required": [
+                "source_file",
+                "line_or_page"
+              ],
+              "properties": {
+                "source_file": {
+                  "type": "string"
+                },
+                "line_or_page": {
+                  "type": "string"
+                },
+                "raw_context": {
+                  "type": "string"
+                }
+              }
+            },
+            "semantic_entities": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "primary_entity": {
+                  "type": "string"
+                },
+                "predicate": {
+                  "type": "string"
+                },
+                "secondary_entities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "rationale": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "metadata": {
+    "total_examples": 111,
+    "positive_count": 56,
+    "negative_count": 55,
+    "intent_distribution": {
+      "definition": 4,
+      "attribute": 4,
+      "cause/effect": 4,
+      "comparison": 4,
+      "spatial": 4,
+      "distribution": 4,
+      "classification": 4,
+      "quantity": 4,
+      "sequence": 4,
+      "condition": 4,
+      "exception": 4,
+      "process": 4,
+      "part-of": 4,
+      "member-of": 4
+    },
+    "negative_distribution": {
+      "mcq_leakage": 10,
+      "watermark_header": 9,
+      "syntactic_fragment": 9,
+      "broken_reading_order": 9,
+      "table_formatting_artifact": 9,
+      "anaphoric_unresolved": 9
+    }
+  },
+  "examples": [
+    {
+      "id": "POS-001",
+      "text": "The sun, the moon and all those objects shining in the night sky are called celestial bodies.",
+      "expected_label": "positive",
+      "intent": "definition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 36-37",
+        "raw_context": "Do you wonder why can't we see the moon... The sun, the moon and all those objects shining in the night sky are called celestial bodies."
+      },
+      "semantic_entities": {
+        "primary_entity": "celestial bodies",
+        "predicate": "are objects shining in the night sky including the sun and moon",
+        "secondary_entities": [
+          "sun",
+          "moon",
+          "night sky"
+        ]
+      },
+      "rationale": "Canonical NCERT definition establishing the ontological umbrella concept for all astronomical bodies."
+    },
+    {
+      "id": "POS-002",
+      "text": "Solar wind is a constant stream of charged particles, mostly protons and electrons, released from the Sun's upper atmosphere, known as the corona.",
+      "expected_label": "positive",
+      "intent": "definition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 12-16",
+        "raw_context": "Sol.1.(b) Solar wind. It is a constant stream of charged particles (mostly protons and electrons) that are released from the Sun's upper atmosphere, known as the corona."
+      },
+      "semantic_entities": {
+        "primary_entity": "solar wind",
+        "predicate": "is a constant stream of charged particles (protons and electrons) released from the corona",
+        "secondary_entities": [
+          "corona",
+          "Sun's upper atmosphere",
+          "protons",
+          "electrons"
+        ]
+      },
+      "rationale": "Defines solar wind by specifying its constituent particles, emission source, and dynamic flow nature."
+    },
+    {
+      "id": "POS-003",
+      "text": "A galaxy is a massive collection of stars, gas, dust, and dark matter held together by gravity.",
+      "expected_label": "positive",
+      "intent": "definition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 33-39",
+        "raw_context": "A massive collection of stars, gas, dust and dark matter held together by gravity. Our Galaxy is Milky Way."
+      },
+      "semantic_entities": {
+        "primary_entity": "galaxy",
+        "predicate": "is a massive gravitationally bound system of stars, interstellar gas, dust, and dark matter",
+        "secondary_entities": [
+          "stars",
+          "gas",
+          "dust",
+          "dark matter",
+          "gravity"
+        ]
+      },
+      "rationale": "Provides the formal astrophysical definition of a galaxy based on constituent matter and gravitational binding."
+    },
+    {
+      "id": "POS-004",
+      "text": "The point on the surface of the Earth situated directly above the seismic focus is defined as the epicenter.",
+      "expected_label": "positive",
+      "intent": "definition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "corpus_data.json",
+        "line_or_page": "concept: Hypocenter vs Epicenter (NCERT Class 11 Physical Geography p.26)",
+        "raw_context": "The point within the Earth where an earthquake rupture starts is the hypocenter (focus). The point directly above it on the surface of the Earth is called the epicenter."
+      },
+      "semantic_entities": {
+        "primary_entity": "epicenter",
+        "predicate": "is the point on the Earth's surface directly above the earthquake focus/hypocenter",
+        "secondary_entities": [
+          "earthquake focus",
+          "hypocenter",
+          "Earth's surface"
+        ]
+      },
+      "rationale": "High-frequency exam definition clearly differentiating surface locus (epicenter) from subsurface origin (hypocenter)."
+    },
+    {
+      "id": "POS-005",
+      "text": "Celestial bodies classified as stars are very big and hot, are made up of gases, and possess their own heat and light which they emit in large amounts.",
+      "expected_label": "positive",
+      "intent": "attribute",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 38-40",
+        "raw_context": "Some celestial bodies are very big and hot. They are made up of gases. They have their own heat and light, which they emit in large amounts. These celestial bodies are called stars."
+      },
+      "semantic_entities": {
+        "primary_entity": "stars",
+        "predicate": "are composed of hot gases and emit self-generated heat and light",
+        "secondary_entities": [
+          "gases",
+          "heat",
+          "light"
+        ]
+      },
+      "rationale": "Describes intrinsic physical properties and thermodynamic attributes characteristic of stars."
+    },
+    {
+      "id": "POS-006",
+      "text": "Primary waves (P-waves) are longitudinal compressional waves that vibrate parallel to the direction of wave propagation.",
+      "expected_label": "positive",
+      "intent": "attribute",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "corpus_data.json",
+        "line_or_page": "concept: P-Waves Nature (NCERT Class 11 Physical Geography p.27)",
+        "raw_context": "Primary (P) waves are longitudinal (compressional) waves, meaning they push and pull the rock in the direction of wave travel."
+      },
+      "semantic_entities": {
+        "primary_entity": "Primary waves (P-waves)",
+        "predicate": "vibrate longitudinally as compressional waves parallel to wave motion",
+        "secondary_entities": [
+          "longitudinal waves",
+          "compressional waves"
+        ]
+      },
+      "rationale": "Specifies fundamental kinematic and acoustic wave attributes distinguishing P-waves."
+    },
+    {
+      "id": "POS-007",
+      "text": "Saturn has the lowest mean density among all planets in the Solar System at 0.69 grams per cubic centimeter, making it less dense than water.",
+      "expected_label": "positive",
+      "intent": "attribute",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 351-354",
+        "raw_context": "Saturn has least density (0.69 g/cm cube), it can float on water."
+      },
+      "semantic_entities": {
+        "primary_entity": "Saturn",
+        "predicate": "has a mean density of 0.69 g/cm3, lower than liquid water",
+        "secondary_entities": [
+          "density",
+          "water",
+          "Solar System planets"
+        ]
+      },
+      "rationale": "Highlights an iconic physical attribute of planetary mass density frequently tested in SSC and State PCS exams."
+    },
+    {
+      "id": "POS-008",
+      "text": "The tropical rainforest ecosystem is characterized by extreme biodiversity, multi-layered forest canopies, and continuous year-round vegetative growth.",
+      "expected_label": "positive",
+      "intent": "attribute",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/supplementary_corpus.txt",
+        "line_or_page": "line 1",
+        "raw_context": "The tropical rainforest ecosystem is characterized by extreme biodiversity and high precipitation. The continuous canopy leads to the development of complex, multi-layered forest canopies..."
+      },
+      "semantic_entities": {
+        "primary_entity": "tropical rainforest ecosystem",
+        "predicate": "features extreme biodiversity and a multi-layered continuous canopy",
+        "secondary_entities": [
+          "biodiversity",
+          "canopy",
+          "precipitation"
+        ]
+      },
+      "rationale": "Identifies diagnostic ecological attributes of the equatorial rainforest biome."
+    },
+    {
+      "id": "POS-009",
+      "text": "Solar storms release high-energy charged particles and electromagnetic radiation that disturb Earth's magnetosphere, inducing currents that disrupt GPS accuracy, power grids, and submarine communication cables.",
+      "expected_label": "positive",
+      "intent": "cause/effect",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 34-41",
+        "raw_context": "Sol.2.(d) 1, 2, 3, and 4 all of these. Solar storms release high-energy charged particles and electromagnetic radiation that disturb Earth's magnetosphere. This can disrupt GPS accuracy, power grids, submarine cables, and pipelines..."
+      },
+      "semantic_entities": {
+        "primary_entity": "solar storms",
+        "predicate": "induce geomagnetic disturbances that disrupt power grids and communications",
+        "secondary_entities": [
+          "Earth's magnetosphere",
+          "GPS systems",
+          "power transmission grids",
+          "submarine cables"
+        ]
+      },
+      "rationale": "Exemplifies multi-target causal chain linking solar coronal ejections to terrestrial technological disruptions."
+    },
+    {
+      "id": "POS-010",
+      "text": "The subduction of oceanic tectonic plates beneath continental margins causes deep-focus earthquakes and explosive volcanic arc activity due to intense crustal convergence.",
+      "expected_label": "positive",
+      "intent": "cause/effect",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "test_discovery_regression.py",
+        "line_or_page": "line 9 / NCERT Physical Geography Ch.4",
+        "raw_context": "The massive subduction zone causes deep earthquakes due to tectonic plate convergence."
+      },
+      "semantic_entities": {
+        "primary_entity": "subduction of oceanic plates",
+        "predicate": "triggers deep-focus earthquakes and volcanism via plate convergence",
+        "secondary_entities": [
+          "deep-focus earthquakes",
+          "volcanic arcs",
+          "tectonic plate convergence"
+        ]
+      },
+      "rationale": "Clear geological causal relationship explaining seismicity from plate subduction mechanics."
+    },
+    {
+      "id": "POS-011",
+      "text": "Abundant year-round precipitation and high temperatures lead to the development of complex, dense, multi-layered forest canopies in equatorial zones.",
+      "expected_label": "positive",
+      "intent": "cause/effect",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/supplementary_corpus.txt",
+        "line_or_page": "line 1",
+        "raw_context": "The continuous canopy leads to the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth."
+      },
+      "semantic_entities": {
+        "primary_entity": "abundant rainfall and warmth",
+        "predicate": "drives the structural evolution of dense multi-layered forest canopies",
+        "secondary_entities": [
+          "continuous canopy",
+          "multi-layered forest structure"
+        ]
+      },
+      "rationale": "Explains ecological causality linking bioclimatic inputs to structural forest architecture."
+    },
+    {
+      "id": "POS-012",
+      "text": "The continuous denudational action of running water and wind causes the wearing down of highland relief through erosion, while depositing eroded debris to build up lowland depositional plains.",
+      "expected_label": "positive",
+      "intent": "cause/effect",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1698-1702",
+        "raw_context": "The surface is being lowered by the process of erosion and rebuilt by the process of deposition. These two processes are carried out by running water, ice and wind."
+      },
+      "semantic_entities": {
+        "primary_entity": "running water, ice, and wind",
+        "predicate": "lower landforms via erosion and construct plains via deposition",
+        "secondary_entities": [
+          "erosion",
+          "deposition",
+          "lowland plains"
+        ]
+      },
+      "rationale": "Foundational geomorphological cause-and-effect principle governing landscape evolution."
+    },
+    {
+      "id": "POS-013",
+      "text": "Primary seismic waves are compressional waves that propagate through solids, liquids, and gases, whereas secondary seismic waves are shear waves that can travel exclusively through solid materials.",
+      "expected_label": "positive",
+      "intent": "comparison",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "corpus_data.json",
+        "line_or_page": "concept: P-Waves vs S-Waves (NCERT Class 11 Physical Geography p.27)",
+        "raw_context": "Primary (P) waves are longitudinal (compressional) waves... Secondary (S) waves are transverse (shear) waves... S-waves can only travel through solid materials."
+      },
+      "semantic_entities": {
+        "primary_entity": "Primary seismic waves",
+        "predicate": "travel through all states of matter, unlike secondary waves which travel only through solids",
+        "secondary_entities": [
+          "Secondary seismic waves",
+          "solids",
+          "liquids"
+        ]
+      },
+      "rationale": "Archetypal contrast between P and S waves testing fundamental physics of earthquake wave propagation."
+    },
+    {
+      "id": "POS-014",
+      "text": "Parallels of latitude decrease in circumference progressively from the Equator toward the poles, whereas all meridians of longitude maintain identical lengths from pole to pole.",
+      "expected_label": "positive",
+      "intent": "comparison",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 658-662",
+        "raw_context": "Unlike parallels of latitude, all meridians are of equal length. Thus, it was difficult to number the meridians."
+      },
+      "semantic_entities": {
+        "primary_entity": "parallels of latitude",
+        "predicate": "vary in circumference, in contrast to meridians of longitude which are all equal in length",
+        "secondary_entities": [
+          "meridians of longitude",
+          "Equator",
+          "poles"
+        ]
+      },
+      "rationale": "High-value coordinate system comparison testing spatial geometry of latitude versus longitude."
+    },
+    {
+      "id": "POS-015",
+      "text": "Equatorial rainforests retain their foliage year-round without a synchronized shedding period, whereas temperate deciduous forests shed their leaves completely in autumn to conserve moisture during winter.",
+      "expected_label": "positive",
+      "intent": "comparison",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/supplementary_corpus.txt",
+        "line_or_page": "line 1",
+        "raw_context": "The continuous canopy leads to the development of complex... Temperate forests, whereas, shed their leaves seasonally."
+      },
+      "semantic_entities": {
+        "primary_entity": "equatorial rainforests",
+        "predicate": "remain evergreen, whereas temperate deciduous forests shed leaves seasonally",
+        "secondary_entities": [
+          "temperate deciduous forests",
+          "seasonal leaf shedding"
+        ]
+      },
+      "rationale": "Key biogeographical comparison contrasting tropical evergreen and temperate deciduous forest phenology."
+    },
+    {
+      "id": "POS-016",
+      "text": "Coastal locations such as Chennai experience minimal diurnal temperature variation due to the moderating maritime influence, whereas interior arid regions such as Jaisalmer exhibit extreme differences between daytime heat and nighttime cooling.",
+      "expected_label": "positive",
+      "intent": "comparison",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/consolidated_grounding.md",
+        "line_or_page": "Q454, lines 48-53",
+        "raw_context": "Q454. Which of the following groups of places in India has little differences in day and night temperatures? a) Chennai and Thiruvananthapuram b) Jaipur and Jaisalmer..."
+      },
+      "semantic_entities": {
+        "primary_entity": "coastal cities (Chennai)",
+        "predicate": "experience equable temperatures, unlike interior continental deserts (Jaisalmer) which have high diurnal ranges",
+        "secondary_entities": [
+          "interior desert regions (Jaisalmer)",
+          "diurnal temperature range",
+          "maritime influence"
+        ]
+      },
+      "rationale": "Core climatological comparison demonstrating continentality versus maritime moderating effect."
+    },
+    {
+      "id": "POS-017",
+      "text": "The Andromeda Galaxy is located approximately 2.5 million light-years from Earth, representing the nearest major spiral galaxy to our Milky Way.",
+      "expected_label": "positive",
+      "intent": "spatial",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 44-47",
+        "raw_context": "Andromeda is the nearest galaxy to Milky Way."
+      },
+      "semantic_entities": {
+        "primary_entity": "Andromeda Galaxy",
+        "predicate": "is the nearest major spiral galaxy located adjacent to the Milky Way",
+        "secondary_entities": [
+          "Milky Way Galaxy",
+          "Earth"
+        ]
+      },
+      "rationale": "Astronomical spatial proximity fact consistently tested in competitive general science papers."
+    },
+    {
+      "id": "POS-018",
+      "text": "The Narmada River flows westward through a linear tectonic rift valley situated between the Vindhya Range to the north and the Satpura Range to the south.",
+      "expected_label": "positive",
+      "intent": "spatial",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 2240-2248 / NCERT Class 6 & 11",
+        "raw_context": "The Narmada and Tapi flow through these ranges. These are west-flowing rivers that fall into the Arabian Sea."
+      },
+      "semantic_entities": {
+        "primary_entity": "Narmada River",
+        "predicate": "flows westward through a rift valley between the Vindhya and Satpura ranges",
+        "secondary_entities": [
+          "Vindhya Range",
+          "Satpura Range",
+          "Arabian Sea"
+        ]
+      },
+      "rationale": "Critical Indian physical geography spatial fact regarding drainage basins and structural grabens."
+    },
+    {
+      "id": "POS-019",
+      "text": "The Chota Nagpur Plateau is situated in eastern India across Jharkhand, western West Bengal, and northern Odisha, overlying the mineral-rich crystalline basement.",
+      "expected_label": "positive",
+      "intent": "spatial",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/supplementary_corpus.txt",
+        "line_or_page": "line 3",
+        "raw_context": "The distribution of coal and iron ore forms the backbone of heavy industry. The Chota Nagpur plateau comprises immense reserves of metallic minerals."
+      },
+      "semantic_entities": {
+        "primary_entity": "Chota Nagpur Plateau",
+        "predicate": "is situated across eastern India covering Jharkhand and adjoining states",
+        "secondary_entities": [
+          "eastern India",
+          "Jharkhand",
+          "metallic mineral reserves"
+        ]
+      },
+      "rationale": "High-priority regional physiographic location grounding India's mineral heartland."
+    },
+    {
+      "id": "POS-020",
+      "text": "The Tropic of Cancer is situated at 23 degrees 30 minutes North latitude and traverses eight Indian states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura, and Mizoram.",
+      "expected_label": "positive",
+      "intent": "spatial",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 540-545 / NCERT Class 6 Ch.2",
+        "raw_context": "Tropic of Cancer (23 1/2 N) in the Northern Hemisphere... passes almost halfway through the country (India)."
+      },
+      "semantic_entities": {
+        "primary_entity": "Tropic of Cancer",
+        "predicate": "is situated at 23.5 degrees North and bisects the Indian subcontinent across eight states",
+        "secondary_entities": [
+          "Northern Hemisphere",
+          "India",
+          "23.5 N latitude"
+        ]
+      },
+      "rationale": "Key spatial demarcation tested extensively in UPSC Prelims, BPSC, and SSC examinations."
+    },
+    {
+      "id": "POS-021",
+      "text": "More than 97 percent of the Earth's total water reserves are distributed in oceanic saltwater basins, while less than 3 percent constitutes freshwater, of which the majority is locked in polar ice sheets and glaciers.",
+      "expected_label": "positive",
+      "intent": "distribution",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1472-1476",
+        "raw_context": "More than 97% of the Earth's water is found in the oceans and is too salty for human use. A large proportion of the rest of the water is in the form of ice sheets and glaciers..."
+      },
+      "semantic_entities": {
+        "primary_entity": "Earth's water reserves",
+        "predicate": "are concentrated predominantly (97%) in oceans and polar ice sheets (glaciers)",
+        "secondary_entities": [
+          "oceans",
+          "polar ice sheets",
+          "freshwater"
+        ]
+      },
+      "rationale": "Standard global hydrospheric distribution statistic emphasized in all NCERT geography curricula."
+    },
+    {
+      "id": "POS-022",
+      "text": "High human population density is concentrated across the Indo-Gangetic plains as a result of deep fertile alluvial soils, flat terrain, and perennial snow-fed river systems.",
+      "expected_label": "positive",
+      "intent": "distribution",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/supplementary_corpus.txt",
+        "line_or_page": "line 5",
+        "raw_context": "High population density in the Indo-Gangetic plains occurs due to the fertile alluvial soil and abundant water supply. This demographic concentration differs from the sparse settlement in the Thar desert."
+      },
+      "semantic_entities": {
+        "primary_entity": "human population distribution",
+        "predicate": "is densely concentrated across the Indo-Gangetic river plains",
+        "secondary_entities": [
+          "Indo-Gangetic plains",
+          "alluvial soils",
+          "Thar desert"
+        ]
+      },
+      "rationale": "Demographic spatial distribution pattern linking agricultural carrying capacity to settlement density."
+    },
+    {
+      "id": "POS-023",
+      "text": "Tropical deciduous forests form the most widespread forest distribution in India, occupying regions that receive annual rainfall between 70 and 200 centimeters.",
+      "expected_label": "positive",
+      "intent": "distribution",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 2410-2416",
+        "raw_context": "TROPICAL DECIDUOUS FORESTS: In a large part of our country we have this type of forest. These forests are also called monsoon forests. They are less dense."
+      },
+      "semantic_entities": {
+        "primary_entity": "tropical deciduous forests",
+        "predicate": "are the most widely distributed forest type across India in the 70-200 cm rainfall belt",
+        "secondary_entities": [
+          "India",
+          "monsoon forests",
+          "annual rainfall"
+        ]
+      },
+      "rationale": "Essential phytogeographic distribution fact regarding India's dominant natural vegetation."
+    },
+    {
+      "id": "POS-024",
+      "text": "India's prime commercial metallurgical coking coal and high-grade hematite iron ore reserves are concentrated in the Damodar and Subarnarekha valley basins of the northeastern peninsular plateau.",
+      "expected_label": "positive",
+      "intent": "distribution",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/supplementary_corpus.txt",
+        "line_or_page": "line 3",
+        "raw_context": "The distribution of coal and iron ore forms the backbone of heavy industry. The Chota Nagpur plateau comprises immense reserves of metallic minerals."
+      },
+      "semantic_entities": {
+        "primary_entity": "coal and hematite iron ore deposits",
+        "predicate": "are heavily concentrated along the northeastern peninsular plateau and Damodar basin",
+        "secondary_entities": [
+          "Damodar valley",
+          "Chota Nagpur plateau",
+          "heavy industry"
+        ]
+      },
+      "rationale": "Economic geography resource distribution fact vital for industrial localization questions."
+    },
+    {
+      "id": "POS-025",
+      "text": "Geologists classify rocks into three fundamental genetic categories based on mode of origin: igneous rocks, sedimentary rocks, and metamorphic rocks.",
+      "expected_label": "positive",
+      "intent": "classification",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1720-1725 / NCERT Class 7 & 11",
+        "raw_context": "There are three major types of rocks: igneous rocks, sedimentary rocks and metamorphic rocks."
+      },
+      "semantic_entities": {
+        "primary_entity": "rocks",
+        "predicate": "are classified into igneous, sedimentary, and metamorphic types based on origin",
+        "secondary_entities": [
+          "igneous rocks",
+          "sedimentary rocks",
+          "metamorphic rocks"
+        ]
+      },
+      "rationale": "Textbook petrological taxonomy forming the bedrock of lithospheric physical geography."
+    },
+    {
+      "id": "POS-026",
+      "text": "Planets in our Solar System are divided into two distinct morphological classes: inner rocky terrestrial planets (Mercury, Venus, Earth, Mars) and outer Jovian gas giants (Jupiter, Saturn, Uranus, Neptune).",
+      "expected_label": "positive",
+      "intent": "classification",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 638-641",
+        "raw_context": "Planets are divided into two categories: terrestrial and Jovian. Terrestrial planets are inner, rocky planets..."
+      },
+      "semantic_entities": {
+        "primary_entity": "Solar System planets",
+        "predicate": "are classified into inner terrestrial rocky planets and outer Jovian gas giants",
+        "secondary_entities": [
+          "terrestrial planets",
+          "Jovian gas giants",
+          "inner planets",
+          "outer planets"
+        ]
+      },
+      "rationale": "Primary astronomical planetary classification required by both UPSC and SSC syllabi."
+    },
+    {
+      "id": "POS-027",
+      "text": "Plate tectonics classifies lithospheric plate margins into three major boundaries: divergent boundaries where plates pull apart, convergent boundaries where plates collide, and transform boundaries where plates slide past one another horizontally.",
+      "expected_label": "positive",
+      "intent": "classification",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 1218-1225",
+        "raw_context": "Three Types of Plate Boundaries: Divergent, Convergent, Transform plate boundaries."
+      },
+      "semantic_entities": {
+        "primary_entity": "tectonic plate boundaries",
+        "predicate": "are categorized into divergent, convergent, and transform boundaries",
+        "secondary_entities": [
+          "divergent boundaries",
+          "convergent boundaries",
+          "transform boundaries"
+        ]
+      },
+      "rationale": "Structural geology taxonomy establishing the dynamic interactions of lithospheric plates."
+    },
+    {
+      "id": "POS-028",
+      "text": "The Earth exhibits two primary categories of astronomical motion: rotation about its tilted polar axis and revolution along its elliptical orbit around the Sun.",
+      "expected_label": "positive",
+      "intent": "classification",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 863-866",
+        "raw_context": "As you know that the earth has two types of motions, namely rotation and revolution. Rotation is the movement of the earth on its axis. The movement of the earth around the sun in a fixed path or orbit is called Revolution."
+      },
+      "semantic_entities": {
+        "primary_entity": "Earth's astronomical motions",
+        "predicate": "are classified into axial rotation and orbital revolution",
+        "secondary_entities": [
+          "rotation",
+          "revolution",
+          "tilted axis",
+          "elliptical orbit"
+        ]
+      },
+      "rationale": "Fundamental kinematic classification governing day/night cycles and seasonal variations."
+    },
+    {
+      "id": "POS-029",
+      "text": "The Sun constitutes approximately 99.86 percent of the total cumulative mass of the entire Solar System, with the majority of the remainder concentrated in Jupiter.",
+      "expected_label": "positive",
+      "intent": "quantity",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 95-98",
+        "raw_context": "The Sun is at the center... It makes up for about 99.86% of the total mass of solar system."
+      },
+      "semantic_entities": {
+        "primary_entity": "Sun's mass proportion",
+        "predicate": "comprises 99.86% of the total mass of the Solar System",
+        "secondary_entities": [
+          "Solar System mass",
+          "Jupiter"
+        ]
+      },
+      "rationale": "Precise quantitative proportion establishing gravitational dominance in the solar system."
+    },
+    {
+      "id": "POS-030",
+      "text": "The mean orbital distance between the center of the Earth and the center of the Moon is approximately 384,400 kilometres.",
+      "expected_label": "positive",
+      "intent": "quantity",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 296-298",
+        "raw_context": "Our earth has only one satellite, that is, the moon... It is about 3,84,400 km away from us. Now you can compare the distance of the earth from the sun..."
+      },
+      "semantic_entities": {
+        "primary_entity": "Earth-Moon distance",
+        "predicate": "measures approximately 384,400 kilometres",
+        "secondary_entities": [
+          "Earth",
+          "Moon",
+          "orbital distance"
+        ]
+      },
+      "rationale": "Specific numerical spatial metric frequently queried in general competition science tests."
+    },
+    {
+      "id": "POS-031",
+      "text": "According to the Big Bang cosmological model, the universe originated approximately 13.8 billion years ago from a singularity of concentrated energy.",
+      "expected_label": "positive",
+      "intent": "quantity",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 15-17",
+        "raw_context": "It was an explosion of concentrated matter in the universe that occurred 13.8 billion years ago."
+      },
+      "semantic_entities": {
+        "primary_entity": "Big Bang cosmological event",
+        "predicate": "occurred 13.8 billion years ago",
+        "secondary_entities": [
+          "age of universe",
+          "singularity"
+        ]
+      },
+      "rationale": "Benchmark cosmological epoch measurement in standard geography syllabus."
+    },
+    {
+      "id": "POS-032",
+      "text": "The Earth's axis of rotation maintains a constant tilt of 66.5 degrees relative to its orbital plane (or 23.5 degrees relative to the perpendicular of the orbital plane).",
+      "expected_label": "positive",
+      "intent": "quantity",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 870-874",
+        "raw_context": "The axis of the earth which is an imaginary line, makes an angle of 66 1/2 with its orbital plane. The plane formed by the orbit is known as the orbital plane."
+      },
+      "semantic_entities": {
+        "primary_entity": "Earth's axial tilt angle",
+        "predicate": "measures 66.5 degrees to the orbital plane (23.5 degrees to the normal)",
+        "secondary_entities": [
+          "orbital plane",
+          "axial tilt"
+        ]
+      },
+      "rationale": "Critical geometric angle that determines seasonal variations and latitudinal insolations."
+    },
+    {
+      "id": "POS-033",
+      "text": "The stellar evolutionary life cycle of a solar-mass star progresses through a definite chronological sequence: gravitational collapse in a nebula to form a protostar, a long stable main sequence hydrogen-burning phase, expansion into a red giant, ejection of a planetary nebula, and cooling into a dense white dwarf remnant.",
+      "expected_label": "positive",
+      "intent": "sequence",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 75-94",
+        "raw_context": "Sol.4.(c) Main Sequence -> Red Giant -> White Dwarf. The life cycle of a medium-sized star (like our Sun) follows a specific sequence: 1. Nebula / Protostar stage 2. Main Sequence 3. Red Giant 4. White Dwarf."
+      },
+      "semantic_entities": {
+        "primary_entity": "stellar evolution sequence",
+        "predicate": "progresses from protostar -> main sequence -> red giant -> white dwarf",
+        "secondary_entities": [
+          "protostar",
+          "main sequence",
+          "red giant",
+          "white dwarf"
+        ]
+      },
+      "rationale": "Exemplary chronological sequence tested in competitive questions requiring ordinal arrangement."
+    },
+    {
+      "id": "POS-034",
+      "text": "The genesis of the Solar System commenced approximately 4.8 billion years ago with the gravitational collapse of a giant molecular cloud, followed by the formation of a rotating accretion disk, core ignition of the protosun, and subsequent accretion of planetesimals into planets.",
+      "expected_label": "positive",
+      "intent": "sequence",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 49-57",
+        "raw_context": "Origin of Solar System Began 4.8 Billion Years ago. The Process started when a cloud of gas and dust collapsed, forming a spinning disk called Nebula..."
+      },
+      "semantic_entities": {
+        "primary_entity": "nebular accretion sequence",
+        "predicate": "progresses from molecular cloud collapse -> spinning accretion disk -> central star ignition -> planetesimal accretion",
+        "secondary_entities": [
+          "nebula",
+          "protosun",
+          "planetesimals",
+          "planets"
+        ]
+      },
+      "rationale": "Sequential astronomical timeline underlying planetary formation theory."
+    },
+    {
+      "id": "POS-035",
+      "text": "In the geological rock cycle, primary igneous rocks formed from cooled magma are subjected to denudation and lithification to form sedimentary rocks, which upon subsequent subterranean heating and pressure metamorphose into metamorphic rocks, before potentially remelting into magma.",
+      "expected_label": "positive",
+      "intent": "sequence",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1730-1745 / NCERT Class 7 & 11",
+        "raw_context": "One type of rock changes to another type under certain conditions in a cyclic manner. This process of transformation of the rock from one to another is known as the rock cycle."
+      },
+      "semantic_entities": {
+        "primary_entity": "geological rock cycle",
+        "predicate": "progresses cyclically: magma cooling -> igneous -> sedimentation -> metamorphic -> remelting",
+        "secondary_entities": [
+          "magma",
+          "igneous rocks",
+          "sedimentary rocks",
+          "metamorphic rocks"
+        ]
+      },
+      "rationale": "Fundamental cyclical geological sequence illustrating continuous transformation of lithospheric matter."
+    },
+    {
+      "id": "POS-036",
+      "text": "During an earthquake rupture, high-velocity primary (P) waves arrive first at seismic monitoring stations, followed sequentially by secondary (S) shear waves, and concluded by destructive high-amplitude surface waves.",
+      "expected_label": "positive",
+      "intent": "sequence",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "corpus_data.json",
+        "line_or_page": "concept: Seismic Wave Sequence (NCERT Class 11 Physical Geography p.27)",
+        "raw_context": "P-waves are the first to arrive at the surface. S-waves arrive after some time lag. Surface waves arrive last and are the most damaging."
+      },
+      "semantic_entities": {
+        "primary_entity": "seismic wave arrival sequence",
+        "predicate": "arrives in order: P-waves first, S-waves second, and surface waves last",
+        "secondary_entities": [
+          "P-waves",
+          "S-waves",
+          "surface waves"
+        ]
+      },
+      "rationale": "Critical chronometric sequence used by geophysicists to calculate earthquake epicenter distance."
+    },
+    {
+      "id": "POS-037",
+      "text": "A solar eclipse occurs exclusively during the new moon phase when the Moon passes directly along the line of syzygy between the Sun and the Earth, projecting its umbral shadow onto Earth's surface.",
+      "expected_label": "positive",
+      "intent": "condition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 45-47",
+        "raw_context": "1. A solar eclipse- The Moon casts a shadow on Earth when it comes between the Sun and Earth."
+      },
+      "semantic_entities": {
+        "primary_entity": "solar eclipse occurrence",
+        "predicate": "requires the Moon to align directly between Sun and Earth during the new moon phase",
+        "secondary_entities": [
+          "new moon",
+          "syzygy",
+          "umbral shadow",
+          "Sun and Earth"
+        ]
+      },
+      "rationale": "High-yield condition rule clarifying the astronomical alignment prerequisite for solar eclipses."
+    },
+    {
+      "id": "POS-038",
+      "text": "A lunar eclipse occurs exclusively during a full moon night when the Earth aligns directly between the Sun and the Moon, projecting Earth's shadow across the lunar surface.",
+      "expected_label": "positive",
+      "intent": "condition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 57-62",
+        "raw_context": "Sol.3.(b) 1 only. Statement 2 : Incorrect. A lunar eclipse occurs at the full moon phase, not new moon. It happens when the Earth comes between the Sun and Moon, and Earth's shadow falls on the Moon."
+      },
+      "semantic_entities": {
+        "primary_entity": "lunar eclipse occurrence",
+        "predicate": "requires a full moon phase and exact alignment with Earth between Sun and Moon",
+        "secondary_entities": [
+          "full moon phase",
+          "Earth's shadow",
+          "Moon"
+        ]
+      },
+      "rationale": "Disproves common misconception regarding eclipse lunar phases by specifying rigorous conditions."
+    },
+    {
+      "id": "POS-039",
+      "text": "Atmospheric water vapor condenses into liquid cloud droplets only when a moist parcel of air cools to or below its dew point temperature in the presence of microscopic hygroscopic aerosol nuclei.",
+      "expected_label": "positive",
+      "intent": "condition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1490-1505 / NCERT Class 11 Physical Geography",
+        "raw_context": "When water vapor rises, it starts cooling. The water vapor condenses causing formation of droplets of water. Masses of such water droplets are what we call clouds."
+      },
+      "semantic_entities": {
+        "primary_entity": "condensation of atmospheric moisture",
+        "predicate": "occurs only when air cools below its dew point in the presence of condensation nuclei",
+        "secondary_entities": [
+          "dew point temperature",
+          "hygroscopic nuclei",
+          "cloud droplets"
+        ]
+      },
+      "rationale": "Essential thermodynamic condition governing cloud formation and precipitation mechanics."
+    },
+    {
+      "id": "POS-040",
+      "text": "Tropical cyclogenesis can occur only if sea surface temperatures exceed 27 degrees Celsius, upper tropospheric vertical wind shear remains low, and sufficient Coriolis force is present at least 5 degrees away from the equator.",
+      "expected_label": "positive",
+      "intent": "condition",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source_registry.json",
+        "line_or_page": "SRC-004 NCERT Class 11 Physical Geography Ch.10 (Atmospheric Circulation)",
+        "raw_context": "Conditions favorable for the formation and intensification of tropical storms are: (i) Large sea surface with temperature higher than 27 C; (ii) Presence of the Coriolis force; (iii) Small variations in the vertical wind speed..."
+      },
+      "semantic_entities": {
+        "primary_entity": "tropical cyclogenesis",
+        "predicate": "requires sea surface temperature > 27 C, low vertical wind shear, and Coriolis force",
+        "secondary_entities": [
+          "sea surface temperature",
+          "Coriolis force",
+          "vertical wind shear"
+        ]
+      },
+      "rationale": "Multi-conditional meteorological prerequisite standard across UPSC Civil Services and State PCS."
+    },
+    {
+      "id": "POS-041",
+      "text": "While nearly all planets in the Solar System rotate counter-clockwise from west to east on their axes, Venus and Uranus are unique exceptions that rotate clockwise in retrograde motion from east to west.",
+      "expected_label": "positive",
+      "intent": "exception",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 470-472",
+        "raw_context": "For everybody the spin should be anti-clock wise except for Venus and Uranus who will make it clockwise."
+      },
+      "semantic_entities": {
+        "primary_entity": "Venus and Uranus axial rotation",
+        "predicate": "rotate clockwise (retrograde) from east to west, unlike all other major planets",
+        "secondary_entities": [
+          "retrograde rotation",
+          "Solar System planets",
+          "west to east rotation"
+        ]
+      },
+      "rationale": "Prime astronomical exception tested in competitive exams for directional rotation rules."
+    },
+    {
+      "id": "POS-042",
+      "text": "Mercury and Venus are the only two planets in our entire Solar System that do not possess any natural satellites or moons orbiting them.",
+      "expected_label": "positive",
+      "intent": "exception",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 266-270",
+        "raw_context": "Only planet that has no satellite: Mercury & Venus have 0 satellites."
+      },
+      "semantic_entities": {
+        "primary_entity": "Mercury and Venus",
+        "predicate": "are the sole planets in the Solar System without any natural satellites",
+        "secondary_entities": [
+          "natural satellites",
+          "moons",
+          "Solar System planets"
+        ]
+      },
+      "rationale": "Categorical planetary exception distinguishing the innermost terrestrial planets."
+    },
+    {
+      "id": "POS-043",
+      "text": "Unlike the majority of peninsular Indian rivers that flow eastward into the Bay of Bengal, the Narmada and Tapi rivers flow westward through fault-guided rift valleys to drain into the Arabian Sea.",
+      "expected_label": "positive",
+      "intent": "exception",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 2240-2248",
+        "raw_context": "The Narmada and Tapi flow through these ranges. These are west-flowing rivers that fall into the Arabian Sea... while most other rivers flow into Bay of Bengal."
+      },
+      "semantic_entities": {
+        "primary_entity": "Narmada and Tapi rivers",
+        "predicate": "flow westward into the Arabian Sea, exceptional among major peninsular rivers",
+        "secondary_entities": [
+          "Arabian Sea",
+          "Bay of Bengal",
+          "peninsular Indian rivers"
+        ]
+      },
+      "rationale": "High-frequency hydrographic exception testing anomalous river drainage patterns in India."
+    },
+    {
+      "id": "POS-044",
+      "text": "Secondary seismic shear waves (S-waves) can propagate through solid rock media, but are uniquely incapable of transmitting through liquid layers such as the Earth's molten outer core.",
+      "expected_label": "positive",
+      "intent": "exception",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "corpus_data.json",
+        "line_or_page": "concept: S-Waves Liquid Shadow Zone (NCERT Class 11 Physical Geography p.28)",
+        "raw_context": "An important fact about S-waves is that they can travel only through solid materials. This characteristic of the S-waves has helped scientists to understand the structure of the interior of the earth."
+      },
+      "semantic_entities": {
+        "primary_entity": "Secondary seismic waves (S-waves)",
+        "predicate": "cannot travel through liquids, creating an extensive shadow zone beyond 105 degrees",
+        "secondary_entities": [
+          "Earth's outer core",
+          "liquid media",
+          "seismic shadow zone"
+        ]
+      },
+      "rationale": "Definitive physical exception providing direct seismic evidence for the liquid outer core."
+    },
+    {
+      "id": "POS-045",
+      "text": "Seafloor spreading is the geodynamic process whereby upwelling mantle magma rises along divergent mid-ocean ridge axes, solidifies into new oceanic basaltic crust, and drives older lithosphere outward on either side.",
+      "expected_label": "positive",
+      "intent": "process",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "corpus_data.json",
+        "line_or_page": "concept: Seafloor Spreading Theory (NCERT Class 11 Physical Geography p.33)",
+        "raw_context": "In the early 1960s, Harry Hess published the theory of seafloor spreading... constant eruptions at the crest of oceanic ridges cause the rupture of the oceanic crust and the new lava pushes the oceanic crust on either side."
+      },
+      "semantic_entities": {
+        "primary_entity": "seafloor spreading",
+        "predicate": "creates new basaltic crust at mid-ocean ridges and pushes older oceanic plates outward",
+        "secondary_entities": [
+          "mid-ocean ridges",
+          "mantle magma",
+          "oceanic basaltic crust"
+        ]
+      },
+      "rationale": "Prototypical geological process explaining the mechanism behind continental drift and plate tectonics."
+    },
+    {
+      "id": "POS-046",
+      "text": "Soil erosion is the denudational process in which fertile topsoil is gradually detached, transported, and deposited downstream by dynamic natural agents including surface runoff and wind.",
+      "expected_label": "positive",
+      "intent": "process",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1698-1704",
+        "raw_context": "The surface is being lowered by the process of erosion and rebuilt by the process of deposition. These two processes are carried out by running water, ice and wind."
+      },
+      "semantic_entities": {
+        "primary_entity": "soil erosion",
+        "predicate": "detaches and transports topsoil downhill via surface runoff, wind, and glacial action",
+        "secondary_entities": [
+          "topsoil",
+          "running water",
+          "denudation"
+        ]
+      },
+      "rationale": "Key geomorphological process operating continuously across terrestrial landscapes."
+    },
+    {
+      "id": "POS-047",
+      "text": "Convectional precipitation develops through a systematic thermodynamic process: intense diurnal insolation heats the ground surface, conductive warming causes air to expand and rise, adiabatic cooling leads to condensation at the lifting condensation level, generating towering cumulonimbus clouds and heavy rainfall.",
+      "expected_label": "positive",
+      "intent": "process",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1500-1512 / NCERT Class 11 Physical Geography",
+        "raw_context": "On the basis of mechanism, there are three major types of rainfall: the convectional rainfall, the orographic rainfall and the cyclonic rainfall."
+      },
+      "semantic_entities": {
+        "primary_entity": "convectional precipitation process",
+        "predicate": "involves surface solar heating, vertical air convection, adiabatic cooling, and cloud formation",
+        "secondary_entities": [
+          "solar insolation",
+          "adiabatic cooling",
+          "cumulonimbus clouds"
+        ]
+      },
+      "rationale": "Step-by-step atmospheric process explaining daily convective rainfall in the tropics."
+    },
+    {
+      "id": "POS-048",
+      "text": "The Andaman and Nicobar island arc was formed through the tectonic process of oceanic-oceanic subduction, wherein the northern edge of the Indo-Australian plate plunged beneath the Burma microplate, generating volcanic arcs and uplifting accretionary prism sediments.",
+      "expected_label": "positive",
+      "intent": "process",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 1453-1456",
+        "raw_context": "Andaman & Nicobar island is created by subduction of Indo-Australian plate under Eurasian / Burma plate."
+      },
+      "semantic_entities": {
+        "primary_entity": "island arc orogeny process",
+        "predicate": "uplifts accretionary sediments and creates island arcs via oceanic subduction",
+        "secondary_entities": [
+          "Indo-Australian plate",
+          "Burma plate",
+          "Andaman and Nicobar"
+        ]
+      },
+      "rationale": "Regional plate tectonic process explaining the origin of India's southeastern island territory."
+    },
+    {
+      "id": "POS-049",
+      "text": "The solar corona constitutes the outermost atmospheric envelope of the Sun, extending millions of kilometres into space and visible to the naked eye during total solar eclipses.",
+      "expected_label": "positive",
+      "intent": "part-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 14-16",
+        "raw_context": "released from the Sun's upper atmosphere, known as the corona."
+      },
+      "semantic_entities": {
+        "primary_entity": "solar corona",
+        "predicate": "constitutes the outermost layer of the Sun's atmosphere",
+        "secondary_entities": [
+          "Sun's atmosphere",
+          "Sun"
+        ]
+      },
+      "rationale": "Mereological structural fact defining the outer anatomical envelope of the Sun."
+    },
+    {
+      "id": "POS-050",
+      "text": "The Earth's internal structure is composed of three concentric geosphere shells: the outer silicate crust, the middle dense peridotite mantle, and the central nickel-iron metallic core.",
+      "expected_label": "positive",
+      "intent": "part-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1400-1415 / NCERT Class 7 & 11",
+        "raw_context": "Just like an onion, the earth is made up of several concentric layers with one inside another. The uppermost layer over the earth's surface is called the crust... Just beneath the crust is the mantle... The innermost layer is the core..."
+      },
+      "semantic_entities": {
+        "primary_entity": "crust, mantle, and core",
+        "predicate": "form the three concentric structural layers composing Earth's interior",
+        "secondary_entities": [
+          "Earth's interior",
+          "crust",
+          "mantle",
+          "core"
+        ]
+      },
+      "rationale": "Classic mereological part-whole division of the solid Earth."
+    },
+    {
+      "id": "POS-051",
+      "text": "Our Solar System forms a small peripheral stellar component located within the Orion-Cygnus spiral arm of the Milky Way galaxy.",
+      "expected_label": "positive",
+      "intent": "part-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 375-378",
+        "raw_context": "Our solar system is a part of this Milky Way galaxy. In ancient India, it was imagined to be a river of light flowing in the sky."
+      },
+      "semantic_entities": {
+        "primary_entity": "Solar System",
+        "predicate": "is a constituent planetary system forming part of the Milky Way galaxy",
+        "secondary_entities": [
+          "Milky Way galaxy",
+          "Orion Arm"
+        ]
+      },
+      "rationale": "Cosmic structural relationship placing our planetary system into the parent galaxy."
+    },
+    {
+      "id": "POS-052",
+      "text": "The troposphere is the lowest constituent layer of the Earth's atmosphere, extending to an average altitude of 13 kilometres and containing approximately 75 percent of the atmosphere's total molecular mass.",
+      "expected_label": "positive",
+      "intent": "part-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1520-1532",
+        "raw_context": "The atmosphere is divided into five layers based on composition, temperature and other properties. These layers starting from earth's surface are called the troposphere, the stratosphere, the mesosphere, the thermosphere and the exosphere."
+      },
+      "semantic_entities": {
+        "primary_entity": "troposphere",
+        "predicate": "is the basal constituent layer of the five concentric layers of Earth's atmosphere",
+        "secondary_entities": [
+          "Earth's atmosphere",
+          "stratosphere",
+          "mesosphere"
+        ]
+      },
+      "rationale": "Structural atmospheric division identifying the lowest atmospheric layer containing all weather phenomena."
+    },
+    {
+      "id": "POS-053",
+      "text": "Ursa Major (commonly known as the Big Bear or Great Bear) is a prominent member of the 88 internationally recognised astronomical constellations.",
+      "expected_label": "positive",
+      "intent": "member-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 98-100",
+        "raw_context": "While watching the night sky, you may notice various patterns formed by different groups of stars. These are called constellations. Ursa Major or Big Bear is one such constellation."
+      },
+      "semantic_entities": {
+        "primary_entity": "Ursa Major",
+        "predicate": "is an individual exemplar constellation belonging to the group of constellations",
+        "secondary_entities": [
+          "constellations",
+          "Big Bear"
+        ]
+      },
+      "rationale": "Instance-of relationship connecting an individual asterism to the overarching category of constellations."
+    },
+    {
+      "id": "POS-054",
+      "text": "The Sun is an ordinary yellow dwarf G-type main-sequence star situated in the local interstellar cloud of the Milky Way.",
+      "expected_label": "positive",
+      "intent": "member-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "line 41",
+        "raw_context": "These celestial bodies are called stars. The sun is a star."
+      },
+      "semantic_entities": {
+        "primary_entity": "Sun",
+        "predicate": "is an individual star belonging to the broad category of stars",
+        "secondary_entities": [
+          "stars",
+          "yellow dwarf"
+        ]
+      },
+      "rationale": "Direct ontological member-of assertion defining the Sun as a member of stellar objects."
+    },
+    {
+      "id": "POS-055",
+      "text": "The Aravalli Range in northwestern India is a remnant member of the ancient Precambrian fold mountain systems of the world.",
+      "expected_label": "positive",
+      "intent": "member-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1755-1757",
+        "raw_context": "The Aravali range in India is one of the oldest fold mountain systems in the world. The range has considerably worn down due to the processes of erosion."
+      },
+      "semantic_entities": {
+        "primary_entity": "Aravalli Range",
+        "predicate": "is an individual mountain range belonging to the world's ancient fold mountain systems",
+        "secondary_entities": [
+          "fold mountain systems",
+          "Precambrian orogeny"
+        ]
+      },
+      "rationale": "Specific geographic member-of instance connecting a mountain system to the global fold belt class."
+    },
+    {
+      "id": "POS-056",
+      "text": "Jawaharlal Nehru Port (JNPT) is a major satellite container port commissioned along the Thane Creek to alleviate freight congestion at Mumbai Port.",
+      "expected_label": "positive",
+      "intent": "member-of",
+      "rejection_category": null,
+      "rejection_reason": null,
+      "provenance": {
+        "source_file": "source-material/consolidated_grounding.md",
+        "line_or_page": "Q617, lines 16-22",
+        "raw_context": "Q617. Which of the following ports was developed as a Satellite port to relieve the pressure at the Mumbai port? a) New Mangalore Port b) Marmagao Port c) Deendayal Port Authority d) Jawaharlal Nehru Port Correct answer: option d"
+      },
+      "semantic_entities": {
+        "primary_entity": "Jawaharlal Nehru Port",
+        "predicate": "is an individual member of India's major satellite container ports",
+        "secondary_entities": [
+          "Mumbai Port",
+          "satellite ports",
+          "major ports"
+        ]
+      },
+      "rationale": "Exemplifies member-of relationship linking an infrastructural facility to the institutional port system."
+    },
+    {
+      "id": "NEG-001",
+      "text": "(a) Sunspots  (b) Solar wind",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Contains raw MCQ option labels (a) and (b) detached from context.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 10",
+        "raw_context": "SSC Stenographer 6/08/2025 (Shift 2) \n (a) Sunspots  (b) Solar wind \n (c) Solar flares  (d) Coronal loops"
+      },
+      "semantic_entities": null,
+      "rationale": "Direct MCQ option listing must be caught and excluded by layout/token filters."
+    },
+    {
+      "id": "NEG-002",
+      "text": "(c) Solar flares  (d) Coronal loops",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Contains raw MCQ option labels (c) and (d) from exam question format.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 11",
+        "raw_context": "(a) Sunspots  (b) Solar wind \n (c) Solar flares  (d) Coronal loops \n Sol.1.(b) Solar wind."
+      },
+      "semantic_entities": null,
+      "rationale": "Distractor option pairs leaked directly from source PDF."
+    },
+    {
+      "id": "NEG-003",
+      "text": "Sol.1.(b)  Solar  wind.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Prefix artifact containing solution identifier, answer key index '(b)', and truncated answer.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 12",
+        "raw_context": "Sol.1.(b)  Solar  wind.  It  is  a  constant stream of charged particles..."
+      },
+      "semantic_entities": null,
+      "rationale": "Solution metadata header contaminating raw textbook prose."
+    },
+    {
+      "id": "NEG-004",
+      "text": "(a) 2 and 3 only \n (b) 1 and 2 only",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Multi-statement combination option markers from UPSC/SSC format questions.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 30-31",
+        "raw_context": "(a) 2 and 3 only \n (b) 1 and 2 only \n (c) 3 and 4 only \n (d) 1, 2, 3, and 4 all of these"
+      },
+      "semantic_entities": null,
+      "rationale": "Multi-choice combinatorial selection options lacking factual assertions."
+    },
+    {
+      "id": "NEG-005",
+      "text": "Sol.2.(d)  1,  2,  3,  and  4  all  of  these.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Solution header index and composite answer string.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 34",
+        "raw_context": "Sol.2.(d)  1,  2,  3,  and  4  all  of  these.  Solar storms release high-energy..."
+      },
+      "semantic_entities": null,
+      "rationale": "Answer key marker that leaks into knowledge discovery if not stripped."
+    },
+    {
+      "id": "NEG-006",
+      "text": "(a) Both 1 and 2  (b) 1 only",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Option leakage with binary logic combination labels.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 55",
+        "raw_context": "(a) Both 1 and 2  (b) 1 only \n (c) 2 only  (d) Neither 1 nor 2"
+      },
+      "semantic_entities": null,
+      "rationale": "Classic statement-evaluation option artifact."
+    },
+    {
+      "id": "NEG-007",
+      "text": "Sol.3.(b)  1  only.  Statement  2  :  Incorrect.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Solution prefix and partial evaluation verdict without self-contained propositional fact.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 57",
+        "raw_context": "Sol.3.(b)  1  only.  Statement  2  :  Incorrect. A lunar eclipse occurs at the full moon phase..."
+      },
+      "semantic_entities": null,
+      "rationale": "Solution metadata header with negative evaluation fragment."
+    },
+    {
+      "id": "NEG-008",
+      "text": "(a) Protostar → White Dwarf → Red Giant → Main Sequence",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Incorrect option distractor sequence with MCQ label '(a)'.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "lines 67-68",
+        "raw_context": "Q.4. Which of the following is the correct sequence... \n (a) Protostar → White Dwarf → Red Giant → Main Sequence"
+      },
+      "semantic_entities": null,
+      "rationale": "Contains deliberate false distractor sequence leaked from MCQ choices."
+    },
+    {
+      "id": "NEG-009",
+      "text": "Correct answer: option d",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Fenced question bank answer key string.",
+      "provenance": {
+        "source_file": "source-material/consolidated_grounding.md",
+        "line_or_page": "line 21",
+        "raw_context": "d) Jawaharlal Nehru Port \n Correct answer: option d \n ```"
+      },
+      "semantic_entities": null,
+      "rationale": "Pure answer pointer string devoid of standalone factual knowledge."
+    },
+    {
+      "id": "NEG-010",
+      "text": "(d) India experiences comparatively stronger winters as compared to central Asia.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "mcq_leakage",
+      "rejection_reason": "Starts with MCQ label '(d)' and conveys an empirically false statement designed as an exam distractor.",
+      "provenance": {
+        "source_file": "test_hardening_regression.py",
+        "line_or_page": "line 7",
+        "raw_context": "blocks = [{\"sourceId\": \"test\", \"text\": \"(d) India experiences comparatively stronger winters as compared to central Asia.\"}]"
+      },
+      "semantic_entities": null,
+      "rationale": "Regression test benchmark for rejecting distractor statements bearing option markers."
+    },
+    {
+      "id": "NEG-011",
+      "text": "PARMAR SSC",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Channel branding watermark inserted across PDF study pages.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "line 60",
+        "raw_context": "Nebula \n SOLAR \n SYSTEM \n PARMAR SSC \n Theories"
+      },
+      "semantic_entities": null,
+      "rationale": "High-frequency study material watermark that pollutes raw text extraction."
+    },
+    {
+      "id": "NEG-012",
+      "text": "ISBN 81-7450-491-5",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "NCERT textbook standard publication identifier code.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "line 6",
+        "raw_context": "The Earth \n Our Habitat \n Social Science \n ISBN 81-7450-491-5 \n 0656"
+      },
+      "semantic_entities": null,
+      "rationale": "Bibliographic metadata code containing zero educational geography facts."
+    },
+    {
+      "id": "NEG-013",
+      "text": "Textbook in Geography for Class VI",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Front matter textbook title and grade level header.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 8-9",
+        "raw_context": "ISBN 81-7450-491-5 \n 0656 \n Textbook in Geography \n for Class VI"
+      },
+      "semantic_entities": null,
+      "rationale": "Document title banner appearing on introductory pages."
+    },
+    {
+      "id": "NEG-014",
+      "text": "2018-192018-19",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Duplicated academic printing year footer artifact.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "line 85",
+        "raw_context": "night sky after the sun rises \n in the morning. \n 2018-192018-19 \n 2 \n THE EARTH : OUR HABITAT"
+      },
+      "semantic_entities": null,
+      "rationale": "Repetitive pagination/edition footer created during OCR/text dump."
+    },
+    {
+      "id": "NEG-015",
+      "text": "Pinnacle  Geography",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Coaching institute publisher header on question compilations.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 3",
+        "raw_context": "Pinnacle  Geography \n Geography \n Solar System And Its Planets \n Q.1."
+      },
+      "semantic_entities": null,
+      "rationale": "Institutional banner string at the top of question blocks."
+    },
+    {
+      "id": "NEG-016",
+      "text": "Figure 1.1 : Saptarishi and the North Star",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Diagram caption label referencing an image rather than prose text.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 89-90",
+        "raw_context": "2 \n THE EARTH : OUR HABITAT \n Figure 1.1 : Saptarishi and the \n North Star \n You must have noticed that all..."
+      },
+      "semantic_entities": null,
+      "rationale": "Visual diagram caption lacking complete propositional knowledge structure."
+    },
+    {
+      "id": "NEG-017",
+      "text": "0656",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Internal textbook cataloging sequence code.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "line 7",
+        "raw_context": "ISBN 81-7450-491-5 \n 0656 \n Textbook in Geography"
+      },
+      "semantic_entities": null,
+      "rationale": "Arbitrary numerical code generated by publisher indexing."
+    },
+    {
+      "id": "NEG-018",
+      "text": "SSC Stenographer 6/08/2025 (Shift 2)",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Exam metadata tag specifying test date and shift.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "line 9",
+        "raw_context": "called ? \n SSC Stenographer 6/08/2025 (Shift 2) \n (a) Sunspots  (b) Solar wind"
+      },
+      "semantic_entities": null,
+      "rationale": "Exam provenance metadata line that must not be parsed as a factual statement."
+    },
+    {
+      "id": "NEG-019",
+      "text": "www.ssccglpinnacle.com",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "watermark_header",
+      "rejection_reason": "Commercial website URL footer printed on book pages.",
+      "provenance": {
+        "source_file": "source-material/question_extracted.txt",
+        "line_or_page": "Pinnacle corpus footer (v12_discovery_pipeline.py line 40 filter)",
+        "raw_context": "if '|' in line or line.startswith('http') or line.startswith('www'): type: TABLE_OR_META"
+      },
+      "semantic_entities": null,
+      "rationale": "Web URL watermark commonly contaminating scraped PDF documents."
+    },
+    {
+      "id": "NEG-020",
+      "text": "The Nile basin is huge and",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Truncated sentence ending abruptly with the coordinate conjunction 'and'.",
+      "provenance": {
+        "source_file": "DISPATCH.md / corpus extract",
+        "line_or_page": "DISPATCH.md §2 example",
+        "raw_context": "Syntactic fragments & dangling conjunctions (The Nile basin is huge and, Out of total water resources...)"
+      },
+      "semantic_entities": null,
+      "rationale": "Grammatically incomplete fragment incapable of supporting question generation."
+    },
+    {
+      "id": "NEG-021",
+      "text": "Out of total water resources...",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Incomplete prepositional phrase terminated by ellipsis without main clause.",
+      "provenance": {
+        "source_file": "DISPATCH.md / corpus extract",
+        "line_or_page": "DISPATCH.md §2 example",
+        "raw_context": "Syntactic fragments & dangling conjunctions (The Nile basin is huge and, Out of total water resources...)"
+      },
+      "semantic_entities": null,
+      "rationale": "Trailing sentence fragment truncated before establishing the subject or verb."
+    },
+    {
+      "id": "NEG-022",
+      "text": "Due to which",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Dangling relative connective without matrix clause or semantic subject.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 1420-1425",
+        "raw_context": "Subduction occurs... Due to which... forming volcanic arcs."
+      },
+      "semantic_entities": null,
+      "rationale": "Fragmentary causal connector that fails sentence completeness checks."
+    },
+    {
+      "id": "NEG-023",
+      "text": "One would first notice one or two bright dots shining in",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Line broken at terminal preposition 'in' due to page formatting.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 14-15",
+        "raw_context": "One would first notice one or two bright dots shining in \n the sky. Soon you would see the number increasing."
+      },
+      "semantic_entities": null,
+      "rationale": "Unjoined line wrap resulting in an incomplete prepositional clause."
+    },
+    {
+      "id": "NEG-024",
+      "text": "While moving on your orbit you can also turn around. For everybody the",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Ends with a dangling definite article 'the' lacking noun phrase complement.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 468-469",
+        "raw_context": "While moving on your orbit you can also turn around. For everybody the \n spin should be anti-clock wise except for Venus and Uranus..."
+      },
+      "semantic_entities": null,
+      "rationale": "Truncated sentence ending at article requiring downstream sentence normalization."
+    },
+    {
+      "id": "NEG-025",
+      "text": "While crossing",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Isolated subordinate participle phrase without main clause or referent.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "line 669",
+        "raw_context": "International Date Line \n While crossing \n gain or loss of a day occurs."
+      },
+      "semantic_entities": null,
+      "rationale": "Hanging adverbial clause resulting from OCR column segmentation failure."
+    },
+    {
+      "id": "NEG-026",
+      "text": "Because despite being our nearest star, it is far",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Subordinate causal clause lacking independent governing predication.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "line 200",
+        "raw_context": "by us because despite being our nearest star, it is far \n away from us. The sun is about 150 million km away..."
+      },
+      "semantic_entities": null,
+      "rationale": "Leading dependent conjunction fragment detached from antecedent clause."
+    },
+    {
+      "id": "NEG-027",
+      "text": "In Rural, Himachal Pradesh has the maximum female workforce.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Malformed prepositional fragment start 'In Rural,' lacking noun head.",
+      "provenance": {
+        "source_file": "test_hardening_regression.py",
+        "line_or_page": "lines 14-19",
+        "raw_context": "blocks = [{\"sourceId\": \"test\", \"text\": \"In Rural, Himachal Pradesh has the maximum female workforce.\"}]"
+      },
+      "semantic_entities": null,
+      "rationale": "Canonical regression test case where faulty table OCR yields an ungrammatical opening phrase."
+    },
+    {
+      "id": "NEG-028",
+      "text": "And for this reason also",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "syntactic_fragment",
+      "rejection_reason": "Dangling discourse connective phrase lacking propositional claim.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 670-675",
+        "raw_context": "The prime meridian passes through Greenwich... And for this reason also it was adopted as the reference."
+      },
+      "semantic_entities": null,
+      "rationale": "Fragmentary discourse connector stripped of essential predicate."
+    },
+    {
+      "id": "NEG-029",
+      "text": "Cosmology Big Bang Theory Galaxy Steady State Theory Study of Universe. Given by George Lemaitre in 1927 and published in 1931.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Multi-column headings and notes read horizontally across vertical columns.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 3-12",
+        "raw_context": "Cosmology \n Big Bang \n Theory \n Galaxy \n Steady State \n Theory \n Study of Universe. \n Given by George Lemaitre in 1927 and published in 1931."
+      },
+      "semantic_entities": null,
+      "rationale": "Severe reading order disruption caused by naïve linear scan across parallel PDF columns."
+    },
+    {
+      "id": "NEG-030",
+      "text": "UniverseGalaxySolar System Origin of Solar System Began 4.8 Billion Years ago.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Horizontal concatenation of three distinct column hierarchy headers without spaces or punctuation.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 48-52",
+        "raw_context": "UniverseGalaxySolar System \n Origin of \n Solar System \n Began 4.8 Billion Years ago."
+      },
+      "semantic_entities": null,
+      "rationale": "Collided columnar headers merging distinct astronomical entities into gibberish."
+    },
+    {
+      "id": "NEG-031",
+      "text": "Theories Planetesimal TheoryNebular HypothesisCopernicus Theory Proposed By :",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Adjacent table column headers merged into a single line across columnar boundaries.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 62-64",
+        "raw_context": "Theories \n Planetesimal TheoryNebular HypothesisCopernicus Theory \n Proposed By :"
+      },
+      "semantic_entities": null,
+      "rationale": "Table-to-text conversion failure smashing 3 distinct hypotheses together."
+    },
+    {
+      "id": "NEG-032",
+      "text": "Two Types of Syzygy are: Occurs when there are Types of EarthquakeTypes of Earthquake",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Unrelated topic sections (Syzygy vs Earthquakes) spliced together by column interleaving.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 790 & 1175",
+        "raw_context": "Two Types of Syzygy are: ... Types of EarthquakeTypes of Earthquake"
+      },
+      "semantic_entities": null,
+      "rationale": "Interleaved columns combining lunar syzygy with seismic fault topics."
+    },
+    {
+      "id": "NEG-033",
+      "text": "Three Types of Plate BoundariesThree Types of Plate Boundaries",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Repeated section banner string resulting from duplicated multi-column text passes.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "line 1218",
+        "raw_context": "Three Types of Plate BoundariesThree Types of Plate Boundaries \n Divergent \n Convergent \n Transform"
+      },
+      "semantic_entities": null,
+      "rationale": "Duplicated header artifact from overlapping OCR text layers."
+    },
+    {
+      "id": "NEG-034",
+      "text": "EARTHE A R T H SUBBU BASA",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Vertical character spacing expansion mashed with unrelated column text.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 2050-2055",
+        "raw_context": "EARTHE A R T H \n SUBBU \n BASA"
+      },
+      "semantic_entities": null,
+      "rationale": "OCR bounding box tracking failure on vertical decorative fonts."
+    },
+    {
+      "id": "NEG-035",
+      "text": "LONGITUDE PARMAR SSC SOLAR SYSTEM PARMAR SSC OCEANS",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Interleaved running chapter headers and repeated watermark strings.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "headings compilation",
+        "raw_context": "LONGITUDE \n PARMAR SSC \n SOLAR SYSTEM \n PARMAR SSC \n OCEANS"
+      },
+      "semantic_entities": null,
+      "rationale": "Running headers scanned across multiple pages without structural boundaries."
+    },
+    {
+      "id": "NEG-036",
+      "text": "Given by George Lemaitre in 1927 and published in 1931. It was an explosion of concentrated matter in the universe that occurred 13.8 billion years ago. Given by Fred Hoyle, Hermann Bondi, and Thomas Gold.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Confounds proponents of two opposing cosmological models (Big Bang vs Steady State) into one contradictory sentence block.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 10-25",
+        "raw_context": "Given by George Lemaitre in 1927... Given by Fred Hoyle, Hermann Bondi, and Thomas Gold."
+      },
+      "semantic_entities": null,
+      "rationale": "Dangerous multi-column synthesis producing severe factual and attribution errors."
+    },
+    {
+      "id": "NEG-037",
+      "text": "LANDFORMS AND THE PEOPLE COLD WEATHER SEASON OR WINTER",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "broken_reading_order",
+      "rejection_reason": "Cross-chapter heading concatenation from facing pages in NCERT layout.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 1850-1855 / 2320",
+        "raw_context": "LANDFORMS AND \n THE PEOPLE \n COLD WEATHER SEASON OR WINTER"
+      },
+      "semantic_entities": null,
+      "rationale": "Page layout boundary failure joining unrelated chapter headings."
+    },
+    {
+      "id": "NEG-038",
+      "text": "| Topic | Tier | Format | Exam-Relevance | Source |",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Raw markdown table header delimiter line.",
+      "provenance": {
+        "source_file": "source-material/file-categories.md",
+        "line_or_page": "line 15",
+        "raw_context": "| Topic | Tier | Format | Exam-Relevance | Source | \n |---|---|---|---|---|"
+      },
+      "semantic_entities": null,
+      "rationale": "Table structure formatting markup devoid of sentential semantics."
+    },
+    {
+      "id": "NEG-039",
+      "text": "|---|---|---|---|---|",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Markdown table alignment rule delimiter row.",
+      "provenance": {
+        "source_file": "source-material/file-categories.md",
+        "line_or_page": "line 16",
+        "raw_context": "| Topic | Tier | Format | Exam-Relevance | Source | \n |---|---|---|---|---|"
+      },
+      "semantic_entities": null,
+      "rationale": "Pure punctuation syntax from markdown table rendering."
+    },
+    {
+      "id": "NEG-040",
+      "text": "1 torch, 1 sheet of plain paper, pencil and a needle.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Laboratory activity apparatus list row lacking verbal predication.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 49-52",
+        "raw_context": "Let's Do \n You'll need : 1 torch, \n 1 sheet of plain \n paper, pencil and a \n needle."
+      },
+      "semantic_entities": null,
+      "rationale": "Sidebar school activity equipment list that must not generate knowledge units."
+    },
+    {
+      "id": "NEG-041",
+      "text": "1.Place the torch in the centre of the paper with its glass front touching the paper.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Imperative instructional step from children's science craft activity.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 54-56",
+        "raw_context": "Step : \n 1.Place the torch in the centre of the paper with its glass front touching the paper. \n 2.Now draw a circle..."
+      },
+      "semantic_entities": null,
+      "rationale": "Instructional activity command rather than geographical curriculum knowledge."
+    },
+    {
+      "id": "NEG-042",
+      "text": "2.Now draw a circle around the torch.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Procedural craft instruction step without propositional factual content.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 57-58",
+        "raw_context": "2.Now draw a circle around the torch. \n 3.Perforate the paper with the needle..."
+      },
+      "semantic_entities": null,
+      "rationale": "Sequential hands-on pedagogical directive with zero exam value."
+    },
+    {
+      "id": "NEG-043",
+      "text": "*Total Questions Mapped:* 0",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Internal grounding database accounting counter.",
+      "provenance": {
+        "source_file": "source-material/consolidated_grounding.md",
+        "line_or_page": "line 5",
+        "raw_context": "### UPSC Prelims Data (150-Question Set) \n *Total Questions Mapped:* 0 \n ### SSC Stenographer Data (925-Question Set)"
+      },
+      "semantic_entities": null,
+      "rationale": "Database compilation audit counter that must be filtered."
+    },
+    {
+      "id": "NEG-044",
+      "text": "- **Topic**: 1. The Earth in the Solar System",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Structured markdown metadata key-value line.",
+      "provenance": {
+        "source_file": "source-material/consolidated_grounding.md",
+        "line_or_page": "line 7",
+        "raw_context": "### SSC Stenographer Data (925-Question Set) \n - **Topic**: 1. The Earth in the Solar System \n - **Tier**: Basic"
+      },
+      "semantic_entities": null,
+      "rationale": "Configuration key-value pair extracted from markdown database schema."
+    },
+    {
+      "id": "NEG-045",
+      "text": "- **PDF-Sequence-Number**: 617",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Tracking index metadata attribute.",
+      "provenance": {
+        "source_file": "source-material/consolidated_grounding.md",
+        "line_or_page": "line 13",
+        "raw_context": "- **Specific-Exam**: SSC-Stenographer \n - **PDF-Sequence-Number**: 617 \n - **Question**:"
+      },
+      "semantic_entities": null,
+      "rationale": "Numerical record tracking key from grounding file."
+    },
+    {
+      "id": "NEG-046",
+      "text": "```\nQ617. Which of the following ports was developed as a Satellite port to relieve the pressure at the Mumbai port?\n```",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "table_formatting_artifact",
+      "rejection_reason": "Raw markdown code fence formatting enveloping question text.",
+      "provenance": {
+        "source_file": "source-material/consolidated_grounding.md",
+        "line_or_page": "lines 15-16",
+        "raw_context": "- **Question**: \n ``` \n Q617. Which of the following ports... \n ```"
+      },
+      "semantic_entities": null,
+      "rationale": "Markdown code fence wrapper artifact that must be unpacked prior to NLP processing."
+    },
+    {
+      "id": "NEG-047",
+      "text": "They are made up of gases.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Third-person plural pronoun 'They' has no antecedent referent within the sentence boundary.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 38-39",
+        "raw_context": "Some celestial bodies are very big and hot. They are made up of gases. They have their own heat..."
+      },
+      "semantic_entities": null,
+      "rationale": "Produces vacuous questions ('What are they made of?') if anaphora is not resolved."
+    },
+    {
+      "id": "NEG-048",
+      "text": "They have their own heat and light, which they emit in large amounts.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Contains multiple unresolved pronouns ('They', 'their', 'they') without naming the entity (stars).",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 39-40",
+        "raw_context": "They are made up of gases. They have their own heat and light, which they emit in large amounts."
+      },
+      "semantic_entities": null,
+      "rationale": "Unresolved pronoun chain yields malformed stems like 'Identify what they have'."
+    },
+    {
+      "id": "NEG-049",
+      "text": "They simply glow without any flicker just as the moon shines.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Pronoun 'They' refers ambiguously to non-twinkling planets mentioned in prior paragraph.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 22-23",
+        "raw_context": "But if you look at them carefully you will notice that some of them do not twinkle as others do. They simply glow without any flicker just as the moon shines."
+      },
+      "semantic_entities": null,
+      "rationale": "Severe ambiguity where 'They' refers to planets but cannot be resolved in isolation."
+    },
+    {
+      "id": "NEG-050",
+      "text": "It makes up for about 99.86% of the total mass of solar system.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Neuter pronoun 'It' lacks its subject referent (the Sun) within the extracted unit.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 95-98",
+        "raw_context": "The Sun is at the center and Only star of our Solar System. \n It makes up for about 99.86% of the total mass of solar system."
+      },
+      "semantic_entities": null,
+      "rationale": "Classic V12 failure mode where 'It makes up for...' produced defective question stems."
+    },
+    {
+      "id": "NEG-051",
+      "text": "It was an explosion of concentrated matter in the universe that occurred 13.8 billion years ago.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Pronoun 'It' has no local antecedent; requires external resolution to 'Big Bang Theory'.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 13-17",
+        "raw_context": "Big Bang Theory \n It was an explosion of concentrated matter in the universe that occurred 13.8 billion years ago."
+      },
+      "semantic_entities": null,
+      "rationale": "Heading-dependent pronoun requiring coreference resolution before extraction."
+    },
+    {
+      "id": "NEG-052",
+      "text": "It lead to the formation of Galaxies, Stars and other heavenly bodies.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Unresolved subject pronoun 'It' lacking its causal agent referent.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 19-21",
+        "raw_context": "occurred 13.8 billion years ago. \n It lead to the formation of Galaxies, Stars and other heavenly bodies."
+      },
+      "semantic_entities": null,
+      "rationale": "Causal claim detached from antecedent event."
+    },
+    {
+      "id": "NEG-053",
+      "text": "It proposes that the universe is constantly expanding, but it’s average properties remain unchanged.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Pronoun 'It' without explicit attribution to the 'Steady State Theory'.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 27-32",
+        "raw_context": "Steady State Theory \n Given by Fred Hoyle... \n It proposes that the universe is constantly expanding..."
+      },
+      "semantic_entities": null,
+      "rationale": "Theory proposition statement lacking named theory subject."
+    },
+    {
+      "id": "NEG-054",
+      "text": "It is also known as Heliocentric Model.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Pronoun 'It' detached from Copernicus Theory.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted_2.txt",
+        "line_or_page": "lines 85-86",
+        "raw_context": "planets orbiting around it. \n It is also known as \n Heliocentric Model"
+      },
+      "semantic_entities": null,
+      "rationale": "Synonym/definition statement without named primary concept."
+    },
+    {
+      "id": "NEG-055",
+      "text": "These are called constellations.",
+      "expected_label": "negative",
+      "intent": "none",
+      "rejection_category": "anaphoric_unresolved",
+      "rejection_reason": "Demonstrative plural pronoun 'These' has no antecedent definition within the unit.",
+      "provenance": {
+        "source_file": "source-material/geography_extracted.txt",
+        "line_or_page": "lines 97-98",
+        "raw_context": "While watching the night sky, you may notice various patterns formed by different groups of stars. These are called constellations."
+      },
+      "semantic_entities": null,
+      "rationale": "Defective definition extraction resulting from missing demonstrative resolution."
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "Theory nodes discovered": 10,
+  "Valid nodes": 10,
+  "Nodes rejected": 3758,
+  "Sources used": [
+    "source-material\\gap_report.txt",
+    "source-material\\geography_extracted.txt",
+    "source-material\\geography_extracted_2.txt",
+    "source-material\\question_extracted.txt",
+    "source-material\\supplementary_corpus.txt"
+  ],
+  "Claims": 10,
+  "Question opportunities": 7,
+  "Accepted": 7,
+  "Rejected": 3,
+  "Distinct concepts": 7,
+  "Recall %": 0.0,
+  "Understand %": 100.0,
+  "Duplicate": 0,
+  "Examples": [
+    {
+      "text": "In the context of geographical processes, which of the following is a direct result when The  main forms?",
+      "options": [
+        "It forms at  a  river's mouth where it meets the sea or ocean.",
+        "It forms of precipitation  include  drizzling,  rain,  sleet, snow, ice pellets, graupel and hail.",
+        "It forms on cold  surfaces  when  condensation  takes place  below  freezing  point  (00C),  i.e.",
+        "It forms part  of the  sea  route  between  Europe  and  India."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the source, 'The  main  forms  of precipitation  include  drizzling,  rain,  sleet, snow, ice pellets, graupel and hail.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "The  main (forms)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "The  main  forms  of precipitation  include  drizzling,  rain,  sleet, snow, ice pellets, graupel and hail."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified objects sharing the predicate 'forms'."
+      },
+      "questionId": "Q-PROD-V5-DISC-fd0b183a",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of geographical processes, which of the following is a direct result when A  delta forms?",
+      "options": [
+        "It forms at  a  river's mouth where it meets the sea or ocean.",
+        "It forms a dividing  line  between  the  Ganges  Plain and  the  Deccan  Plateau.",
+        "It forms when  an  air  mass  with  high  water  vapor suddenly  cools,  causing  condensation  on fine  dust  particles.",
+        "It forms part  of the  sea  route  between  Europe  and  India."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the source, 'A  delta  forms  at  a  river's mouth where it meets the sea or ocean.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "A  delta (forms)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "A  delta  forms  at  a  river's mouth where it meets the sea or ocean."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified objects sharing the predicate 'forms'."
+      },
+      "questionId": "Q-PROD-V5-DISC-ef6dbb75",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of geographical processes, which of the following is a direct result when Arabian  Sea forms?",
+      "options": [
+        "It forms when  an  air  mass  with  high  water  vapor suddenly  cools,  causing  condensation  on fine  dust  particles.",
+        "It forms a dividing  line  between  the  Ganges  Plain and  the  Deccan  Plateau.",
+        "It forms on cold  surfaces  when  condensation  takes place  below  freezing  point  (00C),  i.e.",
+        "It forms part  of the  sea  route  between  Europe  and  India."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to the source, 'Arabian  Sea  forms  part  of the  sea  route  between  Europe  and  India.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "Arabian  Sea (forms)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Arabian  Sea  forms  part  of the  sea  route  between  Europe  and  India."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified objects sharing the predicate 'forms'."
+      },
+      "questionId": "Q-PROD-V5-DISC-88853eb0",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of geographical processes, which of the following is a direct result when Vindhya  range forms?",
+      "options": [
+        "It forms of precipitation  include  drizzling,  rain,  sleet, snow, ice pellets, graupel and hail.",
+        "It forms a dividing  line  between  the  Ganges  Plain and  the  Deccan  Plateau.",
+        "It forms on cold  surfaces  when  condensation  takes place  below  freezing  point  (00C),  i.e.",
+        "It forms at  a  river's mouth where it meets the sea or ocean."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the source, 'Vindhya  range  forms  a dividing  line  between  the  Ganges  Plain and  the  Deccan  Plateau.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "Vindhya  range (forms)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Vindhya  range  forms  a dividing  line  between  the  Ganges  Plain and  the  Deccan  Plateau."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified objects sharing the predicate 'forms'."
+      },
+      "questionId": "Q-PROD-V5-DISC-d2721c5e",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of geographical processes, which of the following is a direct result when Fog forms?",
+      "options": [
+        "It forms when  an  air  mass  with  high  water  vapor suddenly  cools,  causing  condensation  on fine  dust  particles.",
+        "It forms at  a  river's mouth where it meets the sea or ocean.",
+        "It forms include  sinkholes,  caves,  natural bridges and sinking streams.",
+        "It forms part  of the  sea  route  between  Europe  and  India."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the source, 'Fog  forms when  an  air  mass  with  high  water  vapor suddenly  cools,  causing  condensation  on fine  dust  particles.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "Fog (forms)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Fog  forms when  an  air  mass  with  high  water  vapor suddenly  cools,  causing  condensation  on fine  dust  particles."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified objects sharing the predicate 'forms'."
+      },
+      "questionId": "Q-PROD-V5-DISC-9554a825",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of geographical processes, which of the following is a direct result when Frost forms?",
+      "options": [
+        "It forms part  of the  sea  route  between  Europe  and  India.",
+        "It forms on cold  surfaces  when  condensation  takes place  below  freezing  point  (00C),  i.e.",
+        "It forms a dividing  line  between  the  Ganges  Plain and  the  Deccan  Plateau.",
+        "It forms when  an  air  mass  with  high  water  vapor suddenly  cools,  causing  condensation  on fine  dust  particles."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the source, 'Frost  forms  on cold  surfaces  when  condensation  takes place  below  freezing  point  (00C),  i.e.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "Frost (forms)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Frost  forms  on cold  surfaces  when  condensation  takes place  below  freezing  point  (00C),  i.e."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified objects sharing the predicate 'forms'."
+      },
+      "questionId": "Q-PROD-V5-DISC-c741a44d",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of geographical processes, which of the following is a direct result when Typical  karst forms?",
+      "options": [
+        "It forms part  of the  sea  route  between  Europe  and  India.",
+        "It forms a dividing  line  between  the  Ganges  Plain and  the  Deccan  Plateau.",
+        "It forms include  sinkholes,  caves,  natural bridges and sinking streams.",
+        "It forms on cold  surfaces  when  condensation  takes place  below  freezing  point  (00C),  i.e."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to the source, 'Typical  karst forms  include  sinkholes,  caves,  natural bridges and sinking streams.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "BPSC"
+        ],
+        "topic": "Geography",
+        "concept": "Typical  karst (forms)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Typical  karst forms  include  sinkholes,  caves,  natural bridges and sinking streams."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified objects sharing the predicate 'forms'."
+      },
+      "questionId": "Q-PROD-V5-DISC-58fcbf5f",
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ],
+  "RejectedExamples": [
+    {
+      "sentence": "| Topic | Tier | Current Count | Target Quota | Gap | Recommended Source | |---|---|---|---|---|---| | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Basic | 32 | 15 | -17 | - | | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Medium | 1 | 10 | 9 | NCERT chapters related to 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Basic | 12 | 15 | 3 | NCERT chapters related to 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Medium | 0 | 10 | 10 | NCERT chapters related to 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) | | 3.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+| Topic | Tier | Current Count | Target Quota | Gap | Recommended Source |
+|---|---|---|---|---|---|
+| 1. The Earth in the Solar System | Basic | 32 | 15 | -17 | - |
+| 1. The Earth in the Solar System | Medium | 1 | 10 | 9 | NCERT chapters related to 1. The Earth in the Solar System |
+| 1. The Earth in the Solar System | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 2. Globe: Latitudes and Longitudes | Basic | 12 | 15 | 3 | NCERT chapters related to 2. Globe: Latitudes and Longitudes |
+| 2. Globe: Latitudes and Longitudes | Medium | 0 | 10 | 10 | NCERT chapters related to 2. Globe: Latitudes and Longitudes |
+| 2. Globe: Latitudes and Longitudes | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 3. Motions of the Earth | Basic | 2 | 15 | 13 | NCERT chapters related to 3. Motions of the Earth |
+| 3. Motions of the Earth | Medium | 0 | 10 | 10 | NCERT chapters related to 3. Motions of the Earth |
+| 3. Motions of the Earth | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 4. Maps | Basic | 0 | 22 | 22 | NCERT chapters related to 4. Maps |
+| 4. Maps | Medium | 0 | 15 | 15 | NCERT chapters related to 4. Maps |
+| 4. Maps | Advanced | 0 | 12 | 12 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) + VisionIAS trend notes |
+| 5. Major Domains of the Earth | Basic | 3 | 15 | 12 | NCERT chapters related to 5. Major Domains of the Earth |
+| 5. Major Domains of the Earth | Medium | 0 | 10 | 10 | NCERT chapters related to 5. Major Domains of the Earth |
+| 5. Major Domains of the Earth | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 6. Major Landforms of the Earth | Basic | 1 | 15 | 14 | NCERT chapters related to 6. Major Landforms of the Earth |
+| 6. Major Landforms of the Earth | Medium | 1 | 10 | 9 | NCERT chapters related to 6. Major Landforms of the Earth |
+| 6. Major Landforms of the Earth | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 7. Our Country - India | Basic | 8 | 15 | 7 | NCERT chapters related to 7. Our Country - India |
+| 7. Our Country - India | Medium | 2 | 10 | 8 | NCERT chapters related to 7. Our Country - India |
+| 7. Our Country - India | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 8. India: Climate, Vegetation and Wildlife | Basic | 0 | 15 | 15 | NCERT chapters related to 8. India: Climate, Vegetation and Wildlife |
+| 8. India: Climate, Vegetation and Wildlife | Medium | 0 | 10 | 10 | NCERT chapters related to 8. India: Climate, Vegetation and Wildlife |
+| 8. India: Climate, Vegetation and Wildlife | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 9. Geography as a Discipline | Basic | 0 | 15 | 15 | NCERT chapters related to 9. Geography as a Discipline |
+| 9. Geography as a Discipline | Medium | 0 | 10 | 10 | NCERT chapters related to 9. Geography as a Discipline |
+| 9. Geography as a Discipline | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 10. The Origin and Evolution of the Earth | Basic | 0 | 15 | 15 | NCERT chapters related to 10. The Origin and Evolution of the Earth |
+| 10. The Origin and Evolution of the Earth | Medium | 0 | 10 | 10 | NCERT chapters related to 10. The Origin and Evolution of the Earth |
+| 10. The Origin and Evolution of the Earth | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 11. Interior of the Earth | Basic | 10 | 15 | 5 | NCERT chapters related to 11. Interior of the Earth |
+| 11. Interior of the Earth | Medium | 2 | 10 | 8 | NCERT chapters related to 11. Interior of the Earth |
+| 11. Interior of the Earth | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 12. Distribution of Oceans and Continents | Basic | 0 | 15 | 15 | NCERT chapters related to 12. Distribution of Oceans and Continents |
+| 12. Distribution of Oceans and Continents | Medium | 0 | 10 | 10 | NCERT chapters related to 12. Distribution of Oceans and Continents |
+| 12. Distribution of Oceans and Continents | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 13. Geomorphic Processes | Basic | 15 | 15 | 0 | - |
+| 13. Geomorphic Processes | Medium | 2 | 10 | 8 | NCERT chapters related to 13. Geomorphic Processes |
+| 13. Geomorphic Processes | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 14. Landforms and their Evolution | Basic | 0 | 15 | 15 | NCERT chapters related to 14. Landforms and their Evolution |
+| 14. Landforms and their Evolution | Medium | 1 | 10 | 9 | NCERT chapters related to 14. Landforms and their Evolution |
+| 14. Landforms and their Evolution | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 15. Composition and Structure of Atmosphere | Basic | 6 | 15 | 9 | NCERT chapters related to 15. Composition and Structure of Atmosphere |
+| 15. Composition and Structure of Atmosphere | Medium | 0 | 10 | 10 | NCERT chapters related to 15. Composition and Structure of Atmosphere |
+| 15. Composition and Structure of Atmosphere | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 16. Solar Radiation, Heat Balance and Temperature | Basic | 3 | 15 | 12 | NCERT chapters related to 16. Solar Radiation, Heat Balance and Temperature |
+| 16. Solar Radiation, Heat Balance and Temperature | Medium | 0 | 10 | 10 | NCERT chapters related to 16. Solar Radiation, Heat Balance and Temperature |
+| 16. Solar Radiation, Heat Balance and Temperature | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 17. Atmospheric Circulation and Weather Systems | Basic | 5 | 15 | 10 | NCERT chapters related to 17. Atmospheric Circulation and Weather Systems |
+| 17. Atmospheric Circulation and Weather Systems | Medium | 1 | 10 | 9 | NCERT chapters related to 17. Atmospheric Circulation and Weather Systems |
+| 17. Atmospheric Circulation and Weather Systems | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 18. Water in the Atmosphere | Basic | 1 | 15 | 14 | NCERT chapters related to 18. Water in the Atmosphere |
+| 18. Water in the Atmosphere | Medium | 2 | 10 | 8 | NCERT chapters related to 18. Water in the Atmosphere |
+| 18. Water in the Atmosphere | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 19. World Climate and Climate Change | Basic | 32 | 22 | -10 | - |
+| 19. World Climate and Climate Change | Medium | 0 | 15 | 15 | NCERT chapters related to 19. World Climate and Climate Change |
+| 19. World Climate and Climate Change | Advanced | 1 | 12 | 11 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) + VisionIAS trend notes |
+| 20. Water (Oceans) | Basic | 14 | 15 | 1 | NCERT chapters related to 20. Water (Oceans) |
+| 20. Water (Oceans) | Medium | 0 | 10 | 10 | NCERT chapters related to 20. Water (Oceans) |
+| 20. Water (Oceans) | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 21. Movements of Ocean Water | Basic | 3 | 15 | 12 | NCERT chapters related to 21. Movements of Ocean Water |
+| 21. Movements of Ocean Water | Medium | 0 | 10 | 10 | NCERT chapters related to 21. Movements of Ocean Water |
+| 21. Movements of Ocean Water | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 22. Biodiversity and Conservation | Basic | 2 | 15 | 13 | NCERT chapters related to 22. Biodiversity and Conservation |
+| 22. Biodiversity and Conservation | Medium | 0 | 10 | 10 | NCERT chapters related to 22. Biodiversity and Conservation |
+| 22. Biodiversity and Conservation | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 23. India - Location | Basic | 9 | 22 | 13 | NCERT chapters related to 23. India - Location |
+| 23. India - Location | Medium | 0 | 15 | 15 | NCERT chapters related to 23. India - Location |
+| 23. India - Location | Advanced | 0 | 12 | 12 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) + VisionIAS trend notes |
+| 24. Structure and Physiography | Basic | 186 | 22 | -164 | - |
+| 24. Structure and Physiography | Medium | 12 | 15 | 3 | NCERT chapters related to 24. Structure and Physiography |
+| 24. Structure and Physiography | Advanced | 2 | 12 | 10 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) + VisionIAS trend notes |
+| 25. Drainage System | Basic | 168 | 22 | -146 | - |
+| 25. Drainage System | Medium | 23 | 15 | -8 | - |
+| 25. Drainage System | Advanced | 4 | 12 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) + VisionIAS trend notes |
+| 26. Climate | Basic | 28 | 22 | -6 | - |
+| 26. Climate | Medium | 2 | 15 | 13 | NCERT chapters related to 26. Climate |
+| 26. Climate | Advanced | 0 | 12 | 12 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) + VisionIAS trend notes |
+| 27. Natural Vegetation | Basic | 34 | 15 | -19 | - |
+| 27. Natural Vegetation | Medium | 3 | 10 | 7 | NCERT chapters related to 27. Natural Vegetation |
+| 27. Natural Vegetation | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 28. Natural Hazards and Disasters | Basic | 2 | 15 | 13 | NCERT chapters related to 28. Natural Hazards and Disasters |
+| 28. Natural Hazards and Disasters | Medium | 0 | 10 | 10 | NCERT chapters related to 28. Natural Hazards and Disasters |
+| 28. Natural Hazards and Disasters | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 29. Human Geography Nature and Scope | Basic | 0 | 15 | 15 | NCERT chapters related to 29. Human Geography Nature and Scope |
+| 29. Human Geography Nature and Scope | Medium | 0 | 10 | 10 | NCERT chapters related to 29. Human Geography Nature and Scope |
+| 29. Human Geography Nature and Scope | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 30. The World Population Distribution, Density and Growth | Basic | 0 | 15 | 15 | NCERT chapters related to 30. The World Population Distribution, Density and Growth |
+| 30. The World Population Distribution, Density and Growth | Medium | 0 | 10 | 10 | NCERT chapters related to 30. The World Population Distribution, Density and Growth |
+| 30. The World Population Distribution, Density and Growth | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 31. Human Development | Basic | 0 | 15 | 15 | NCERT chapters related to 31. Human Development |
+| 31. Human Development | Medium | 0 | 10 | 10 | NCERT chapters related to 31. Human Development |
+| 31. Human Development | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 32. Primary Activities | Basic | 0 | 15 | 15 | NCERT chapters related to 32. Primary Activities |
+| 32. Primary Activities | Medium | 0 | 10 | 10 | NCERT chapters related to 32. Primary Activities |
+| 32. Primary Activities | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 33. Secondary Activities | Basic | 0 | 15 | 15 | NCERT chapters related to 33. Secondary Activities |
+| 33. Secondary Activities | Medium | 0 | 10 | 10 | NCERT chapters related to 33. Secondary Activities |
+| 33. Secondary Activities | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 34. Tertiary and Quaternary Activities | Basic | 0 | 15 | 15 | NCERT chapters related to 34. Tertiary and Quaternary Activities |
+| 34. Tertiary and Quaternary Activities | Medium | 0 | 10 | 10 | NCERT chapters related to 34. Tertiary and Quaternary Activities |
+| 34. Tertiary and Quaternary Activities | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 35. Transport and Communication | Basic | 11 | 15 | 4 | NCERT chapters related to 35. Transport and Communication |
+| 35. Transport and Communication | Medium | 0 | 10 | 10 | NCERT chapters related to 35. Transport and Communication |
+| 35. Transport and Communication | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 36. International Trade | Basic | 0 | 15 | 15 | NCERT chapters related to 36. International Trade |
+| 36. International Trade | Medium | 0 | 10 | 10 | NCERT chapters related to 36. International Trade |
+| 36. International Trade | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 37. Population: Distribution, Density, Growth and Composition | Basic | 70 | 15 | -55 | - |
+| 37. Population: Distribution, Density, Growth and Composition | Medium | 1 | 10 | 9 | NCERT chapters related to 37. Population: Distribution, Density, Growth and Composition |
+| 37. Population: Distribution, Density, Growth and Composition | Advanced | 2 | 8 | 6 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 38. Human Settlements | Basic | 0 | 15 | 15 | NCERT chapters related to 38. Human Settlements |
+| 38. Human Settlements | Medium | 0 | 10 | 10 | NCERT chapters related to 38. Human Settlements |
+| 38. Human Settlements | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 39. Land Resources and Agriculture | Basic | 166 | 15 | -151 | - |
+| 39. Land Resources and Agriculture | Medium | 17 | 10 | -7 | - |
+| 39. Land Resources and Agriculture | Advanced | 2 | 8 | 6 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 40. Water Resources | Basic | 16 | 15 | -1 | - |
+| 40. Water Resources | Medium | 0 | 10 | 10 | NCERT chapters related to 40. Water Resources |
+| 40. Water Resources | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 41. Mineral and Energy Resources | Basic | 106 | 22 | -84 | - |
+| 41. Mineral and Energy Resources | Medium | 15 | 15 | 0 | - |
+| 41. Mineral and Energy Resources | Advanced | 3 | 12 | 9 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) + VisionIAS trend notes |
+| 42. Planning and Sustainable Development in Indian Context | Basic | 0 | 15 | 15 | NCERT chapters related to 42. Planning and Sustainable Development in Indian Context |
+| 42. Planning and Sustainable Development in Indian Context | Medium | 0 | 10 | 10 | NCERT chapters related to 42. Planning and Sustainable Development in Indian Context |
+| 42. Planning and Sustainable Development in Indian Context | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 43. Transport and Communication (India) | Basic | 2 | 15 | 13 | NCERT chapters related to 43. Transport and Communication (India) |
+| 43. Transport and Communication (India) | Medium | 3 | 10 | 7 | NCERT chapters related to 43. Transport and Communication (India) |
+| 43. Transport and Communication (India) | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 44. International Trade (India) | Basic | 0 | 15 | 15 | NCERT chapters related to 44. International Trade (India) |
+| 44. International Trade (India) | Medium | 0 | 10 | 10 | NCERT chapters related to 44. International Trade (India) |
+| 44. International Trade (India) | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |
+| 45. Unclassified (Requires Deeper Mapping) | Basic | 12 | 15 | 3 | NCERT chapters related to 45. Unclassified (Requires Deeper Mapping) |
+| 45. Unclassified (Requires Deeper Mapping) | Medium | 9 | 10 | 1 | NCERT chapters related to 45. Unclassified (Requires Deeper Mapping) |
+| 45. Unclassified (Requires Deeper Mapping) | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) |

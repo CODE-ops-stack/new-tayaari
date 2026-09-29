@@ -1,0 +1,260 @@
+{
+  "Valid claims": 8,
+  "Question opportunities": 6,
+  "Accepted": 6,
+  "Rejected": 3754,
+  "Examples": [
+    {
+      "text": "Which of the following accurately completes the statement: 'Mixed farming includes...'?",
+      "options": [
+        "the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "extreme biodiversity and high precipitation.",
+        "crop  cultivation  and raising  animals.",
+        "species  diversity,  genetic  diversity,  and ecosystem  diversity."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to the source, 'Mixed farming  includes  crop  cultivation  and raising  animals.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "Mixed farming (includes)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Mixed farming  includes  crop  cultivation  and raising  animals."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified extracted objects of the same cognitive domain, rejecting topic overlaps."
+      },
+      "questionId": "Q-PROD-V8-DISC-02c34d68",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following accurately completes the statement: 'Eastern  Ghats comprises...'?",
+      "options": [
+        "extreme biodiversity and high precipitation.",
+        "cultivators  and  agricultural labourers and their family members.",
+        "the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "species  diversity,  genetic  diversity,  and ecosystem  diversity."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to the source, 'Eastern  Ghats comprises  the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "Eastern  Ghats (comprises)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Eastern  Ghats comprises  the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified extracted objects of the same cognitive domain, rejecting topic overlaps."
+      },
+      "questionId": "Q-PROD-V8-DISC-495c0bd1",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following accurately completes the statement: 'Ecological  diversity includes...'?",
+      "options": [
+        "cultivators  and  agricultural labourers and their family members.",
+        "the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "extreme biodiversity and high precipitation.",
+        "species  diversity,  genetic  diversity,  and ecosystem  diversity."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to the source, 'Ecological  diversity  includes species  diversity,  genetic  diversity,  and ecosystem  diversity.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "Ecological  diversity (includes)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "Ecological  diversity  includes species  diversity,  genetic  diversity,  and ecosystem  diversity."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified extracted objects of the same cognitive domain, rejecting topic overlaps."
+      },
+      "questionId": "Q-PROD-V8-DISC-8867d27f",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following accurately completes the statement: 'The  agricultural  population includes...'?",
+      "options": [
+        "species  diversity,  genetic  diversity,  and ecosystem  diversity.",
+        "cultivators  and  agricultural labourers and their family members.",
+        "extreme biodiversity and high precipitation.",
+        "the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the source, 'The  agricultural  population includes  cultivators  and  agricultural labourers and their family members.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "The  agricultural  population (includes)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "The  agricultural  population includes  cultivators  and  agricultural labourers and their family members."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified extracted objects of the same cognitive domain, rejecting topic overlaps."
+      },
+      "questionId": "Q-PROD-V8-DISC-4f3a6627",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following accurately completes the statement: 'The tropical rainforest ecosystem is characterized by...'?",
+      "options": [
+        "extreme biodiversity and high precipitation.",
+        "species  diversity,  genetic  diversity,  and ecosystem  diversity.",
+        "cultivators  and  agricultural labourers and their family members.",
+        "crop  cultivation  and raising  animals."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the source, '\ufeffThe tropical rainforest ecosystem is characterized by extreme biodiversity and high precipitation.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "The tropical rainforest ecosystem (is characterized by)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\supplementary_corpus.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "\ufeffThe tropical rainforest ecosystem is characterized by extreme biodiversity and high precipitation."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified extracted objects of the same cognitive domain, rejecting topic overlaps."
+      },
+      "questionId": "Q-PROD-V8-DISC-420740d8",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following accurately completes the statement: 'The Chota Nagpur plateau comprises...'?",
+      "options": [
+        "the  discontinuous  and  low hills  that  are  highly  eroded  by  the  rivers such  as  the  Mahanadi,  the  Godavari,  the Krishna,  the  Cauvery,  etc.",
+        "immense reserves of metallic minerals.",
+        "species  diversity,  genetic  diversity,  and ecosystem  diversity.",
+        "extreme biodiversity and high precipitation."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to the source, 'The Chota Nagpur plateau comprises immense reserves of metallic minerals.'. This explicitly establishes the relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "The Chota Nagpur plateau (comprises)",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\supplementary_corpus.txt",
+            "section": "Prose Extraction",
+            "evidenceExcerpt": "The Chota Nagpur plateau comprises immense reserves of metallic minerals."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Strict relation pool: Distractors pulled from other verified extracted objects of the same cognitive domain, rejecting topic overlaps."
+      },
+      "questionId": "Q-PROD-V8-DISC-32b5d372",
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ],
+  "RejectedExamples": [
+    {
+      "sentence": "| Topic | Tier | Current Count | Target Quota | Gap | Recommended Source | |---|---|---|---|---|---| | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Basic | 32 | 15 | -17 | - | | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Medium | 1 | 10 | 9 | NCERT chapters related to 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | | 1.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "The Earth in the Solar System | Advanced | 1 | 8 | 7 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Basic | 12 | 15 | 3 | NCERT chapters related to 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Medium | 0 | 10 | 10 | NCERT chapters related to 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | | 2.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    },
+    {
+      "sentence": "Globe: Latitudes and Longitudes | Advanced | 0 | 8 | 8 | Coaching Sources (Fatman / ccab2 / PMF IAS / GEOGRAPHY 4.0) | | 3.",
+      "reason": "No strict Subject-Verb-Object proposition found"
+    }
+  ]
+}

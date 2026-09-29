@@ -1,0 +1,182 @@
+{
+  "batchId": "BATCH-PROD-V3",
+  "candidates": 5,
+  "accepted": 5,
+  "rejected": 0,
+  "clue_leakage_detected": 0,
+  "template_violations_detected": 0,
+  "questions": [
+    {
+      "questionId": "Q-PROD-V3-7bab12bf",
+      "text": "Based on the Bureau of Indian Standards (BIS) Seismic Zoning Map, the city of Patna falls into which risk category?",
+      "options": [
+        "Zone III (Moderate Risk)",
+        "Zone IV (High Risk)",
+        "Zone V (Very High Risk)",
+        "Zone II (Low Risk)"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to BIS IS 1893:2002, India is divided into Zones II to V. Patna is located in the Indo-Gangetic plains near Himalayan faults, placing it specifically in Zone IV (High Risk). Zone I was removed in the 2002 revision.",
+      "metadata": {
+        "examTarget": [
+          "BPSC",
+          "SSC CGL"
+        ],
+        "topic": "Seismic Geography",
+        "concept": "Patna Seismic Zone",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "OXFORD_ATLAS_PART03_PAGE62"
+        ],
+        "currentness": "REQUIRES_CURRENT_VERIFICATION",
+        "templateId": "seismic_zone_city",
+        "distractorCategoryMatched": true,
+        "hasCategoryMismatch": false
+      },
+      "validation": {
+        "distractorLogic": "Valid seismic zones (II, III, V) used. Excludes non-existent Zone I."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-7d95a910",
+      "text": "In the context of the Mid-Atlantic Ridge, which of the following best explains the mechanism of seafloor spreading?",
+      "options": [
+        "The gravitational pull of subducting plates at the ridge creates tension that tears the crust apart.",
+        "The accumulation of continental sediments along the ridge increases pressure, causing the seafloor to fracture.",
+        "Convection currents in the outer core create magnetic anomalies that force the plates to separate.",
+        "The continuous formation of new oceanic crust at the ridge pushes older crust outward, driving plate motion."
+      ],
+      "correctIndex": 3,
+      "explanation": "Seafloor spreading at divergent boundaries is driven by upwelling mantle magma forming new oceanic crust. As new basaltic crust forms, it cools and pushes the older crust outward, which acts as a primary mechanism.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Plate Tectonics",
+        "concept": "Seafloor Spreading Mechanism",
+        "format": "Conceptual",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          "NCERT_CLASS11_PHYSICAL_GEO_PAGE34"
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "mechanism_explanation",
+        "distractorCategoryMatched": true,
+        "hasCategoryMismatch": false
+      },
+      "validation": {
+        "distractorLogic": "Plausible incorrect mechanisms covering slab pull, core convection, and sediment pressure."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-a967f731",
+      "text": "Despite not being located directly on a plate boundary, Northern Bihar experiences severe earthquake damage. Which of the following geographic factors primarily exacerbates this vulnerability?",
+      "options": [
+        "The region experiences frequent volcanic activity that triggers localized seismic tremors.",
+        "It sits directly on the active major fault line boundary between the Indian and Eurasian plates.",
+        "Its location on the deep alluvial deposits of the Gangetic plain amplifies seismic waves from Himalayan earthquakes.",
+        "Excessive groundwater extraction has led to widespread crustal subsidence and induced seismicity."
+      ],
+      "correctIndex": 2,
+      "explanation": "Northern Bihar is highly vulnerable because it sits on deep alluvial soil of the Indo-Gangetic plain. When earthquakes occur along the Himalayan thrust faults, the loose alluvium amplifies the seismic waves.",
+      "metadata": {
+        "examTarget": [
+          "BPSC",
+          "UPSC"
+        ],
+        "topic": "Seismic Geography",
+        "concept": "Alluvial Amplification in Bihar",
+        "format": "Conceptual Application",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          "NCERT_CLASS11_PHYSICAL_GEO_PAGE45",
+          "BPSC_SPECIFIC_SOURCE_PAGE12"
+        ],
+        "currentness": "HISTORICAL",
+        "templateId": "vulnerability_factor",
+        "distractorCategoryMatched": true,
+        "hasCategoryMismatch": false
+      },
+      "validation": {
+        "distractorLogic": "Plausible alternative geological risks that do not apply to Bihar."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-7cff24dc",
+      "text": "The 'Ring of Fire', known for its intense earthquake and volcanic activity, is primarily associated with which type of tectonic plate boundaries?",
+      "options": [
+        "Divergent plate boundaries and mid-ocean ridges",
+        "Transform plate boundaries and strike-slip faults",
+        "Convergent plate boundaries and subduction zones",
+        "Intraplate hot-spots and mantle plumes"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Pacific Ring of Fire is characterized primarily by convergent plate boundaries where oceanic plates subduct under continental plates, leading to intense volcanic and seismic activity because of the subduction process.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Plate Tectonics",
+        "concept": "Ring of Fire Boundaries",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "OXFORD_ATLAS_PART05_PAGE112"
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "feature_boundary_association",
+        "distractorCategoryMatched": true,
+        "hasCategoryMismatch": false
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors: other primary types of plate boundaries/tectonic features."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-2d228088",
+      "text": "Seismographs located far from an earthquake's epicenter record a 'shadow zone' where certain seismic waves are not detected. Which of the following fundamental properties of seismic waves explains this phenomenon?",
+      "options": [
+        "S-waves travel faster than P-waves, and P-waves are absorbed by the solid inner core.",
+        "Surface waves arrive first, followed by P-waves which only travel through the crust.",
+        "P-waves travel faster than S-waves, and S-waves cannot travel through the liquid outer core.",
+        "Both P and S waves travel at the same speed, but S-waves are reflected by the mantle."
+      ],
+      "correctIndex": 2,
+      "explanation": "The shadow zone occurs because P-waves are refracted by the liquid outer core, and S-waves are completely stopped by it because they cannot travel through liquids. Therefore this causes the respective shadow zones.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Earthquakes",
+        "concept": "Seismic Waves and Shadow Zone",
+        "format": "Conceptual",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "INFER",
+        "provenance": [
+          "NCERT_CLASS11_PHYSICAL_GEO_PAGE27"
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "wave_property_explanation",
+        "distractorCategoryMatched": true,
+        "hasCategoryMismatch": false
+      },
+      "validation": {
+        "distractorLogic": "Mixes up wave speeds and states of matter they can pass through, requiring multi-step verification."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ],
+  "rejections": [],
+  "leak_details": [],
+  "template_details": []
+}

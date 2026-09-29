@@ -1,0 +1,597 @@
+{
+  "pdf_files": [
+    {
+      "filename": "Copy of our environmemnt class 7 - .pdf",
+      "size_mb": 18.15,
+      "pages": 89,
+      "extractable": true,
+      "words": 22538,
+      "chars": 131457,
+      "source_type": "NCERT Textbook",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "Earth\u2019s Magnetic Field, Dynamo theory, Magnetosphere - PMF IAS (1).pdf",
+      "size_mb": 3.41,
+      "pages": 9,
+      "extractable": true,
+      "words": 1311,
+      "chars": 8245,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "Physical Geography & Geophysics"
+    },
+    {
+      "filename": "Environment (Apr 2025 - Nov 2025)_compressed.pdf",
+      "size_mb": 10.94,
+      "pages": 136,
+      "extractable": true,
+      "words": 37018,
+      "chars": 254951,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "Environment & Ecology"
+    },
+    {
+      "filename": "Fundamental of Physical Geography (Class XI) 2.pdf",
+      "size_mb": 5.98,
+      "pages": 137,
+      "extractable": true,
+      "words": 53178,
+      "chars": 327079,
+      "source_type": "NCERT Textbook",
+      "subject": "Physical Geography & Geophysics"
+    },
+    {
+      "filename": "Fundamentals of Human Geography (Class XII) 1.pdf",
+      "size_mb": 13.42,
+      "pages": 93,
+      "extractable": true,
+      "words": 32500,
+      "chars": 210279,
+      "source_type": "NCERT Textbook",
+      "subject": "Human & Economic Geography"
+    },
+    {
+      "filename": "GEOGRAPHY 4.0 ENGLISH pdf (2)_new 21.pdf",
+      "size_mb": 15.61,
+      "pages": 156,
+      "extractable": true,
+      "words": 10136,
+      "chars": 61564,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "Geogrophy.pdf",
+      "size_mb": 17.09,
+      "pages": 69,
+      "extractable": true,
+      "words": 16411,
+      "chars": 92861,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "Geomagnetism & Geomagnetic Reversal - UPSC - UPSC Notes \u00bb LotusArise IAS.pdf",
+      "size_mb": 1.32,
+      "pages": 6,
+      "extractable": true,
+      "words": 1574,
+      "chars": 9675,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "Physical Geography & Geophysics"
+    },
+    {
+      "filename": "India People and Economy (Class XII).pdf",
+      "size_mb": 6.26,
+      "pages": 126,
+      "extractable": true,
+      "words": 41265,
+      "chars": 264406,
+      "source_type": "NCERT Textbook",
+      "subject": "Human & Economic Geography"
+    },
+    {
+      "filename": "India Physical Environment (Class XI) 2.pdf",
+      "size_mb": 5.84,
+      "pages": 83,
+      "extractable": true,
+      "words": 29706,
+      "chars": 183474,
+      "source_type": "NCERT Textbook",
+      "subject": "Environment & Ecology"
+    },
+    {
+      "filename": "NCERT-Class-10-Geography.pdf",
+      "size_mb": 8.08,
+      "pages": 197,
+      "extractable": true,
+      "words": 204897,
+      "chars": 556059,
+      "source_type": "NCERT Textbook",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "NCERT-Class-9-Geography-1.pdf",
+      "size_mb": 4.83,
+      "pages": 64,
+      "extractable": true,
+      "words": 70562,
+      "chars": 180383,
+      "source_type": "NCERT Textbook",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "Practical Work in Geography Part 1.pdf",
+      "size_mb": 7.0,
+      "pages": 105,
+      "extractable": true,
+      "words": 22023,
+      "chars": 132354,
+      "source_type": "NCERT Textbook",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "Practical Work in Geography Part 2.pdf",
+      "size_mb": 4.23,
+      "pages": 77,
+      "extractable": true,
+      "words": 22206,
+      "chars": 132774,
+      "source_type": "NCERT Textbook",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "VisionIAS Research And Analysis January 2025 Geography (10 Years UPSC PYQ Trend Analysis) (1)_compressed (1).pdf",
+      "size_mb": 16.01,
+      "pages": 148,
+      "extractable": true,
+      "words": 33062,
+      "chars": 209388,
+      "source_type": "Exam PYQ Compendium",
+      "subject": "Geography Exam Questions (PYQ)"
+    },
+    {
+      "filename": "ccab2-geography.pdf",
+      "size_mb": 3.38,
+      "pages": 206,
+      "extractable": false,
+      "words": 0,
+      "chars": 0,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "fatman Geography 2nd Edition_Part1 new.pdf",
+      "size_mb": 13.74,
+      "pages": 20,
+      "extractable": false,
+      "words": 0,
+      "chars": 0,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "fatman Geography 2nd Edition_Part2_new 2.pdf",
+      "size_mb": 13.11,
+      "pages": 20,
+      "extractable": false,
+      "words": 0,
+      "chars": 0,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "fatman Geography 2nd Edition_Part3.pdf",
+      "size_mb": 3.41,
+      "pages": 21,
+      "extractable": false,
+      "words": 0,
+      "chars": 0,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "fatman Geography 2nd Edition_Part4.pdf",
+      "size_mb": 3.42,
+      "pages": 22,
+      "extractable": false,
+      "words": 0,
+      "chars": 0,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "fatman Geography 2nd Edition_Part5.pdf",
+      "size_mb": 12.72,
+      "pages": 10,
+      "extractable": false,
+      "words": 0,
+      "chars": 0,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "geography_questions_in_UPSC_Prelims_05c936a1aa(1).pdf",
+      "size_mb": 1.7,
+      "pages": 53,
+      "extractable": true,
+      "words": 9286,
+      "chars": 56247,
+      "source_type": "Exam PYQ Compendium",
+      "subject": "Geography Exam Questions (PYQ)"
+    },
+    {
+      "filename": "newGeography.pdf",
+      "size_mb": 3.23,
+      "pages": 100,
+      "extractable": true,
+      "words": 27390,
+      "chars": 182368,
+      "source_type": "Standard Reference / Coaching Notes",
+      "subject": "General Geography"
+    },
+    {
+      "filename": "oxford-student-atlas-35-edition-freeupscmaterials.org__compressed.pdf",
+      "size_mb": 3.47,
+      "pages": 0,
+      "extractable": false,
+      "words": 0,
+      "chars": 0,
+      "source_type": "Atlas / Spatial Map",
+      "subject": "Cartography & Spatial Index"
+    },
+    {
+      "filename": "question.pdf",
+      "size_mb": 1.15,
+      "pages": 84,
+      "extractable": true,
+      "words": 67245,
+      "chars": 619047,
+      "source_type": "Exam PYQ Compendium",
+      "subject": "Geography Exam Questions (PYQ)"
+    },
+    {
+      "filename": "social science class 8.pdf",
+      "size_mb": 14.67,
+      "pages": 84,
+      "extractable": true,
+      "words": 21073,
+      "chars": 133219,
+      "source_type": "NCERT Textbook",
+      "subject": "General Social Science & Geography"
+    }
+  ],
+  "text_markdown_files": [
+    {
+      "filename": "consolidated_grounding.md",
+      "size_kb": 556.84,
+      "lines": 18428,
+      "words": 80787,
+      "chars": 569266,
+      "role": "Grounding Knowledge Synthesis",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "consolidated_grounding_merged.md",
+      "size_kb": 104.25,
+      "lines": 3964,
+      "words": 16465,
+      "chars": 106536,
+      "role": "Grounding Knowledge Synthesis",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "geography_extracted.txt",
+      "size_kb": 91.3,
+      "lines": 2625,
+      "words": 16086,
+      "chars": 93106,
+      "role": "Extracted Textbook Prose",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "geography_extracted_2.txt",
+      "size_kb": 60.52,
+      "lines": 2921,
+      "words": 10041,
+      "chars": 61708,
+      "role": "Extracted Textbook Prose",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "question_extracted.txt",
+      "size_kb": 573.71,
+      "lines": 15329,
+      "words": 80518,
+      "chars": 586049,
+      "role": "Extracted Exam PYQ & Explanations",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "supplementary_corpus.txt",
+      "size_kb": 0.77,
+      "lines": 5,
+      "words": 108,
+      "chars": 781,
+      "role": "Extracted Textbook Prose",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "geography-syllabus.md",
+      "size_kb": 8.75,
+      "lines": 107,
+      "words": 1085,
+      "chars": 8945,
+      "role": "Syllabus / Specification / Design Profile",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "geography-syllabus-gs.md",
+      "size_kb": 1.97,
+      "lines": 44,
+      "words": 295,
+      "chars": 2015,
+      "role": "Syllabus / Specification / Design Profile",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "pyq-analysis-prelims.md",
+      "size_kb": 3.07,
+      "lines": 114,
+      "words": 556,
+      "chars": 3142,
+      "role": "Grounding Knowledge Synthesis",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "examiner-pattern-guide.md",
+      "size_kb": 2.47,
+      "lines": 51,
+      "words": 380,
+      "chars": 2525,
+      "role": "Syllabus / Specification / Design Profile",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "file-categories.md",
+      "size_kb": 4.32,
+      "lines": 29,
+      "words": 655,
+      "chars": 4423,
+      "role": "Syllabus / Specification / Design Profile",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "exam-complexity-profiles.md",
+      "size_kb": 0.49,
+      "lines": 3,
+      "words": 80,
+      "chars": 496,
+      "role": "Syllabus / Specification / Design Profile",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "design-system.md",
+      "size_kb": 1.91,
+      "lines": 30,
+      "words": 269,
+      "chars": 1951,
+      "role": "Syllabus / Specification / Design Profile",
+      "subject": "Geography & General Studies"
+    },
+    {
+      "filename": "exam_question_design_profiles.md",
+      "size_kb": 1.53,
+      "lines": 24,
+      "words": 196,
+      "chars": 1548,
+      "role": "Syllabus / Specification / Design Profile",
+      "subject": "Geography & General Studies"
+    }
+  ],
+  "json_files": [
+    {
+      "filename": "extracted_ssc_qs.json",
+      "size_kb": 285.19,
+      "item_count": 910,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "source_registry.json",
+      "size_kb": 29.55,
+      "item_count": 1,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "syllabus_knowledge_map.json",
+      "size_kb": 9.92,
+      "item_count": 2,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "corpus_data.json",
+      "size_kb": 18.93,
+      "item_count": 0,
+      "schema_type": "Parse Error: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)"
+    },
+    {
+      "filename": "staging_batch_1.json",
+      "size_kb": 88.51,
+      "item_count": 6,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "staging_batch_2.json",
+      "size_kb": 32.59,
+      "item_count": 5,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "staging_production_v1.json",
+      "size_kb": 21.46,
+      "item_count": 5,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "derived_opportunities.json",
+      "size_kb": 55.58,
+      "item_count": 30,
+      "schema_type": "Array of dict"
+    },
+    {
+      "filename": "oxford_atlas_spatial_index.json",
+      "size_kb": 3.48,
+      "item_count": 2,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "pyq_index.json",
+      "size_kb": 1.1,
+      "item_count": 1,
+      "schema_type": "Dictionary / Key-Value Mapping"
+    },
+    {
+      "filename": "theory_nodes.json",
+      "size_kb": 4.42,
+      "item_count": 0,
+      "schema_type": "Parse Error: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)"
+    },
+    {
+      "filename": "generic_theory_nodes.json",
+      "size_kb": 7.81,
+      "item_count": 0,
+      "schema_type": "Parse Error: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)"
+    }
+  ],
+  "totals": {
+    "pdf_count": 26,
+    "pdf_pages": 2115,
+    "pdf_words": 723381,
+    "text_md_count": 14,
+    "text_md_words": 207521,
+    "json_count": 12,
+    "json_items": 962,
+    "total_words_all": 930902
+  },
+  "subject_distribution": {
+    "General Geography": {
+      "files": 14,
+      "words": 396163,
+      "pages": 1156
+    },
+    "Physical Geography & Geophysics": {
+      "files": 3,
+      "words": 56063,
+      "pages": 152
+    },
+    "Environment & Ecology": {
+      "files": 2,
+      "words": 66724,
+      "pages": 219
+    },
+    "Human & Economic Geography": {
+      "files": 2,
+      "words": 73765,
+      "pages": 219
+    },
+    "Geography Exam Questions (PYQ)": {
+      "files": 3,
+      "words": 109593,
+      "pages": 285
+    },
+    "Cartography & Spatial Index": {
+      "files": 1,
+      "words": 0,
+      "pages": 0
+    },
+    "General Social Science & Geography": {
+      "files": 1,
+      "words": 21073,
+      "pages": 84
+    },
+    "Geography & General Studies": {
+      "files": 14,
+      "words": 207521,
+      "pages": 0
+    }
+  },
+  "structural_challenges": {
+    "ocr_fragments": [],
+    "multi_word_entities": [
+      "Download Pinnacle Exam Preparation App    Pinnacle  Geography",
+      "New  Moore  Island",
+      "Trend Grounding File",
+      "Jawaharlal Nehru Port",
+      "Master Geography Question Bank",
+      "Deendayal Port Authority",
+      "Total Questions Mapped",
+      "Indian   Meteorological  Department",
+      "New Mangalore Port",
+      "Ten Degree Channel"
+    ],
+    "tables": [],
+    "complex_sentences": [
+      "A  nebula  is  a  cloud  of  dust  and  gas   inside  a  galaxy,  consisting  mainly  of   hydrogen,  helium,  and  other  ionized   gases.",
+      "When  was  the  Indian   Meteorological  Department,  which   collects  data  on  temperature,  rainfall,   wind,  etc.,  and  makes  weather  forecasts,   established by the Government of India?",
+      "What  type  of  climate  is  found  in   North  Western  Europe,  West  Coast  of   North  America,  North  of  California,   Southern  Chile,  South-eastern  Australia   and New Zealand?",
+      "d) Nellore Belt   (Mica)   4.Rajasthan   (a) a-2, b-1, c-4, d-3      (b) a-2, b-3, c-4, d-1   (c) a-3, b-4, c-1, d-2      (d) a-4, b-1, c-2, d-3",
+      "In  1962,  who  published  'The   History  of  Ocean  Basins',  which  outlined   the theory of how tectonic plates could   www.ssccglpinnacle.com                                                 Download Pinnacle Exam Preparation App    Pinnacle  Geography   move, later called 'sea floor spreading' ?",
+      "____________  is  characterized  by   abundant  dissolved  oxygen,  sunlight,   nutrients,  generally  high  wave  energies   and  water  motion,  and,  in  the  intertidal   subzone,  alternating  submergence  and   exposure."
+    ],
+    "headers_footers": [],
+    "ocr_noise_samples": [
+      "# Master Geography Question Bank & Trend Grounding File",
+      "## 1. The Earth in the Solar System",
+      "### UPSC Prelims Data (150-Question Set)",
+      "*Total Questions Mapped:* 0",
+      "### SSC Stenographer Data (925-Question Set)",
+      "- **Topic**: 1. The Earth in the Solar System",
+      "- **Tier**: Basic",
+      "- **Format**: Direct Fact",
+      "- **Exam-Relevance**: General-Competitive",
+      "- **Source**: Real-PYQ"
+    ],
+    "table_samples": [
+      "- **Format Type**: Direct Fact | **Tier**: Basic | **Exam-Relevance**: General-Competitive | **Source**: Real-PYQ | **Specific-Exam**: SSC-Stenographer",
+      "- **Format Type**: Matching Pairs | **Tier**: Medium | **Exam-Relevance**: General-Competitive | **Source**: Real-PYQ | **Specific-Exam**: SSC-Stenographer",
+      "- **Format Type**: Direct Fact | **Tier**: Basic | **Exam-Relevance**: General-Competitive | **Source**: Real-PYQ | **Specific-Exam**: SSC-Stenographer",
+      "- **Format Type**: Direct Fact | **Tier**: Basic | **Exam-Relevance**: General-Competitive | **Source**: Real-PYQ | **Specific-Exam**: SSC-Stenographer",
+      "- **Format Type**: Direct Fact | **Tier**: Basic | **Exam-Relevance**: General-Competitive | **Source**: Real-PYQ | **Specific-Exam**: SSC-Stenographer",
+      "- **Format Type**: Direct Fact | **Tier**: Basic | **Exam-Relevance**: General-Competitive | **Source**: Real-PYQ | **Specific-Exam**: SSC-Stenographer"
+    ],
+    "header_samples": [
+      "# Master Geography Question Bank & Trend Grounding File",
+      "## 1. The Earth in the Solar System",
+      "### UPSC Prelims Data (150-Question Set)",
+      "### SSC Stenographer Data (925-Question Set)",
+      "## 2. Globe: Latitudes and Longitudes",
+      "### UPSC Prelims Data (150-Question Set)"
+    ]
+  },
+  "v12_svo_evaluation": {
+    "sentences_evaluated": 46121,
+    "svo_matched": 21,
+    "svo_rejected": 46100,
+    "rejection_reasons": {
+      "Failed strict SVO regex syntax": 23984,
+      "Length out of bounds (<20 or >300 chars)": 18820,
+      "MCQ option marker artifact detected": 3296
+    },
+    "lost_knowledge_breakdown": {
+      "PROCESS_OR_SEQUENCE": 1250,
+      "CAUSE_EFFECT_FLEXIBLE": 82,
+      "CONDITIONALITY": 155,
+      "QUANTITATIVE_NUMERICAL": 174,
+      "ATTRIBUTE_OR_COMPOSITION": 32,
+      "COMPARISON_FLEXIBLE": 23,
+      "CLASSIFICATION_TAXONOMY": 48,
+      "SPATIAL_TOPOLOGICAL_FLEXIBLE": 7
+    },
+    "matched_by_pattern": {
+      "DEFINITION": 8,
+      "SPATIAL": 12,
+      "COMPARISON": 1
+    },
+    "svo_match_rate_pct": 0.05
+  }
+}

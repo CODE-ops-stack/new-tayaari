@@ -1,0 +1,398 @@
+{
+  "Theory nodes discovered": 16,
+  "Valid nodes": 16,
+  "Rejected nodes": 5,
+  "Sources used": [
+    "geography_extracted.txt",
+    "supplementary_corpus.txt"
+  ],
+  "Topics covered": 10,
+  "Topic list": [
+    "Plate Tectonics",
+    "Economic Geography",
+    "Population Geography",
+    "Climatology",
+    "Indian Geography",
+    "Solar System",
+    "Earthquakes",
+    "Biogeography",
+    "Oceanography",
+    "Geomorphology"
+  ],
+  "Claims": 3,
+  "Relationships": 13,
+  "Question opportunities": 16,
+  "Accepted": 16,
+  "Rejected": 0,
+  "Distinct concepts": 12,
+  "Distinct cognitive operations": 12,
+  "Recall %": 18.8,
+  "Understand+ %": 81.2,
+  "UPSC candidates": 10,
+  "Potential PYQ copying": 0,
+  "Duplicate/near-duplicate": 0,
+  "Leakage": 0,
+  "Explanation failures": 0,
+  "Distractor failures": 0,
+  "Provenance failures": 0,
+  "Currentness failures": 0,
+  "Malformed-stem failures": 0,
+  "Examples": [
+    {
+      "text": "In the context of Solar System, what causes the phenomenon where arctic circle is?",
+      "options": [
+        "primarily triggers Social dynamics.",
+        "primarily triggers Meridian dynamics.",
+        "It results in results in arctic circle is.",
+        "primarily triggers Revolution dynamics."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt, 'Arctic Circle is because here the sun does not  rise  much above   the horizon.'. Because here the sun does not  rise  much above   the horizon, it logically results in the effect, meaning it results in results in arctic circle is.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Solar System",
+        "concept": "Process in Solar System",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 282",
+            "evidenceExcerpt": "Arctic Circle is because here the sun does not  rise  much above   the horizon."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Solar System."
+      },
+      "questionId": "Q-PROD-V3-DISC-84dbbd13",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following is a direct consequence of the fact that Figure Layers  decrease in the density of air?",
+      "options": [
+        "primarily triggers erosion dynamics.",
+        "primarily triggers orogeny dynamics.",
+        "It results in results in you know, the climbers experience problems in breathing.",
+        "primarily triggers erosion dynamics."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt, 'You know, the climbers experience problems in breathing due to this decrease in the density of air.'. Because Figure Layers  decrease in the density of air, it logically results in the effect, meaning it results in results in you know, the climbers experience problems in breathing.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Population Geography",
+        "concept": "Process in Population Geography",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 714",
+            "evidenceExcerpt": "You know, the climbers experience problems in breathing due to this decrease in the density of air."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Population Geography."
+      },
+      "questionId": "Q-PROD-V3-DISC-4f55519f",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Given the occurrence where Indo-Gangetic  fertile alluvial soil and abundant water supply, what is the direct geological or environmental consequence?",
+      "options": [
+        "primarily triggers atmospheric pressure dynamics.",
+        "primarily triggers insolation dynamics.",
+        "primarily triggers insolation dynamics.",
+        "It results in results in high population density in the indo-gangetic plains occurs."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt, 'High population density in the Indo-Gangetic plains occurs due to the fertile alluvial soil and abundant water supply.'. Because Indo-Gangetic  fertile alluvial soil and abundant water supply, it logically results in the effect, meaning it results in results in high population density in the indo-gangetic plains occurs.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Population Geography",
+        "concept": "Process in Population Geography",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 1188",
+            "evidenceExcerpt": "High population density in the Indo-Gangetic plains occurs due to the fertile alluvial soil and abundant water supply."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Population Geography."
+      },
+      "questionId": "Q-PROD-V3-DISC-11ae538a",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of Solar System, what causes the phenomenon where it appears so big?",
+      "options": [
+        "primarily triggers Cancer dynamics.",
+        "It results in results in it appears so big.",
+        "primarily triggers Sooraj dynamics.",
+        "primarily triggers Arctic dynamics."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to geography_extracted.txt, 'It appears so big because it is nearer to our planet than other celestial bodies.'. Because Because  is nearer to our planet than other celestial bodies, it logically results in the effect, meaning it results in results in it appears so big.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Solar System",
+        "concept": "Process in Solar System",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 136",
+            "evidenceExcerpt": "It appears so big because it is nearer to our planet than other celestial bodies."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Solar System."
+      },
+      "questionId": "Q-PROD-V3-DISC-a288c3c4",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following is a direct consequence of the fact that Gujarat  continuous canopy?",
+      "options": [
+        "primarily triggers TROPICAL dynamics.",
+        "primarily triggers Saptarishi dynamics.",
+        "primarily triggers Deodar dynamics.",
+        "It results in results in the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth.."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt, 'The continuous canopy leads to the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth.'. Because Gujarat  continuous canopy, it logically results in the effect, meaning it results in results in the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth..",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Biogeography",
+        "concept": "Process in Biogeography",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 1183",
+            "evidenceExcerpt": "The continuous canopy leads to the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Biogeography."
+      },
+      "questionId": "Q-PROD-V3-DISC-91383754",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of Oceanography, what causes the phenomenon where tsunami is a huge sea wave generated?",
+      "options": [
+        "primarily triggers UrduBorsha dynamics.",
+        "primarily triggers Christmas dynamics.",
+        "It results in results in tsunami is a huge sea wave generated.",
+        "primarily triggers Antarctica dynamics."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt, 'Tsunami is a huge sea wave generated due to an earthquake on the sea floor.'. Because Tsunami  earthquake on the sea floor, it logically results in the effect, meaning it results in results in tsunami is a huge sea wave generated.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Oceanography",
+        "concept": "Process in Oceanography",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 1024",
+            "evidenceExcerpt": "Tsunami is a huge sea wave generated due to an earthquake on the sea floor."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Oceanography."
+      },
+      "questionId": "Q-PROD-V3-DISC-c3c7373c",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Given the occurrence where Northern Hemisphere  the rotation and revolution of the earth respectively, what is the direct geological or environmental consequence?",
+      "options": [
+        "primarily triggers Maldives dynamics.",
+        "It results in results in thus, you find that there are days and nights and changes in the seasons.",
+        "primarily triggers Figure dynamics.",
+        "primarily triggers Varsha\u2013 dynamics."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to geography_extracted.txt, 'Thus, you find that there are days and nights and changes in the seasons because of the rotation and revolution of the earth respectively.'. Because Northern Hemisphere  the rotation and revolution of the earth respectively, it logically results in the effect, meaning it results in results in thus, you find that there are days and nights and changes in the seasons.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Oceanography",
+        "concept": "Process in Oceanography",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 468",
+            "evidenceExcerpt": "Thus, you find that there are days and nights and changes in the seasons because of the rotation and revolution of the earth respectively."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Oceanography."
+      },
+      "questionId": "Q-PROD-V3-DISC-f599b3af",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In the context of Geomorphology, what causes the phenomenon where the range has considerably worn down?",
+      "options": [
+        "It results in results in the range has considerably worn down.",
+        "primarily triggers Sherpa dynamics.",
+        "primarily triggers Broadly dynamics.",
+        "primarily triggers Indian dynamics."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to geography_extracted.txt, 'The range has considerably worn down due to the processes of erosion.'. Because Aravali  processes of erosion, it logically results in the effect, meaning it results in results in the range has considerably worn down.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geomorphology",
+        "concept": "Process in Geomorphology",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 803",
+            "evidenceExcerpt": "The range has considerably worn down due to the processes of erosion."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Geomorphology."
+      },
+      "questionId": "Q-PROD-V3-DISC-de336c71",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following is a direct consequence of the fact that natural calamities like earthquakes?",
+      "options": [
+        "primarily triggers atmospheric pressure dynamics.",
+        "primarily triggers subduction dynamics.",
+        "primarily triggers subduction dynamics.",
+        "It results in results in similarly earth\u2019s surface may be changed."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt, 'Similarly earth\u2019s surface may be changed due to natural calamities like earthquakes.'. Because natural calamities like earthquakes, it logically results in the effect, meaning it results in results in similarly earth\u2019s surface may be changed.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Earthquakes",
+        "concept": "Process in Earthquakes",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 737",
+            "evidenceExcerpt": "Similarly earth\u2019s surface may be changed due to natural calamities like earthquakes."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Earthquakes."
+      },
+      "questionId": "Q-PROD-V3-DISC-411eb071",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following describes a verified characteristic of Nagpur?",
+      "options": [
+        "is associated with Bharat.",
+        "is associated with Mission:.",
+        "It comprises immense reserves of metallic minerals.",
+        "is associated with Nagpur."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (Para index 1186), 'The Chota Nagpur plateau comprises immense reserves of metallic minerals.'. This confirms that Nagpur comprises immense reserves of metallic minerals., indicating its defining characteristic.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Economic Geography",
+        "concept": "Definition in Economic Geography",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 1186",
+            "evidenceExcerpt": "The Chota Nagpur plateau comprises immense reserves of metallic minerals."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via NLP extraction within Economic Geography."
+      },
+      "questionId": "Q-PROD-V3-DISC-957acf25",
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ]
+}

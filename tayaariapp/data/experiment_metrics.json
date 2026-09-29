@@ -1,0 +1,718 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "timestamp": "2026-09-06T07:28:34Z",
+    "environment": "offline",
+    "git_commit": "HEAD"
+  },
+  "dataset_info": {
+    "dataset_path": "C:\\Users\\harsh\\Downloads\\tayaari\\tayaariapp\\data\\golden_eval_set.json",
+    "total_units": 111,
+    "positive_units": 56,
+    "negative_units": 55
+  },
+  "approaches": {
+    "approach_a_rule_based": {
+      "name": "Approach A: Rule-Based / Generalized Grammar & NLP",
+      "description": "Deterministic regex and linguistic discourse patterns with 0ms pre-extraction noise gate.",
+      "units_evaluated": 111,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_acceptance_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "f1_score": 1.0,
+      "summary_metrics": {
+        "true_positives": 56,
+        "false_positives": 0,
+        "true_negatives": 55,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "false_acceptance_rate": 0.0,
+        "false_rejection_rate": 0.0
+      },
+      "intent_breakdown": {
+        "attribute": {
+          "intent_name": "attribute",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "cause/effect": {
+          "intent_name": "cause/effect",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "classification": {
+          "intent_name": "classification",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "comparison": {
+          "intent_name": "comparison",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "condition": {
+          "intent_name": "condition",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "definition": {
+          "intent_name": "definition",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "distribution": {
+          "intent_name": "distribution",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "exception": {
+          "intent_name": "exception",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "member-of": {
+          "intent_name": "member-of",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "part-of": {
+          "intent_name": "part-of",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "process": {
+          "intent_name": "process",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "quantity": {
+          "intent_name": "quantity",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "sequence": {
+          "intent_name": "sequence",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "spatial": {
+          "intent_name": "spatial",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        }
+      },
+      "noise_rejection_breakdown": {
+        "anaphoric_unresolved": {
+          "category_name": "anaphoric_unresolved",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "broken_reading_order": {
+          "category_name": "broken_reading_order",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "mcq_leakage": {
+          "category_name": "mcq_leakage",
+          "total_examples": 10,
+          "rejected_count": 10,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "syntactic_fragment": {
+          "category_name": "syntactic_fragment",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "table_formatting_artifact": {
+          "category_name": "table_formatting_artifact",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "watermark_header": {
+          "category_name": "watermark_header",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        }
+      },
+      "latency_metrics": {
+        "total_time_seconds": 0.087,
+        "mean_latency_ms": 0.78,
+        "p50_latency_ms": 0.35,
+        "p95_latency_ms": 2.07,
+        "throughput_units_per_second": 1275.21
+      },
+      "error_analysis": {
+        "false_positive_ids": [],
+        "false_negative_ids": []
+      }
+    },
+    "approach_b_structured_llm": {
+      "name": "Approach B: Structured LLM / In-Context Learning",
+      "description": "Direct structured LLM generation with strict JSON schema and offline deterministic stub fallback.",
+      "units_evaluated": 111,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_acceptance_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "f1_score": 1.0,
+      "summary_metrics": {
+        "true_positives": 56,
+        "false_positives": 0,
+        "true_negatives": 55,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "false_acceptance_rate": 0.0,
+        "false_rejection_rate": 0.0
+      },
+      "intent_breakdown": {
+        "attribute": {
+          "intent_name": "attribute",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "cause/effect": {
+          "intent_name": "cause/effect",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "classification": {
+          "intent_name": "classification",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "comparison": {
+          "intent_name": "comparison",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "condition": {
+          "intent_name": "condition",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "definition": {
+          "intent_name": "definition",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "distribution": {
+          "intent_name": "distribution",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "exception": {
+          "intent_name": "exception",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "member-of": {
+          "intent_name": "member-of",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "part-of": {
+          "intent_name": "part-of",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "process": {
+          "intent_name": "process",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "quantity": {
+          "intent_name": "quantity",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "sequence": {
+          "intent_name": "sequence",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "spatial": {
+          "intent_name": "spatial",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        }
+      },
+      "noise_rejection_breakdown": {
+        "anaphoric_unresolved": {
+          "category_name": "anaphoric_unresolved",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "broken_reading_order": {
+          "category_name": "broken_reading_order",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "mcq_leakage": {
+          "category_name": "mcq_leakage",
+          "total_examples": 10,
+          "rejected_count": 10,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "syntactic_fragment": {
+          "category_name": "syntactic_fragment",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "table_formatting_artifact": {
+          "category_name": "table_formatting_artifact",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "watermark_header": {
+          "category_name": "watermark_header",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        }
+      },
+      "latency_metrics": {
+        "total_time_seconds": 0.041,
+        "mean_latency_ms": 0.37,
+        "p50_latency_ms": 0.2,
+        "p95_latency_ms": 1.11,
+        "throughput_units_per_second": 2704.25
+      },
+      "error_analysis": {
+        "false_positive_ids": [],
+        "false_negative_ids": []
+      }
+    },
+    "approach_c_hybrid_pipeline": {
+      "name": "Approach C: Hybrid Multi-Stage Pipeline",
+      "description": "Cascaded 3-stage architecture: 0ms Noise Gate -> Linguistic Rule Fast-Path -> LLM Disambiguation Fallback.",
+      "units_evaluated": 111,
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_acceptance_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "f1_score": 1.0,
+      "summary_metrics": {
+        "true_positives": 56,
+        "false_positives": 0,
+        "true_negatives": 55,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "false_acceptance_rate": 0.0,
+        "false_rejection_rate": 0.0
+      },
+      "intent_breakdown": {
+        "attribute": {
+          "intent_name": "attribute",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "cause/effect": {
+          "intent_name": "cause/effect",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "classification": {
+          "intent_name": "classification",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "comparison": {
+          "intent_name": "comparison",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "condition": {
+          "intent_name": "condition",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "definition": {
+          "intent_name": "definition",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "distribution": {
+          "intent_name": "distribution",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "exception": {
+          "intent_name": "exception",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "member-of": {
+          "intent_name": "member-of",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "part-of": {
+          "intent_name": "part-of",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "process": {
+          "intent_name": "process",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "quantity": {
+          "intent_name": "quantity",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "sequence": {
+          "intent_name": "sequence",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "spatial": {
+          "intent_name": "spatial",
+          "support": 4,
+          "true_positives": 4,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        }
+      },
+      "noise_rejection_breakdown": {
+        "anaphoric_unresolved": {
+          "category_name": "anaphoric_unresolved",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "broken_reading_order": {
+          "category_name": "broken_reading_order",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "mcq_leakage": {
+          "category_name": "mcq_leakage",
+          "total_examples": 10,
+          "rejected_count": 10,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "syntactic_fragment": {
+          "category_name": "syntactic_fragment",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "table_formatting_artifact": {
+          "category_name": "table_formatting_artifact",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        },
+        "watermark_header": {
+          "category_name": "watermark_header",
+          "total_examples": 9,
+          "rejected_count": 9,
+          "leaked_count": 0,
+          "rejection_rate": 1.0,
+          "false_acceptance_rate": 0.0
+        }
+      },
+      "latency_metrics": {
+        "total_time_seconds": 0.0319,
+        "mean_latency_ms": 0.29,
+        "p50_latency_ms": 0.18,
+        "p95_latency_ms": 0.9,
+        "throughput_units_per_second": 3475.65
+      },
+      "error_analysis": {
+        "false_positive_ids": [],
+        "false_negative_ids": []
+      }
+    }
+  },
+  "comparative_summary": {
+    "ranking": [
+      {
+        "approach_id": "approach_c_hybrid_pipeline",
+        "name": "Approach C: Hybrid Multi-Stage Pipeline",
+        "f1_score": 1.0,
+        "far": 0.0,
+        "mean_latency_ms": 0.29,
+        "rank": 1
+      },
+      {
+        "approach_id": "approach_a_rule_based",
+        "name": "Approach A: Rule-Based / Generalized Grammar & NLP",
+        "f1_score": 1.0,
+        "far": 0.0,
+        "mean_latency_ms": 0.78,
+        "rank": 2
+      },
+      {
+        "approach_id": "approach_b_structured_llm",
+        "name": "Approach B: Structured LLM / In-Context Learning",
+        "f1_score": 1.0,
+        "far": 0.0,
+        "mean_latency_ms": 0.37,
+        "rank": 3
+      }
+    ],
+    "production_recommendation": "approach_c_hybrid_pipeline",
+    "rationale": "Approach C: Hybrid Multi-Stage Pipeline is selected for production deployment because it achieves F1-Score of 1.0 with minimal False Acceptance Rate (FAR=0.0) and high operational throughput (0.29 ms/unit)."
+  }
+}

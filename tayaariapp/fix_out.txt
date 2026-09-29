@@ -1,0 +1,4 @@
+﻿GEN- count: 37
+GEN-301 context:
+'5 and 6 only\n\n(d) 1, 2, 3, 4, 5 and 6\n```\n### SSC Stenographer Data (925-Question Set)\n- **Topic**: 3. Motions of the Earth\n- **Tier**: Basic\n- **Format**: Direct Fact\n- **Exam-Relevance**: General-Competitive\n- **Source**: NCERT Class 6 Generated\n- **Specific-Exam**: Any\n- **PDF-Sequence-Number**: GEN-301\n- **Question**:\nQ301. The movement of the earth on its own axis is called:\n(a) Revolution\n(b) Rotation\n(c) Solstice\n(d) Equinox\nCorrect Answer: Option b\n\\- **Topic**: 3. Motions of the Earth\n-'
+Fixed and saved.

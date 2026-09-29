@@ -1,0 +1,79 @@
+﻿Topic 4 starts at: 24879
+4. Maps
+### UPSC Prelims Data (150-Question Set)
+*Total Questions Mapped:* 0
+### SSC Stenographer Data (925-Question Set)
+---
+
+## 5. Major Domains of the Earth
+### UPSC Prelims Data (150-Question Set)
+*Total Questions Mapped:* 3
+- **Topic**: 5. Major Domains of the Earth
+- **Tier**: Basic
+- **Format**: Direct Fact
+- **Exam-Relevance**: Elite
+- **Source**: Real-PYQ
+- **Specific-Exam**: UPSC-Prelims
+- **PDF-Sequence-Number**: 112
+- **Question**:
+```
+Q112. Tides occur in the oceans and seas due to which among the following?
+1. Gravitational force of the Sun
+2. Gravitational force of the Moon
+3. Centrifugal force of the Earth
+Select the correct answer using the code given below:
+a) 1 only
+b) 2 and 3 only
+c) 1 and 3 only
+d) 1, 2 and 3
+Correct answer: option d
+```
+- **Topic**: 5. Major Domains of the Earth
+- **Tier**: Basic
+- **Format**: Direct Fact
+- **Exam-Relevance**: Elite
+- **Source**: Real-PYQ
+- **Specific-Exam**: UPSC-Prelims
+- **PDF-Sequence-Number**: 120
+- **Question**:
+```
+Q120. Which one of the following pairs of islands is separated from each other by the
+'Ten Degree Channel'?
+a) Andman and Nicobar
+b) Nicobar and Sumatra
+c) Maldives and Lakshadweep
+d) Sumatra and Java
+Correct answer: option a
+```
+- **Topic**: 5. Major Domains of the Earth
+- **Tier**: Basic
+- **Format**: Direct Fact
+- **Exam-Relevance**: Elite
+- **Source**: Real-PYQ
+- **Specific-Exam**: UPSC-Prelims
+- **PDF-Sequence-Number**: 121
+- **Question**:
+```
+Q121. Which of the following phenomena might have in∩¼éuenced the evolution of
+organisms?
+1. Continental drift
+2. Glacial cycles
+Select the correct answer using the code given below:
+a) 1 only
+b) 2 only
+c) Both 1 and 2
+d) Neither 1 nor 2
+Correct answer: c
+```
+### SSC Stenographer Data (925-Question Set)
+---
+
+## 6. Major Landforms of the Earth
+### UPSC Prelims Data (150-Question Set)
+*Total Questions Mapped:* 2
+- **Topic**: 6. Major Landforms of the Earth
+- **Tier**: Basic
+- **Format**: Direct Fact
+- **Exam-Relevance**: Elite
+- **Source**: Real-PYQ
+- *

@@ -1,0 +1,1060 @@
+{
+  "batchId": "BATCH-REAL-CORPUS-V3-SOURCE-DRIVEN",
+  "candidates": 30,
+  "accepted": 13,
+  "rejected": 17,
+  "clue_leakage_detected": 30,
+  "template_violations_detected": 0,
+  "concept_capacity": 30,
+  "stats": {
+    "percent_recall": 100.0,
+    "percent_understand_plus": 0.0,
+    "upsc_candidates_passing_higher_order_gate": 0,
+    "distinct_concepts": 13,
+    "stopped_naturally": true
+  },
+  "questions": [
+    {
+      "questionId": "Q-PROD-V3-SRC-7",
+      "text": "Which  planet  has  the  longest  day  in   the solar system?",
+      "options": [
+        "Jupiter",
+        "Mars",
+        "Earth",
+        "Venus"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_4): '4\nTHE EARTH : OUR HABITAT\nform the solar system. We often call it a solar family,\nwith the sun as its Head.\nThe Sun\nThe sun is in the centre of the solar system. It is huge\nand made up of extremely hot gases. It provides the\npulling force that binds the solar system. The sun is\nthe ultimate source o...' This evidence explicitly supports that Venus is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_7",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_4 | SOURCE: geography_extracted.txt | EVIDENCE: 4\nTHE EARTH : OUR HABITAT\nform the solar system. We often call it a solar family,\nwith the sun as its Head.\nThe Sun\nThe sun is in the centre of the solar system. It is huge\nand made up of extremely hot gases. It provides the\npulling force that binds the solar system. The sun is\nthe ultimate source o..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Mars' appears in same context as answer. | 'Jupiter' appears in same context as answer. | 'Earth' appears in same context as answer."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-11",
+      "text": "Which  is,  by  far,  the  closest  dwarf   planet  orbiting  at  only  2.8  times  Earth\u2019s   distance from the sun ?",
+      "options": [
+        "Makemake",
+        "Pluto",
+        "Eris",
+        "Ceres"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_4): '4\nTHE EARTH : OUR HABITAT\nform the solar system. We often call it a solar family,\nwith the sun as its Head.\nThe Sun\nThe sun is in the centre of the solar system. It is huge\nand made up of extremely hot gases. It provides the\npulling force that binds the solar system. The sun is\nthe ultimate source o...' This evidence explicitly supports that Ceres is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_11",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_4 | SOURCE: geography_extracted.txt | EVIDENCE: 4\nTHE EARTH : OUR HABITAT\nform the solar system. We often call it a solar family,\nwith the sun as its Head.\nThe Sun\nThe sun is in the centre of the solar system. It is huge\nand made up of extremely hot gases. It provides the\npulling force that binds the solar system. The sun is\nthe ultimate source o..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Makemake' structurally matches answer length. | 'Eris' structurally matches answer length. | 'Pluto' appears in same context as answer."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-30",
+      "text": "Which  star  is  also  known  as  the   \u2018Pole Star\u2019 ?",
+      "options": [
+        "The East star",
+        "The West star",
+        "The South star",
+        "The North star"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_2): '2\nTHE EARTH : OUR HABITAT\nFigure 1.1 : Saptarishi and the\nNorth Star\nYou must have noticed that all\nobjects look smaller when seen from a\ndistance. How small an aeroplane looks\nwhen it is flying at a great height!\nWhile watching the night sky, you\nmay notice various patterns formed by\ndifferent grou...' This evidence explicitly supports that The North star is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_30",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_2 | SOURCE: geography_extracted.txt | EVIDENCE: 2\nTHE EARTH : OUR HABITAT\nFigure 1.1 : Saptarishi and the\nNorth Star\nYou must have noticed that all\nobjects look smaller when seen from a\ndistance. How small an aeroplane looks\nwhen it is flying at a great height!\nWhile watching the night sky, you\nmay notice various patterns formed by\ndifferent grou..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'The East star' structurally matches answer length. | 'The South star' structurally matches answer length. | 'The West star' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-34",
+      "text": "Which  trend  is  found  about  the   distance between the galaxies?",
+      "options": [
+        "Constant",
+        "Decreasing",
+        "Unpredictable",
+        "Increasing"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_1): 'THE EARTH IN THE SOLAR SYSTEM\nHow wonderful it is to watch the sky after sunset! One\nwould first notice one or two bright dots shining in\nthe sky. Soon you would see the number increasing.\nYou cannot count them any more. The whole sky is\nfilled with tiny shining objects \u2013 some are bright, others\ndim...' This evidence explicitly supports that Increasing is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_34",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_1 | SOURCE: geography_extracted.txt | EVIDENCE: THE EARTH IN THE SOLAR SYSTEM\nHow wonderful it is to watch the sky after sunset! One\nwould first notice one or two bright dots shining in\nthe sky. Soon you would see the number increasing.\nYou cannot count them any more. The whole sky is\nfilled with tiny shining objects \u2013 some are bright, others\ndim..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Unpredictable' structurally matches answer length. | 'Decreasing' structurally matches answer length. | 'Constant' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-56",
+      "text": "During  October-November,  the   apparent  movement  of  the  sun  is   towards the _____.",
+      "options": [
+        "North-West",
+        "North",
+        "South",
+        "North-East"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_55): '8\n8\nINDIA : CLIMATE,\nVEGETATION AND WILDLIFE\nYou read in newspapers daily and watch on T.V. or\nhear others talking about weather. You must know\nthat weather is about day to day changes in the\natmosphere. It includes changes in temperature,\nrainfall and sunshine etc. For example, as such it may\nbe ho...' This evidence explicitly supports that South is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_56",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_55 | SOURCE: geography_extracted.txt | EVIDENCE: 8\n8\nINDIA : CLIMATE,\nVEGETATION AND WILDLIFE\nYou read in newspapers daily and watch on T.V. or\nhear others talking about weather. You must know\nthat weather is about day to day changes in the\natmosphere. It includes changes in temperature,\nrainfall and sunshine etc. For example, as such it may\nbe ho..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'North' appears in same context as answer. | 'North-East' structurally matches answer length. | 'North-West' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-62",
+      "text": "What  is  the  zone  between  the  arctic   circle and north pole called?",
+      "options": [
+        "Frigid zone",
+        "Torrid zone",
+        "South temperate zone",
+        "North temperate zone"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_16): '16\nTHE EARTH : OUR HABITAT\n1.Answer the following questions briefly.\n(a)What is the true shape of the earth?\n(b)What is a globe?\n(c)What is the latitudinal value of the Tropic of Cancer?\n(d)What are the three heat zones of the Earth?\n(e)What are parallels of latitude and meridians of longitude?\n(f)W...' This evidence explicitly supports that Frigid zone is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_62",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_16 | SOURCE: geography_extracted.txt | EVIDENCE: 16\nTHE EARTH : OUR HABITAT\n1.Answer the following questions briefly.\n(a)What is the true shape of the earth?\n(b)What is a globe?\n(c)What is the latitudinal value of the Tropic of Cancer?\n(d)What are the three heat zones of the Earth?\n(e)What are parallels of latitude and meridians of longitude?\n(f)W..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Torrid zone' appears in same context as answer. | 'North temperate zone' provides a distinct entity contrast. | 'South temperate zone' provides a distinct entity contrast."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-75",
+      "text": "The  thermocline  layer  is  the  ______   layer of the ocean.",
+      "options": [
+        "first",
+        "third",
+        "fourth",
+        "second"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_35): '35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ...' This evidence explicitly supports that second is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_75",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_35 | SOURCE: geography_extracted.txt | EVIDENCE: 35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'third' structurally matches answer length. | 'fourth' structurally matches answer length. | 'first' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-80",
+      "text": "Choose  the  correct  statement(s)   related to \u2018continentality\u2019.   A.   The  sea  exerts  a  moderating   influence on climate.   B.   As  the  distance  from  the  sea   increases,  the  people  experience   extreme weather conditions.   C.   As  one  goes  from  the  surface  of  the   earth  to  higher  altitudes,  the   atmosphere  becomes  less  dense  and   temperature decreases.",
+      "options": [
+        "B and C",
+        "Only C",
+        "A and C",
+        "A and B"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_56): '57\nINDIA : CLIMATE, VEGETATION AND WILDLIFE\nLet\u2019s have fun :\n1.People in all parts of our country drink delicious\ncool drinks called Sharbat made from fruits\navailable in their regions. They are excellent\nthirst-quenchers and protect our bodies from the\nill-effect of the harsh \u2018loo\u2019. Have you tried\n...' This evidence explicitly supports that A and B is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_80",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_56 | SOURCE: geography_extracted.txt | EVIDENCE: 57\nINDIA : CLIMATE, VEGETATION AND WILDLIFE\nLet\u2019s have fun :\n1.People in all parts of our country drink delicious\ncool drinks called Sharbat made from fruits\navailable in their regions. They are excellent\nthirst-quenchers and protect our bodies from the\nill-effect of the harsh \u2018loo\u2019. Have you tried\n..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'B and C' structurally matches answer length. | 'Only C' provides a distinct entity contrast. | 'A and C' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-97",
+      "text": "Ocean  acidification  is  the  ongoing   decrease  in  the  pH  of  the  Earth\u2019s  oceans,   caused  by  the  uptake  of  ______  from  the   atmosphere.",
+      "options": [
+        "nitrogen",
+        "Methane",
+        "argon",
+        "carbon dioxide"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_35): '35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ...' This evidence explicitly supports that carbon dioxide is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_97",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_35 | SOURCE: geography_extracted.txt | EVIDENCE: 35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Methane' provides a distinct entity contrast. | 'nitrogen' appears in same context as answer. | 'argon' appears in same context as answer."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-116",
+      "text": "Which  of  the  following  rivers   forms  a  delta  along  the  Eastern  Coastal   Plains ?",
+      "options": [
+        "Narmada",
+        "Mahi",
+        "Godavari",
+        "Tapi"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_52): '52\nTHE EARTH : OUR HABITAT\nDo you know?\nCorals are\nskeletons of\ntiny marine\nanimals called Polyps.\nWhen the living polyps\ndie, their skeletons are\nleft. Other poplyps grow\non top of the hard\nskeleton which grows\nhigher and higher, thus\nforming the coral islands.\nFigure 7.4 shows Coral\nislands.\nFigur...' This evidence explicitly supports that Godavari is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_116",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_52 | SOURCE: geography_extracted.txt | EVIDENCE: 52\nTHE EARTH : OUR HABITAT\nDo you know?\nCorals are\nskeletons of\ntiny marine\nanimals called Polyps.\nWhen the living polyps\ndie, their skeletons are\nleft. Other poplyps grow\non top of the hard\nskeleton which grows\nhigher and higher, thus\nforming the coral islands.\nFigure 7.4 shows Coral\nislands.\nFigur..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Narmada' structurally matches answer length. | 'Tapi' structurally matches answer length. | 'Mahi' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-128",
+      "text": "Which  of  the  following  rivers   flows  north  of  the  Tropic  of  Cancer  in   India?",
+      "options": [
+        "Penganga",
+        "Yamuna",
+        "Mahanadi",
+        "Tapi"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Yamuna is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_128",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Mahanadi' structurally matches answer length. | 'Tapi' appears in same context as answer. | 'Penganga' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-136",
+      "text": "Which  of  the  following  rivers   marks  the  eastern-most  boundary  of  the   Himalayas ?",
+      "options": [
+        "Kali",
+        "Satluj",
+        "Brahmaputra",
+        "Teesta"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Brahmaputra is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_136",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Kali' structurally matches answer length. | 'Teesta' structurally matches answer length. | 'Satluj' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-173",
+      "text": "Which  river  basin  originates  from   the  Western  Ghats  range  of  Karnataka   state  and  has  many  tributaries  such  as   the  Noyyal,  Kabini,  Arkavathi  and   Amaravati?",
+      "options": [
+        "Kaveri",
+        "Sabarmati",
+        "Brahmani",
+        "Periyar"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Kaveri is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_173",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Sabarmati' structurally matches answer length. | 'Brahmani' structurally matches answer length. | 'Periyar' structurally matches answer length."
+      },
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ],
+  "rejections": [
+    {
+      "questionId": "Q-PROD-V3-SRC-19",
+      "text": "Which  of  the  following  rocky   planets  is  the  fastest  planet  in  our  solar   system  \u2013  traveling  through  space  at   about  29  miles  (47  kilometers)  per   second?",
+      "options": [
+        "Earth",
+        "Venus",
+        "Mars",
+        "Mercury"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_7): '7\nTHE EARTH IN THE SOLAR SYSTEM\n1.Answer the following questions briefly.\n(a)How does a planet differ from a star?\n(b)What is meant by the \u2018Solar System\u2019?\n(c)Name all the planets according to their distance from the sun.\n(d)Why is the Earth called a unique planet?\n(e)Why do we see only one side of t...' This evidence explicitly supports that Mercury is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_19",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_7 | SOURCE: geography_extracted.txt | EVIDENCE: 7\nTHE EARTH IN THE SOLAR SYSTEM\n1.Answer the following questions briefly.\n(a)How does a planet differ from a star?\n(b)What is meant by the \u2018Solar System\u2019?\n(c)Name all the planets according to their distance from the sun.\n(d)Why is the Earth called a unique planet?\n(e)Why do we see only one side of t..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Earth' appears in same context as answer. | 'Venus' appears in same context as answer. | 'Mars' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-58",
+      "text": "The  southern  part  of  India  lies  in   the _________ belt.",
+      "options": [
+        "rain",
+        "polar",
+        "temperate",
+        "warm"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_35): '35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ...' This evidence explicitly supports that warm is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_58",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_35 | SOURCE: geography_extracted.txt | EVIDENCE: 35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'rain' structurally matches answer length. | 'temperate' structurally matches answer length. | 'polar' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-59",
+      "text": "Which  of  the  following  states  of   India  is  NOT  crossed  by  the  Tropic  of   Cancer (23\u00b030\u2032 N)?",
+      "options": [
+        "Rajasthan",
+        "Chhattisgarh",
+        "Gujarat",
+        "Kerala"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_53): '54\nTHE EARTH : OUR HABITAT\n1.Answer the following questions briefly.\n(a)Name the major physical divisions of India.\n(b)India shares its land boundaries with seven countries. Name them.\n(c)Which two major rivers fall into the Arabian Sea?\n(d)Name the delta formed by the Ganga and the Brahmaputra.\n(e)...' This evidence explicitly supports that Kerala is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_59",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_53 | SOURCE: geography_extracted.txt | EVIDENCE: 54\nTHE EARTH : OUR HABITAT\n1.Answer the following questions briefly.\n(a)Name the major physical divisions of India.\n(b)India shares its land boundaries with seven countries. Name them.\n(c)Which two major rivers fall into the Arabian Sea?\n(d)Name the delta formed by the Ganga and the Brahmaputra.\n(e)..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Gujarat' structurally matches answer length. | 'Rajasthan' structurally matches answer length. | 'Chhattisgarh' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-71",
+      "text": "Which  ocean  is  encircling  the   continent  of  Antarctica  and  extends   northward to 60 degrees south latitude?",
+      "options": [
+        "Pacific Ocean",
+        "Indian Ocean",
+        "Atlantic Ocean",
+        "Southern Ocean"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_35): '35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ...' This evidence explicitly supports that Southern Ocean is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_71",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_35 | SOURCE: geography_extracted.txt | EVIDENCE: 35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Atlantic Ocean' appears in same context as answer. | 'Indian Ocean' appears in same context as answer. | 'Pacific Ocean' appears in same context as answer."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-83",
+      "text": "Which  of  the  following  oceans  is   surrounded  by  the  continent  of  North   America and South America to the east?",
+      "options": [
+        "Indian Ocean",
+        "Atlantic Ocean",
+        "Pacific Ocean",
+        "Arctic Ocean"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_35): '35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ...' This evidence explicitly supports that Pacific Ocean is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_83",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_35 | SOURCE: geography_extracted.txt | EVIDENCE: 35\nMAJOR DOMAINS OF THE EARTH\nNorth and South Americas surround it. Look at the map\nand find out the location of the continents around the\nPacific Ocean.\nThe Atlantic Ocean is the second largest Ocean in\nthe world. It is \u2018S\u2019 shaped. It is flanked by the North\nand South Americas on the western side, ..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Atlantic Ocean' appears in same context as answer. | 'Indian Ocean' appears in same context as answer. | 'Arctic Ocean' appears in same context as answer."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-85",
+      "text": "Which  of  the  following  oceans   extends into the Mediterranean Sea ?",
+      "options": [
+        "Pacific Ocean",
+        "Arctic Ocean",
+        "Atlantic Ocean",
+        "Indian Ocean"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_34): '34\nTHE EARTH : OUR HABITAT\nuse. Hence, despite being a \u2018blue planet\u2019 we face a\nshortage of water!!\nOceans\nOceans are the major part of hydrosphere. They are\nall interconnected.\nThe ocean waters are always moving. The three chief\nmovements of ocean waters are the waves, the tides\nand the ocean curren...' This evidence explicitly supports that Atlantic Ocean is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_85",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_34 | SOURCE: geography_extracted.txt | EVIDENCE: 34\nTHE EARTH : OUR HABITAT\nuse. Hence, despite being a \u2018blue planet\u2019 we face a\nshortage of water!!\nOceans\nOceans are the major part of hydrosphere. They are\nall interconnected.\nThe ocean waters are always moving. The three chief\nmovements of ocean waters are the waves, the tides\nand the ocean curren..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Indian Ocean' appears in same context as answer. | 'Pacific Ocean' appears in same context as answer. | 'Arctic Ocean' appears in same context as answer."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-101",
+      "text": "Which  water  body  covers  an  area   of  1,55,58,000  and  makes  up  only   \ud458\ud45a   2   4.3% of the global ocean?",
+      "options": [
+        "Southern Ocean",
+        "Atlantic Ocean",
+        "Arctic Ocean",
+        "Indian Ocean"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_34): '34\nTHE EARTH : OUR HABITAT\nuse. Hence, despite being a \u2018blue planet\u2019 we face a\nshortage of water!!\nOceans\nOceans are the major part of hydrosphere. They are\nall interconnected.\nThe ocean waters are always moving. The three chief\nmovements of ocean waters are the waves, the tides\nand the ocean curren...' This evidence explicitly supports that Arctic Ocean is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_101",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_34 | SOURCE: geography_extracted.txt | EVIDENCE: 34\nTHE EARTH : OUR HABITAT\nuse. Hence, despite being a \u2018blue planet\u2019 we face a\nshortage of water!!\nOceans\nOceans are the major part of hydrosphere. They are\nall interconnected.\nThe ocean waters are always moving. The three chief\nmovements of ocean waters are the waves, the tides\nand the ocean curren..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Atlantic Ocean' appears in same context as answer. | 'Southern Ocean' appears in same context as answer. | 'Indian Ocean' appears in same context as answer."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-117",
+      "text": "Which  of  these  rivers  does  not   originate  in  the  Peninsular  Plateau  of   India ?",
+      "options": [
+        "Godavari",
+        "Krishna",
+        "Cauvery",
+        "Ganga"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Ganga is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_117",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Godavari' structurally matches answer length. | 'Krishna' structurally matches answer length. | 'Cauvery' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-127",
+      "text": "The  Zaskar  and  the  Nubra  are   tributaries of which river?",
+      "options": [
+        "Indus",
+        "Mahanadi",
+        "Ganga",
+        "Kaveri"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Indus is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_127",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Mahanadi' structurally matches answer length. | 'Ganga' appears in same context as answer. | 'Kaveri' appears in same context as answer."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-131",
+      "text": "In  which  state  of  India  is  kund  or   Tanka used for water harvesting ?",
+      "options": [
+        "Punjab",
+        "Uttar Pradesh",
+        "Andhra Pradesh",
+        "Rajasthan"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Rajasthan is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_131",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Andhra Pradesh' appears in same context as answer. | 'Uttar Pradesh' provides a distinct entity contrast. | 'Punjab' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-133",
+      "text": "Which  of  the  following  is  the   transboundary  river  between  India  and   Pakistan?",
+      "options": [
+        "Jhelum",
+        "Beas",
+        "Indus",
+        "Ravi"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_21): '21\nMOTIONS OF THE EARTH\n1.Answer the following questions briefly.\n(a)What is the angle of inclination of the earth\u2019s axis with its orbital plane?\n(b)Define rotation and revolution.\n(c)What is a leap year?\n(d)Differentiate between the Summer and Winter Solstice.\n(e)What is an equinox?\n(f)Why does the...' This evidence explicitly supports that Ravi is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_133",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_21 | SOURCE: geography_extracted.txt | EVIDENCE: 21\nMOTIONS OF THE EARTH\n1.Answer the following questions briefly.\n(a)What is the angle of inclination of the earth\u2019s axis with its orbital plane?\n(b)Define rotation and revolution.\n(c)What is a leap year?\n(d)Differentiate between the Summer and Winter Solstice.\n(e)What is an equinox?\n(f)Why does the..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Indus' structurally matches answer length. | 'Beas' structurally matches answer length. | 'Jhelum' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-134",
+      "text": "In  which  state  of  India  was  the   Neeru-Meeru  programme  introduced  for   construction  of  water  harvesting   structures?",
+      "options": [
+        "Uttar Pradesh",
+        "Rajasthan",
+        "Andhra Pradesh",
+        "Punjab"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Andhra Pradesh is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_134",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Rajasthan' appears in same context as answer. | 'Uttar Pradesh' structurally matches answer length. | 'Punjab' provides a distinct entity contrast."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-142",
+      "text": "Which  state  of  India  has  the   maximum number of large dams?",
+      "options": [
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Rajasthan",
+        "Odisha"
+      ],
+      "correctIndex": 1,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_58): '59\nINDIA : CLIMATE, VEGETATION AND WILDLIFE\nyear. Therefore, they always appear green and are\ncalled evergreen forest as you may notice in Figure\n8.1. Important trees found in these forests are\nmahogany, ebony and rosewood. Andaman and\nNicobar Islands, parts of North-Eastern states and\na narrow stri...' This evidence explicitly supports that Maharashtra is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_142",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_58 | SOURCE: geography_extracted.txt | EVIDENCE: 59\nINDIA : CLIMATE, VEGETATION AND WILDLIFE\nyear. Therefore, they always appear green and are\ncalled evergreen forest as you may notice in Figure\n8.1. Important trees found in these forests are\nmahogany, ebony and rosewood. Andaman and\nNicobar Islands, parts of North-Eastern states and\na narrow stri..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Madhya Pradesh' appears in same context as answer. | 'Odisha' appears in same context as answer. | 'Rajasthan' appears in same context as answer."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-145",
+      "text": "Which  of  the  following  rivers   originates from the Himalayas?",
+      "options": [
+        "Narmada",
+        "Tapi",
+        "Godavari",
+        "Ganga"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_53): '54\nTHE EARTH : OUR HABITAT\n1.Answer the following questions briefly.\n(a)Name the major physical divisions of India.\n(b)India shares its land boundaries with seven countries. Name them.\n(c)Which two major rivers fall into the Arabian Sea?\n(d)Name the delta formed by the Ganga and the Brahmaputra.\n(e)...' This evidence explicitly supports that Ganga is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_145",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_53 | SOURCE: geography_extracted.txt | EVIDENCE: 54\nTHE EARTH : OUR HABITAT\n1.Answer the following questions briefly.\n(a)Name the major physical divisions of India.\n(b)India shares its land boundaries with seven countries. Name them.\n(c)Which two major rivers fall into the Arabian Sea?\n(d)Name the delta formed by the Ganga and the Brahmaputra.\n(e)..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Godavari' structurally matches answer length. | 'Tapi' structurally matches answer length. | 'Narmada' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-146",
+      "text": "Subansiri,  Jia  Bharali,  Dhansiri   and  Puthimari  are  the  major  tributaries  of   which river?",
+      "options": [
+        "Godavari",
+        "Bhagirathi",
+        "Brahmaputra",
+        "Mahanadi"
+      ],
+      "correctIndex": 2,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_43): '43\nMAJOR  LANDFORMS  OF  THE  EARTH\nAfrican plateau is famous for gold and diamond mining. In India huge reserves of\niron, coal and manganese are found in the Chhotanagpur plateau.\nIn the plateau areas, there may be several waterfalls as the river falls from a\ngreat height. In India, the Hundru fall...' This evidence explicitly supports that Brahmaputra is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_146",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_43 | SOURCE: geography_extracted.txt | EVIDENCE: 43\nMAJOR  LANDFORMS  OF  THE  EARTH\nAfrican plateau is famous for gold and diamond mining. In India huge reserves of\niron, coal and manganese are found in the Chhotanagpur plateau.\nIn the plateau areas, there may be several waterfalls as the river falls from a\ngreat height. In India, the Hundru fall..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Godavari' structurally matches answer length. | 'Mahanadi' structurally matches answer length. | 'Bhagirathi' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-149",
+      "text": "Which  of  the  following  rivers  is   called \u2018Singi Khamban\u2019 in Tibet?",
+      "options": [
+        "Indus",
+        "Sutlej",
+        "Kosi",
+        "Brahmaputra"
+      ],
+      "correctIndex": 0,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_37): '37\nMAJOR DOMAINS OF THE EARTH\n1.Answer the following questions briefly.\n(a)What are the four major domains of the earth?\n(b)Name the major continents of the earth.\n(c)Name the two continents that lie entirely in the Southern Hemisphere.\n(d)Name the different layers of atmosphere.\n(e)Why is the earth...' This evidence explicitly supports that Indus is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_149",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_37 | SOURCE: geography_extracted.txt | EVIDENCE: 37\nMAJOR DOMAINS OF THE EARTH\n1.Answer the following questions briefly.\n(a)What are the four major domains of the earth?\n(b)Name the major continents of the earth.\n(c)Name the two continents that lie entirely in the Southern Hemisphere.\n(d)Name the different layers of atmosphere.\n(e)Why is the earth..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Brahmaputra' structurally matches answer length. | 'Kosi' structurally matches answer length. | 'Sutlej' structurally matches answer length."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    },
+    {
+      "questionId": "Q-PROD-V3-SRC-156",
+      "text": "Which  of  the  following  rivers  is   joined by river Chambal from the south?",
+      "options": [
+        "Teesta",
+        "Kosi",
+        "Ganga",
+        "Yamuna"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to geography_extracted.txt (geography_extracted_PARA_51): '51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa...' This evidence explicitly supports that Yamuna is correct because it contextually overlaps with the question's premise.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Extracted Geography",
+        "concept": "Extracted_Concept_156",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          "PAGE/SEC: geography_extracted_PARA_51 | SOURCE: geography_extracted.txt | EVIDENCE: 51\nOUR COUNTRY \u2013 INDIA\nStates and 7 Union Territories (Appendix-I). Telangana\nbecame the 29th state of India on 2 June 2014. It was\npreviously a part of Andhra Pradesh. Delhi is the\nnational capital. The states have been formed mainly\non the basis of languages. Rajasthan is the largest\nstate and Goa..."
+        ],
+        "currentness": "CURRENT_VERIFIED",
+        "templateId": "tpl_src_pattern",
+        "mapEvidenceSufficient": false,
+        "distractorCategoryMatched": true
+      },
+      "validation": {
+        "distractorLogic": "'Kosi' structurally matches answer length. | 'Teesta' structurally matches answer length. | 'Ganga' appears in same context as answer."
+      },
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage, template repetition, or fact repetition."
+    }
+  ],
+  "leak_details": [
+    "Leak: Q5 answer in Q6 stem",
+    "Leak: Q5 answer in Q9 stem",
+    "Leak: Q5 answer in Q12 stem",
+    "Leak: Q5 answer in Q28 stem",
+    "Leak: Q10 answer in Q2 stem",
+    "Cross-leak: Q0 answer is a distractor in Q2",
+    "Cross-leak: Q9 answer is a distractor in Q15",
+    "Cross-leak: Q12 answer is a distractor in Q9",
+    "Cross-leak: Q12 answer is a distractor in Q13",
+    "Cross-leak: Q13 answer is a distractor in Q9",
+    "Cross-leak: Q13 answer is a distractor in Q12",
+    "Cross-leak: Q13 answer is a distractor in Q15",
+    "Cross-leak: Q15 answer is a distractor in Q12",
+    "Cross-leak: Q15 answer is a distractor in Q13",
+    "Cross-leak: Q16 answer is a distractor in Q17",
+    "Cross-leak: Q16 answer is a distractor in Q25",
+    "Cross-leak: Q16 answer is a distractor in Q26",
+    "Cross-leak: Q17 answer is a distractor in Q18",
+    "Cross-leak: Q17 answer is a distractor in Q28",
+    "Cross-leak: Q18 answer is a distractor in Q21",
+    "Cross-leak: Q20 answer is a distractor in Q7",
+    "Cross-leak: Q20 answer is a distractor in Q22",
+    "Cross-leak: Q20 answer is a distractor in Q24",
+    "Cross-leak: Q22 answer is a distractor in Q20",
+    "Cross-leak: Q23 answer is a distractor in Q27",
+    "Cross-leak: Q25 answer is a distractor in Q18",
+    "Cross-leak: Q25 answer is a distractor in Q28",
+    "Cross-leak: Q26 answer is a distractor in Q27",
+    "Cross-leak: Q27 answer is a distractor in Q21",
+    "Cross-leak: Q29 answer is a distractor in Q18"
+  ],
+  "template_details": []
+}

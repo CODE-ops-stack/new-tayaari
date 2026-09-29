@@ -1,0 +1,349 @@
+{
+  "SOURCES PROCESSED": 5,
+  "SOURCE UNITS": 1204,
+  "VALID NODES": 75,
+  "REJECTED NODES": 3733,
+  "OPPORTUNITIES": 73,
+  "ACCEPTED": 73,
+  "REJECTED BY GATE": 0,
+  "COGNITIVE MIX": {
+    "UNDERSTAND": 9,
+    "APPLY": 9,
+    "RECALL": 18,
+    "COMPARE": 37
+  },
+  "EXAMPLES": [
+    {
+      "text": "What is a direct consequence of 'Iron-rich red soil'?",
+      "options": [
+        "It because of electric  currents.",
+        "It because of Known as Red Planet.",
+        "It because of It  is  named  so.",
+        "It because of the  highest  coal  in  India."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to source-material\\geography_extracted_2.txt: 'Known as Red Planet because of Iron-rich red soil.'. This confirms the cause_effect relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "CAUSE_EFFECT",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\geography_extracted_2.txt",
+            "evidenceExcerpt": "Known as Red Planet because of Iron-rich red soil."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other CAUSE_EFFECT relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-d18bbd44"
+    },
+    {
+      "text": "What is a direct consequence of 'Methane'?",
+      "options": [
+        "It because of the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth.",
+        "It because of Jupiter Neptune Slowest Revolution of 165 years Rotation time : 16 hours Windiest Planet, Atmosphere of Hydrogen & Helium Bluish in colour.",
+        "It because of Rotation time : 11 hours Saturn Uranus Known as Green Planet.",
+        "It because of The  Climate  of  India  is  the tropical  monsoon  climate  type  with regional  variations  in  temperature, precipitation,  and  amount  of  rainfall."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to source-material\\geography_extracted_2.txt: 'Jupiter Neptune Slowest Revolution of 165 years Rotation time : 16 hours Windiest Planet, Atmosphere of Hydrogen & Helium Bluish in colour because of Methane.'. This confirms the cause_effect relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "CAUSE_EFFECT",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "source-material\\geography_extracted_2.txt",
+            "evidenceExcerpt": "Jupiter Neptune Slowest Revolution of 165 years Rotation time : 16 hours Windiest Planet, Atmosphere of Hydrogen & Helium Bluish in colour because of Methane."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other CAUSE_EFFECT relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-f6c120a9"
+    },
+    {
+      "text": "What is a direct consequence of 'Presence of Methane gas in it'?",
+      "options": [
+        "It due to Rotation time : 11 hours Saturn Uranus Known as Green Planet.",
+        "It due to the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth.",
+        "It due to The phenomenon of seasons is.",
+        "It due to these electric  currents  to  form  a  magnetic  field which extends around the planet."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to source-material\\geography_extracted_2.txt: 'Rotation time : 11 hours Saturn Uranus Known as Green Planet due to Presence of Methane gas in it.'. This confirms the cause_effect relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "CAUSE_EFFECT",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "source-material\\geography_extracted_2.txt",
+            "evidenceExcerpt": "Rotation time : 11 hours Saturn Uranus Known as Green Planet due to Presence of Methane gas in it."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other CAUSE_EFFECT relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-528523b9"
+    },
+    {
+      "text": "Which of the following accurately describes 'st L1'?",
+      "options": [
+        "It refers to extreme biodiversity and high precipitation.",
+        "It refers to 97.25%,  Ice  caps-  2.05%,  Groundwater- 0.68%,  Lakes-  0.1%,  Soil  moisture- 0.005%  ,  Atmosphere-  0.001%  ,  Streams and  river-  0.0001%  ,  Biosphere-  0.00004% .",
+        "It refers to the  economic  growth  potential  from changes  in  a  population's  age  structure, typically  when  the  working-age population  grows  larger  relative  to dependents.",
+        "It refers to 1 Lagrange points on the sun."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\geography_extracted_2.txt: 'st L1 refers to 1 Lagrange points on the sun.'. This confirms the definition relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "DEFINITION",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\geography_extracted_2.txt",
+            "evidenceExcerpt": "st L1 refers to 1 Lagrange points on the sun."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other DEFINITION relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-49af7c19"
+    },
+    {
+      "text": "What is a direct consequence of 'the revolution of earth around the sun and the tilt of its axis'?",
+      "options": [
+        "It due to The phenomenon of seasons is.",
+        "It due to Known as Red Planet.",
+        "It due to H  -  High  Land:  Cold.",
+        "It due to It  is  named  so."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to source-material\\geography_extracted_2.txt: 'The phenomenon of seasons is due to the revolution of earth around the sun and the tilt of its axis..'. This confirms the cause_effect relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "CAUSE_EFFECT",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\geography_extracted_2.txt",
+            "evidenceExcerpt": "The phenomenon of seasons is due to the revolution of earth around the sun and the tilt of its axis.."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other CAUSE_EFFECT relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-04357c68"
+    },
+    {
+      "text": "Which of the following accurately completes the geographic relationship: 'Eastern & Western Hemisphere Our India is located in...'?",
+      "options": [
+        "of India.",
+        "the  'Raksas  tal'  near  Mansarovar  at  an altitude  of  4,555  m  in  Tibet  where  it  is known  as  Langchen  Khambab.",
+        "of Tanzania,  the  Democratic  Republic  of Congo,  Zambia  and  Burundi.",
+        "North Eastern Hemisphere HemisphereHemisphere An Equinox is a time when the Sun\u2019s apparent path in the sky crosses the equator, making day and night approximately equal in length."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\geography_extracted_2.txt: 'Eastern & Western Hemisphere Our India is located in North Eastern Hemisphere HemisphereHemisphere An Equinox is a time when the Sun\u2019s apparent path in the sky crosses the equator, making day and night approximately equal in length.'. This confirms the spatial relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "SPATIAL",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "source-material\\geography_extracted_2.txt",
+            "evidenceExcerpt": "Eastern & Western Hemisphere Our India is located in North Eastern Hemisphere HemisphereHemisphere An Equinox is a time when the Sun\u2019s apparent path in the sky crosses the equator, making day and night approximately equal in length."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other SPATIAL relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-21cccb48"
+    },
+    {
+      "text": "What is a direct consequence of 'direct sunlight'?",
+      "options": [
+        "It due to River  Kosi:  Originates  near Mount  Everest  and  is  known  as  the sorrow of Bihar.",
+        "It due to the development of complex, multi-layered forest canopies because the abundant rainfall supports continuous growth.",
+        "It due to High population density in the Indo-Gangetic plains occurs.",
+        "It due to The  Torrid Zone  experiences  high  temperatures year-round."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'The  Torrid Zone  experiences  high  temperatures year-round due to direct sunlight.'. This confirms the cause_effect relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "CAUSE_EFFECT",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The  Torrid Zone  experiences  high  temperatures year-round due to direct sunlight."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other CAUSE_EFFECT relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-2ea66191"
+    },
+    {
+      "text": "When comparing geographic features, how does 'Indira  Point  (Great Nicobar  Island,  Andaman  sea)  is  the Southernmost  point  of  India' differ according to verified evidence?",
+      "options": [
+        "It differs in that the  southern  stretch is  known  as  the  Malabar  coast.",
+        "It differs in that Kanyakumari  is  the  southernmost  point of the Indian Mainland.",
+        "It differs in that continental  crust  has  an  average  of  2.7 g/cm 3 .",
+        "It differs in that nights  drop  to  around 15\u00b0C,  creating  a  difference  of  about  35\u00b0C in 24 hours."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to source-material\\question_extracted.txt: 'Indira  Point  (Great Nicobar  Island,  Andaman  sea)  is  the Southernmost  point  of  India  while Kanyakumari  is  the  southernmost  point of the Indian Mainland.'. This confirms the comparison relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "COMPARISON",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "Indira  Point  (Great Nicobar  Island,  Andaman  sea)  is  the Southernmost  point  of  India  while Kanyakumari  is  the  southernmost  point of the Indian Mainland."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other COMPARISON relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-6db58b8c"
+    },
+    {
+      "text": "When comparing geographic features, how does 'The  average  density  of oceanic  crust  is  3.0  g/cm 3 ,' differ according to verified evidence?",
+      "options": [
+        "It differs in that the  point  directly  above  it  on the  surface  is  the  epicenter.",
+        "It differs in that bypassing  Pakistan.",
+        "It differs in that the food  supply  increases  at  a  much  slower, arithmetic  rate  (e.g.,  2,  3,  4,  5).",
+        "It differs in that continental  crust  has  an  average  of  2.7 g/cm 3 ."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'The  average  density  of oceanic  crust  is  3.0  g/cm 3 ,  while continental  crust  has  an  average  of  2.7 g/cm 3 .'. This confirms the comparison relationship.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geography",
+        "concept": "COMPARISON",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "The  average  density  of oceanic  crust  is  3.0  g/cm 3 ,  while continental  crust  has  an  average  of  2.7 g/cm 3 ."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other COMPARISON relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-8a9a41ac"
+    },
+    {
+      "text": "What is a direct consequence of 'the presence of brown Sargassum seaweed'?",
+      "options": [
+        "It because of electric  currents.",
+        "It because of H  -  High  Land:  Cold.",
+        "It because of a variety  of  cereals,  which  are  classified into  fine  grains  (rice,  wheat)  and  coarse grains (jowar, bajra, maize, ragi, etc.).",
+        "It because of It  is  named  so."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to source-material\\question_extracted.txt: 'It  is  named  so because of the presence of brown Sargassum seaweed.'. This confirms the cause_effect relationship.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geography",
+        "concept": "CAUSE_EFFECT",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "source-material\\question_extracted.txt",
+            "evidenceExcerpt": "It  is  named  so because of the presence of brown Sargassum seaweed."
+          }
+        ]
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced from other CAUSE_EFFECT relationships in the corpus."
+      },
+      "questionId": "Q-PROD-V9-680d3854"
+    }
+  ],
+  "REJECTED EXAMPLES": [
+    {
+      "sentence": "| Topic | Tier | Current Count | Target Quota | Ga",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "|---|---|---|---|---|---|",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 1. The Earth in the Solar System | Basic | 32 | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 1. The Earth in the Solar System | Medium | 1 | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 1. The Earth in the Solar System | Advanced | 1 ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 2. Globe: Latitudes and Longitudes | Basic | 12 ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 2. Globe: Latitudes and Longitudes | Medium | 0 ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 2. Globe: Latitudes and Longitudes | Advanced | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 3. Motions of the Earth | Basic | 2 | 15 | 13 | ",
+      "reason": "Block type is TABLE_OR_META"
+    },
+    {
+      "sentence": "| 3. Motions of the Earth | Medium | 0 | 10 | 10 |",
+      "reason": "Block type is TABLE_OR_META"
+    }
+  ]
+}

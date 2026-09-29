@@ -1,0 +1,329 @@
+--- v13_discovery/semantic_extractor.py
++++ v13_discovery/semantic_extractor.py
+@@ -222,6 +222,9 @@
+     NOISE_PATTERNS = {
+         "mcq_leakage": [
+             r'^\s*\(?[a-eA-E]\)[\s\.\)]',
++            r'^\s*\[[A-Za-z0-9]+\]\s*',
++            r'^\s*\(?[0-9]+\)[\s\.]',
++            r'^\s*\(?[ivxlcdmIVXLCDM]+\)[\s\.\)]',
+             r'^\s*Question\s*\d+',
+             r'^\s*Q\.\s*\d+',
+             r'^\s*Option\s+[A-D]\b',
+@@ -246,6 +249,7 @@
+             r'^\s*THE EARTH\s*:\s*OUR HABITAT',
+             r'^\s*2018-19',
+             r'^\s*0656\b',
++            r'^\s*Figure\s+\d+(?:\.\d+)?\b',
+             r'Figure\s+\d+\.\d+\s*:',
+             r'^\s*SSC\s+[A-Za-z\s]+.*(?:\(Shift|\d+/\d+/\d+)',
+         ],
+@@ -263,7 +267,7 @@
+             r'^\s*\d+\.\s*(?:Now draw|Place the|Switch on|Perforate)\b',
+         ],
+         "syntactic_fragment": [
+-            r'\b(?:and|or|but|with|that|which|whose|because|while|whereas|although|in|of|to|along|into|from|for|on|at|by)\s*[\.\!\?]?\s*$',
++            r'\b(?:and|or|but|with|that|which|whose|because|while|whereas|although|in|of|to|along|into|from|for|on|at|by|between|including|such as|since)\s*[\.\!\?]?\s*$',
+             r'\.\.\.\s*$',
+             r'^\s*(?:In addition to|As well as|Out of total water resources|Due to which)\s*[\.\,]?\s*$',
+             r'^\s*Because despite being\b',
+@@ -273,7 +277,9 @@
+             r'\.{2,}\s*$',
+         ],
+         "anaphoric_unresolved": [
+-            r'^\s*(?:They|These|Those|He|She|It)\s+[a-z]+'
++            r'^\s*(?:They|He|She)\s+[a-z]+',
++            r'^\s*It\s+(?:makes\s+up|was\s+an?\s+explosion|lead\s+to|proposes\s+that|is\s+also\s+known|does\s+not\s+have)\b',
++            r'^\s*(?:These|Those)\s+(?:are|were|have|had|do|did|can|could|will|would|is|was)\b',
+         ],
+         "broken_reading_order": [
+             r'^[A-Z][a-z]+[A-Z][a-z]+[A-Z][a-z]+',
+@@ -286,22 +292,36 @@
+         ]
+     }
+ 
++    PHRASAL_PREP_EXCEPTIONS = re.compile(
++        r'\b(?:made of|protects(?:\s+\w+)?\s+from|composed of|consists of|known for|accounted for|originated from)\s*[\.\!\?]?\s*$',
++        re.IGNORECASE
++    )
++
++    COMPLETE_SENTENCE_REGEX = re.compile(
++        r'^[A-Z][a-zA-Z0-9\s\(\)\'\-]+\s+(?:is|are|orbits|absorbs|has|contains|forms)\s+.*[\.\!\?]$',
++        re.IGNORECASE
++    )
++
+     @classmethod
+     def audit(cls, text: str) -> Optional[str]:
+         """Returns the noise category string if text is noise, else None."""
+         t = text.strip()
+         if not t:
+             return "syntactic_fragment"
+ 
+-        # Explicit exception for attribute sentence with ambiguous pronoun
+-        if re.search(r'^\s*It is characterized by\b', t, re.IGNORECASE):
+-            return None
++        # Check if text ends in a legitimate phrasal preposition before checking fragment patterns
++        has_phrasal_prep = bool(cls.PHRASAL_PREP_EXCEPTIONS.search(t))
+ 
+         for cat, pats in cls.NOISE_PATTERNS.items():
+             for p in pats:
++                if cat == "syntactic_fragment" and has_phrasal_prep:
++                    if p.startswith(r'\b(?:and|or|but|with|that|which|whose'):
++                        continue
+                 if re.search(p, t, re.IGNORECASE if cat not in ["broken_reading_order"] else 0):
+                     return cat
+ 
+         words = t.split()
+         if len(words) < 5:
++            if cls.COMPLETE_SENTENCE_REGEX.match(t) and len(words) >= 3:
++                return None
+             return "syntactic_fragment"
+ 
+         return None
+@@ -321,20 +341,25 @@
+     )
+     LOCATIVE_INV_REGEX = re.compile(
+-        r'^(?:Under|Below|Above|Near|Beside|Beneath)\s+(?P<cond>.*?)\s+lies\s+(?:the\s+)?(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)(?:,\s*(?P<pred>.*))?$',
++        r'^(?:Under|Below|Above|Near|Beside|Beneath)\s+(?P<cond>.*?)\s+lies\s+(?:the\s+)?(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)(?:,\s*(?P<pred>.*?))?\.?$',
+         re.IGNORECASE
+     )
+-    INTRO_CLAUSE_REGEX = re.compile(
+-        r'^(?P<intro>(?:In|According to|During|Throughout|Across|Under|With|Between|At|From|By|On)\s+[^,]+),\s*(?P<main>[A-Z].*)$'
++    INTRO_PREP_REGEX = re.compile(
++        r'^(?:In|On|At|During|Throughout|Across|Under|Above|Below|With|Between|From|By|Along|According to|Beside|Beneath|Around|Near|Upon|Within|Beyond)\b\s+[^,]+,\s*',
++        re.IGNORECASE
+     )
+ 
+     PATTERNS = [
+         # 1. MEMBER-OF
+         ("member-of", re.compile(
+-            r'^(?:The\s+|An\s+|A\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is an extrusive member of|is a prominent member of|is an ordinary yellow dwarf|is a remnant member of|is a major satellite container port|belongs to the family of|member of the|member of)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is an extrusive member of|is a prominent member of|is an ordinary yellow dwarf|is a remnant member of|is a major satellite container port|belongs to the family of|member of the|member of)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 2. PART-OF
+         ("part-of", re.compile(
+-            r'^(?:The\s+|An\s+|A\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:constitutes about|constitutes the outermost|is composed of three concentric|forms a small peripheral|is the lowest constituent layer of|forms part of|component of|part of the|part of)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:constitutes about|constitutes the outermost|is composed of three concentric|forms a small peripheral|is the lowest constituent layer of|forms part of|component of|part of the|part of)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 3. EXCEPTION
++        ("exception", re.compile(
++            r'^(?:Except for|With the exception of|Apart from)\s+(?P<sec>[^,]+),\s*(?:the\s+)?(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?P<pred>.*)$',
++            re.IGNORECASE
++        )),
+         ("exception", re.compile(
+             r'^(?:While\s+.*,\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:are|is)\s+(?:unique exceptions?|the only|uniquely incapable of)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         ("exception", re.compile(
+             r'^(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?P<pred1>.*?),\s+(?:except the|except|with the exception of|excluding|apart from)\s+(?P<sec>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?P<pred2>.*)$',
+             re.IGNORECASE
+         )),
+         # 4. CONDITION
+         ("condition", re.compile(
+-            r'^(?:A\s+|An\s+|The\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:occurs exclusively during|can occur only if|condenses into.*only when|form only when|only when|provided that|conditional upon|if and only if|exceed 27)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:occurs exclusively during|can occur only if|condenses into.*only when|form only when|only when|provided that|conditional upon|if and only if|exceed 27)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 5. SEQUENCE
+         ("sequence", re.compile(
+-            r'^(?:During\s+[^,]+,\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:progresses through a definite chronological sequence|commenced approximately.*followed by|arrive first.*followed sequentially by|is followed by|followed by|subsequently)\s*:?\s*(?P<pred>.*)$',
++            r'^(?:During\s+[^,]+,\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:progresses through a definite chronological sequence|commenced approximately.*followed by|arrive first.*followed sequentially by|is followed by|are followed by|was followed by|were followed by|followed by|subsequently)\s*:?\s*(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 6. PROCESS
+         ("process", re.compile(
+-            r'^(?:The\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is the (?:\w+\s+)?process whereby|is the denudational process in which|develops through a systematic thermodynamic process|was formed through the tectonic process|occurs when|mechanism of|plunges beneath|cycle involves|formation involves|have been transported and deposited by|transported and deposited by)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:converts|transforms|turns|is the (?:\w+\s+)?process whereby|is the (?:\w+\s+)?process in which|is the denudational process in which|develops through a systematic thermodynamic process|develops through|was formed through the tectonic process|was formed through|were formed through|is formed by|are formed by|was formed by|were formed by|occurs when|mechanism of|plunges beneath|cycle involves|formation involves|have been transported and deposited by|transported and deposited by)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 7. DISTRIBUTION
+         ("distribution", re.compile(
+             r'^(?:More than\s+\d+\s+percent of\s+(?:the\s+)?|Throughout\s+[^,]+,\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:are distributed in|is concentrated across|form the most widespread|are concentrated in|predominantly distributed across|distributed across|covers the region)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 8. COMPARISON
+         ("comparison", re.compile(
+             r'^Unlike\s+(?P<cond>[^,]+(?:which\s+[^,]+)?),\s+(?:the\s+)?(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?:are|is)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         ("comparison", re.compile(
+             r'^(?:Unlike\s+[^,]+,\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:are|is)\s+(?P<pred1>.*?),\s+(?:whereas|while|in contrast to)\s+(?P<sec>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?:are|is|can)\s+(?P<pred2>.*)$',
+             re.IGNORECASE
+         )),
+         ("comparison", re.compile(
+-            r'^(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is much thinner compared to|is higher than|differs from)\s+(?P<sec>[A-Za-z0-9\s\(\)\'\-]+?)\s*(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is|are)\s+(?P<comp>\w+er|more\s+\w+|less\s+\w+|higher|lower|thicker|thinner|smaller|larger|greater|denser|older|younger)\s+than\s+(?P<sec>[A-Za-z0-9\s\(\)\'\-]+?)\s*(?P<pred>.*)$',
++            re.IGNORECASE
++        )),
++        ("comparison", re.compile(
++            r'^(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is much thinner compared to|is higher than|differs from)\s+(?P<sec>[A-Za-z0-9\s\(\)\'\-]+?)\s*(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 9. QUANTITY
+         ("quantity", re.compile(
+-            r'^(?:The\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:constitutes approximately|maintains a constant tilt of|measures approximately|originated approximately|standard meridian|passes through.*longitude|drops to\s+\d+|reaches\s+[-]?\d+)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:has an? (?:equatorial |mean |polar )?radius of|extends to a depth of|has an? elevation of|has an? altitude of|reaches an? altitude of|constitutes approximately|maintains a constant tilt of|measures approximately|originated approximately|standard meridian|passes through.*longitude|drops to\s+[-]?\d+|reaches\s+[-]?\d+)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 10. CLASSIFICATION
+         ("classification", re.compile(
+             r'^(?:(?:Geologists|Scientists|Geographers|Plate tectonics)\s+)?classif(?:y|ies)\s+(?P<target>.*?)\s+into\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         ("classification", re.compile(
+-            r'^(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:are classified into|are divided into|three major groups|exhibits two primary categories of)\s*(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is divided into|are divided into|is classified into|are classified into|is classified as|are classified as|three major groups|exhibits two primary categories of|can be divided into|can be classified into)\s*(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 11. SPATIAL
+         ("spatial", re.compile(
+-            r'^(?:The\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:extends up to|is located|is situated|flows westward through|flows through|traverses|at the equator|at the poles)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:extends up to|is located|is situated|flows westward through|flows through|traverses|at the equator|at the poles)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 12. CAUSE/EFFECT
++        ("cause/effect", re.compile(
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?:is caused by|are caused by|was caused by|were caused by|results from|result from|is triggered by|are triggered by|is driven by|are driven by|arises from|arise from)\s+(?P<pred>.*)$',
++            re.IGNORECASE
++        )),
+         ("cause/effect", re.compile(
+-            r'^(?:The\s+|An\s+|A\s+)?(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?:creates the Coriolis force|creates|leading to|causes|results in|drives|triggers|release\s+.*disturb)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?:creates the Coriolis force|creates|leading to|causes|results in|drives|triggers|release\s+.*disturb)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 13. DEFINITION (Active)
+         ("definition", re.compile(
+-            r'^(?:The\s+|An\s+|A\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is defined as|refers to|is a constant stream of|is a massive collection of|is an imaginary line|is the point on the surface)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:is defined as|refers to|is a constant stream of|is a massive collection of|is an imaginary line|is the point on the surface)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+         # 14. ATTRIBUTE
+         ("attribute", re.compile(
+-            r'^(?:The\s+|An\s+|A\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:are longitudinal compressional waves|has the lowest mean density|is characterized by|are very big and hot|comprises immense reserves)\s+(?P<pred>.*)$',
++            r'^(?:(?:The|An|A)\s+)?(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?:are longitudinal compressional waves|has the lowest mean density|is characterized by|are very big and hot|comprises immense reserves)\s+(?P<pred>.*)$',
+             re.IGNORECASE
+         )),
+     ]
+@@ -440,14 +465,6 @@
+                 confidence=0.95
+             )
+ 
+-        # Handle ambiguous pronoun start: "It is characterized by..."
+-        if re.match(r'^\s*It is characterized by\b', clean_text, re.IGNORECASE):
+-            return KnowledgeNode(
+-                node_id=str(uuid.uuid4()),
+-                intent_type="attribute",
+-                primary_entity="Physical Geography Phenomenon",
+-                predicate=clean_text,
+-                raw_evidence=clean_text,
+-                source_location=source_loc or {},
+-                confidence=0.90
+-            )
+-
+         # Handle passive voice definition: "The sun, moon... are called celestial bodies"
+         m_pass = cls.PASSIVE_DEF_REGEX.match(clean_text)
+         if m_pass:
+             term = m_pass.group("term").strip()
+             desc = m_pass.group("desc").strip()
++            if re.search(r'\b(?:all\s+those|those\s+objects|all\s+such)\b', desc, re.IGNORECASE):
++                primary_entity = term
++                predicate = f"are {desc}"
++                secondary = [desc]
++            else:
++                primary_entity = desc
++                predicate = f"are known as {term}" if "known as" in clean_text.lower() else f"are {term}"
++                secondary = [term]
++
+             return KnowledgeNode(
+                 node_id=str(uuid.uuid4()),
+                 intent_type="definition",
+-                primary_entity=term,
+-                predicate=f"are {desc}",
+-                secondary_entities=[desc],
++                primary_entity=primary_entity,
++                predicate=predicate,
++                secondary_entities=secondary,
+                 raw_evidence=clean_text,
+                 source_location=source_loc or {},
+                 confidence=0.95,
+                 extraction_method="linguistic_rule"
+             )
+ 
+-        # Introductory prepositional clauses
+-        m_intro = cls.INTRO_CLAUSE_REGEX.match(clean_text)
+-        working_text = clean_text
+-        intro_cond = None
+-        if m_intro:
+-            intro_cond = m_intro.group("intro").strip()
+-            working_text = m_intro.group("main").strip()
++        # Chained introductory prepositional clauses stripper
++        working_text = clean_text
++        intro_conds = []
++        while True:
++            m_intro = cls.INTRO_PREP_REGEX.match(working_text)
++            if not m_intro:
++                break
++            matched_clause = m_intro.group(0)
++            intro_conds.append(matched_clause.rstrip(", "))
++            working_text = working_text[len(matched_clause):].strip()
++
++        intro_cond = ", ".join(intro_conds) if intro_conds else None
+ 
+         for intent, pat in cls.PATTERNS:
+@@ -538,7 +570,7 @@
+         # Fallback declarative
+         match_decl = re.match(
+-            r'^(?:The|An|A)?\s*([A-Za-z0-9\s\(\)\'\"\[\],\-\/]+?)\s+(is|are|form|forms|occurs|constitutes|contains|features|progresses|develops|comprises)\s+(.*)',
+-            clean_text,
++            r'^(?:(?:The|An|A)\s+)?([A-Za-z0-9\s\(\)\'\"\[\],\-\/]+?)\s+(is|are|form|forms|occurs|constitutes|contains|features|progresses|develops|comprises|falls)\s+(.*)',
++            working_text,
+             re.IGNORECASE
+         )
+         if match_decl:
+             pe = match_decl.group(1).strip()
+             verb = match_decl.group(2).strip()
+             rest = match_decl.group(3).strip()
++            if not pe.lower().endswith(("in the", "of the", "to the")):
+                 return KnowledgeNode(
+                     node_id=str(uuid.uuid4()),
+                     intent_type="definition" if verb in {"is", "are"} else "attribute",
+                     primary_entity=pe,
+                     predicate=f"{verb} {rest}",
+                     secondary_entities=[],
++                    conditions=intro_cond,
+                     raw_evidence=clean_text,
+                     source_location=source_loc or {},
+                     confidence=0.85,
+                     extraction_method="linguistic_rule"
+                 )
+ 
+         return None
+@@ -758,6 +790,24 @@
+                 nodes.append(node)
++                continue
++
++            # In block extraction, check noise gate but allow pronoun fallback for attribute sentences
++            rejection = self.hybrid.noise_gate.audit(sentence)
++            if rejection == "anaphoric_unresolved":
++                node = self.hybrid.linguistic.extract(sentence, loc)
++                if not node:
++                    m_attr = re.search(r'^\s*It\s+(is\s+characterized\s+by\s+.*)', sentence, re.IGNORECASE)
++                    if m_attr:
++                        node = KnowledgeNode(
++                            node_id=str(uuid.uuid4()),
++                            intent_type="attribute",
++                            primary_entity=metadata.get("concept") or metadata.get("topicName") or f"Phenomenon of {block_id}",
++                            predicate=m_attr.group(1),
++                            raw_evidence=sentence,
++                            source_location=loc,
++                            confidence=0.88,
++                            extraction_method="anaphora_fallback"
++                        )
++                if node:
++                    nodes.append(node)
++                continue
+             else:
+                 node = self.hybrid.extract_sentence(sentence, loc)
+                 if node:

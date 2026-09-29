@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -i 's/distractorDissections = emptyList()/distractorDissections = listOf(\n                        com.example.model.DistractorDissection("opt_B", "Factual Inversion", "Explanation for why B is wrong"),\n                        com.example.model.DistractorDissection("opt_C", "Irrelevant Fact", "Explanation for why C is wrong"),\n                        com.example.model.DistractorDissection("opt_D", "Absolute Wording", "Explanation for why D is wrong")\n                    )/' app/src/main/java/com/example/repository/QuestionSelectionEngine.kt

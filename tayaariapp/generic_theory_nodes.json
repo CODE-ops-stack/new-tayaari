@@ -1,0 +1,194 @@
+﻿[
+  {
+    "concept": "Shadow Zone Generation",
+    "topic": "Earthquakes",
+    "subject": "S-waves",
+    "claims": [
+      {
+        "text": "travel only through solid materials and not liquids",
+        "distractors": [
+          "travel through all states of matter equally",
+          "travel only through liquid and gaseous materials",
+          "travel exclusively through the Earth's crust"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "cause_effect",
+        "cause": "S-waves cannot pass through liquids",
+        "effect": "they completely disappear beyond 105 degrees from an epicenter",
+        "inference": "the Earth's outer core is entirely liquid",
+        "distractors": [
+          "the Earth's mantle is highly viscous",
+          "the inner core is made of solid iron",
+          "the Earth's crust is fragmented into plates"
+        ]
+      }
+    ],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 3, Page 27",
+    "evidenceExcerpt": "The shadow zone of S-wave is larger in extent... This proves that the outer core is liquid.",
+    "currentnessStatus": "HISTORICAL"
+  },
+  {
+    "concept": "Oceanic-Continental Subduction",
+    "topic": "Plate Tectonics",
+    "subject": "oceanic plates",
+    "claims": [
+      {
+        "text": "are denser than continental plates and subduct beneath them",
+        "distractors": [
+          "are lighter than continental plates and ride over them",
+          "are of equal density, leading to massive fold mountains",
+          "never interact with continental plates directly"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "cause_effect",
+        "cause": "the denser oceanic plate subducts into the mantle",
+        "effect": "the subducting plate melts and creates rising magma",
+        "inference": "continental volcanic arcs are formed parallel to the trench",
+        "distractors": [
+          "mid-ocean ridges are formed actively",
+          "massive non-volcanic mountain ranges are formed",
+          "deep intra-plate hotspots are generated"
+        ]
+      }
+    ],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 4, Page 35",
+    "evidenceExcerpt": "At convergent boundaries where oceanic and continental crust collide, the denser oceanic plate is pushed beneath the lighter continental plate... forming trenches and inland volcanic mountains.",
+    "currentnessStatus": "HISTORICAL"
+  },
+  {
+    "concept": "Caldera Explosivity",
+    "topic": "Geomorphology",
+    "subject": "Calderas",
+    "claims": [
+      {
+        "text": "are the most explosive of all the Earth's volcanoes",
+        "distractors": [
+          "are gentle shield volcanoes characterized by fluid lava",
+          "are extinct volcanic remnants that never erupt",
+          "are strictly underwater mid-ocean ridge vents"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "cause_effect",
+        "cause": "they erupt with immense explosivity",
+        "effect": "they destroy their own edifice",
+        "inference": "they collapse inward to form massive depressions rather than tall mountains",
+        "distractors": [
+          "they build the tallest volcanic mountains on Earth",
+          "they spread fluid lava to form vast plateaus",
+          "they immediately solidify into steep plug domes"
+        ]
+      }
+    ],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 3, Page 29",
+    "evidenceExcerpt": "These are the most explosive of the earth’s volcanoes... when they erupt they tend to collapse on themselves rather than building any tall structure. The collapsed depressions are called calderas.",
+    "currentnessStatus": "HISTORICAL"
+  },
+  {
+    "concept": "Himalayan Frontal Fault",
+    "topic": "Seismic Geography",
+    "subject": "the Himalayan belt",
+    "claims": [
+      {
+        "text": "is situated entirely at a converging continent-continent boundary",
+        "distractors": [
+          "is situated on a rapidly spreading divergent boundary",
+          "is located along a major oceanic transform fault",
+          "is an isolated intraplate region far from boundaries"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "cause_effect",
+        "cause": "ongoing collision between the Indian and Eurasian plates",
+        "effect": "immense stress accumulates on thrust faults like the MBT and HFF",
+        "inference": "the region is highly prone to devastating, shallow high-magnitude earthquakes",
+        "distractors": [
+          "the region experiences widespread active volcanic eruptions",
+          "the region is completely seismically stable",
+          "the region only experiences deep-focus mantle tremors"
+        ]
+      }
+    ],
+    "sourceId": "OXFORD_ATLAS",
+    "section": "Part 3, Page 62",
+    "evidenceExcerpt": "The entire Himalayan belt is situated at the boundary of the converging Indian and Eurasian plates. Thrust faults such as the MBT and HFF accumulate immense stress, placing the region in Seismic Zone V.",
+    "currentnessStatus": "HISTORICAL"
+  },
+  {
+    "concept": "Ocean Currents and Climate",
+    "topic": "Oceanography",
+    "subject": "ocean currents",
+    "claims": [
+      {
+        "text": "circulate warm water from the equator toward the poles",
+        "distractors": [
+          "circulate cold water exclusively toward the equator",
+          "only flow in deep underwater channels isolated from the surface",
+          "are unaffected by the Coriolis effect"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "compare",
+        "entity1": "Western boundary currents (like the Gulf Stream)",
+        "entity2": "Eastern boundary currents (like the Canary Current)",
+        "difference": "Western boundary currents carry warm equatorial water poleward, whereas Eastern boundary currents carry cold polar water equatorward.",
+        "distractors": [
+          "Western currents carry cold water, while Eastern currents carry warm water.",
+          "Western currents are deep ocean flows, while Eastern currents are atmospheric winds.",
+          "Both carry warm water, but Western currents only exist in the Pacific."
+        ]
+      }
+    ],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 14",
+    "evidenceExcerpt": "Ocean currents act as conveyor belts. Western boundary currents like the Gulf Stream transport warm water from the equator poleward, raising coastal temperatures, while eastern boundary currents bring cold water equatorward.",
+    "currentnessStatus": "HISTORICAL"
+  },
+  {
+    "concept": "Coriolis Force Deflection",
+    "topic": "Climatology",
+    "subject": "the Coriolis force",
+    "claims": [
+      {
+        "text": "deflects moving air to the right in the Northern Hemisphere",
+        "distractors": [
+          "deflects moving air to the left in the Northern Hemisphere",
+          "causes air to move strictly in straight lines between poles",
+          "is entirely responsible for generating variations in air pressure"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "cause_effect",
+        "cause": "the rotation of the Earth on its axis",
+        "effect": "freely moving objects like wind are deflected",
+        "inference": "cyclonic systems rotate counterclockwise in the Northern Hemisphere",
+        "distractors": [
+          "cyclonic systems rotate clockwise in the Northern Hemisphere",
+          "winds always blow completely parallel to the equator",
+          "high-pressure systems completely collapse"
+        ]
+      }
+    ],
+    "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+    "section": "Chapter 10",
+    "evidenceExcerpt": "The rotation of the earth about its axis affects the direction of wind... deflecting it to the right in the northern hemisphere. Because of this Coriolis force, cyclones rotate counterclockwise in the north.",
+    "currentnessStatus": "HISTORICAL"
+  }
+]

@@ -1,0 +1,6 @@
+=== FULL LIVE TRACE ===
+Total Dataset Size: 1075 questions
+Topic List Load Time: 175ms
+Random Question Set Fetch Time (10 questions): 14ms
+Performance check passed without noticeable slowdowns.
+=== TRACE END ===

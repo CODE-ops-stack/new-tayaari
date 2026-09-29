@@ -1,0 +1,23 @@
+{
+  "files_analyzed": 5,
+  "total_lines": 21017,
+  "total_characters": 705775,
+  "unit_counts": {
+    "PROSE": 13628,
+    "HEADING": 1244,
+    "MCQ_STEM": 1065,
+    "MCQ_OPTION": 2506,
+    "TABLE_ROW": 137,
+    "METADATA": 92,
+    "EXPLANATION": 926,
+    "OCR_FRAGMENT": 1024
+  },
+  "approximate_relations": {
+    "COMPARISON": 68,
+    "CAUSE_EFFECT": 113,
+    "DEFINITION": 20,
+    "SPATIAL": 105,
+    "DISTRIBUTION": 36,
+    "NUMERICAL": 177
+  }
+}

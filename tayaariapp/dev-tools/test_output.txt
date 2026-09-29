@@ -1,0 +1,306 @@
+Reusing configuration cache.
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig
+
+> Task :app:processDebugGoogleServices
+File google-services.json is missing.
+The Google Services Plugin cannot function without it.
+Searched locations: /app/applet/app/src/debug/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/Debug/google-services.json, /app/applet/app/google-services.json
+
+> Task :app:generateDebugResources
+> Task :app:javaPreCompileDebug
+> Task :app:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugNavigationResources
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile
+> Task :app:compileDebugNavigationResources
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:processDebugMainManifest
+> Task :app:mergeDebugAssets
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugUnitTestManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+> Task :app:kspDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///app/applet/app/src/main/java/com/example/database/AppDatabase.kt:26:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<AppDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/BookmarksScreen.kt:42:43 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/PracticeScreen.kt:59:17 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///app/applet/app/src/main/java/com/example/ui/theme/Theme.kt:65:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///app/applet/app/src/main/java/com/example/viewmodel/PracticeViewModel.kt:180:34 Condition is always 'true'.
+
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:kspDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+
+> Task :app:testDebugUnitTest
+
+DatabaseInitializationTest > testDatabaseInitializationAndSeeding STANDARD_OUT
+    STARTING IMPORT
+    Final Database Row Count: 1075
+
+DatabaseInitializationTest > testDatabaseInitializationAndSeeding PASSED
+
+ExampleRobolectricTest > read string from context PASSED
+
+ExampleUnitTest > addition_isCorrect PASSED
+
+MainActivityTest > testActivityLaunch PASSED
+
+DataImporterTest > testImportAndCount STANDARD_OUT
+    STARTING IMPORT
+
+    === DATABASE IMPORT REPORT ===
+    Elite (UPSC) Rows: 150
+    General-Competitive (SSC) Rows: 925
+    Total Rows: 1075
+
+DataImporterTest > testImportAndCount PASSED
+
+GeminiGenerationTest > testGenerateQuestion STANDARD_OUT
+    STARTING IMPORT
+    Found 2 few shot examples for Topic '24', Tier 'Advanced', Format 'Assertion-Reason'
+    === PROMPT CONSTRUCTED ===
+    Here are 2 real authentic PYQs as structural examples for the exact tone, trickiness, and structure:
+    SSC Question 102 for Topic 24
+    (Correct Answer: A)
+    ---
+    SSC Question 464 for Topic 24
+    (Correct Answer: A)
+
+
+    **Examiner Pattern Guide:**
+    - Never invent placeholder, dummy, or synthetic data.
+    - Match the exact structural DNA of the requested format (e.g., Direct Fact, Statement-based, Matching Pairs, Assertion-Reason).
+    - Test different specific facts than the examples shown — never reword an existing PYQ.
+    - Stay strictly grounded in verified NCERT/reference content.
+    - Match the real difficulty and 'twist' logic examiners use at this tier.
+    - Distractor traps MUST be exactly one of: "Reversed Causality", "Factual Inversion", "Absolute Wording", "Chronological Confusion", or "Irrelevant Fact".
+
+    === GENERATED QUESTION ===
+    {
+      "id": "d576e0d1-66cf-4292-bc7c-a98db066e274",
+      "format": "PRELIMS_MCQ",
+      "chapterCode": "AI-Generated-Concept",
+      "questionText": "Consider the following statements regarding the geological structure of India:\n\nAssertion (A): The peninsular block is primarily composed of ancient gneisses and granites.\nReason (R): It has been subjected to intense tectonic activities and numerous marine transgressions since the Cambrian period.\n\nSelect the correct answer using the code given below:",
+      "questionFormatType": "Direct Fact",
+      "timeLimitSeconds": 90,
+      "options": [
+        {
+          "id": "opt_A",
+          "text": "Both A and R are true and R is the correct explanation of A."
+        },
+        {
+          "id": "opt_B",
+          "text": "Both A and R are true but R is not the correct explanation of A."
+        },
+        {
+          "id": "opt_C",
+          "text": "A is true but R is false."
+        },
+        {
+          "id": "opt_D",
+          "text": "A is false but R is true."
+        }
+      ],
+      "correctAnswerId": "opt_C",
+      "correctExplanation": "The peninsular block is composed of highly stable ancient gneisses and granites (hence A is true). However, unlike the Himalayas, it is a rigid and stable block that has NOT been subjected to widespread marine transgressions or intense recent tectonic deformations since the Cambrian period (hence R is false).",
+      "distractorDissections": [
+        {
+          "optionId": "opt_A",
+          "trapType": "Factual Inversion",
+          "dissection": "Assumes the Reason is true, incorrectly attributing frequent tectonic activity to the stable peninsular shield."
+        },
+        {
+          "optionId": "opt_B",
+          "trapType": "Factual Inversion",
+          "dissection": "Incorrectly treats the false Reason statement as a true factual statement."
+        },
+        {
+          "optionId": "opt_D",
+          "trapType": "Factual Inversion",
+          "dissection": "Inverts the truth of both the Assertion (which is true) and the Reason (which is false)."
+        }
+      ]
+    }
+
+GeminiGenerationTest > testGenerateQuestion PASSED
+
+RegexTest > testRegex STANDARD_OUT
+    Topic 1: Found 0 matches in relevantUpscBlock
+    Sample of relevantUpscBlock: 
+
+
+    Topic 2: Found 3 matches in relevantUpscBlock
+
+RegexTest > testRegex PASSED
+
+QuestionSelectionEngineTest > testEngineProfileFiltering STANDARD_OUT
+    STARTING IMPORT
+    === QUESTION SELECTION ENGINE TEST ===
+    Target for 24. Structure and Physiography (Profile: GROUP_C): 12 questions
+    DB Questions returned: 12
+    DB Filtered Questions returned: 12
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    =======================================
+
+QuestionSelectionEngineTest > testEngineProfileFiltering PASSED
+
+PracticeScreenFormatTest > testAssertionReasonFormat STANDARD_ERROR
+    System.logW: A resource was acquired at attached stack trace but never released. See java.io.Closeable for information on avoiding resource leaks.
+    java.lang.Throwable: Explicit termination method 'close' not called
+    	at dalvik.system.CloseGuard.$$robo$$dalvik_system_CloseGuard$openWithCallSite(CloseGuard.java:288)
+    	at dalvik.system.CloseGuard.openWithCallSite(CloseGuard.java)
+    	at dalvik.system.CloseGuard.$$robo$$dalvik_system_CloseGuard$open(CloseGuard.java:257)
+    	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+    	at org.robolectric.shadows.ShadowCloseGuard$CloseGuardReflector$$Reflector15.open(Unknown Source)
+    	at org.robolectric.shadows.ShadowCloseGuard.open(ShadowCloseGuard.java:38)
+    	at dalvik.system.CloseGuard.open(CloseGuard.java)
+    	at android.database.sqlite.SQLiteDatabase.$$robo$$android_database_sqlite_SQLiteDatabase$openInner(SQLiteDatabase.java:1192)
+    	at android.database.sqlite.SQLiteDatabase.openInner(SQLiteDatabase.java)
+    	at android.database.sqlite.SQLiteDatabase.$$robo$$android_database_sqlite_SQLiteDatabase$open(SQLiteDatabase.java:1171)
+    	at android.database.sqlite.SQLiteDatabase.open(SQLiteDatabase.java)
+    	at android.database.sqlite.SQLiteDatabase.$$robo$$android_database_sqlite_SQLiteDatabase$openDatabase(SQLiteDatabase.java:1035)
+    	at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java)
+    	at android.database.sqlite.SQLiteDatabase.$$robo$$android_database_sqlite_SQLiteDatabase$openDatabase(SQLiteDatabase.java:1024)
+    	at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java)
+    	at android.database.sqlite.SQLiteOpenHelper.$$robo$$android_database_sqlite_SQLiteOpenHelper$getDatabaseLocked(SQLiteOpenHelper.java:394)
+    	at android.database.sqlite.SQLiteOpenHelper.getDatabaseLocked(SQLiteOpenHelper.java)
+    	at android.database.sqlite.SQLiteOpenHelper.$$robo$$android_database_sqlite_SQLiteOpenHelper$getWritableDatabase(SQLiteOpenHelper.java:336)
+    	at android.database.sqlite.SQLiteOpenHelper.getWritableDatabase(SQLiteOpenHelper.java)
+    	at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper.getWritableOrReadableDatabase(FrameworkSQLiteOpenHelper.android.kt:224)
+    	at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper.innerGetDatabase(FrameworkSQLiteOpenHelper.android.kt:167)
+    	at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper.getSupportDatabase(FrameworkSQLiteOpenHelper.android.kt:141)
+    	at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper.getWritableDatabase(FrameworkSQLiteOpenHelper.android.kt:96)
+    	at androidx.room.driver.SupportSQLiteDriver.open(SupportSQLiteDriver.android.kt:26)
+    	at androidx.room.driver.SupportSQLiteConnectionPool.getSupportConnection(SupportSQLiteConnectionPool.android.kt:35)
+    	at androidx.room.driver.SupportSQLiteConnectionPool.useConnection(SupportSQLiteConnectionPool.android.kt:42)
+    	at androidx.room.RoomConnectionManager.useConnection(RoomConnectionManager.android.kt:126)
+    	at androidx.room.RoomDatabase.useConnection$room_runtime_release(RoomDatabase.android.kt:588)
+    	at androidx.room.util.DBUtil__DBUtil_androidKt$performSuspending$$inlined$compatCoroutineExecute$DBUtil__DBUtil_androidKt$1.invokeSuspend(DBUtil.android.kt:109)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+    	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+    	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+PracticeScreenFormatTest > testAssertionReasonFormat PASSED
+
+PracticeScreenFormatTest > testStatementBasedFormat PASSED
+
+TopicSelectionTest > testTopicsAvailability STANDARD_OUT
+    STARTING IMPORT
+    === TOPIC AVAILABILITY TEST (GROUP C) ===
+    - 1. The Earth in the Solar System: 32 questions
+    - 2. Globe: Latitudes and Longitudes: 9 questions
+    - 3. Motions of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 4. Maps: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 5. Major Domains of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 6. Major Landforms of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 7. Our Country - India: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 8. India: Climate, Vegetation and Wildlife: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 9. Geography as a Discipline: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 10. The Origin and Evolution of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 11. Interior of the Earth: 10 questions
+    - 12. Distribution of Oceans and Continents: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 13. Geomorphic Processes: 15 questions
+    - 14. Landforms and their Evolution: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 15. Composition and Structure of Atmosphere: 6 questions
+    - 16. Solar Radiation, Heat Balance and Temperature: 2 questions
+    - 17. Atmospheric Circulation and Weather Systems: 1 questions
+    - 18. Water in the Atmosphere: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 19. World Climate and Climate Change: 32 questions
+    - 20. Water (Oceans): 14 questions
+    - 21. Movements of Ocean Water: 3 questions
+    - 22. Biodiversity and Conservation: 2 questions
+    - 23. India - Location: 9 questions
+    - 24. Structure and Physiography: 183 questions
+    - 25. Drainage System: 152 questions
+    - 26. Climate: 25 questions
+    - 27. Natural Vegetation: 26 questions
+    - 28. Natural Hazards and Disasters: 2 questions
+    - 29. Human Geography Nature and Scope: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 30. The World Population Distribution, Density and Growth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 31. Human Development: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 32. Primary Activities: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 33. Secondary Activities: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 34. Tertiary and Quaternary Activities: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 35. Transport and Communication: 11 questions
+    - 36. International Trade: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 37. Population: Distribution, Density, Growth and Composition: 70 questions
+    - 38. Human Settlements: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 39. Land Resources and Agriculture: 148 questions
+    - 40. Water Resources: 16 questions
+    - 41. Mineral and Energy Resources: 99 questions
+    - 42. Planning and Sustainable Development in Indian Context: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 43. Transport and Communication (India): 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 44. International Trade (India): 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 45. Unclassified (Requires Deeper Mapping): 0 questions
+      [FLAG] Zero questions available for this profile!
+    Total Topics: 45
+    Topics with 0 questions: 23
+    =========================================
+
+TopicSelectionTest > testTopicsAvailability PASSED
+
+MainViewModelTest > testDataStorePersistence STANDARD_OUT
+    Persistence verified! Profile is GROUP_A
+
+MainViewModelTest > testDataStorePersistence PASSED
+
+> Task :app:finalizeTestRoborazziDebug SKIPPED
+
+BUILD SUCCESSFUL in 34s
+33 actionable tasks: 33 executed
+Configuration cache entry reused.

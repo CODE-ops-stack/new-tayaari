@@ -1,0 +1,105 @@
+# Content Audit Report
+
+## Summary
+
+| Topic | Question Count |
+|---|---|
+| 1. The Earth in the Solar System | 1 |
+| 11. Interior of the Earth | 1 |
+| 13. Geomorphic Processes | 1 |
+| 14. Landforms and their Evolution | 1 |
+| 15. Composition and Structure of Atmosphere | 1 |
+| 16. Solar Radiation, Heat Balance and Temperature | 1 |
+| 17. Atmospheric Circulation and Weather Systems | 1 |
+| 18. Water in the Atmosphere | 1 |
+| 19. World Climate and Climate Change | 1 |
+| 2. Globe: Latitudes and Longitudes | 1 |
+| 20. Water (Oceans) | 1 |
+| 21. Movements of Ocean Water | 1 |
+| 22. Biodiversity and Conservation | 1 |
+| 23. India - Location | 1 |
+| 24. Structure and Physiography | 1 |
+| 25. Drainage System | 1 |
+| 26. Climate | 1 |
+| 27. Natural Vegetation | 1 |
+| 28. Natural Hazards and Disasters | 1 |
+| 3. Motions of the Earth | 1 |
+| 35. Transport and Communication | 1 |
+| 37. Population: Distribution, Density, Growth and Composition | 1 |
+| 39. Land Resources and Agriculture | 1 |
+| 40. Water Resources | 1 |
+| 41. Mineral and Energy Resources | 1 |
+| 43. Transport and Communication (India) | 1 |
+| 45. Unclassified (Requires Deeper Mapping) | 1 |
+| 5. Major Domains of the Earth | 1 |
+| 6. Major Landforms of the Earth | 1 |
+| 7. Our Country - India | 1 |
+
+## Flagged Mismatched Questions
+
+**Topic**: 1. The Earth in the Solar System
+**Question**: Q617. Which  of  the  following  ports  was   developed  as  a  Satellite  port  to  relieve   the pressure at the Mumbai port?
+a) New Mangalore Port
+b) Marmagao Port
+c) Deendayal Port Authority
+d) Jawaharlal Nehru Port
+Correct answer: option d
+**Reason**: Zero overlap with expected keywords for Topic 1.
+---
+**Topic**: 2. Globe: Latitudes and Longitudes
+**Question**: Q16. Consider the following countries :
+1. Bulgaria
+2. Czech Republic
+3. Hungary
+4. Latvia
+5. Lithuania
+6. Romania
+How many of the above-mentioned countries share a land border with Ukraine?
+(a) Only two
+(b) Only three
+(c) Only four
+(d) Only ﬁve
+Correct Answer: Option a
+**Reason**: Zero overlap with expected keywords for Topic 2.
+---
+**Topic**: 13. Geomorphic Processes
+**Question**: Q805. The  Himalayan  Mountain  range   was formed by the collision of ________.
+a) African Plate and Australian Plate
+b) Indian Plate and African Plate
+c) Eurasian Plate and African Plate
+d) Indian Plate and Eurasian Plate
+Correct answer: option d
+**Reason**: Zero overlap with expected keywords for Topic 13.
+---
+**Topic**: 15. Composition and Structure of Atmosphere
+**Question**: Q893. The  term  physical  geology  was   coined by __________.
+a) William Hopkins
+b) Georgius Agricola
+c) Louis Agassiz
+d) Aziz Ab'Saber
+Correct answer: option a
+**Reason**: Zero overlap with expected keywords for Topic 15.
+---
+**Topic**: 22. Biodiversity and Conservation
+**Question**: Q883. Identify  whether  the  given   statements  about  an  earthquake  are   correct or incorrect.   Statement  1  :  When  the  stress  on  the   edge  overcomes  the  friction,  there  is  an   earthquake  that  releases  energy  in  waves   that  travel  through  Earth's  crust  and   causes the shaking that we feel.   Statement  2  :  An  earthquake  cannot  be   identified  as  a  foreshock  until  after  a   larger  earthquake  in  the  same  area   occurs.
+a) Only Statement 1 is correct
+b) Both Statements 1 and 2 are correct
+c) Only Statement 2 is correct
+d) Both Statements 1 and 2 are incorrect
+Correct answer: option b
+**Reason**: Zero overlap with expected keywords for Topic 22.
+---
+**Topic**: 45. Unclassified (Requires Deeper Mapping)
+**Question**: Q7. About three-fourths of world's cobalt, a metal required for the manufacture of
+batteries for electric motor vehicles, is produced by
+(a) Argentina
+(b) Botswana
+(c) the Democratic Republic of the Congo
+(d) Kazakhstan"
+Correct Answer: Option c
+**Reason**: Zero overlap with expected keywords for Topic 45.
+---
+
+## Duplicate Questions
+
+No duplicate questions found.

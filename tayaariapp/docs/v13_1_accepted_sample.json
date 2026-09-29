@@ -1,0 +1,6162 @@
+[
+  {
+    "id": "q_bcc46d53",
+    "stem": "Which of the following is defined as: On this day, you can watch the night sky best, provided this is a clear night.?",
+    "options": {
+      "a": "Cotton Textile",
+      "b": "Jute",
+      "c": "IT",
+      "d": "Fertilizer"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "IT",
+    "explanation": "On this day, you can watch the night sky best, provided it is a clear night.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "On this day, you can watch the night sky best, provided it is a clear night."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_9d02a75c",
+    "stem": "Which of the following is defined as: this or Big Bear is one such constellation.?",
+    "options": {
+      "a": "Ursa Major",
+      "b": "Saptarishi",
+      "c": "Gemini",
+      "d": "Scorpius"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Ursa Major",
+    "explanation": "Ursa Major or Big Bear is one such constellation.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Ursa Major or Big Bear is one such constellation."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Scorpius",
+        "trap": "sibling"
+      },
+      {
+        "text": "Saptarishi",
+        "trap": "sibling"
+      },
+      {
+        "text": "Gemini",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "stars_constellations",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_cc119ec3",
+    "stem": "Which of the following is defined as: The this on which we live is a planet.?",
+    "options": {
+      "a": "Earth",
+      "b": "Mars",
+      "c": "Mercury",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Earth",
+    "explanation": "The earth on which we live is a planet.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The earth on which we live is a planet."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_47e862a6",
+    "stem": "Which of the following is defined as: The this that we see in the sky is a satellite.?",
+    "options": {
+      "a": "Europa",
+      "b": "Titan",
+      "c": "Phobos",
+      "d": "Moon"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Moon",
+    "explanation": "The moon that we see in the sky is a satellite.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The moon that we see in the sky is a satellite."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Phobos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a1c383f5",
+    "stem": "Which of the following is defined as: Like our this, there are eight other planets that get heat and light from the sun.?",
+    "options": {
+      "a": "Mars",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "Like our earth, there are eight other planets that get heat and light from the sun.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Like our earth, there are eight other planets that get heat and light from the sun."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_6b4c0150",
+    "stem": "Which of the following entities is characterized by the following attribute: it, Saturn and Uranus have rings around them.?",
+    "options": {
+      "a": "Saturn",
+      "b": "Neptune",
+      "c": "Jupiter",
+      "d": "Mars"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Jupiter",
+    "explanation": "Jupiter, Saturn and Uranus have rings around them.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Jupiter, Saturn and Uranus have rings around them."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Neptune",
+        "trap": "sibling"
+      },
+      {
+        "text": "Saturn",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_78f4648e",
+    "stem": "Which of the following entities is characterized by the following attribute: All the eight planets of the it system move around the sun in fixed paths.?",
+    "options": {
+      "a": "Solar",
+      "b": "Natural Gas",
+      "c": "Hydro",
+      "d": "Petroleum"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Solar",
+    "explanation": "All the eight planets of the solar system move around the sun in fixed paths.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "All the eight planets of the solar system move around the sun in fixed paths."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Natural Gas",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydro",
+        "trap": "sibling"
+      },
+      {
+        "text": "Petroleum",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "energy_sources",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_f262a653",
+    "stem": "Which of the following is defined as: this is nearest to the sun.?",
+    "options": {
+      "a": "Earth",
+      "b": "Mercury",
+      "c": "Venus",
+      "d": "Neptune"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Mercury",
+    "explanation": "Mercury is nearest to the sun.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Mercury is nearest to the sun."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Earth",
+        "trap": "sibling"
+      },
+      {
+        "text": "Neptune",
+        "trap": "sibling"
+      },
+      {
+        "text": "Venus",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_2d00118c",
+    "stem": "Which of the following is defined as: this is considered as Earths-twin' because its size and shape are very much similar to that of the earth.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mars",
+      "c": "Venus",
+      "d": "Saturn"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Venus",
+    "explanation": "Venus is considered as Earths-twin' because its size and shape are very much similar to that of the earth.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Venus is considered as Earths-twin' because its size and shape are very much similar to that of the earth."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Saturn",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_99a27a62",
+    "stem": "Which of the following is defined as: The this is neither too hot nor too cold.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "The earth is neither too hot nor too cold.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The earth is neither too hot nor too cold."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0f5a2c0f",
+    "stem": "Which of the following is defined as: Because of these reasons, the this is a unique planet in the solar system.?",
+    "options": {
+      "a": "Earth",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Earth",
+    "explanation": "Because of these reasons, the earth is a unique planet in the solar system.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Because of these reasons, the earth is a unique planet in the solar system."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a490a805",
+    "stem": "Which of the following is defined as: From the outer space, the this appears blue because its two-thirds surface is covered by water.?",
+    "options": {
+      "a": "Mercury",
+      "b": "Mars",
+      "c": "Earth",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "From the outer space, the earth appears blue because its two-thirds surface is covered by water.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "From the outer space, the earth appears blue because its two-thirds surface is covered by water."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3746be9e",
+    "stem": "Which of the following entities is characterized by the following attribute: Our it has only one satellite, that is, the moon.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Earth",
+    "explanation": "Our earth has only one satellite, that is, the moon.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Our earth has only one satellite, that is, the moon."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_05cb80f2",
+    "stem": "Which of the following entities is characterized by the following attribute: The it moves around the earth in about 27 days.?",
+    "options": {
+      "a": "Moon",
+      "b": "Europa",
+      "c": "Phobos",
+      "d": "Titan"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Moon",
+    "explanation": "The moon moves around the earth in about 27 days.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The moon moves around the earth in about 27 days."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Phobos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_5a784c23",
+    "stem": "Which of the following is defined as: As a result, only one side of the this is visible to us on the earth.?",
+    "options": {
+      "a": "Titan",
+      "b": "Phobos",
+      "c": "Moon",
+      "d": "Europa"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Moon",
+    "explanation": "As a result, only one side of the moon is visible to us on the earth.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "As a result, only one side of the moon is visible to us on the earth."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Phobos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_f4876a2e",
+    "stem": "Which of the following entities is characterized by the following attribute: The it does not have conditions favourable for life.?",
+    "options": {
+      "a": "Phobos",
+      "b": "Titan",
+      "c": "Moon",
+      "d": "Europa"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Moon",
+    "explanation": "The moon does not have conditions favourable for life.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The moon does not have conditions favourable for life."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Phobos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c1b58710",
+    "stem": "Which of the following is defined as: A this is a celestial body that moves around the planets in the same way as the planets move around the sun.?",
+    "options": {
+      "a": "Comet",
+      "b": "Meteoroid",
+      "c": "Satellite",
+      "d": "Planet"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Satellite",
+    "explanation": "A Satellite is a celestial body that moves around the planets in the same way as the planets move around the sun.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "A Satellite is a celestial body that moves around the planets in the same way as the planets move around the sun."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Meteoroid",
+        "trap": "sibling"
+      },
+      {
+        "text": "Planet",
+        "trap": "sibling"
+      },
+      {
+        "text": "Comet",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "celestial_types",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_4f9c17aa",
+    "stem": "Which of the following is defined as: A Human-made this is an artificial body.?",
+    "options": {
+      "a": "Planet",
+      "b": "Meteoroid",
+      "c": "Comet",
+      "d": "Satellite"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Satellite",
+    "explanation": "A Human-made Satellite is an artificial body.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "A Human-made Satellite is an artificial body."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Meteoroid",
+        "trap": "sibling"
+      },
+      {
+        "text": "Planet",
+        "trap": "sibling"
+      },
+      {
+        "text": "Comet",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "celestial_types",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3458eedd",
+    "stem": "Which of the following best fits the description: Our this system is a part of this galaxy.?",
+    "options": {
+      "a": "Solar",
+      "b": "Hydro",
+      "c": "Natural Gas",
+      "d": "Petroleum"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Solar",
+    "explanation": "Our solar system is a part of this galaxy.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Our solar system is a part of this galaxy."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Natural Gas",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydro",
+        "trap": "sibling"
+      },
+      {
+        "text": "Petroleum",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "energy_sources",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_5b23ed48",
+    "stem": "Which of the following is defined as: A this is a huge system of billions of stars, and clouds of dust and gases.?",
+    "options": {
+      "a": "Star",
+      "b": "Satellite",
+      "c": "Galaxy",
+      "d": "Nebula"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Galaxy",
+    "explanation": "A galaxy is a huge system of billions of stars, and clouds of dust and gases.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "A galaxy is a huge system of billions of stars, and clouds of dust and gases."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Nebula",
+        "trap": "sibling"
+      },
+      {
+        "text": "Star",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satellite",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "celestial_types",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_90d4757e",
+    "stem": "Which of the following best fits the description: You are on the this and the this is a part of the solar system.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Earth",
+    "explanation": "You are on the earth and the earth is a part of the solar system.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "You are on the earth and the earth is a part of the solar system."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ea6ed913",
+    "stem": "Which of the following best fits the description: Our this system is a part of the Milky Way galaxy which is part of the universe.?",
+    "options": {
+      "a": "Petroleum",
+      "b": "Natural Gas",
+      "c": "Solar",
+      "d": "Hydro"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Solar",
+    "explanation": "Our solar system is a part of the Milky Way galaxy which is part of the universe.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Our solar system is a part of the Milky Way galaxy which is part of the universe."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Natural Gas",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydro",
+        "trap": "sibling"
+      },
+      {
+        "text": "Petroleum",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "energy_sources",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_45e0f9cb",
+    "stem": "Which of the following is defined as: Now your this System is almost ready to go into action.?",
+    "options": {
+      "a": "Natural Gas",
+      "b": "Petroleum",
+      "c": "Hydro",
+      "d": "Solar"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Solar",
+    "explanation": "Now your Solar System is almost ready to go into action.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Now your Solar System is almost ready to go into action."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Natural Gas",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydro",
+        "trap": "sibling"
+      },
+      {
+        "text": "Petroleum",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "energy_sources",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_41fe2275",
+    "stem": "Which of the following entities is characterized by the following attribute: The real it has no such needle.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mercury",
+      "c": "Earth",
+      "d": "Mars"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "The real earth has no such needle.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The real earth has no such needle."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0b156455",
+    "stem": "Which of the following is defined as: The northern half of the this is known as the Northern Hemisphere and the southern half is known as the Southern Hemisphere.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "The northern half of the earth is known as the Northern Hemisphere and the southern half is known as the Southern Hemisphere.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The northern half of the earth is known as the Northern Hemisphere and the southern half is known as the Southern Hemisphere."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0b93fd4a",
+    "stem": "Which of the following is defined as: Therefore, the this is an imaginary circular line and is a very important reference point to locate places on the earth.?",
+    "options": {
+      "a": "Equator",
+      "b": "Prime Meridian",
+      "c": "Arctic Circle",
+      "d": "Tropic of Capricorn"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Equator",
+    "explanation": "Therefore, the equator is an imaginary circular line and is a very important reference point to locate places on the earth.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 2,
+    "topic_name": "Globe: Latitudes and Longitudes",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Therefore, the equator is an imaginary circular line and is a very important reference point to locate places on the earth."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Prime Meridian",
+        "trap": "sibling"
+      },
+      {
+        "text": "Tropic of Capricorn",
+        "trap": "sibling"
+      },
+      {
+        "text": "Arctic Circle",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "latitudes",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_56fe4d8c",
+    "stem": "Which of the following is defined as: Horizonte in Brazil (this) are located on parallels of about 20\u00b0 latitude.?",
+    "options": {
+      "a": "Europe",
+      "b": "North America",
+      "c": "South America",
+      "d": "Africa"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "South America",
+    "explanation": "Horizonte in Brazil (South America) are located on parallels of about 20\u00b0 latitude.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 2,
+    "topic_name": "Globe: Latitudes and Longitudes",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Horizonte in Brazil (South America) are located on parallels of about 20\u00b0 latitude."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Africa",
+        "trap": "sibling"
+      },
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europe",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_d3d5301a",
+    "stem": "Which of the following entities is characterized by the following attribute: As such, the areas bounded by the it and the Arctic Circle in the Northern Hemisphere, and the Tropic of Capricorn and the Antarctic Circle in the Southern Hemisphere, have moderate temperatures.?",
+    "options": {
+      "a": "Arctic Circle",
+      "b": "Tropic of Cancer",
+      "c": "Equator",
+      "d": "Tropic of Capricorn"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Tropic of Cancer",
+    "explanation": "As such, the areas bounded by the Tropic of Cancer and the Arctic Circle in the Northern Hemisphere, and the Tropic of Capricorn and the Antarctic Circle in the Southern Hemisphere, have moderate temperatures.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 2,
+    "topic_name": "Globe: Latitudes and Longitudes",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "As such, the areas bounded by the Tropic of Cancer and the Arctic Circle in the Northern Hemisphere, and the Tropic of Capricorn and the Antarctic Circle in the Southern Hemisphere, have moderate temperatures."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Arctic Circle",
+        "trap": "sibling"
+      },
+      {
+        "text": "Equator",
+        "trap": "sibling"
+      },
+      {
+        "text": "Tropic of Capricorn",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "latitudes",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_7a14b6ef",
+    "stem": "Which of the following is defined as: To fix the posthision of a place, this is necessary to know something more than the latthisude of that place.?",
+    "options": {
+      "a": "Fertilizer",
+      "b": "Jute",
+      "c": "Cotton Textile",
+      "d": "IT"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "IT",
+    "explanation": "To fix the position of a place, it is necessary to know something more than the latitude of that place.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 2,
+    "topic_name": "Globe: Latitudes and Longitudes",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "To fix the position of a place, it is necessary to know something more than the latitude of that place."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_cc1930f8",
+    "stem": "Which of the following is defined as: Thus, this was difficult to number the meridians.?",
+    "options": {
+      "a": "Fertilizer",
+      "b": "IT",
+      "c": "Jute",
+      "d": "Cotton Textile"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "IT",
+    "explanation": "Thus, it was difficult to number the meridians.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Thus, it was difficult to number the meridians."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c1d6ae08",
+    "stem": "Which of the following is defined as: The sun regularly rises and sets every day, and naturally, this is the best time-keeper throughout the world.?",
+    "options": {
+      "a": "Fertilizer",
+      "b": "Jute",
+      "c": "IT",
+      "d": "Cotton Textile"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "IT",
+    "explanation": "The sun regularly rises and sets every day, and naturally, it is the best time-keeper throughout the world.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The sun regularly rises and sets every day, and naturally, it is the best time-keeper throughout the world."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_85af4a54",
+    "stem": "Which of the following entities is characterized by the following attribute: When the it of Greenwich has the sun at the highest point in the sky, all the places along this meridian will have mid-day or noon.?",
+    "options": {
+      "a": "Arctic Circle",
+      "b": "Prime Meridian",
+      "c": "Equator",
+      "d": "Tropic of Capricorn"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Prime Meridian",
+    "explanation": "When the Prime Meridian of Greenwich has the sun at the highest point in the sky, all the places along this meridian will have mid-day or noon.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "When the Prime Meridian of Greenwich has the sun at the highest point in the sky, all the places along this meridian will have mid-day or noon."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Equator",
+        "trap": "sibling"
+      },
+      {
+        "text": "Arctic Circle",
+        "trap": "sibling"
+      },
+      {
+        "text": "Tropic of Capricorn",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "latitudes",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_8d22df69",
+    "stem": "Which of the following entities is characterized by the following attribute: As the it rotates from west to east, those places east of Greenwich will be ahead of Greenwich time and those to the west will be behind it (Figure 2.8).?",
+    "options": {
+      "a": "Mars",
+      "b": "Mercury",
+      "c": "Earth",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "As the earth rotates from west to east, those places east of Greenwich will be ahead of Greenwich time and those to the west will be behind it (Figure 2.8).",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "As the earth rotates from west to east, those places east of Greenwich will be ahead of Greenwich time and those to the west will be behind it (Figure 2.8)."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_bbf6d243",
+    "stem": "Which of the following entities is characterized by the following attribute: The it rotates 360\u00b0 in about 24 hours, which means 15\u00b0 an hour or 1\u00b0 in four minutes.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "The earth rotates 360\u00b0 in about 24 hours, which means 15\u00b0 an hour or 1\u00b0 in four minutes.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The earth rotates 360\u00b0 in about 24 hours, which means 15\u00b0 an hour or 1\u00b0 in four minutes."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_1124d538",
+    "stem": "Which of the following is defined as: in India when this is 2:00 p.m.?",
+    "options": {
+      "a": "Cotton Textile",
+      "b": "Fertilizer",
+      "c": "Jute",
+      "d": "IT"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "IT",
+    "explanation": "in India when it is 2:00 p.m.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC CGL",
+    "topic_id": 7,
+    "topic_name": "Our Country \u2014 India",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "in India when it is 2:00 p.m."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_831c60dc",
+    "stem": "Which of the following entities is characterized by the following attribute: The it has been divided into twenty-four time zones of one hour each.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "The earth has been divided into twenty-four time zones of one hour each.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The earth has been divided into twenty-four time zones of one hour each."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_100d2804",
+    "stem": "Which of the following entities is characterized by the following attribute: As you know that the it has two types of motions, namely rotation and revolution.?",
+    "options": {
+      "a": "Earth",
+      "b": "Mars",
+      "c": "Mercury",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Earth",
+    "explanation": "As you know that the earth has two types of motions, namely rotation and revolution.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 3,
+    "topic_name": "Motions of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "As you know that the earth has two types of motions, namely rotation and revolution."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_1d2cdd70",
+    "stem": "Which of the following is defined as: The axis of the this which is an imaginary line, makes an angle of 661\u20442\u00b0 with its orbital plane.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mars",
+      "c": "Earth",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "The axis of the earth which is an imaginary line, makes an angle of 661\u20442\u00b0 with its orbital plane.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The axis of the earth which is an imaginary line, makes an angle of 661\u20442\u00b0 with its orbital plane."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_1a765c25",
+    "stem": "Which of the following is defined as: Notice that throughout its orbit, the this is inclined in the same direction.?",
+    "options": {
+      "a": "Mercury",
+      "b": "Earth",
+      "c": "Uranus",
+      "d": "Mars"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "Notice that throughout its orbit, the earth is inclined in the same direction.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Notice that throughout its orbit, the earth is inclined in the same direction."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ea42b0b8",
+    "stem": "Which of the following is defined as: Therefore, this is summer in the Southern Hemisphere wthish longer days and shorter nights.?",
+    "options": {
+      "a": "Fertilizer",
+      "b": "IT",
+      "c": "Jute",
+      "d": "Cotton Textile"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "IT",
+    "explanation": "Therefore, it is summer in the Southern Hemisphere with longer days and shorter nights.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Therefore, it is summer in the Southern Hemisphere with longer days and shorter nights."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_78f09ed3",
+    "stem": "Which of the following best fits the description: The revolution of the this and the inclination of the this's axis in a fixed direction cause seasons.?",
+    "options": {
+      "a": "Mars",
+      "b": "Uranus",
+      "c": "Earth",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "The revolution of the earth and the inclination of the earth's axis in a fixed direction cause seasons.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 3,
+    "topic_name": "Motions of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The revolution of the earth and the inclination of the earth's axis in a fixed direction cause seasons."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "cause/effect"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_52672fb2",
+    "stem": "Which of the following is defined as: when this is spring in the Northern Hemisphere and autumn in the Southern Hemisphere.?",
+    "options": {
+      "a": "Fertilizer",
+      "b": "Cotton Textile",
+      "c": "Jute",
+      "d": "IT"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "IT",
+    "explanation": "when it is spring in the Northern Hemisphere and autumn in the Southern Hemisphere.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "when it is spring in the Northern Hemisphere and autumn in the Southern Hemisphere."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_1ceda4f0",
+    "stem": "Which of the following is defined as: But, when we want to study only a part of the this, as about our country, states, districts, towns and villages, it is of little help.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mercury",
+      "c": "Earth",
+      "d": "Mars"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "But, when we want to study only a part of the earth, as about our country, states, districts, towns and villages, it is of little help.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "But, when we want to study only a part of the earth, as about our country, states, districts, towns and villages, it is of little help."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e8ba183b",
+    "stem": "Which of the following best fits the description: A map is a representation or a drawing of the this's surface or a part of it drawn on a flat surface according to a scale.?",
+    "options": {
+      "a": "Mars",
+      "b": "Uranus",
+      "c": "Earth",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "A map is a representation or a drawing of the earth's surface or a part of it drawn on a flat surface according to a scale.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 4,
+    "topic_name": "Maps",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "A map is a representation or a drawing of the earth's surface or a part of it drawn on a flat surface according to a scale."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_2028e23a",
+    "stem": "Which of the following is defined as: But this is impossible to flatten a round shape completely.?",
+    "options": {
+      "a": "Cotton Textile",
+      "b": "Fertilizer",
+      "c": "IT",
+      "d": "Jute"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "IT",
+    "explanation": "But it is impossible to flatten a round shape completely.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "But it is impossible to flatten a round shape completely."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ec00b867",
+    "stem": "Which of the following best fits the description: The surface of the this is a complex zone in which three main components of the environment meet, overlap and interact.?",
+    "options": {
+      "a": "Mercury",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "The surface of the earth is a complex zone in which three main components of the environment meet, overlap and interact.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The surface of the earth is a complex zone in which three main components of the environment meet, overlap and interact."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_904df4ef",
+    "stem": "Which of the following is defined as: The solid portion of the earth on which we live is called the this.?",
+    "options": {
+      "a": "Lithosphere",
+      "b": "Biosphere",
+      "c": "Atmosphere",
+      "d": "Hydrosphere"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Lithosphere",
+    "explanation": "The solid portion of the earth on which we live is called the Lithosphere.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The solid portion of the earth on which we live is called the Lithosphere."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_7fde1dea",
+    "stem": "Which of the following is defined as: The gaseous layers that surround the this, is the Atmosphere, where oxygen, nitrogen, carbondioxide and other gases are found.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "The gaseous layers that surround the earth, is the Atmosphere, where oxygen, nitrogen, carbondioxide and other gases are found.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The gaseous layers that surround the earth, is the Atmosphere, where oxygen, nitrogen, carbondioxide and other gases are found."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_dcb0f7da",
+    "stem": "Which of the following is defined as: Water covers a very big area of the earth's surface and this area is called the this.?",
+    "options": {
+      "a": "Hydrosphere",
+      "b": "Atmosphere",
+      "c": "Lithosphere",
+      "d": "Biosphere"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Hydrosphere",
+    "explanation": "Water covers a very big area of the earth's surface and this area is called the Hydrosphere.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Water covers a very big area of the earth's surface and this area is called the Hydrosphere."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_79f1784e",
+    "stem": "Which of the following entities is characterized by the following attribute: The it comprises water in all its forms, that is, ice, water and water vapour.?",
+    "options": {
+      "a": "Atmosphere",
+      "b": "Biosphere",
+      "c": "Hydrosphere",
+      "d": "Lithosphere"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Hydrosphere",
+    "explanation": "The Hydrosphere comprises water in all its forms, that is, ice, water and water vapour.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Hydrosphere comprises water in all its forms, that is, ice, water and water vapour."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_26b27454",
+    "stem": "Which of the following is defined as: The this is the narrow zone where we find land, water and air together, which contains all forms of life.?",
+    "options": {
+      "a": "Biosphere",
+      "b": "Lithosphere",
+      "c": "Atmosphere",
+      "d": "Hydrosphere"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Biosphere",
+    "explanation": "The Biosphere is the narrow zone where we find land, water and air together, which contains all forms of life.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Biosphere is the narrow zone where we find land, water and air together, which contains all forms of life."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_6b626f51",
+    "stem": "Which of the following is defined as: this is the largest continent.?",
+    "options": {
+      "a": "South America",
+      "b": "Antarctica",
+      "c": "North America",
+      "d": "Asia"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Asia",
+    "explanation": "Asia is the largest continent.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Asia is the largest continent."
+    },
+    "distractor_dissections": [
+      {
+        "text": "South America",
+        "trap": "sibling"
+      },
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Antarctica",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_77c1ddf1",
+    "stem": "Which of the following is defined as: The combined landmass of Europe and this is called the Eurthis (Europe + this).?",
+    "options": {
+      "a": "South America",
+      "b": "Antarctica",
+      "c": "Asia",
+      "d": "North America"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Asia",
+    "explanation": "The combined landmass of Europe and Asia is called the Eurasia (Europe + Asia).",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The combined landmass of Europe and Asia is called the Eurasia (Europe + Asia)."
+    },
+    "distractor_dissections": [
+      {
+        "text": "South America",
+        "trap": "sibling"
+      },
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Antarctica",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e476cde5",
+    "stem": "Which of the following best fits the description: this is much smaller than Asia.?",
+    "options": {
+      "a": "Antarctica",
+      "b": "Asia",
+      "c": "Africa",
+      "d": "Europe"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Europe",
+    "explanation": "Europe is much smaller than Asia.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Europe is much smaller than Asia."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Africa",
+        "trap": "sibling"
+      },
+      {
+        "text": "Asia",
+        "trap": "sibling"
+      },
+      {
+        "text": "Antarctica",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "comparison"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_b0b9bcbb",
+    "stem": "Which of the following entities is characterized by the following attribute: it has the world's largest river, the Amazon.?",
+    "options": {
+      "a": "Africa",
+      "b": "North America",
+      "c": "South America",
+      "d": "Europe"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "South America",
+    "explanation": "South America has the world's largest river, the Amazon.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC CGL",
+    "topic_id": 26,
+    "topic_name": "Drainage and Rivers of India",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "South America has the world's largest river, the Amazon."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Africa",
+        "trap": "sibling"
+      },
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europe",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_9b0b9e81",
+    "stem": "Which of the following is defined as: this is the smallest continent that lies entirely in the Southern Hemisphere.?",
+    "options": {
+      "a": "Australia",
+      "b": "North America",
+      "c": "Africa",
+      "d": "Asia"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Australia",
+    "explanation": "Australia is the smallest continent that lies entirely in the Southern Hemisphere.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Australia is the smallest continent that lies entirely in the Southern Hemisphere."
+    },
+    "distractor_dissections": [
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Asia",
+        "trap": "sibling"
+      },
+      {
+        "text": "Africa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_19677e34",
+    "stem": "Which of the following is defined as: this, completely in the Southern Hemisphere, is a huge continent.?",
+    "options": {
+      "a": "North America",
+      "b": "Europe",
+      "c": "Antarctica",
+      "d": "Australia"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Antarctica",
+    "explanation": "Antarctica, completely in the Southern Hemisphere, is a huge continent.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Antarctica, completely in the Southern Hemisphere, is a huge continent."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Australia",
+        "trap": "sibling"
+      },
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europe",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_7306a9b1",
+    "stem": "Which of the following is defined as: Polar Region, this is permanently covered wthish thick ice sheets.?",
+    "options": {
+      "a": "Jute",
+      "b": "Cotton Textile",
+      "c": "IT",
+      "d": "Fertilizer"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "IT",
+    "explanation": "Polar Region, it is permanently covered with thick ice sheets.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Polar Region, it is permanently covered with thick ice sheets."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_88f19d9c",
+    "stem": "Which of the following is defined as: The this is called the blue planet.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mars",
+      "c": "Mercury",
+      "d": "Earth"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Earth",
+    "explanation": "The earth is called the blue planet.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The earth is called the blue planet."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_b60cd8c2",
+    "stem": "Which of the following is defined as: More than 71 per cent of the this is covered with water and 29 per cent is with land.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "More than 71 per cent of the earth is covered with water and 29 per cent is with land.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "More than 71 per cent of the earth is covered with water and 29 per cent is with land."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_7b9db1e5",
+    "stem": "Which of the following best fits the description: this consists of water in all its forms.?",
+    "options": {
+      "a": "Lithosphere",
+      "b": "Atmosphere",
+      "c": "Hydrosphere",
+      "d": "Biosphere"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Hydrosphere",
+    "explanation": "Hydrosphere consists of water in all its forms.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Hydrosphere consists of water in all its forms."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_7b2988b2",
+    "stem": "Which of the following is defined as: The this is the second largest Ocean in the world.?",
+    "options": {
+      "a": "Indian Ocean",
+      "b": "Pacific Ocean",
+      "c": "Southern Ocean",
+      "d": "Atlantic Ocean"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Atlantic Ocean",
+    "explanation": "The Atlantic Ocean is the second largest Ocean in the world.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Atlantic Ocean is the second largest Ocean in the world."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Indian Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Pacific Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Southern Ocean",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "oceans",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e556f87f",
+    "stem": "Which of the following best fits the description: The this is the only ocean named after a country, that is, India.?",
+    "options": {
+      "a": "Indian Ocean",
+      "b": "Arctic Ocean",
+      "c": "Southern Ocean",
+      "d": "Atlantic Ocean"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Indian Ocean",
+    "explanation": "The Indian Ocean is the only ocean named after a country, that is, India.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Indian Ocean is the only ocean named after a country, that is, India."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Arctic Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Southern Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Atlantic Ocean",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "oceans",
+      "intent_type": "exception"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e478aa23",
+    "stem": "Which of the following best fits the description: The this is located within the Arctic Circle and surrounds the North Pole.?",
+    "options": {
+      "a": "Southern Ocean",
+      "b": "Indian Ocean",
+      "c": "Atlantic Ocean",
+      "d": "Arctic Ocean"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Arctic Ocean",
+    "explanation": "The Arctic Ocean is located within the Arctic Circle and surrounds the North Pole.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Arctic Ocean is located within the Arctic Circle and surrounds the North Pole."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Indian Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Southern Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Atlantic Ocean",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "oceans",
+      "intent_type": "spatial"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3d8050e7",
+    "stem": "Which of the following best fits the description: The this is surrounded by a layer of gas called the atmosphere.?",
+    "options": {
+      "a": "Mercury",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "The earth is surrounded by a layer of gas called the atmosphere.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The earth is surrounded by a layer of gas called the atmosphere."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e706763e",
+    "stem": "Which of the following best fits the description: The this extends up to a height of about 1,600 kilometres.?",
+    "options": {
+      "a": "Biosphere",
+      "b": "Hydrosphere",
+      "c": "Lithosphere",
+      "d": "Atmosphere"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Atmosphere",
+    "explanation": "The atmosphere extends up to a height of about 1,600 kilometres.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The atmosphere extends up to a height of about 1,600 kilometres."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "spatial"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_cb1e6d13",
+    "stem": "To which classification does the following statement refer: The this category is divided into five layers based on composition, temperature and other properties.?",
+    "options": {
+      "a": "Atmosphere",
+      "b": "Biosphere",
+      "c": "Hydrosphere",
+      "d": "Lithosphere"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Atmosphere",
+    "explanation": "The atmosphere is divided into five layers based on composition, temperature and other properties.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The atmosphere is divided into five layers based on composition, temperature and other properties."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "classification"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_22d4cd97",
+    "stem": "Which of the following is defined as: The this is composed mainly of nitrogen and oxygen, which make up about 99 per cent of clean, dry air.?",
+    "options": {
+      "a": "Atmosphere",
+      "b": "Lithosphere",
+      "c": "Hydrosphere",
+      "d": "Biosphere"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Atmosphere",
+    "explanation": "The atmosphere is composed mainly of nitrogen and oxygen, which make up about 99 per cent of clean, dry air.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The atmosphere is composed mainly of nitrogen and oxygen, which make up about 99 per cent of clean, dry air."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_6ccff93e",
+    "stem": "Which of the following is defined as: this is maximum at the sea level and decreases rapidly as we go up.?",
+    "options": {
+      "a": "Troposphere",
+      "b": "Exosphere",
+      "c": "Thermosphere",
+      "d": "Stratosphere"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Troposphere",
+    "explanation": "Troposphere is maximum at the sea level and decreases rapidly as we go up.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Troposphere is maximum at the sea level and decreases rapidly as we go up."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Exosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Thermosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Stratosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "atmospheric_layers",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_99fe73a4",
+    "stem": "Which of the following best fits the description: The this is the narrow zone of contact between the land, water and air.?",
+    "options": {
+      "a": "Biosphere",
+      "b": "Hydrosphere",
+      "c": "Atmosphere",
+      "d": "Lithosphere"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Biosphere",
+    "explanation": "The biosphere is the narrow zone of contact between the land, water and air.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The biosphere is the narrow zone of contact between the land, water and air."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0265e2de",
+    "stem": "Which of the following is defined as: You will notice that the surface of the this is not the same everywher e.?",
+    "options": {
+      "a": "Earth",
+      "b": "Mars",
+      "c": "Mercury",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Earth",
+    "explanation": "You will notice that the surface of the earth is not the same everywher e.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "You will notice that the surface of the earth is not the same everywher e."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_eaa1feb3",
+    "stem": "Which of the following entities is characterized by the following attribute: The it has an infinite variety of landforms.?",
+    "options": {
+      "a": "Earth",
+      "b": "Mercury",
+      "c": "Mars",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Earth",
+    "explanation": "The earth has an infinite variety of landforms.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The earth has an infinite variety of landforms."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0f7f3031",
+    "stem": "Which of the following is defined as: Generally, a steep hill with an elevation of more than 600 metres is termed as a this.?",
+    "options": {
+      "a": "Canyon",
+      "b": "Plateau",
+      "c": "Archipelago",
+      "d": "Mountain"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Mountain",
+    "explanation": "Generally, a steep hill with an elevation of more than 600 metres is termed as a mountain.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Generally, a steep hill with an elevation of more than 600 metres is termed as a mountain."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_9dbe42af",
+    "stem": "Which of the following is defined as: A this is any natural elevation of the earth surface.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Canyon",
+      "c": "Mountain",
+      "d": "Archipelago"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Mountain",
+    "explanation": "A mountain is any natural elevation of the earth surface.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "A mountain is any natural elevation of the earth surface."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_f94635a2",
+    "stem": "Which of the following is defined as: In the same process our this and the Alps were formed!?",
+    "options": {
+      "a": "Himalayas",
+      "b": "Vindhya Range",
+      "c": "Eastern Ghats",
+      "d": "Satpura Range"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Himalayas",
+    "explanation": "In the same process our Himalayas and the Alps were formed!",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "In the same process our Himalayas and the Alps were formed!"
+    },
+    "distractor_dissections": [
+      {
+        "text": "Eastern Ghats",
+        "trap": "sibling"
+      },
+      {
+        "text": "Vindhya Range",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satpura Range",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "mountains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_4b59eb86",
+    "stem": "Which of the following best fits the description: Many this systems consist of a series of parallel ranges extending over hundreds of kilometres.?",
+    "options": {
+      "a": "Mountain",
+      "b": "Canyon",
+      "c": "Plateau",
+      "d": "Archipelago"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Mountain",
+    "explanation": "Many mountain systems consist of a series of parallel ranges extending over hundreds of kilometres.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "Many mountain systems consist of a series of parallel ranges extending over hundreds of kilometres."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ce678a64",
+    "stem": "Which of the following is defined as: The Rhine valley and the Vosges this in Europe are examples of such this systems.?",
+    "options": {
+      "a": "Archipelago",
+      "b": "Plateau",
+      "c": "Mountain",
+      "d": "Canyon"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Mountain",
+    "explanation": "The Rhine valley and the Vosges mountain in Europe are examples of such mountain systems.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Rhine valley and the Vosges mountain in Europe are examples of such mountain systems."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3d471124",
+    "stem": "Which of the following is defined as: (Hawaii) in the this is an undersea mountain.?",
+    "options": {
+      "a": "Southern Ocean",
+      "b": "Arctic Ocean",
+      "c": "Pacific Ocean",
+      "d": "Indian Ocean"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Pacific Ocean",
+    "explanation": "(Hawaii) in the Pacific Ocean is an undersea mountain.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "(Hawaii) in the Pacific Ocean is an undersea mountain."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Southern Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Indian Ocean",
+        "trap": "sibling"
+      },
+      {
+        "text": "Arctic Ocean",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "oceans",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_b11a8aab",
+    "stem": "Which of the following is defined as: A this is an elevated flat land.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Valley",
+      "c": "Mountain",
+      "d": "Canyon"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Plateau",
+    "explanation": "A plateau is an elevated flat land.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "A plateau is an elevated flat land."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a8756f1d",
+    "stem": "Which of the following entities is characterized by the following attribute: A it may have one or more sides with steep slopes.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Mountain",
+      "c": "Canyon",
+      "d": "Valley"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Plateau",
+    "explanation": "A plateau may have one or more sides with steep slopes.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "A plateau may have one or more sides with steep slopes."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a16a8f75",
+    "stem": "Which of the following is defined as: The Deccan this in India is one of the oldest thiss.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Mountain",
+      "c": "Canyon",
+      "d": "Valley"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Plateau",
+    "explanation": "The Deccan plateau in India is one of the oldest plateaus.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Deccan plateau in India is one of the oldest plateaus."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_d5e021aa",
+    "stem": "Which of the following is defined as: The East African this in Kenya, Tanzania and Uganda and the Western this of Australia are other examples.?",
+    "options": {
+      "a": "Canyon",
+      "b": "Plateau",
+      "c": "Valley",
+      "d": "Mountain"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Plateau",
+    "explanation": "The East African Plateau in Kenya, Tanzania and Uganda and the Western plateau of Australia are other examples.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The East African Plateau in Kenya, Tanzania and Uganda and the Western plateau of Australia are other examples."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_9f740296",
+    "stem": "Which of the following is defined as: African this is famous for gold and diamond mining.?",
+    "options": {
+      "a": "Valley",
+      "b": "Mountain",
+      "c": "Plateau",
+      "d": "Canyon"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Plateau",
+    "explanation": "African plateau is famous for gold and diamond mining.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "African plateau is famous for gold and diamond mining."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_fc9a269a",
+    "stem": "Which of the following is defined as: In India huge reserves of iron, this and manganese are found in the Chhotanagpur plateau.?",
+    "options": {
+      "a": "Manganese",
+      "b": "Copper",
+      "c": "Gold",
+      "d": "Coal"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Coal",
+    "explanation": "In India huge reserves of iron, coal and manganese are found in the Chhotanagpur plateau.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "In India huge reserves of iron, coal and manganese are found in the Chhotanagpur plateau."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Copper",
+        "trap": "sibling"
+      },
+      {
+        "text": "Gold",
+        "trap": "sibling"
+      },
+      {
+        "text": "Manganese",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "minerals",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a5599f4c",
+    "stem": "Which of the following is defined as: For example, in this, these plains are formed by the Ganga and the Brahmaputra in India and the Yangtze in China.?",
+    "options": {
+      "a": "North America",
+      "b": "South America",
+      "c": "Antarctica",
+      "d": "Asia"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Asia",
+    "explanation": "For example, in Asia, these plains are formed by the Ganga and the Brahmaputra in India and the Yangtze in China.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC CGL",
+    "topic_id": 7,
+    "topic_name": "Our Country \u2014 India",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "For example, in Asia, these plains are formed by the Ganga and the Brahmaputra in India and the Yangtze in China."
+    },
+    "distractor_dissections": [
+      {
+        "text": "South America",
+        "trap": "sibling"
+      },
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Antarctica",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_00b7773b",
+    "stem": "Which of the following is defined as: 2.The this and the Alps are examples of ___________types of mountains.?",
+    "options": {
+      "a": "Vindhya Range",
+      "b": "Eastern Ghats",
+      "c": "Satpura Range",
+      "d": "Himalayas"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Himalayas",
+    "explanation": "2.The Himalayas and the Alps are examples of ___________types of mountains.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "2.The Himalayas and the Alps are examples of ___________types of mountains."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Eastern Ghats",
+        "trap": "sibling"
+      },
+      {
+        "text": "Vindhya Range",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satpura Range",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "mountains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_f2596285",
+    "stem": "Which of the following is defined as: While the this are almost continuous, the Eastern Ghats are broken and uneven (Figure 7.3).?",
+    "options": {
+      "a": "Satpura Range",
+      "b": "Western Ghats",
+      "c": "Eastern Ghats",
+      "d": "Himalayas"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Western Ghats",
+    "explanation": "While the Western Ghats are almost continuous, the Eastern Ghats are broken and uneven (Figure 7.3).",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "While the Western Ghats are almost continuous, the Eastern Ghats are broken and uneven (Figure 7.3)."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Eastern Ghats",
+        "trap": "sibling"
+      },
+      {
+        "text": "Himalayas",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satpura Range",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "mountains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_b1236050",
+    "stem": "Which of the following is defined as: The this is rich in minerals like coal and iron-ore.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Mountain",
+      "c": "Valley",
+      "d": "Canyon"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Plateau",
+    "explanation": "The plateau is rich in minerals like coal and iron-ore.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The plateau is rich in minerals like coal and iron-ore."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_bfad6884",
+    "stem": "Which of the following entities is characterized by the following attribute: The it and the Brahmaputra form the world's largest delta, the Sundarbans delta.?",
+    "options": {
+      "a": "Indus",
+      "b": "Godavari",
+      "c": "Yamuna",
+      "d": "Ganga"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Ganga",
+    "explanation": "The Ganga and the Brahmaputra form the world's largest delta, the Sundarbans delta.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC CGL",
+    "topic_id": 26,
+    "topic_name": "Drainage and Rivers of India",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Ganga and the Brahmaputra form the world's largest delta, the Sundarbans delta."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Godavari",
+        "trap": "sibling"
+      },
+      {
+        "text": "Yamuna",
+        "trap": "sibling"
+      },
+      {
+        "text": "Indus",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "rivers_india",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_12c67416",
+    "stem": "Which of the following is defined as: The this is triangular in shape.?",
+    "options": {
+      "a": "Mountain",
+      "b": "Canyon",
+      "c": "Delta",
+      "d": "Fjord"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Delta",
+    "explanation": "The delta is triangular in shape.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The delta is triangular in shape."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fjord",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_6f2cf399",
+    "stem": "Which of the following is defined as: The Sunderban this is formed where the Ganga and Brahmaputra flow into the Bay of Bengal.?",
+    "options": {
+      "a": "Fjord",
+      "b": "Delta",
+      "c": "Mountain",
+      "d": "Canyon"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Delta",
+    "explanation": "The Sunderban delta is formed where the Ganga and Brahmaputra flow into the Bay of Bengal.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC CGL",
+    "topic_id": 26,
+    "topic_name": "Drainage and Rivers of India",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "The Sunderban delta is formed where the Ganga and Brahmaputra flow into the Bay of Bengal."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fjord",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_8953a702",
+    "stem": "Which of the following is defined as: In contrast there are days together, you feel cold wthishout woollen clothes when this is very windy and chilly, you would like to have something hot to eat.?",
+    "options": {
+      "a": "IT",
+      "b": "Jute",
+      "c": "Cotton Textile",
+      "d": "Fertilizer"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "IT",
+    "explanation": "In contrast there are days together, you feel cold without woollen clothes when it is very windy and chilly, you would like to have something hot to eat.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "In contrast there are days together, you feel cold without woollen clothes when it is very windy and chilly, you would like to have something hot to eat."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_374b85e3",
+    "stem": "Which of the following entities is characterized by the following attribute: In order to protect them many national parks, sanctuaries and it reserves have been set up.?",
+    "options": {
+      "a": "Atmosphere",
+      "b": "Lithosphere",
+      "c": "Hydrosphere",
+      "d": "Biosphere"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Biosphere",
+    "explanation": "In order to protect them many national parks, sanctuaries and biosphere reserves have been set up.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_vi_geo",
+      "evidence": "In order to protect them many national parks, sanctuaries and biosphere reserves have been set up."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Lithosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_bcfc5ae9",
+    "stem": "Which of the following is defined as: Our this is Milky Way.?",
+    "options": {
+      "a": "Nebula",
+      "b": "Star",
+      "c": "Galaxy",
+      "d": "Satellite"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Galaxy",
+    "explanation": "Our Galaxy is Milky Way.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Our Galaxy is Milky Way."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Nebula",
+        "trap": "sibling"
+      },
+      {
+        "text": "Star",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satellite",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "celestial_types",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_61cdc280",
+    "stem": "Which of the following is defined as: The brightest Star of this is Schedar.?",
+    "options": {
+      "a": "Gemini",
+      "b": "Cassiopeia",
+      "c": "Ursa Minor",
+      "d": "Scorpius"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Cassiopeia",
+    "explanation": "The brightest Star of Cassiopeia is Schedar.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The brightest Star of Cassiopeia is Schedar."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Ursa Minor",
+        "trap": "sibling"
+      },
+      {
+        "text": "Scorpius",
+        "trap": "sibling"
+      },
+      {
+        "text": "Gemini",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "stars_constellations",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ac9af5fd",
+    "stem": "Which of the following entities is characterized by the following attribute: A group of it that appears to form a pattern or shape in the night sky.?",
+    "options": {
+      "a": "Star",
+      "b": "Planet",
+      "c": "Meteoroid",
+      "d": "Comet"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Star",
+    "explanation": "A group of star that appears to form a pattern or shape in the night sky.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "A group of star that appears to form a pattern or shape in the night sky."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Comet",
+        "trap": "sibling"
+      },
+      {
+        "text": "Meteoroid",
+        "trap": "sibling"
+      },
+      {
+        "text": "Planet",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "celestial_types",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e40b0c4d",
+    "stem": "Which of the following is defined as: Closest Planet to this is Venus.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "Closest Planet to Earth is Venus.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Closest Planet to Earth is Venus."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_227ecea4",
+    "stem": "Which of the following is defined as: this and Deimos are two natural moons.?",
+    "options": {
+      "a": "Titan",
+      "b": "Deimos",
+      "c": "Phobos",
+      "d": "Europa"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Phobos",
+    "explanation": "Phobos and Deimos are two natural moons.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Phobos and Deimos are two natural moons."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Deimos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_079270c5",
+    "stem": "Which of the following is defined as: this belt is found between orbits of Mars and Jupiter.?",
+    "options": {
+      "a": "Nebula",
+      "b": "Star",
+      "c": "Asteroid",
+      "d": "Comet"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Asteroid",
+    "explanation": "Asteroid belt is found between orbits of Mars and Jupiter.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Asteroid belt is found between orbits of Mars and Jupiter."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Star",
+        "trap": "sibling"
+      },
+      {
+        "text": "Nebula",
+        "trap": "sibling"
+      },
+      {
+        "text": "Comet",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "celestial_types",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_20574890",
+    "stem": "Which of the following entities is characterized by the following attribute: Second largest it in the solar system it has Bright and concentric rings around it, which are made up of tiny rocks and pieces of ice.?",
+    "options": {
+      "a": "Star",
+      "b": "Comet",
+      "c": "Planet",
+      "d": "Galaxy"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Planet",
+    "explanation": "Second largest planet in the solar system it has Bright and concentric rings around it, which are made up of tiny rocks and pieces of ice.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Second largest planet in the solar system it has Bright and concentric rings around it, which are made up of tiny rocks and pieces of ice."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Galaxy",
+        "trap": "sibling"
+      },
+      {
+        "text": "Comet",
+        "trap": "sibling"
+      },
+      {
+        "text": "Star",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "celestial_types",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_f016f2e9",
+    "stem": "Which of the following entities is characterized by the following attribute: it has least density (0.69 g/cm cube), it can float in water.?",
+    "options": {
+      "a": "Saturn",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Saturn",
+    "explanation": "Saturn has least density (0.69 g/cm cube), it can float in water.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Saturn has least density (0.69 g/cm cube), it can float in water."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Earth",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_fc3ded47",
+    "stem": "Which of the following is defined as: th Only one side of this is visible because rotation and revolution time of this is same.?",
+    "options": {
+      "a": "Europa",
+      "b": "Titan",
+      "c": "Moon",
+      "d": "Phobos"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Moon",
+    "explanation": "th Only one side of moon is visible because rotation and revolution time of Moon is same.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "th Only one side of moon is visible because rotation and revolution time of Moon is same."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Phobos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_366cac39",
+    "stem": "Which of the following is defined as: this is the largest moon of Pluto out of its 5 Moons.?",
+    "options": {
+      "a": "Deimos",
+      "b": "Moon",
+      "c": "Charon",
+      "d": "Europa"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Charon",
+    "explanation": "Charon is the largest moon of Pluto out of its 5 Moons.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Charon is the largest moon of Pluto out of its 5 Moons."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Moon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      },
+      {
+        "text": "Deimos",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_57df4d2c",
+    "stem": "Which of the following entities is characterized by the following attribute: (152 Million Km) th The point in the it's orbit when it is closest to Earth is called Perigee, The it appears large in the sky.?",
+    "options": {
+      "a": "Phobos",
+      "b": "Titan",
+      "c": "Europa",
+      "d": "Moon"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Moon",
+    "explanation": "(152 Million Km) th The point in the moon's orbit when it is closest to Earth is called Perigee, The moon appears large in the sky.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "(152 Million Km) th The point in the moon's orbit when it is closest to Earth is called Perigee, The moon appears large in the sky."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Phobos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c3a1e1ae",
+    "stem": "Which of the following is defined as: At Apogee The this's tide raising force is smaller and the tidal ranges are less than average.?",
+    "options": {
+      "a": "Europa",
+      "b": "Moon",
+      "c": "Phobos",
+      "d": "Titan"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Moon",
+    "explanation": "At Apogee The moon's tide raising force is smaller and the tidal ranges are less than average.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "At Apogee The moon's tide raising force is smaller and the tidal ranges are less than average."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Titan",
+        "trap": "sibling"
+      },
+      {
+        "text": "Phobos",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "moons",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_af9549d7",
+    "stem": "Which of the following entities is characterized by the following attribute: it Revolves around the sun in elliptical orbit.?",
+    "options": {
+      "a": "Mars",
+      "b": "Earth",
+      "c": "Uranus",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "Earth Revolves around the sun in elliptical orbit.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Earth Revolves around the sun in elliptical orbit."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_41958343",
+    "stem": "Which of the following entities is characterized by the following attribute: it has the minimum orbital speed.?",
+    "options": {
+      "a": "Jupiter",
+      "b": "Neptune",
+      "c": "Mars",
+      "d": "Earth"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Neptune",
+    "explanation": "Neptune has the minimum orbital speed.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Neptune has the minimum orbital speed."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Earth",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jupiter",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_8ab7e022",
+    "stem": "Which of the following best fits the description: Radius of this at equator is 6378 Kms.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Mercury",
+      "c": "Earth",
+      "d": "Mars"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Earth",
+    "explanation": "Radius of earth at equator is 6378 Kms.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 2,
+    "topic_name": "Globe: Latitudes and Longitudes",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Radius of earth at equator is 6378 Kms."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "quantity"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_9c307c87",
+    "stem": "Which of the following is defined as: Receives direct overhead rays of the Sun due to which this is the hottest zone.?",
+    "options": {
+      "a": "Jute",
+      "b": "Cotton Textile",
+      "c": "Fertilizer",
+      "d": "IT"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "IT",
+    "explanation": "Receives direct overhead rays of the Sun due to which it is the hottest zone.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 1,
+    "topic_name": "The Earth in the Solar System",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Receives direct overhead rays of the Sun due to which it is the hottest zone."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ae29ecae",
+    "stem": "Which of the following best fits the description: this makes plates comprising crust and Upper Solid part of Mantle.?",
+    "options": {
+      "a": "Biosphere",
+      "b": "Hydrosphere",
+      "c": "Lithosphere",
+      "d": "Atmosphere"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Lithosphere",
+    "explanation": "Lithosphere makes plates comprising crust and Upper Solid part of Mantle.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 5,
+    "topic_name": "Major Domains of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Lithosphere makes plates comprising crust and Upper Solid part of Mantle."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Biosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Hydrosphere",
+        "trap": "sibling"
+      },
+      {
+        "text": "Atmosphere",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "domains",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_d2cac8c0",
+    "stem": "Which of the following best fits the description: The heat from the this's interior causes currents of hot rising magma and cooler sinking magma to flow, moving the lithospheric plates along with them.?",
+    "options": {
+      "a": "Earth",
+      "b": "Uranus",
+      "c": "Mars",
+      "d": "Mercury"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Earth",
+    "explanation": "The heat from the Earth's interior causes currents of hot rising magma and cooler sinking magma to flow, moving the lithospheric plates along with them.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The heat from the Earth's interior causes currents of hot rising magma and cooler sinking magma to flow, moving the lithospheric plates along with them."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "cause/effect"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_34f3ca87",
+    "stem": "Which of the following is defined as: Residual heat from the this's formation when gravitational energy was converted into heat.?",
+    "options": {
+      "a": "Mars",
+      "b": "Uranus",
+      "c": "Mercury",
+      "d": "Earth"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Earth",
+    "explanation": "Residual heat from the earth's formation when gravitational energy was converted into heat.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 33,
+    "topic_name": "Energy Resources",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Residual heat from the earth's formation when gravitational energy was converted into heat."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_49493991",
+    "stem": "Which of the following is defined as: In 1596, Abraham Ortelius's work, Thesaurus Geographicus, first suggested that this's continents were not always in their current locations.?",
+    "options": {
+      "a": "Uranus",
+      "b": "Earth",
+      "c": "Mercury",
+      "d": "Mars"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "In 1596, Abraham Ortelius's work, Thesaurus Geographicus, first suggested that Earth's continents were not always in their current locations.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "In 1596, Abraham Ortelius's work, Thesaurus Geographicus, first suggested that Earth's continents were not always in their current locations."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_2c5e700e",
+    "stem": "Which of the following is defined as: West Coast of this is the narrowest continental shelf.?",
+    "options": {
+      "a": "Africa",
+      "b": "North America",
+      "c": "Europe",
+      "d": "South America"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "South America",
+    "explanation": "West Coast of South America is the narrowest continental shelf.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "West Coast of South America is the narrowest continental shelf."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Africa",
+        "trap": "sibling"
+      },
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Europe",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0507cbac",
+    "stem": "Which of the following is defined as: Great Barrier reef in this is the largest barrier reef (Colony of Corals) in the world.?",
+    "options": {
+      "a": "Asia",
+      "b": "Australia",
+      "c": "North America",
+      "d": "Africa"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Australia",
+    "explanation": "Great Barrier reef in Australia is the largest barrier reef (Colony of Corals) in the world.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Great Barrier reef in Australia is the largest barrier reef (Colony of Corals) in the world."
+    },
+    "distractor_dissections": [
+      {
+        "text": "North America",
+        "trap": "sibling"
+      },
+      {
+        "text": "Asia",
+        "trap": "sibling"
+      },
+      {
+        "text": "Africa",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "continents",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_b82acf30",
+    "stem": "Which of the following is defined as: this is found in continental Crust.?",
+    "options": {
+      "a": "Limestone",
+      "b": "Basalt",
+      "c": "Granite",
+      "d": "Shale"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Granite",
+    "explanation": "Granite is found in continental Crust.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Granite is found in continental Crust."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Limestone",
+        "trap": "sibling"
+      },
+      {
+        "text": "Shale",
+        "trap": "sibling"
+      },
+      {
+        "text": "Basalt",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "rock_types",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_d38b15c0",
+    "stem": "Which of the following best fits the description: Half of the this's crust is composed of feldspar.?",
+    "options": {
+      "a": "Mercury",
+      "b": "Earth",
+      "c": "Mars",
+      "d": "Uranus"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Earth",
+    "explanation": "Half of the earth's crust is composed of feldspar.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Half of the earth's crust is composed of feldspar."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Mars",
+        "trap": "sibling"
+      },
+      {
+        "text": "Uranus",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mercury",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "planets",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_4e5aadd5",
+    "stem": "Which of the following is defined as: Besides these main minerals, other minerals like chlorite, calcite, magnetite, hematite, this and barite are also present in some quantities in the rocks.?",
+    "options": {
+      "a": "Bauxite",
+      "b": "Petroleum",
+      "c": "Manganese",
+      "d": "Coal"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Bauxite",
+    "explanation": "Besides these main minerals, other minerals like chlorite, calcite, magnetite, hematite, bauxite and barite are also present in some quantities in the rocks.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Besides these main minerals, other minerals like chlorite, calcite, magnetite, hematite, bauxite and barite are also present in some quantities in the rocks."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Coal",
+        "trap": "sibling"
+      },
+      {
+        "text": "Manganese",
+        "trap": "sibling"
+      },
+      {
+        "text": "Petroleum",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "minerals",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_127e2502",
+    "stem": "Which of the following is defined as: this is one of the key minerals used in cement making.?",
+    "options": {
+      "a": "Sandstone",
+      "b": "Granite",
+      "c": "Shale",
+      "d": "Limestone"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Limestone",
+    "explanation": "Limestone is one of the key minerals used in cement making.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Limestone is one of the key minerals used in cement making."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Granite",
+        "trap": "sibling"
+      },
+      {
+        "text": "Shale",
+        "trap": "sibling"
+      },
+      {
+        "text": "Sandstone",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "rock_types",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3852c33a",
+    "stem": "Which of the following is defined as: this is used in electrical industry, constitutes 4 % of Earth's Crust.?",
+    "options": {
+      "a": "Iron ore",
+      "b": "Copper",
+      "c": "Gold",
+      "d": "Mica"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Mica",
+    "explanation": "Mica is used in electrical industry, constitutes 4 % of Earth's Crust.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 18,
+    "topic_name": "Industries",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Mica is used in electrical industry, constitutes 4 % of Earth's Crust."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Copper",
+        "trap": "sibling"
+      },
+      {
+        "text": "Gold",
+        "trap": "sibling"
+      },
+      {
+        "text": "Iron ore",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "minerals",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_e9c9ac3f",
+    "stem": "Which of the following is defined as: The this are one of the youngest fold mountains ranges in the world of tectonic origin and comprise mainly Sedimentary Rocks.?",
+    "options": {
+      "a": "Eastern Ghats",
+      "b": "Satpura Range",
+      "c": "Vindhya Range",
+      "d": "Himalayas"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Himalayas",
+    "explanation": "The Himalayas are one of the youngest fold mountains ranges in the world of tectonic origin and comprise mainly Sedimentary Rocks.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The Himalayas are one of the youngest fold mountains ranges in the world of tectonic origin and comprise mainly Sedimentary Rocks."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Eastern Ghats",
+        "trap": "sibling"
+      },
+      {
+        "text": "Vindhya Range",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satpura Range",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "mountains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0d3f76db",
+    "stem": "Which of the following entities is characterized by the following attribute: Shyok (tributary of it) river flows between Karakoram and Ladakh range.?",
+    "options": {
+      "a": "Cauvery",
+      "b": "Yamuna",
+      "c": "Indus",
+      "d": "Brahmaputra"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Indus",
+    "explanation": "Shyok (tributary of Indus) river flows between Karakoram and Ladakh range.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC CGL",
+    "topic_id": 26,
+    "topic_name": "Drainage and Rivers of India",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Shyok (tributary of Indus) river flows between Karakoram and Ladakh range."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Yamuna",
+        "trap": "sibling"
+      },
+      {
+        "text": "Brahmaputra",
+        "trap": "sibling"
+      },
+      {
+        "text": "Cauvery",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "rivers_india",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_bbe6a859",
+    "stem": "Which of the following best fits the description: The core of Greater this is composed of granitic rock.?",
+    "options": {
+      "a": "Satpura Range",
+      "b": "Eastern Ghats",
+      "c": "Vindhya Range",
+      "d": "Himalayas"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Himalayas",
+    "explanation": "The core of Greater Himalayas is composed of granitic rock.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 22,
+    "topic_name": "Rocks and Minerals",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The core of Greater Himalayas is composed of granitic rock."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Eastern Ghats",
+        "trap": "sibling"
+      },
+      {
+        "text": "Vindhya Range",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satpura Range",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "mountains",
+      "intent_type": "part-of"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ece3d169",
+    "stem": "Which of the following is defined as: A this is a low area of land between hills or mountains, typically with a river or stream flowing through it.?",
+    "options": {
+      "a": "Valley",
+      "b": "Canyon",
+      "c": "Plateau",
+      "d": "Archipelago"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Valley",
+    "explanation": "A valley is a low area of land between hills or mountains, typically with a river or stream flowing through it.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "A valley is a low area of land between hills or mountains, typically with a river or stream flowing through it."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      },
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_ca6d7c8b",
+    "stem": "Which of the following is defined as: The Kashmir this is also known for the Karewa formations (composed of glacial and lacustrine deposits), which are used to grow Zafran, a local variety of Saffron.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Archipelago",
+      "c": "Canyon",
+      "d": "Valley"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Valley",
+    "explanation": "The Kashmir Valley is also known for the Karewa formations (composed of glacial and lacustrine deposits), which are used to grow Zafran, a local variety of Saffron.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The Kashmir Valley is also known for the Karewa formations (composed of glacial and lacustrine deposits), which are used to grow Zafran, a local variety of Saffron."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      },
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_4fc6c7e0",
+    "stem": "Which of the following is defined as: Darjeeling and Sikkim this It is home to India's highest peak Mt.?",
+    "options": {
+      "a": "Himalayas",
+      "b": "Eastern Ghats",
+      "c": "Vindhya Range",
+      "d": "Satpura Range"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Himalayas",
+    "explanation": "Darjeeling and Sikkim Himalayas It is home to India's highest peak Mt.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC CGL",
+    "topic_id": 7,
+    "topic_name": "Our Country \u2014 India",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Darjeeling and Sikkim Himalayas It is home to India's highest peak Mt."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Eastern Ghats",
+        "trap": "sibling"
+      },
+      {
+        "text": "Vindhya Range",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satpura Range",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "mountains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_5e7ccc2b",
+    "stem": "Which of the following is defined as: Orientation of this in Arunachal is South-west to NorthWest.?",
+    "options": {
+      "a": "Eastern Ghats",
+      "b": "Vindhya Range",
+      "c": "Himalayas",
+      "d": "Satpura Range"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Himalayas",
+    "explanation": "Orientation of Himalayas in Arunachal is South-west to NorthWest.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Orientation of Himalayas in Arunachal is South-west to NorthWest."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Eastern Ghats",
+        "trap": "sibling"
+      },
+      {
+        "text": "Vindhya Range",
+        "trap": "sibling"
+      },
+      {
+        "text": "Satpura Range",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "mountains",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_d64fa832",
+    "stem": "Which of the following is defined as: A this pass is a route that runs through or over a this range.?",
+    "options": {
+      "a": "Canyon",
+      "b": "Plateau",
+      "c": "Mountain",
+      "d": "Archipelago"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Mountain",
+    "explanation": "A mountain pass is a route that runs through or over a mountain range.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "A mountain pass is a route that runs through or over a mountain range."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_0df2b5be",
+    "stem": "Which of the following entities is characterized by the following attribute: it passes between it peaks may form during the formation of the it range, or they may form as a result of the action of glaciers, running water, or precipitation in the form of rain or snow.?",
+    "options": {
+      "a": "Mountain",
+      "b": "Canyon",
+      "c": "Plateau",
+      "d": "Archipelago"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Mountain",
+    "explanation": "Mountain passes between mountain peaks may form during the formation of the mountain range, or they may form as a result of the action of glaciers, running water, or precipitation in the form of rain or snow.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Mountain passes between mountain peaks may form during the formation of the mountain range, or they may form as a result of the action of glaciers, running water, or precipitation in the form of rain or snow."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Archipelago",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Plateau",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_3bbd8198",
+    "stem": "Which of the following is defined as: Peninsula and this A peninsula is a landform that is surrounded by water on three sides, but connected to a large landmass on one side.?",
+    "options": {
+      "a": "Valley",
+      "b": "Mountain",
+      "c": "Canyon",
+      "d": "Plateau"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Plateau",
+    "explanation": "Peninsula and Plateau A peninsula is a landform that is surrounded by water on three sides, but connected to a large landmass on one side.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Peninsula and Plateau A peninsula is a landform that is surrounded by water on three sides, but connected to a large landmass on one side."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_adb855be",
+    "stem": "Which of the following is defined as: A this is a flat or gently sloping elevated landform that rises above the surrounding area.?",
+    "options": {
+      "a": "Canyon",
+      "b": "Mountain",
+      "c": "Valley",
+      "d": "Plateau"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Plateau",
+    "explanation": "A plateau is a flat or gently sloping elevated landform that rises above the surrounding area.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "A plateau is a flat or gently sloping elevated landform that rises above the surrounding area."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c74a6206",
+    "stem": "Which of the following is defined as: Peninsular this is the largest physiographic division of India, covering a vast area in the southern part of the country.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Canyon",
+      "c": "Mountain",
+      "d": "Valley"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Plateau",
+    "explanation": "Peninsular Plateau is the largest physiographic division of India, covering a vast area in the southern part of the country.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CHSL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Peninsular Plateau is the largest physiographic division of India, covering a vast area in the southern part of the country."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_c29eee5b",
+    "stem": "Which of the following is defined as: The Peninsular this is one of the world's oldest landforms.?",
+    "options": {
+      "a": "Mountain",
+      "b": "Canyon",
+      "c": "Plateau",
+      "d": "Valley"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Plateau",
+    "explanation": "The Peninsular Plateau is one of the world's oldest landforms.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The Peninsular Plateau is one of the world's oldest landforms."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_366bb8ec",
+    "stem": "Which of the following is defined as: The Peninsular this is a tableland made up of old crystalline, igneous and metamorphic rocks.?",
+    "options": {
+      "a": "Mountain",
+      "b": "Valley",
+      "c": "Canyon",
+      "d": "Plateau"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Plateau",
+    "explanation": "The Peninsular plateau is a tableland made up of old crystalline, igneous and metamorphic rocks.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The Peninsular plateau is a tableland made up of old crystalline, igneous and metamorphic rocks."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_a59be108",
+    "stem": "Which of the following entities is characterized by the following attribute: The it has large and shallow valleys as well as rounded hills.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Canyon",
+      "c": "Mountain",
+      "d": "Valley"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Plateau",
+    "explanation": "The plateau has large and shallow valleys as well as rounded hills.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The plateau has large and shallow valleys as well as rounded hills."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "attribute"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_089230b3",
+    "stem": "Which of the following is defined as: The this is an extension of the Deccan Traps and is spread across Rajasthan and Madhya Pradesh.?",
+    "options": {
+      "a": "Mountain",
+      "b": "Canyon",
+      "c": "Plateau",
+      "d": "Valley"
+    },
+    "correct_key": "opt_c",
+    "correct_answer_text": "Plateau",
+    "explanation": "The plateau is an extension of the Deccan Traps and is spread across Rajasthan and Madhya Pradesh.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "RRB_NTPC",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The plateau is an extension of the Deccan Traps and is spread across Rajasthan and Madhya Pradesh."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_35da831d",
+    "stem": "Which of the following is defined as: The highest peak of the Chotanagpur this is Parasnath Hill, located in Jharkhand (on the name of 23rd Tirthankar), which rises to an elevation of 1,365 m.?",
+    "options": {
+      "a": "Valley",
+      "b": "Plateau",
+      "c": "Canyon",
+      "d": "Mountain"
+    },
+    "correct_key": "opt_b",
+    "correct_answer_text": "Plateau",
+    "explanation": "The highest peak of the Chotanagpur Plateau is Parasnath Hill, located in Jharkhand (on the name of 23rd Tirthankar), which rises to an elevation of 1,365 m.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The highest peak of the Chotanagpur Plateau is Parasnath Hill, located in Jharkhand (on the name of 23rd Tirthankar), which rises to an elevation of 1,365 m."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_93e37cd6",
+    "stem": "Which of the following is defined as: Amarkantak (has abundant deposits of this) is the meeting point of Satpura and Vindhya range.?",
+    "options": {
+      "a": "Manganese",
+      "b": "Coal",
+      "c": "Petroleum",
+      "d": "Bauxite"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "Bauxite",
+    "explanation": "Amarkantak (has abundant deposits of Bauxite) is the meeting point of Satpura and Vindhya range.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "Amarkantak (has abundant deposits of Bauxite) is the meeting point of Satpura and Vindhya range."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Coal",
+        "trap": "sibling"
+      },
+      {
+        "text": "Manganese",
+        "trap": "sibling"
+      },
+      {
+        "text": "Petroleum",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "minerals",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_36cf3c8d",
+    "stem": "Which of the following is defined as: The Deccan this is bordered by the Western Ghats to the west and the Eastern Ghats to the east.?",
+    "options": {
+      "a": "Plateau",
+      "b": "Canyon",
+      "c": "Mountain",
+      "d": "Valley"
+    },
+    "correct_key": "opt_a",
+    "correct_answer_text": "Plateau",
+    "explanation": "The Deccan Plateau is bordered by the Western Ghats to the west and the Eastern Ghats to the east.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": 6,
+    "topic_name": "Major Landforms of the Earth",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_fatman_ext2",
+      "evidence": "The Deccan Plateau is bordered by the Western Ghats to the west and the Eastern Ghats to the east."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Valley",
+        "trap": "sibling"
+      },
+      {
+        "text": "Canyon",
+        "trap": "sibling"
+      },
+      {
+        "text": "Mountain",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "landforms",
+      "intent_type": "definition"
+    },
+    "valid": true
+  },
+  {
+    "id": "q_bab7b2c3",
+    "stem": "Which of the following is defined as: RATIONALISATION OF CONTENT IN THE TEXTBOOKS In view of the COVID-19 pandemic, this is imperative to reduce content load on students.?",
+    "options": {
+      "a": "Fertilizer",
+      "b": "Cotton Textile",
+      "c": "Jute",
+      "d": "IT"
+    },
+    "correct_key": "opt_d",
+    "correct_answer_text": "IT",
+    "explanation": "RATIONALISATION OF CONTENT IN THE TEXTBOOKS In view of the COVID-19 pandemic, it is imperative to reduce content load on students.",
+    "cognitive_demand": "RECALL",
+    "exam_target": "SSC_CGL",
+    "topic_id": -1,
+    "topic_name": "UNKNOWN",
+    "tier": "Tier 1",
+    "format": "MCQ",
+    "pdf_sequence_number": "0",
+    "currentness_status": "Static",
+    "provenance": {
+      "source_id": "ncert_xi_phys_geo",
+      "evidence": "RATIONALISATION OF CONTENT IN THE TEXTBOOKS In view of the COVID-19 pandemic, it is imperative to reduce content load on students."
+    },
+    "distractor_dissections": [
+      {
+        "text": "Cotton Textile",
+        "trap": "sibling"
+      },
+      {
+        "text": "Jute",
+        "trap": "sibling"
+      },
+      {
+        "text": "Fertilizer",
+        "trap": "sibling"
+      }
+    ],
+    "contracts": {
+      "semantic_type": "industries",
+      "intent_type": "definition"
+    },
+    "valid": true
+  }
+]

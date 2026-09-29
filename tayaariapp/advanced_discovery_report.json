@@ -1,0 +1,397 @@
+{
+  "Theory nodes discovered": 43,
+  "Valid nodes": 43,
+  "Rejected nodes": 4501,
+  "Sources used": [
+    "source-material\\gap_report.txt",
+    "source-material\\geography_extracted.txt",
+    "source-material\\geography_extracted_2.txt",
+    "source-material\\question_extracted.txt",
+    "source-material\\supplementary_corpus.txt"
+  ],
+  "Topics covered": 10,
+  "Topic list": [
+    "Economic Geography",
+    "Population Geography",
+    "Geomorphology",
+    "Biogeography",
+    "Climatology",
+    "Solar System",
+    "Earthquakes",
+    "Oceanography",
+    "Plate Tectonics",
+    "Indian Geography"
+  ],
+  "Claims": 8,
+  "Relationships": 35,
+  "Question opportunities": 41,
+  "Accepted": 32,
+  "Rejected": 9,
+  "Distinct concepts": 32,
+  "Recall %": 34.4,
+  "Understand %": 15.6,
+  "Apply/Infer %": 9.4,
+  "Compare %": 40.6,
+  "Other higher-order %": 0,
+  "UPSC candidates": 16,
+  "Duplicate": 0,
+  "Near-duplicate": 9,
+  "Leakage": 0,
+  "Explanation failures": 0,
+  "Distractor failures": 0,
+  "Cognitive failures": 0,
+  "Exam-fit failures": 0,
+  "Provenance failures": 0,
+  "Examples": [
+    {
+      "text": "What primarily distinguishes (d) India experiences comparatively   stronger winters as from central Asia?",
+      "options": [
+        "It leads to the formation of Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography.",
+        "It leads to the formation of Geography.",
+        "(d) India experiences comparatively   stronger winters as compared to   central Asia.",
+        "It leads to the formation of World Geography."
+      ],
+      "correctIndex": 2,
+      "explanation": "Evidence from geography_extracted.txt: '(d) India experiences comparatively   stronger winters as compared to   central Asia.'. This demonstrates the specific comparative distinction.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Indian Geography",
+        "concept": "Comparison involving India",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 5161",
+            "evidenceExcerpt": "(d) India experiences comparatively   stronger winters as compared to   central Asia."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: World Geography, Geography, Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography"
+      },
+      "questionId": "Q-PROD-V4-DISC-303679bb",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "When comparing In  Rural,  Himachal  Pradesh  has  the   maximum  female  workforce   participation  rate  (47.4) and Tamil   Nadu  has  maximum  (21.8)  among  major   states, which statement is accurate?",
+      "options": [
+        "It leads to the formation of Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography.",
+        "It leads to the formation of World Geography.",
+        "In  Rural,  Himachal  Pradesh  has  the   maximum  female  workforce   participation  rate  (47.4)  whereas  Tamil   Nadu  has  maximum  (21.8)  among  major   states.",
+        "It leads to the formation of Geography."
+      ],
+      "correctIndex": 2,
+      "explanation": "Evidence from geography_extracted.txt: 'In  Rural,  Himachal  Pradesh  has  the   maximum  female  workforce   participation  rate  (47.4)  whereas  Tamil   Nadu  has  maximum  (21.8)  among  major   states.'. This demonstrates the specific comparative distinction.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Population Geography",
+        "concept": "Comparison involving In  Rural",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 6798",
+            "evidenceExcerpt": "In  Rural,  Himachal  Pradesh  has  the   maximum  female  workforce   participation  rate  (47.4)  whereas  Tamil   Nadu  has  maximum  (21.8)  among  major   states."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Geography, World Geography, Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography"
+      },
+      "questionId": "Q-PROD-V4-DISC-6534eabe",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following is a direct result of volcanic activity, tectonic movements, or erosion?",
+      "options": [
+        "It leads to the formation of Opposing Climatic Mechanism.",
+        "It leads to the formation of Alternative Geological Process.",
+        "It results in Plateaus can be formed.",
+        "It leads to the formation of Secondary Geographic Feature."
+      ],
+      "correctIndex": 2,
+      "explanation": "Evidence from geography_extracted.txt: 'Plateaus can be formed due to volcanic activity, tectonic movements, or erosion.'. Because volcanic activity, tectonic movements, or erosion, it directly causes the stated effect.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Plate Tectonics",
+        "concept": "Process involving Plateaus",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 1960",
+            "evidenceExcerpt": "Plateaus can be formed due to volcanic activity, tectonic movements, or erosion."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Secondary Geographic Feature, Alternative Geological Process, Opposing Climatic Mechanism"
+      },
+      "questionId": "Q-PROD-V4-DISC-ff607fd0",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following is a direct result of Structural geology deals with:   (a) the age of rocks   (b) the components and chemical nature   of soil   (c) the form, classification, mechanism,   and?",
+      "options": [
+        "It results in of rock structures\u2019   evolution   (d) the cause of volcano formation   Sol.786.(c)  Petrology  is  the  science  of   rocks.",
+        "It leads to the formation of Distinct Tectonic Boundary.",
+        "It leads to the formation of Alternative Geological Process.",
+        "It leads to the formation of Secondary Geographic Feature."
+      ],
+      "correctIndex": 0,
+      "explanation": "Evidence from geography_extracted.txt: 'Structural geology deals with:   (a) the age of rocks   (b) the components and chemical nature   of soil   (c) the form, classification, mechanism,   and causes of rock structures\u2019   evolution   (d) the cause of volcano formation   Sol.786.(c)  Petrology  is  the  science  of   rocks.'. Because Structural geology deals with:   (a) the age of rocks   (b) the components and chemical nature   of soil   (c) the form, classification, mechanism,   and, it directly causes the stated effect.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Geomorphology",
+        "concept": "Process involving Structural",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 7275",
+            "evidenceExcerpt": "Structural geology deals with:   (a) the age of rocks   (b) the components and chemical nature   of soil   (c) the form, classification, mechanism,   and causes of rock structures\u2019   evolution   (d) the cause of volcano formation   Sol.786.(c)  Petrology  is  the  science  of   rocks."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Secondary Geographic Feature, Distinct Tectonic Boundary, Alternative Geological Process"
+      },
+      "questionId": "Q-PROD-V4-DISC-5225e245",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "In geographical terms, www.ssccglpinnacle.com                                                 Download Pinnacle Exam Preparation App  \ufeffThe tropical rainforest ecosystem can be defined by which of the following statements?",
+      "options": [
+        "It is characterized by extreme biodiversity and high precipitation.",
+        "It is closely related to the Alternative Geological Process.",
+        "It is closely related to the Opposing Climatic Mechanism.",
+        "It is closely related to the Distinct Tectonic Boundary."
+      ],
+      "correctIndex": 0,
+      "explanation": "Evidence from geography_extracted.txt: 'www.ssccglpinnacle.com                                                 Download Pinnacle Exam Preparation App  \ufeffThe tropical rainforest ecosystem is characterized by extreme biodiversity and high precipitation.'. This confirms the verified property.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Biogeography",
+        "concept": "Definition of Download Pinnacle Exam Preparation App",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 8130",
+            "evidenceExcerpt": "www.ssccglpinnacle.com                                                 Download Pinnacle Exam Preparation App  \ufeffThe tropical rainforest ecosystem is characterized by extreme biodiversity and high precipitation."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Alternative Geological Process, Opposing Climatic Mechanism, Distinct Tectonic Boundary"
+      },
+      "questionId": "Q-PROD-V4-DISC-fa43862d",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "What primarily distinguishes Strengthen  India\u2019s   presence  in  Central  Asia  and  Russia from bypassing  Pakistan?",
+      "options": [
+        "Strengthen  India\u2019s   presence  in  Central  Asia  and  Russia   while  bypassing  Pakistan.",
+        "It leads to the formation of Geography.",
+        "It leads to the formation of World Geography.",
+        "It leads to the formation of Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography."
+      ],
+      "correctIndex": 0,
+      "explanation": "Evidence from geography_extracted.txt: 'Strengthen  India\u2019s   presence  in  Central  Asia  and  Russia   while  bypassing  Pakistan.'. This demonstrates the specific comparative distinction.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Indian Geography",
+        "concept": "Comparison involving Strengthen  India",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 6103",
+            "evidenceExcerpt": "Strengthen  India\u2019s   presence  in  Central  Asia  and  Russia   while  bypassing  Pakistan."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Geography, World Geography, Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography"
+      },
+      "questionId": "Q-PROD-V4-DISC-c084b794",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Based on geographical processes, what is the direct consequence of the fact that of  the  Himalayan   mountain?",
+      "options": [
+        "It results in India  has  a  tropical   climate.",
+        "It leads to the formation of Eastern  India.",
+        "It leads to the formation of Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography \n India.",
+        "It leads to the formation of Train Between India."
+      ],
+      "correctIndex": 0,
+      "explanation": "Evidence from geography_extracted.txt: 'India  has  a  tropical   climate  because  of  the  Himalayan   mountain.'. Because of  the  Himalayan   mountain, it directly causes the stated effect.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Geomorphology",
+        "concept": "Process involving India",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 5381",
+            "evidenceExcerpt": "India  has  a  tropical   climate  because  of  the  Himalayan   mountain."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Eastern  India, Train Between India, Download Pinnacle Exam Preparation App \n\n Pinnacle  Geography \n India"
+      },
+      "questionId": "Q-PROD-V4-DISC-2ce816db",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following accurately describes (a) North-east  (b) Northern plains   (c) Deccan plateau   (d) Western coast   Sol.596.(a)  North-east  India,  the   easternmost  region  of  the  country?",
+      "options": [
+        "It is closely related to the Distinct Tectonic Boundary.",
+        "It is closely related to the Secondary Geographic Feature.",
+        "It comprises eight  states:  Arunachal   Pradesh,  Assam,  Manipur,  Meghalaya,   Mizoram, Nagaland, Tripura, and Sikkim.",
+        "It is closely related to the Alternative Geological Process."
+      ],
+      "correctIndex": 2,
+      "explanation": "Evidence from geography_extracted.txt: '(a) North-east  (b) Northern plains   (c) Deccan plateau   (d) Western coast   Sol.596.(a)  North-east  India,  the   easternmost  region  of  the  country,   comprises  eight  states:  Arunachal   Pradesh,  Assam,  Manipur,  Meghalaya,   Mizoram, Nagaland, Tripura, and Sikkim.'. This confirms the verified property.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Indian Geography",
+        "concept": "Definition of North",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 6045",
+            "evidenceExcerpt": "(a) North-east  (b) Northern plains   (c) Deccan plateau   (d) Western coast   Sol.596.(a)  North-east  India,  the   easternmost  region  of  the  country,   comprises  eight  states:  Arunachal   Pradesh,  Assam,  Manipur,  Meghalaya,   Mizoram, Nagaland, Tripura, and Sikkim."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Distinct Tectonic Boundary, Alternative Geological Process, Secondary Geographic Feature"
+      },
+      "questionId": "Q-PROD-V4-DISC-c7c2966d",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following is a direct result of In  the  Himalayas,  the  ________   temperature  with  increasing  altitude?",
+      "options": [
+        "It leads to the formation of Outer Himalayas.",
+        "It leads to the formation of Sikkim Himalayas.",
+        "It results in the change in vegetation.",
+        "It leads to the formation of Arunachal\nHimalayas."
+      ],
+      "correctIndex": 2,
+      "explanation": "Evidence from geography_extracted.txt: 'In  the  Himalayas,  the  ________   temperature  with  increasing  altitude   causes the change in vegetation.'. Because In  the  Himalayas,  the  ________   temperature  with  increasing  altitude, it directly causes the stated effect.",
+      "metadata": {
+        "examTarget": [
+          "BPSC"
+        ],
+        "topic": "Climatology",
+        "concept": "Process involving Himalayas",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 4885",
+            "evidenceExcerpt": "In  the  Himalayas,  the  ________   temperature  with  increasing  altitude   causes the change in vegetation."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: Arunachal\nHimalayas, Outer Himalayas, Sikkim Himalayas"
+      },
+      "questionId": "Q-PROD-V4-DISC-1858128b",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following is a direct result of about  4  billion  years  ago,   the  Sun\u2019s  luminosity  was  only  around   70%  of  its  current  strength,  which  should   have  left  Earth  frozen?",
+      "options": [
+        "It results in Sol.5.(c)  The  Faint  Young  Sun  paradox   arises.",
+        "It leads to the formation of Dwarf Planets\nThe Sun.",
+        "It leads to the formation of The Sun.",
+        "It leads to the formation of The  Sun."
+      ],
+      "correctIndex": 0,
+      "explanation": "Evidence from geography_extracted.txt: 'Sol.5.(c)  The  Faint  Young  Sun  paradox   arises  because  about  4  billion  years  ago,   the  Sun\u2019s  luminosity  was  only  around   70%  of  its  current  strength,  which  should   have  left  Earth  frozen.'. Because about  4  billion  years  ago,   the  Sun\u2019s  luminosity  was  only  around   70%  of  its  current  strength,  which  should   have  left  Earth  frozen, it directly causes the stated effect.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Solar System",
+        "concept": "Process involving The  Faint  Young  Sun",
+        "format": "Standard",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "geography_extracted.txt",
+            "section": "Para index 2076",
+            "evidenceExcerpt": "Sol.5.(c)  The  Faint  Young  Sun  paradox   arises  because  about  4  billion  years  ago,   the  Sun\u2019s  luminosity  was  only  around   70%  of  its  current  strength,  which  should   have  left  Earth  frozen."
+          }
+        ],
+        "currentness": "SOURCE_DATE_UNKNOWN",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Sourced via shared head-noun/category matching. Candidates: The Sun, Dwarf Planets\nThe Sun, The  Sun"
+      },
+      "questionId": "Q-PROD-V4-DISC-3a1331bc",
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ]
+}

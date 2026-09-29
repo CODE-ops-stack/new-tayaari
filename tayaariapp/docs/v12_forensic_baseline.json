@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-09-03T16:30:00Z",
+  "pipeline_version": "V12",
+  "audit_objective": "Consolidated forensic baseline quantifying extraction recall, rejection rates, lost educational knowledge, and quality gate false acceptance rate in V12 pipeline",
+  "corpus_simulation": {
+    "total_candidate_sentences": 46121,
+    "svo_matched_sentences": 21,
+    "svo_rejected_sentences": 46100,
+    "extraction_recall_pct": 0.0455,
+    "extraction_recall_display": "0.045%",
+    "rejection_rate_pct": 99.9545,
+    "rejection_rate_display": "99.95%",
+    "rejection_reasons_breakdown": {
+      "syntax_failure_strict_svo_regex": {
+        "count": 23984,
+        "percentage": 52.00,
+        "description": "Failed strict Subject-Verb-Object regex patterns anchored to sentence start"
+      },
+      "length_out_of_bounds": {
+        "count": 18820,
+        "percentage": 40.81,
+        "description": "Sentence length outside allowed window (<20 or >300 characters)"
+      },
+      "mcq_option_marker_artifact": {
+        "count": 3296,
+        "percentage": 7.15,
+        "description": "Contained MCQ option tokens like (a)-(d), Sol., or shift markers"
+      }
+    }
+  },
+  "quantified_lost_educational_knowledge": {
+    "total_quantified_lost_facts": 1771,
+    "breakdown_by_semantic_intent": {
+      "process_and_sequence": {
+        "lost_count": 1250,
+        "example_patterns": ["formed by", "cycle", "transforms into", "cooling"],
+        "representative_sample": "Igneous rocks are formed by the cooling and solidification of molten magma."
+      },
+      "quantitative_and_numerical_relations": {
+        "lost_count": 174,
+        "example_patterns": ["percentage", "km²", "density", "proportion"],
+        "representative_sample": "More than 97 percent of the Earth's water is found in the oceans."
+      },
+      "conditionality": {
+        "lost_count": 155,
+        "example_patterns": ["if", "when", "provided that", "under high pressure"],
+        "representative_sample": "Under high temperature and pressure, sedimentary rocks transform into metamorphic rocks."
+      },
+      "flexible_cause_and_effect": {
+        "lost_count": 82,
+        "example_patterns": ["because", "as a result of", "giving rise to"],
+        "representative_sample": "Rivers slow down upon reaching the plain as a result of decreased gradient."
+      },
+      "classification_and_taxonomy": {
+        "lost_count": 48,
+        "example_patterns": ["classified into", "types of", "divided into"],
+        "representative_sample": "Plate boundaries are classified into convergent, divergent, and transform boundaries."
+      },
+      "attribute_and_composition": {
+        "lost_count": 32,
+        "example_patterns": ["characterized by", "composed of", "rich in"],
+        "representative_sample": "The oceanic crust is composed mainly of basalt and is rich in silica and magnesium."
+      },
+      "flexible_comparison": {
+        "lost_count": 23,
+        "example_patterns": ["in contrast", "unlike", "differs from"],
+        "representative_sample": "Unlike continental crust, oceanic crust is continuously recycled into the mantle."
+      },
+      "flexible_spatial_and_topological": {
+        "lost_count": 7,
+        "example_patterns": ["flanked by", "stretches from", "bordered by"],
+        "representative_sample": "The Deccan Plateau is flanked by the Western Ghats and Eastern Ghats."
+      }
+    }
+  },
+  "v12_production_run": {
+    "sources_processed": 5,
+    "source_units": 1204,
+    "valid_nodes_extracted": 23,
+    "nodes_rejected": 3785,
+    "node_rejection_rate_pct": 99.39,
+    "questions_synthesized": 17,
+    "questions_accepted_by_gate": 17,
+    "questions_rejected_by_gate": 0,
+    "gate_rejection_rate_pct": 0.0,
+    "gate_false_acceptance_rate_pct": 100.0,
+    "true_exam_quality_precision_pct": 0.0,
+    "defects_in_accepted_questions": {
+      "syntactic_fragment_stems": 3,
+      "cross_domain_distractor_contamination": 17,
+      "unresolved_anaphora": 2
+    }
+  },
+  "architectural_failure_points": [
+    {
+      "id": "AFP-01",
+      "component": "Regex Extraction Engine",
+      "failure_mode": "Rigid Sentence-Start Anchoring",
+      "impact": "Discarded 99.95% of factual sentences because valid knowledge sentences started with prepositional phrases, dates, numbers, or dependent clauses."
+    },
+    {
+      "id": "AFP-02",
+      "component": "Source Ingestion Filter",
+      "failure_mode": "Naive Pipe and Delimiter Suppression",
+      "impact": "Categorized all markdown tables, tabular data, and ASCII schemas as TABLE_OR_META and skipped them completely."
+    },
+    {
+      "id": "AFP-03",
+      "component": "Distractor Synthesizer",
+      "failure_mode": "Absence of Ontological Category Constraints",
+      "impact": "Distractor pool cross-polled unrelated predicates, pairing oceanic crust density with demographic migration or atmospheric visibility."
+    },
+    {
+      "id": "AFP-04",
+      "component": "Stem Generator",
+      "failure_mode": "Fragmentary Noun-Phrase Extraction",
+      "impact": "Synthesized corrupt stems from truncated clauses such as 'The Nile basin is huge and'."
+    },
+    {
+      "id": "AFP-05",
+      "component": "Quality Gate",
+      "failure_mode": "Absence of Multi-Agent Adversarial Auditing",
+      "impact": "100% false acceptance rate; zero questions rejected despite fatal semantic, grammatical, and cognitive defects."
+    }
+  ]
+}

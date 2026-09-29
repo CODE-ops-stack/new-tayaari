@@ -1,0 +1,454 @@
+{
+  "batchId": "BATCH-V3-GENERIC-SYNTHESIS",
+  "candidates_attempted": 12,
+  "original_synthesis": 12,
+  "accepted": 12,
+  "rejected": 0,
+  "clue_leakage_detected": 0,
+  "repetition_violations_detected": 0,
+  "stats": {
+    "percent_recall": 50.0,
+    "percent_understand_plus": 50.0,
+    "upsc_candidates_passing_higher_order_gate": 6,
+    "distinct_concepts": 6,
+    "distinct_opportunities": 12,
+    "stopped_naturally": true
+  },
+  "questions": [
+    {
+      "text": "Regarding S-waves in the context of Earthquakes, which of the following statements is accurate?",
+      "options": [
+        "S-waves travel only through liquid and gaseous materials.",
+        "S-waves travel through all states of matter equally.",
+        "S-waves travel exclusively through the Earth's crust.",
+        "It is a known fact that S-waves travel only through solid materials and not liquids."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 3, Page 27), 'The shadow zone of S-wave is larger in extent... This proves that the outer core is liquid.'. This supports the fact that S-waves travel only through solid materials and not liquids.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Earthquakes",
+        "concept": "Shadow Zone Generation",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 27",
+            "evidenceExcerpt": "The shadow zone of S-wave is larger in extent... This proves that the outer core is liquid."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Characteristics of Shadow Zone Generation. Plausible misconception: Confusing properties of S-waves."
+      },
+      "questionId": "Q-PROD-V3-GEN-8381a94e",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Given that S-waves cannot pass through liquids, what is the direct geological or geographical consequence?",
+      "options": [
+        "the Earth's crust is fragmented into plates.",
+        "the inner core is made of solid iron.",
+        "the Earth's mantle is highly viscous.",
+        "the Earth's outer core is entirely liquid."
+      ],
+      "correctIndex": 3,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 3, Page 27), 'The shadow zone of S-wave is larger in extent... This proves that the outer core is liquid.'. Because S-waves cannot pass through liquids, it logically results in they completely disappear beyond 105 degrees from an epicenter, meaning the Earth's outer core is entirely liquid.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Earthquakes",
+        "concept": "Shadow Zone Generation",
+        "format": "Conceptual Application",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 27",
+            "evidenceExcerpt": "The shadow zone of S-wave is larger in extent... This proves that the outer core is liquid."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Consequences of Shadow Zone Generation. Plausible misconception: Misattributing the effect of S-waves cannot pass through liquids."
+      },
+      "questionId": "Q-PROD-V3-GEN-35499ee1",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Regarding oceanic plates in the context of Plate Tectonics, which of the following statements is accurate?",
+      "options": [
+        "oceanic plates are lighter than continental plates and ride over them.",
+        "It is a known fact that oceanic plates are denser than continental plates and subduct beneath them.",
+        "oceanic plates never interact with continental plates directly.",
+        "oceanic plates are of equal density, leading to massive fold mountains."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 4, Page 35), 'At convergent boundaries where oceanic and continental crust collide, the denser oceanic plate is pushed beneath the lighter continental plate... forming trenches and inland volcanic mountains.'. This supports the fact that oceanic plates are denser than continental plates and subduct beneath them.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Plate Tectonics",
+        "concept": "Oceanic-Continental Subduction",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 4, Page 35",
+            "evidenceExcerpt": "At convergent boundaries where oceanic and continental crust collide, the denser oceanic plate is pushed beneath the lighter continental plate... forming trenches and inland volcanic mountains."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Characteristics of Oceanic-Continental Subduction. Plausible misconception: Confusing properties of oceanic plates."
+      },
+      "questionId": "Q-PROD-V3-GEN-ea535b3d",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Given that the denser oceanic plate subducts into the mantle, what is the direct geological or geographical consequence?",
+      "options": [
+        "continental volcanic arcs are formed parallel to the trench.",
+        "deep intra-plate hotspots are generated.",
+        "massive non-volcanic mountain ranges are formed.",
+        "mid-ocean ridges are formed actively."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 4, Page 35), 'At convergent boundaries where oceanic and continental crust collide, the denser oceanic plate is pushed beneath the lighter continental plate... forming trenches and inland volcanic mountains.'. Because the denser oceanic plate subducts into the mantle, it logically results in the subducting plate melts and creates rising magma, meaning continental volcanic arcs are formed parallel to the trench.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Plate Tectonics",
+        "concept": "Oceanic-Continental Subduction",
+        "format": "Conceptual Application",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 4, Page 35",
+            "evidenceExcerpt": "At convergent boundaries where oceanic and continental crust collide, the denser oceanic plate is pushed beneath the lighter continental plate... forming trenches and inland volcanic mountains."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Consequences of Oceanic-Continental Subduction. Plausible misconception: Misattributing the effect of the denser oceanic plate subducts into the mantle."
+      },
+      "questionId": "Q-PROD-V3-GEN-509c43a2",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Regarding Calderas in the context of Geomorphology, which of the following statements is accurate?",
+      "options": [
+        "Calderas are extinct volcanic remnants that never erupt.",
+        "Calderas are strictly underwater mid-ocean ridge vents.",
+        "It is a known fact that Calderas are the most explosive of all the Earth's volcanoes.",
+        "Calderas are gentle shield volcanoes characterized by fluid lava."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 3, Page 29), 'These are the most explosive of the earth\u2019s volcanoes... when they erupt they tend to collapse on themselves rather than building any tall structure. The collapsed depressions are called calderas.'. This supports the fact that Calderas are the most explosive of all the Earth's volcanoes.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Geomorphology",
+        "concept": "Caldera Explosivity",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 29",
+            "evidenceExcerpt": "These are the most explosive of the earth\u2019s volcanoes... when they erupt they tend to collapse on themselves rather than building any tall structure. The collapsed depressions are called calderas."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Characteristics of Caldera Explosivity. Plausible misconception: Confusing properties of Calderas."
+      },
+      "questionId": "Q-PROD-V3-GEN-c30a79c7",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Given that they erupt with immense explosivity, what is the direct geological or geographical consequence?",
+      "options": [
+        "they build the tallest volcanic mountains on Earth.",
+        "they immediately solidify into steep plug domes.",
+        "they collapse inward to form massive depressions rather than tall mountains.",
+        "they spread fluid lava to form vast plateaus."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 3, Page 29), 'These are the most explosive of the earth\u2019s volcanoes... when they erupt they tend to collapse on themselves rather than building any tall structure. The collapsed depressions are called calderas.'. Because they erupt with immense explosivity, it logically results in they destroy their own edifice, meaning they collapse inward to form massive depressions rather than tall mountains.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Geomorphology",
+        "concept": "Caldera Explosivity",
+        "format": "Conceptual Application",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 29",
+            "evidenceExcerpt": "These are the most explosive of the earth\u2019s volcanoes... when they erupt they tend to collapse on themselves rather than building any tall structure. The collapsed depressions are called calderas."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Consequences of Caldera Explosivity. Plausible misconception: Misattributing the effect of they erupt with immense explosivity."
+      },
+      "questionId": "Q-PROD-V3-GEN-66d3f278",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Regarding the Himalayan belt in the context of Seismic Geography, which of the following statements is accurate?",
+      "options": [
+        "It is a known fact that the Himalayan belt is situated entirely at a converging continent-continent boundary.",
+        "the Himalayan belt is an isolated intraplate region far from boundaries.",
+        "the Himalayan belt is located along a major oceanic transform fault.",
+        "the Himalayan belt is situated on a rapidly spreading divergent boundary."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to OXFORD_ATLAS (Part 3, Page 62), 'The entire Himalayan belt is situated at the boundary of the converging Indian and Eurasian plates. Thrust faults such as the MBT and HFF accumulate immense stress, placing the region in Seismic Zone V.'. This supports the fact that the Himalayan belt is situated entirely at a converging continent-continent boundary.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Seismic Geography",
+        "concept": "Himalayan Frontal Fault",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "OXFORD_ATLAS",
+            "section": "Part 3, Page 62",
+            "evidenceExcerpt": "The entire Himalayan belt is situated at the boundary of the converging Indian and Eurasian plates. Thrust faults such as the MBT and HFF accumulate immense stress, placing the region in Seismic Zone V."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Characteristics of Himalayan Frontal Fault. Plausible misconception: Confusing properties of the Himalayan belt."
+      },
+      "questionId": "Q-PROD-V3-GEN-cf68d9c1",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Given that ongoing collision between the Indian and Eurasian plates, what is the direct geological or geographical consequence?",
+      "options": [
+        "the region only experiences deep-focus mantle tremors.",
+        "the region is highly prone to devastating, shallow high-magnitude earthquakes.",
+        "the region is completely seismically stable.",
+        "the region experiences widespread active volcanic eruptions."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to OXFORD_ATLAS (Part 3, Page 62), 'The entire Himalayan belt is situated at the boundary of the converging Indian and Eurasian plates. Thrust faults such as the MBT and HFF accumulate immense stress, placing the region in Seismic Zone V.'. Because ongoing collision between the Indian and Eurasian plates, it logically results in immense stress accumulates on thrust faults like the MBT and HFF, meaning the region is highly prone to devastating, shallow high-magnitude earthquakes.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Seismic Geography",
+        "concept": "Himalayan Frontal Fault",
+        "format": "Conceptual Application",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "OXFORD_ATLAS",
+            "section": "Part 3, Page 62",
+            "evidenceExcerpt": "The entire Himalayan belt is situated at the boundary of the converging Indian and Eurasian plates. Thrust faults such as the MBT and HFF accumulate immense stress, placing the region in Seismic Zone V."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Consequences of Himalayan Frontal Fault. Plausible misconception: Misattributing the effect of ongoing collision between the Indian and Eurasian plates."
+      },
+      "questionId": "Q-PROD-V3-GEN-cf4969d9",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Regarding ocean currents in the context of Oceanography, which of the following statements is accurate?",
+      "options": [
+        "It is a known fact that ocean currents circulate warm water from the equator toward the poles.",
+        "ocean currents circulate cold water exclusively toward the equator.",
+        "ocean currents are unaffected by the Coriolis effect.",
+        "ocean currents only flow in deep underwater channels isolated from the surface."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 14), 'Ocean currents act as conveyor belts. Western boundary currents like the Gulf Stream transport warm water from the equator poleward, raising coastal temperatures, while eastern boundary currents bring cold water equatorward.'. This supports the fact that ocean currents circulate warm water from the equator toward the poles.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Oceanography",
+        "concept": "Ocean Currents and Climate",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 14",
+            "evidenceExcerpt": "Ocean currents act as conveyor belts. Western boundary currents like the Gulf Stream transport warm water from the equator poleward, raising coastal temperatures, while eastern boundary currents bring cold water equatorward."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Characteristics of Ocean Currents and Climate. Plausible misconception: Confusing properties of ocean currents."
+      },
+      "questionId": "Q-PROD-V3-GEN-c6395df9",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following highlights the primary difference between Western boundary currents (like the Gulf Stream) and Eastern boundary currents (like the Canary Current)?",
+      "options": [
+        "Both carry warm water, but Western currents only exist in the Pacific.",
+        "Western currents are deep ocean flows, while Eastern currents are atmospheric winds.",
+        "Western boundary currents carry warm equatorial water poleward, whereas Eastern boundary currents carry cold polar water equatorward.",
+        "Western currents carry cold water, while Eastern currents carry warm water."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 14), 'Ocean currents act as conveyor belts. Western boundary currents like the Gulf Stream transport warm water from the equator poleward, raising coastal temperatures, while eastern boundary currents bring cold water equatorward.'. This supports that the distinction is based on the fact that Western boundary currents carry warm equatorial water poleward, whereas Eastern boundary currents carry cold polar water equatorward..",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Oceanography",
+        "concept": "Ocean Currents and Climate",
+        "format": "Conceptual",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "COMPARE",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 14",
+            "evidenceExcerpt": "Ocean currents act as conveyor belts. Western boundary currents like the Gulf Stream transport warm water from the equator poleward, raising coastal temperatures, while eastern boundary currents bring cold water equatorward."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Comparison within Oceanography. Plausible misconception: Incorrect attribute assignment."
+      },
+      "questionId": "Q-PROD-V3-GEN-00aa6bb7",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Regarding the Coriolis force in the context of Climatology, which of the following statements is accurate?",
+      "options": [
+        "the Coriolis force is entirely responsible for generating variations in air pressure.",
+        "It is a known fact that the Coriolis force deflects moving air to the right in the Northern Hemisphere.",
+        "the Coriolis force deflects moving air to the left in the Northern Hemisphere.",
+        "the Coriolis force causes air to move strictly in straight lines between poles."
+      ],
+      "correctIndex": 1,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 10), 'The rotation of the earth about its axis affects the direction of wind... deflecting it to the right in the northern hemisphere. Because of this Coriolis force, cyclones rotate counterclockwise in the north.'. This supports the fact that the Coriolis force deflects moving air to the right in the Northern Hemisphere.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Climatology",
+        "concept": "Coriolis Force Deflection",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 10",
+            "evidenceExcerpt": "The rotation of the earth about its axis affects the direction of wind... deflecting it to the right in the northern hemisphere. Because of this Coriolis force, cyclones rotate counterclockwise in the north."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Characteristics of Coriolis Force Deflection. Plausible misconception: Confusing properties of the Coriolis force."
+      },
+      "questionId": "Q-PROD-V3-GEN-76143cea",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Given that the rotation of the Earth on its axis, what is the direct geological or geographical consequence?",
+      "options": [
+        "high-pressure systems completely collapse.",
+        "winds always blow completely parallel to the equator.",
+        "cyclonic systems rotate counterclockwise in the Northern Hemisphere.",
+        "cyclonic systems rotate clockwise in the Northern Hemisphere."
+      ],
+      "correctIndex": 2,
+      "explanation": "According to NCERT_CLASS11_PHYSICAL_GEO (Chapter 10), 'The rotation of the earth about its axis affects the direction of wind... deflecting it to the right in the northern hemisphere. Because of this Coriolis force, cyclones rotate counterclockwise in the north.'. Because the rotation of the Earth on its axis, it logically results in freely moving objects like wind are deflected, meaning cyclonic systems rotate counterclockwise in the Northern Hemisphere.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Climatology",
+        "concept": "Coriolis Force Deflection",
+        "format": "Conceptual Application",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 10",
+            "evidenceExcerpt": "The rotation of the earth about its axis affects the direction of wind... deflecting it to the right in the northern hemisphere. Because of this Coriolis force, cyclones rotate counterclockwise in the north."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Consequences of Coriolis Force Deflection. Plausible misconception: Misattributing the effect of the rotation of the Earth on its axis."
+      },
+      "questionId": "Q-PROD-V3-GEN-d315cfc1",
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ],
+  "rejections": [],
+  "leak_details": [],
+  "repetition_details": []
+}

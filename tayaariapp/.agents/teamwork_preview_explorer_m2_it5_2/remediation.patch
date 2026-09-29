@@ -1,0 +1,50 @@
+diff --git a/v13_discovery/semantic_extractor.py b/v13_discovery/semantic_extractor.py
+--- a/v13_discovery/semantic_extractor.py
++++ b/v13_discovery/semantic_extractor.py
+@@ -547,7 +547,7 @@ class NoiseFilterGate:
+             r'(?<!protects\s)(?<!protect\s)(?<!us\s)(?<!them\s)(?<!differ\s)(?<!originates\s)\bfrom\s*[\.\!\?]?\s*$',
+             r'\.\.\.\s*$',
+             r'\.{2,}\s*$',
+-            r'^\s*(?:In addition to|As well as|Out of total water resources|Due to which)\s*[\.\,]?\s*$',
++            r'^\s*(?:In addition to|As well as|Due to which|Out of\s+(?:the\s+|total\s+)?[a-z\s]+)\s*[\.\,]?\s*$',
+             r'^\s*Because\s+(?:despite|although|though|if|when|while)\b',
+             r'^\s*(?:While|When|Because|Although)\s+[a-z]+ing\b.*[\.\!\?]?\s*$',
+             r'^\s*(?:In|At|On|From)\s+(?:Rural|Urban|Total|General|Primary|Secondary),\s+',
+@@ -566,7 +566,7 @@ class NoiseFilterGate:
+             r'^[A-Z][a-z]+[A-Z][a-z]+[A-Z][a-z]+',
+             r'[a-z]+[A-Z][a-z]+[A-Z][a-z]+',
+             r'^(?:[A-Z][a-zA-Z\s]{2,20}\s+){4,}[A-Z][a-zA-Z\s]{2,20}$',
+-            r'\b(?:[A-Z][a-z]+\s+){5,}',
++            r'^(?![^.\n]*\b(?:is|are|was|were|has|have|had|orbits?|contains?|features?|forms?|emits?|reaches?|consists?|includes?|moves?)\b)(?:[A-Z][a-z]+\s+){4,}[A-Z][a-z]+[\.\s]*$',
+             r'\b(?:Given|Written|Authored|Published|Proposed)\s+by\s+[A-Z]',
+             r'^\w[\w\s]*\s*:\s*$',
+             r'^\s*[A-Z\s]{25,}\s*$',
+diff --git a/v13_discovery/normalizer.py b/v13_discovery/normalizer.py
+--- a/v13_discovery/normalizer.py
++++ b/v13_discovery/normalizer.py
+@@ -194,13 +194,14 @@ class LayoutDesegmenter:
+     @classmethod
+     def split_merged_headers(cls, line: str) -> str:
+         """Splits multi-column horizontal concatenations caused by multi-column PDF bounding boxes."""
+         s = line.strip()
+-        s = re.sub(r'UniverseGalaxySolar System', 'Universe. Galaxy. Solar System.', s)
+-        s = re.sub(r'Planetesimal TheoryNebular HypothesisCopernicus Theory', 'Planetesimal Theory. Nebular Hypothesis. Copernicus Theory.', s)
+-        s = re.sub(r'MeteoroidMeteorMeteorite', 'Meteoroid. Meteor. Meteorite.', s)
+-        s = re.sub(r'PhotosphereChromosphereCorona', 'Photosphere. Chromosphere. Corona.', s)
+-        s = re.sub(r'Terrestrial PlanetsJovian Planets', 'Terrestrial Planets vs Jovian Planets.', s)
+-        s = re.sub(r'Three Types of Plate BoundariesThree Types of Plate Boundaries', 'Three Types of Plate Boundaries:', s)
+-        s = re.sub(r'(\d+\s*days?)(\d+\s*spin)', r'\1. \2', s)
+-        s = re.sub(r'(\d+\s*days?)([A-Z][a-z]+)', r'\1. \2', s)
+-        s = re.sub(r'([a-z])([A-Z][a-z]+)', r'\1 \2', s)  # general camelCase splitting
++        # 1. Deduplicate immediately repeated verbatim phrases
++        s = re.sub(r'^(.{6,}?)\s*\1\s*$', r'\1:', s)
++        s = re.sub(r'\b([A-Z][a-zA-Z\s]{5,}?)\s+\1\b', r'\1', s)
++        # 2. Split concatenated numeric units and subsequent headers/values
++        s = re.sub(r'(\d+\s*[a-zA-Z]+)(?=\d+\s*[a-zA-Z])', r'\1. ', s)
++        s = re.sub(r'(\d+\s*[a-zA-Z]+)(?=[A-Z][a-z]+)', r'\1. ', s)
++        # 3. Generalized PascalCase / camelCase word boundary splitting using zero-width lookahead
++        s = re.sub(r'([a-z])(?=[A-Z])', r'\1 ', s)
++        # 4. Clean up any trailing repeated phrases after spacing
++        s = re.sub(r'^(.{6,}?)\s*:\s*\1\s*$', r'\1:', s)
++        s = re.sub(r'^(.{6,}?)\s+\1\s*$', r'\1:', s)
+         return s

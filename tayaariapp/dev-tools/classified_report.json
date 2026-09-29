@@ -1,0 +1,328 @@
+{
+  "41. Mineral and Energy Resources": {
+    "Assertion-Reason": {
+      "Advanced": [
+        1,
+        19
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        13,
+        47,
+        57,
+        64,
+        88,
+        128
+      ]
+    },
+    "Statement-based": {
+      "Advanced": [
+        35,
+        43,
+        58,
+        65,
+        66,
+        71,
+        111,
+        130
+      ]
+    }
+  },
+  "25. Drainage System": {
+    "Statement-based": {
+      "Advanced": [
+        2,
+        37,
+        39,
+        79,
+        84
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        30,
+        31,
+        36,
+        40,
+        41,
+        42,
+        74,
+        87,
+        90,
+        98,
+        114,
+        122,
+        123,
+        125
+      ]
+    },
+    "Matching Pairs": {
+      "Advanced": [
+        56,
+        59,
+        63
+      ]
+    }
+  },
+  "7. Our Country - India": {
+    "Matching Pairs": {
+      "Advanced": [
+        3
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        6,
+        69,
+        85,
+        86,
+        93,
+        106,
+        134
+      ]
+    },
+    "Statement-based": {
+      "Advanced": [
+        10,
+        21
+      ]
+    }
+  },
+  "27. Natural Vegetation": {
+    "Direct Fact": {
+      "Advanced": [
+        4,
+        60,
+        99,
+        102,
+        103,
+        126
+      ]
+    },
+    "Assertion-Reason": {
+      "Advanced": [
+        16
+      ]
+    },
+    "Statement-based": {
+      "Advanced": [
+        112
+      ]
+    }
+  },
+  "39. Land Resources and Agriculture": {
+    "Statement-based": {
+      "Advanced": [
+        5,
+        11,
+        38,
+        53,
+        68,
+        75
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        28,
+        29,
+        44,
+        46,
+        51,
+        54,
+        55,
+        62,
+        81,
+        82,
+        89,
+        94,
+        107,
+        120,
+        129,
+        131
+      ]
+    }
+  },
+  "45. Unclassified (Requires Deeper Mapping)": {
+    "Direct Fact": {
+      "Advanced": [
+        7,
+        8,
+        26,
+        33,
+        34,
+        78,
+        83,
+        96,
+        97,
+        105,
+        116
+      ]
+    },
+    "Matching Pairs": {
+      "Advanced": [
+        12,
+        25,
+        27,
+        61,
+        73,
+        77,
+        117
+      ]
+    },
+    "Statement-based": {
+      "Advanced": [
+        52,
+        118
+      ]
+    }
+  },
+  "24. Structure and Physiography": {
+    "Statement-based": {
+      "Advanced": [
+        9,
+        22
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        23,
+        100,
+        109
+      ]
+    },
+    "Matching Pairs": {
+      "Advanced": [
+        32,
+        95,
+        115
+      ]
+    }
+  },
+  "43. Transport and Communication (India)": {
+    "Assertion-Reason": {
+      "Advanced": [
+        14
+      ]
+    },
+    "Matching Pairs": {
+      "Advanced": [
+        24,
+        119
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        67,
+        91
+      ]
+    },
+    "Statement-based": {
+      "Advanced": [
+        70
+      ]
+    }
+  },
+  "2. Globe: Latitudes and Longitudes": {
+    "Direct Fact": {
+      "Advanced": [
+        15,
+        72
+      ]
+    }
+  },
+  "16. Solar Radiation, Heat Balance and Temperature": {
+    "Assertion-Reason": {
+      "Advanced": [
+        17
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        127
+      ]
+    }
+  },
+  "14. Landforms and their Evolution": {
+    "Statement-based": {
+      "Advanced": [
+        18
+      ]
+    }
+  },
+  "18. Water in the Atmosphere": {
+    "Statement-based": {
+      "Advanced": [
+        20
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        133
+      ]
+    }
+  },
+  "17. Atmospheric Circulation and Weather Systems": {
+    "Statement-based": {
+      "Advanced": [
+        45
+      ]
+    },
+    "Direct Fact": {
+      "Advanced": [
+        92,
+        104,
+        113,
+        132
+      ]
+    }
+  },
+  "26. Climate": {
+    "Direct Fact": {
+      "Advanced": [
+        48,
+        80
+      ]
+    },
+    "Statement-based": {
+      "Advanced": [
+        50
+      ]
+    }
+  },
+  "6. Major Landforms of the Earth": {
+    "Direct Fact": {
+      "Advanced": [
+        49
+      ]
+    },
+    "Matching Pairs": {
+      "Advanced": [
+        110
+      ]
+    }
+  },
+  "11. Interior of the Earth": {
+    "Statement-based": {
+      "Advanced": [
+        76
+      ]
+    }
+  },
+  "5. Major Domains of the Earth": {
+    "Direct Fact": {
+      "Advanced": [
+        101,
+        108
+      ]
+    }
+  },
+  "3. Motions of the Earth": {
+    "Direct Fact": {
+      "Advanced": [
+        121,
+        124
+      ]
+    }
+  }
+}

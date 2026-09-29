@@ -1,0 +1,82 @@
+[
+  {
+    "id": "q_d6eff4e9",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: The this is the third nearest planet to the sun.?",
+    "evidence": "The earth is the third nearest planet to the sun."
+  },
+  {
+    "id": "q_8cccd3d1",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: The solid portion of the earth is called the this.?",
+    "evidence": "The solid portion of the earth is called the Lithosphere."
+  },
+  {
+    "id": "q_d58c89b7",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: this is the second largest continent after Asia.?",
+    "evidence": "Africa is the second largest continent after Asia."
+  },
+  {
+    "id": "q_b7ae1b94",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: this is the third largest continent of the world.?",
+    "evidence": "North America is the third largest continent of the world."
+  },
+  {
+    "id": "q_7f71e52f",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: The this is the largest ocean.?",
+    "evidence": "The Pacific Ocean is the largest ocean."
+  },
+  {
+    "id": "q_40d2d9f9",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following entities is characterized by the following attribute: Fastest it to revolve around the sun in 88 days.?",
+    "evidence": "Fastest planet to revolve around the sun in 88 days."
+  },
+  {
+    "id": "q_e288bdf6",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following entities is characterized by the following attribute: Only it that has no atmosphere.?",
+    "evidence": "Only planet that has no atmosphere."
+  },
+  {
+    "id": "q_6a40b330",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: this is largest among them.?",
+    "evidence": "Ganymede is largest among them."
+  },
+  {
+    "id": "q_d7c82431",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: this is the Busiest ocean.?",
+    "evidence": "Atlantic Ocean is the Busiest ocean."
+  },
+  {
+    "id": "q_b9ab7b8f",
+    "reasons": [
+      "NEAR_DUPLICATE_STEM"
+    ],
+    "stem": "Which of the following is defined as: this is found in Oceanic Crust .?",
+    "evidence": "Basalt is found in Oceanic Crust ."
+  }
+]

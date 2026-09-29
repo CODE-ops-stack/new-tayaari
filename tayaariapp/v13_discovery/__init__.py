@@ -1,0 +1,143 @@
+"""
+v13_discovery Package
+=====================
+Source-driven educational question discovery pipeline (V13).
+Provides layout normalization, table extraction, and 14-intent semantic knowledge representation.
+"""
+
+from .normalizer import (
+    BlockType,
+    SentenceProvenance,
+    NormalizedBlock,
+    WatermarkOcrCleaner,
+    LayoutDesegmenter,
+    TableParser,
+    DocumentNormalizer,
+    Normalizer,
+    TableAndColumnNormalizer,
+)
+
+from .semantic_extractor import (
+    KnowledgeNode,
+    QuantitativeData,
+    NoiseFilterGate,
+    LinguisticSemanticExtractor,
+    GeminiStructuredExtractor,
+    HybridSemanticExtractor,
+    SemanticExtractor,
+    canonicalize_intent,
+    CANONICAL_14_INTENTS,
+)
+
+from .provenance import (
+    ProvenanceRecord,
+    LinkHashes,
+    VerificationResult,
+    verify_provenance_chain,
+    validate_provenance_chain,
+    audit_provenance_integrity,
+    ProvenanceRegistry,
+    ProvenanceTracker,
+)
+
+from .experiments import (
+    ExtractionResult,
+    BinaryMetrics,
+    IntentMetrics,
+    NoiseRejectionMetrics,
+    LatencyMetrics,
+    DeterministicLLMStub,
+    BaseExtractorAdapter,
+    RuleBasedAdapter,
+    StructuredLLMAdapter,
+    HybridPipelineAdapter,
+    MetricCalculator,
+    ExperimentBenchmarkRunner,
+    CorpusSampler,
+)
+
+from .question_synthesizer import (
+    CandidateQuestion,
+    QuestionSynthesizer,
+    OntologyRegistry,
+    CategoryDefinition,
+    DistractorVerificationGate,
+    DistractorDissector,
+    NaturalStemSynthesizer,
+    VALID_ROOM_TRAP_TYPES,
+)
+
+from .auditors import (
+    AuditViolation,
+    AuditorResult,
+    AuditReport,
+    CognitiveAuditor,
+    ExamFitAuditor,
+    AdversarialAuditor,
+    MultiAgentAuditingGate,
+    MultiAgentQualityGate,
+    FlawClassifier,
+    QuestionRepairEngine,
+    SelfRepairPipeline,
+)
+
+__all__ = [
+    "BlockType",
+    "SentenceProvenance",
+    "NormalizedBlock",
+    "WatermarkOcrCleaner",
+    "LayoutDesegmenter",
+    "TableParser",
+    "DocumentNormalizer",
+    "Normalizer",
+    "TableAndColumnNormalizer",
+    "KnowledgeNode",
+    "QuantitativeData",
+    "NoiseFilterGate",
+    "LinguisticSemanticExtractor",
+    "GeminiStructuredExtractor",
+    "HybridSemanticExtractor",
+    "SemanticExtractor",
+    "canonicalize_intent",
+    "CANONICAL_14_INTENTS",
+    "ProvenanceRecord",
+    "LinkHashes",
+    "VerificationResult",
+    "verify_provenance_chain",
+    "validate_provenance_chain",
+    "audit_provenance_integrity",
+    "ProvenanceRegistry",
+    "ProvenanceTracker",
+    "ExtractionResult",
+    "BinaryMetrics",
+    "IntentMetrics",
+    "NoiseRejectionMetrics",
+    "LatencyMetrics",
+    "DeterministicLLMStub",
+    "BaseExtractorAdapter",
+    "RuleBasedAdapter",
+    "StructuredLLMAdapter",
+    "HybridPipelineAdapter",
+    "MetricCalculator",
+    "ExperimentBenchmarkRunner",
+    "CorpusSampler",
+    "CandidateQuestion",
+    "QuestionSynthesizer",
+    "OntologyRegistry",
+    "CategoryDefinition",
+    "DistractorVerificationGate",
+    "DistractorDissector",
+    "NaturalStemSynthesizer",
+    "VALID_ROOM_TRAP_TYPES",
+    "AuditViolation",
+    "AuditorResult",
+    "AuditReport",
+    "CognitiveAuditor",
+    "ExamFitAuditor",
+    "AdversarialAuditor",
+    "MultiAgentAuditingGate",
+    "MultiAgentQualityGate",
+    "FlawClassifier",
+    "QuestionRepairEngine",
+    "SelfRepairPipeline",
+]

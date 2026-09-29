@@ -1,0 +1,106 @@
+Reusing configuration cache.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig
+
+> Task :app:processDebugGoogleServices
+File google-services.json is missing.
+The Google Services Plugin cannot function without it.
+Searched locations: /app/applet/app/src/debug/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/Debug/google-services.json, /app/applet/app/google-services.json
+
+> Task :app:generateDebugResources
+> Task :app:javaPreCompileDebug
+> Task :app:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugNavigationResources
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:compileDebugNavigationResources
+> Task :app:generateDebugRFile
+> Task :app:processDebugManifest
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugAssets
+> Task :app:processDebugUnitTestManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+> Task :app:kspDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///app/applet/app/src/main/java/com/example/database/AppDatabase.kt:26:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<AppDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/BookmarksScreen.kt:42:43 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/PracticeScreen.kt:59:17 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///app/applet/app/src/main/java/com/example/ui/theme/Theme.kt:65:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///app/applet/app/src/main/java/com/example/viewmodel/PracticeViewModel.kt:182:34 Condition is always 'true'.
+
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:kspDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+
+> Task :app:testDebugUnitTest
+
+LiveEndToEndTraceTest > fullLiveEndToEndTrace STANDARD_OUT
+    === FULL LIVE E2E TRACE START ===
+    STARTING IMPORT
+    DB Seeded with 1075 questions.
+
+    --- Step 1: Onboarding ---
+    Selected Profile in UI state: null
+
+    --- Step 2: Topic Selection ---
+    Rendered Topics Count: 0
+
+    --- Step 3: Test Session - Format: Direct Fact ---
+    Loaded 10 questions for format Direct Fact.
+    Q1 Rendered Text: What is the primary cause of the change of seasons on Earth?...
+    Q1 Options: [opt_1, opt_2, opt_3, opt_4]
+    User selects incorrect option: opt_1
+    User clicks Bookmark button.
+
+    --- Step 3: Test Session - Format: Matching Pairs ---
+    Loaded 10 questions for format Matching Pairs.
+    Q1 Rendered Text: What is the primary cause of the change of seasons on Earth?...
+    Q1 Options: [opt_1, opt_2, opt_3, opt_4]
+    User selects incorrect option: opt_1
+    User clicks Bookmark button.
+
+    --- Step 3: Test Session - Format: Assertion-Reason ---
+    Loaded 10 questions for format Assertion-Reason.
+    Q1 Rendered Text: What is the primary cause of the change of seasons on Earth?...
+    Q1 Options: [opt_1, opt_2, opt_3, opt_4]
+    User selects incorrect option: opt_1
+    User clicks Bookmark button.
+
+    --- Step 3: Test Session - Format: Statement-based ---
+    Loaded 10 questions for format Statement-based.
+    Q1 Rendered Text: What is the primary cause of the change of seasons on Earth?...
+    Q1 Options: [opt_1, opt_2, opt_3, opt_4]
+    User selects incorrect option: opt_1
+    User clicks Bookmark button.
+
+    --- Step 4: Bookmarks Dashboard ---
+    Rendered Bookmarks count: 0
+
+    --- Step 5: Trap Dashboard ---
+    Rendered Trap Analytics count: 0
+    === FULL LIVE E2E TRACE END ===
+
+LiveEndToEndTraceTest > fullLiveEndToEndTrace PASSED
+
+> Task :app:finalizeTestRoborazziDebug SKIPPED
+
+BUILD SUCCESSFUL in 23s
+33 actionable tasks: 33 executed
+Configuration cache entry reused.

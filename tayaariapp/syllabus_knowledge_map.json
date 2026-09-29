@@ -1,0 +1,284 @@
+{
+  "EXAM_UPSC": {
+    "SUBJECT_GEOGRAPHY": {
+      "MODULE_PHYSICAL_GEOGRAPHY": {
+        "TOPIC_GEOMORPHOLOGY": {
+          "SUBTOPIC_FORCES": {
+            "CONCEPT_ENDOGENETIC_AND_EXOGENETIC": {
+              "THEORY_SUPPORT": "WELL_SUPPORTED",
+              "PYQ_SUPPORT": "WELL_SUPPORTED",
+              "PATTERN_SUPPORT": "WELL_SUPPORTED",
+              "CURRENT_AFFAIRS_SUPPORT": "INSUFFICIENT_DATA",
+              "QUESTION_COVERAGE": "FORMAT_GAP"
+            }
+          },
+          "SUBTOPIC_TECTONICS": {
+            "CONCEPT_CONTINENTAL_DRIFT": {
+              "THEORY_SUPPORT": "WELL_SUPPORTED",
+              "PYQ_SUPPORT": "WELL_SUPPORTED",
+              "PATTERN_SUPPORT": "WELL_SUPPORTED",
+              "CURRENT_AFFAIRS_SUPPORT": "INSUFFICIENT_DATA",
+              "QUESTION_COVERAGE": "WELL_SUPPORTED"
+            },
+            "CONCEPT_PLATE_TECTONICS": {
+              "THEORY_SUPPORT": "WELL_SUPPORTED",
+              "PYQ_SUPPORT": "WELL_SUPPORTED",
+              "PATTERN_SUPPORT": "WELL_SUPPORTED",
+              "CURRENT_AFFAIRS_SUPPORT": "INSUFFICIENT_DATA",
+              "QUESTION_COVERAGE": "WELL_SUPPORTED"
+            }
+          }
+        },
+        "TOPIC_CLIMATOLOGY": {
+          "SUBTOPIC_CIRCULATION": {
+            "CONCEPT_MONSOONS_AND_JET_STREAMS": {
+              "THEORY_SUPPORT": "WELL_SUPPORTED",
+              "PYQ_SUPPORT": "WELL_SUPPORTED",
+              "PATTERN_SUPPORT": "WELL_SUPPORTED",
+              "CURRENT_AFFAIRS_SUPPORT": "INSUFFICIENT_DATA",
+              "QUESTION_COVERAGE": "WELL_SUPPORTED"
+            }
+          }
+        }
+      },
+      "MODULE_INDIAN_GEOGRAPHY": {
+        "TOPIC_BASICS": {
+          "SUBTOPIC_LOCATION": {
+            "CONCEPT_MAPS_AND_LATITUDES": {
+              "THEORY_SUPPORT": "SOURCE_GAP",
+              "PYQ_SUPPORT": "SOURCE_GAP",
+              "PATTERN_SUPPORT": "WELL_SUPPORTED",
+              "CURRENT_AFFAIRS_SUPPORT": "INSUFFICIENT_DATA",
+              "QUESTION_COVERAGE": "SOURCE_GAP"
+            }
+          }
+        }
+      },
+      "MODULE_UNIVERSE_AND_EARTH": {
+        "TOPIC_COSMOLOGY": {
+          "SUBTOPIC_UNIVERSE": {
+            "CONCEPT_UNIVERSE_HIERARCHY": {
+              "THEORY_SUPPORT": "WELL_SUPPORTED",
+              "PYQ_SUPPORT": "INSUFFICIENT_DATA",
+              "PATTERN_SUPPORT": "WELL_SUPPORTED",
+              "CURRENT_AFFAIRS_SUPPORT": "INSUFFICIENT_DATA",
+              "QUESTION_COVERAGE": "QUESTION_GAP"
+            }
+          }
+        }
+      },
+      "MODULE_CLIMATOLOGY": {
+        "TOPIC_ATMOSPHERIC_CIRCULATION": {
+          "SUBTOPIC_JET_STREAMS": {
+            "CONCEPT_ROSSBY_WAVES_AND_BLOCKING": {
+              "THEORY_SUPPORT": "WELL_SUPPORTED",
+              "PYQ_SUPPORT": "WELL_SUPPORTED",
+              "PATTERN_SUPPORT": "WELL_SUPPORTED",
+              "QUESTION_COVERAGE": "FORMAT_GAP"
+            }
+          },
+          "SUBTOPIC_WEATHER_HAZARDS": {
+            "CONCEPT_BOMB_CYCLONES_AND_CLOUDBURSTS": {
+              "THEORY_SUPPORT": "WELL_SUPPORTED",
+              "PYQ_SUPPORT": "WELL_SUPPORTED",
+              "QUESTION_COVERAGE": "FORMAT_GAP"
+            }
+          }
+        }
+      }
+    }
+  },
+  "EXAM_SSC": {
+    "SUBJECT_GEOGRAPHY": {
+      "MODULE_GEOMORPHOLOGY": {
+        "TOPIC_WEATHERING_AND_EROSION": {
+          "CONCEPT_WEATHERING_TYPES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH1-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_LANDFORMS": {
+          "CONCEPT_FLUVIAL_GLACIAL_KARST": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH1-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        }
+      },
+      "MODULE_CLIMATOLOGY": {
+        "TOPIC_ATMOSPHERE": {
+          "CONCEPT_LAYERS_AND_COMPOSITION": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH2-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_WINDS_AND_CYCLONES": {
+          "CONCEPT_LOCAL_WINDS_AND_CYCLONES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH2-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        }
+      },
+      "MODULE_INDIAN_GEOGRAPHY": {
+        "TOPIC_LOCATION_AND_BORDERS": {
+          "CONCEPT_NEIGHBOURS_AND_COASTLINE": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH2-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_PHYSIOGRAPHY": {
+          "CONCEPT_HIMALAYAS_AND_PASSES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH2-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_ISLANDS": {
+          "CONCEPT_ANDAMAN_LAKSHADWEEP_CHANNELS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH3-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_DRAINAGE_SYSTEM": {
+          "CONCEPT_PENINSULAR_RIVERS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN_SOURCE_SET",
+            "QUESTION_COVERAGE": "CONFIRMING_COVERAGE"
+          }
+        },
+        "TOPIC_PENINSULAR_DRAINAGE": {
+          "CONCEPT_EAST_AND_WEST_FLOWING_RIVERS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH5-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_WATER_BODIES": {
+          "CONCEPT_DAMS_WATERFALLS_AND_LAKES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH5-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_CLIMATE": {
+          "CONCEPT_MONSOON_AND_EL_NINO": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH6-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          },
+          "CONCEPT_KOEPPEN_CLASSIFICATION": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH6-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_VEGETATION_AND_SOILS": {
+          "CONCEPT_FORESTS_AND_GRASSLANDS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH6-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          },
+          "CONCEPT_SOIL_TYPES_AND_CONSERVATION": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH6-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        }
+      },
+      "MODULE_PHYSICAL_GEOGRAPHY": {
+        "TOPIC_SOLAR_SYSTEM": {
+          "CONCEPT_UNIVERSE_ORIGIN_AND_BODIES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH4-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          },
+          "CONCEPT_SUN_AND_PLANETS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH4-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_GEOMORPHOLOGY_BASICS": {
+          "CONCEPT_EARTHS_INTERIOR_AND_TECTONICS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH5-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          },
+          "CONCEPT_ROCKS_AND_VOLCANOES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH5-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          },
+          "CONCEPT_EARTHQUAKES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH5-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_GEOMORPHOLOGY_LANDFORMS": {
+          "CONCEPT_WEATHERING_AND_EROSION": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN_SOURCE_SET",
+            "QUESTION_COVERAGE": "CONFIRMING_COVERAGE"
+          }
+        }
+      },
+      "MODULE_ECONOMIC_GEOGRAPHY": {
+        "TOPIC_AGRICULTURE": {
+          "CONCEPT_CROPPING_SEASONS_AND_FARMING_TYPES": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH6-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          },
+          "CONCEPT_MAJOR_CROPS_AND_IRRIGATION": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH6-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        }
+      },
+      "MODULE_WORLD_GEOGRAPHY": {
+        "TOPIC_MAPPING": {
+          "CONCEPT_CONTINENTS_AND_CITIES_ON_RIVERS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH8-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          },
+          "CONCEPT_GEOLOGICAL_TIMESCALE": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH8-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        }
+      },
+      "MODULE_HUMAN_GEOGRAPHY": {
+        "TOPIC_POPULATION": {
+          "CONCEPT_DEMOGRAPHIC_TRANSITION_AND_PYRAMIDS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH8-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_SETTLEMENTS": {
+          "CONCEPT_URBAN_RURAL_CLASSIFICATIONS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN-FRESH-BATCH8-01",
+            "QUESTION_COVERAGE": "FORMAT_GAP"
+          }
+        },
+        "TOPIC_TRANSPORT_AND_DEMOGRAPHICS": {
+          "CONCEPT_TRANSPORT_AND_DEMOGRAPHICS": {
+            "THEORY_SUPPORT": "WELL_SUPPORTED",
+            "SOURCE": "FATMAN_SOURCE_SET",
+            "QUESTION_COVERAGE": "NEW_COVERAGE"
+          }
+        }
+      }
+    }
+  }
+}

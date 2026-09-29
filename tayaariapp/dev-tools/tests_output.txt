@@ -1,0 +1,513 @@
+Calculating task graph as no cached configuration is available for tasks: testDebugUnitTest
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+
+> Task :app:processDebugGoogleServices
+File google-services.json is missing.
+The Google Services Plugin cannot function without it.
+Searched locations: /app/applet/app/src/debug/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/Debug/google-services.json, /app/applet/app/google-services.json
+
+> Task :app:generateDebugBuildConfig
+> Task :app:generateDebugResources
+> Task :app:javaPreCompileDebug
+> Task :app:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:processDebugNavigationResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:compileDebugNavigationResources
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:mergeDebugAssets
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugUnitTestManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException: Cannot invoke "ksp.com.intellij.openapi.application.Application.getService(java.lang.Class)" because the return value of "ksp.com.intellij.openapi.application.ApplicationManager.getApplication()" is null
+	at ksp.com.intellij.openapi.fileEditor.FileDocumentManager.getInstance(FileDocumentManager.java:35)
+	at ksp.com.intellij.openapi.fileTypes.BinaryFileTypeDecompilers.lambda$notifyDecompilerSetChange$1(BinaryFileTypeDecompilers.java:29)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+> Task :app:kspDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///app/applet/app/src/main/java/com/example/database/AppDatabase.kt:26:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<AppDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/BookmarksScreen.kt:42:43 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/PracticeScreen.kt:59:17 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///app/applet/app/src/main/java/com/example/ui/theme/Theme.kt:65:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///app/applet/app/src/main/java/com/example/viewmodel/PracticeViewModel.kt:182:34 Condition is always 'true'.
+
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:kspDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+
+> Task :app:testDebugUnitTest
+
+DatabaseInitializationTest > testDatabaseInitializationAndSeeding STANDARD_OUT
+    STARTING IMPORT
+    Final Database Row Count: 1075
+
+DatabaseInitializationTest > testDatabaseInitializationAndSeeding PASSED
+
+DirectLiveTraceTest > fullDirectTrace STANDARD_OUT
+    === FULL DIRECT TRACE START ===
+
+    --- Step 1: Onboarding ---
+    User selects profile: GROUP_A
+
+    --- Step 2: Topic Selection ---
+    Rendered Topics Count: 45
+    User selects topic: '24. Structure and Physiography' (Available for GROUP_A: 200)
+
+    --- Step 3: Test Sessions (4 Formats) ---
+
+    Starting test for format: 'Direct Fact'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 66 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+    User bookmarks Q1.
+
+    Starting test for format: 'Matching Pairs'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 415 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+
+    Starting test for format: 'Assertion-Reason'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 898 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+
+    Starting test for format: 'Statement-based'
+    Engine returned 5 questions.
+    Q1 Rendered Text: SSC Question 291 for Topic 24...
+    Q1 Options: [Option A (Parsed from DB), Option B (Parsed from DB), Option C (Parsed from DB), Option D (Parsed from DB)]
+    User selects incorrect option: 'Option B (Parsed from DB)'
+    Trap Logged: Factual Inversion -> Explanation for why B is wrong...
+
+    --- Step 4: Results & Bookmarks Dashboard ---
+    Rendered Bookmarks count: 1
+      - Bookmark ID: 195
+
+    --- Step 5: Trap Dashboard ---
+    Rendered Trap Analytics count: 1
+      - Trap: Factual Inversion, Frequency: 4
+    === FULL DIRECT TRACE END ===
+
+DirectLiveTraceTest > fullDirectTrace PASSED
+
+ExampleRobolectricTest > read string from context PASSED
+
+ExampleUnitTest > addition_isCorrect PASSED
+
+LiveEndToEndTraceTest > fullLiveEndToEndTrace STANDARD_OUT
+    === FULL LIVE E2E TRACE START ===
+
+LiveEndToEndTraceTest > fullLiveEndToEndTrace FAILED
+    kotlinx.coroutines.JobCancellationException: Job was cancelled; job=NonCancellable
+        at kotlinx.coroutines.JobSupport.cancel(JobSupport.kt:1685)
+        at kotlinx.coroutines.CoroutineScopeKt.cancel(CoroutineScope.kt:309)
+        at kotlinx.coroutines.CoroutineScopeKt.cancel$default(CoroutineScope.kt:307)
+        at androidx.room.RoomDatabase.onClosed(RoomDatabase.android.kt:547)
+        at androidx.room.RoomDatabase.access$onClosed(RoomDatabase.android.kt:95)
+        at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+        at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+        at androidx.room.concurrent.CloseBarrier.close$room_runtime_release(CloseBarrier.kt:91)
+        at androidx.room.RoomDatabase.close(RoomDatabase.android.kt:543)
+        at com.example.DirectLiveTraceTest.teardown(DirectLiveTraceTest.kt:42)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+        at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+        at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+        at org.junit.internal.runners.statements.RunAfters.invokeMethod(RunAfters.java:46)
+        at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+        at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+        at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+        at org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+        at org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+        at org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+        at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+        at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+        at org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+        at org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+        at org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+        at org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+        at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+
+MainActivityTest > testActivityLaunch PASSED
+
+DataImporterTest > testImportAndCount STANDARD_OUT
+    STARTING IMPORT
+
+    === DATABASE IMPORT REPORT ===
+    Elite (UPSC) Rows: 150
+    General-Competitive (SSC) Rows: 925
+    Total Rows: 1075
+
+DataImporterTest > testImportAndCount PASSED
+
+GeminiGenerationTest > testGenerateQuestion STANDARD_OUT
+    STARTING IMPORT
+    Found 2 few shot examples for Topic '24', Tier 'Advanced', Format 'Assertion-Reason'
+    === PROMPT CONSTRUCTED ===
+    Here are 2 real authentic PYQs as structural examples for the exact tone, trickiness, and structure:
+    SSC Question 102 for Topic 24
+    (Correct Answer: A)
+    ---
+    SSC Question 464 for Topic 24
+    (Correct Answer: A)
+
+
+    **Examiner Pattern Guide:**
+    - Never invent placeholder, dummy, or synthetic data.
+    - Match the exact structural DNA of the requested format (e.g., Direct Fact, Statement-based, Matching Pairs, Assertion-Reason).
+    - Test different specific facts than the examples shown — never reword an existing PYQ.
+    - Stay strictly grounded in verified NCERT/reference content.
+    - Match the real difficulty and 'twist' logic examiners use at this tier.
+    - Distractor traps MUST be exactly one of: "Reversed Causality", "Factual Inversion", "Absolute Wording", "Chronological Confusion", or "Irrelevant Fact".
+
+    === GENERATED QUESTION ===
+    {
+      "id": "ee0dce6b-ba01-4eeb-a006-514d08d4baba",
+      "format": "PRELIMS_MCQ",
+      "chapterCode": "AI-Generated-Concept",
+      "questionText": "Consider the following statements regarding the geological structure of India:\n\nAssertion (A): The peninsular block is primarily composed of ancient gneisses and granites.\nReason (R): It has been subjected to intense tectonic activities and numerous marine transgressions since the Cambrian period.\n\nSelect the correct answer using the code given below:",
+      "questionFormatType": "Direct Fact",
+      "timeLimitSeconds": 90,
+      "options": [
+        {
+          "id": "opt_A",
+          "text": "Both A and R are true and R is the correct explanation of A."
+        },
+        {
+          "id": "opt_B",
+          "text": "Both A and R are true but R is not the correct explanation of A."
+        },
+        {
+          "id": "opt_C",
+          "text": "A is true but R is false."
+        },
+        {
+          "id": "opt_D",
+          "text": "A is false but R is true."
+        }
+      ],
+      "correctAnswerId": "opt_C",
+      "correctExplanation": "The peninsular block is composed of highly stable ancient gneisses and granites (hence A is true). However, unlike the Himalayas, it is a rigid and stable block that has NOT been subjected to widespread marine transgressions or intense recent tectonic deformations since the Cambrian period (hence R is false).",
+      "distractorDissections": [
+        {
+          "optionId": "opt_A",
+          "trapType": "Factual Inversion",
+          "dissection": "Assumes the Reason is true, incorrectly attributing frequent tectonic activity to the stable peninsular shield."
+        },
+        {
+          "optionId": "opt_B",
+          "trapType": "Factual Inversion",
+          "dissection": "Incorrectly treats the false Reason statement as a true factual statement."
+        },
+        {
+          "optionId": "opt_D",
+          "trapType": "Factual Inversion",
+          "dissection": "Inverts the truth of both the Assertion (which is true) and the Reason (which is false)."
+        }
+      ]
+    }
+
+GeminiGenerationTest > testGenerateQuestion PASSED
+
+LiveGeminiTest > generateQuestionsLive STANDARD_OUT
+    STARTING IMPORT
+
+LiveGeminiTest > generateQuestionsLive FAILED
+    kotlinx.coroutines.JobCancellationException: Job was cancelled; job=NonCancellable
+        at _COROUTINE._BOUNDARY._(CoroutineDebugging.kt:42)
+        at com.example.database.LiveGeminiTest$generateQuestionsLive$1.invokeSuspend(LiveGeminiTest.kt:52)
+
+        Caused by:
+        kotlinx.coroutines.JobCancellationException: Job was cancelled; job=NonCancellable
+            at kotlinx.coroutines.JobSupport.cancel(JobSupport.kt:1685)
+            at kotlinx.coroutines.CoroutineScopeKt.cancel(CoroutineScope.kt:309)
+            at kotlinx.coroutines.CoroutineScopeKt.cancel$default(CoroutineScope.kt:307)
+            at androidx.room.RoomDatabase.onClosed(RoomDatabase.android.kt:547)
+            at androidx.room.RoomDatabase.access$onClosed(RoomDatabase.android.kt:95)
+            at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+            at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+            at androidx.room.concurrent.CloseBarrier.close$room_runtime_release(CloseBarrier.kt:91)
+            at androidx.room.RoomDatabase.close(RoomDatabase.android.kt:543)
+            at com.example.database.GeminiGenerationTest.teardown(GeminiGenerationTest.kt:47)
+            at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+            at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+            at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+            at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+            at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+            at org.junit.internal.runners.statements.RunAfters.invokeMethod(RunAfters.java:46)
+            at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+            at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+            at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+            at org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+            at org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+            at org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+            at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+            at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+            at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+            at org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+            at org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+            at org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+            at org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+            at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+            at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+            at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+            at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+            at java.base/java.lang.Thread.run(Thread.java:1583)
+
+RegexTest > testRegex STANDARD_OUT
+    Topic 1: Found 0 matches in relevantUpscBlock
+    Sample of relevantUpscBlock: 
+
+
+    Topic 2: Found 3 matches in relevantUpscBlock
+
+RegexTest > testRegex PASSED
+
+LiveQuestionSelectionTest > testLiveWorkedExamples FAILED
+    kotlinx.coroutines.JobCancellationException: Job was cancelled; job=NonCancellable
+        at kotlinx.coroutines.JobSupport.cancel(JobSupport.kt:1685)
+        at kotlinx.coroutines.CoroutineScopeKt.cancel(CoroutineScope.kt:309)
+        at kotlinx.coroutines.CoroutineScopeKt.cancel$default(CoroutineScope.kt:307)
+        at androidx.room.RoomDatabase.onClosed(RoomDatabase.android.kt:547)
+        at androidx.room.RoomDatabase.access$onClosed(RoomDatabase.android.kt:95)
+        at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+        at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+        at androidx.room.concurrent.CloseBarrier.close$room_runtime_release(CloseBarrier.kt:91)
+        at androidx.room.RoomDatabase.close(RoomDatabase.android.kt:543)
+        at com.example.database.GeminiGenerationTest.teardown(GeminiGenerationTest.kt:47)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+        at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+        at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+        at org.junit.internal.runners.statements.RunAfters.invokeMethod(RunAfters.java:46)
+        at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+        at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+        at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+        at org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+        at org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+        at org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+        at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+        at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+        at org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+        at org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+        at org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+        at org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+        at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+
+LiveTopicSelectionTest > reVerifyTopicSelection FAILED
+    kotlinx.coroutines.JobCancellationException: Job was cancelled; job=NonCancellable
+        at kotlinx.coroutines.JobSupport.cancel(JobSupport.kt:1685)
+        at kotlinx.coroutines.CoroutineScopeKt.cancel(CoroutineScope.kt:309)
+        at kotlinx.coroutines.CoroutineScopeKt.cancel$default(CoroutineScope.kt:307)
+        at androidx.room.RoomDatabase.onClosed(RoomDatabase.android.kt:547)
+        at androidx.room.RoomDatabase.access$onClosed(RoomDatabase.android.kt:95)
+        at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+        at androidx.room.RoomDatabase$closeBarrier$1.invoke(RoomDatabase.android.kt:149)
+        at androidx.room.concurrent.CloseBarrier.close$room_runtime_release(CloseBarrier.kt:91)
+        at androidx.room.RoomDatabase.close(RoomDatabase.android.kt:543)
+        at com.example.database.GeminiGenerationTest.teardown(GeminiGenerationTest.kt:47)
+        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+        at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+        at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+        at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+        at org.junit.internal.runners.statements.RunAfters.invokeMethod(RunAfters.java:46)
+        at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+        at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+        at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+        at org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+        at org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+        at org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+        at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+        at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+        at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+        at org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+        at org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+        at org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+        at org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+        at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+
+QuestionSelectionEngineTest > testEngineProfileFiltering STANDARD_OUT
+    STARTING IMPORT
+    === QUESTION SELECTION ENGINE TEST ===
+    Target for 24. Structure and Physiography (Profile: GROUP_C): 12 questions
+    DB Questions returned: 12
+    DB Filtered Questions returned: 12
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    Retrieved: Tier=Basic, Relevance=General-Competitive
+    =======================================
+
+QuestionSelectionEngineTest > testEngineProfileFiltering PASSED
+
+PracticeScreenFormatTest > testAssertionReasonFormat PASSED
+
+PracticeScreenFormatTest > testStatementBasedFormat PASSED
+
+TopicSelectionTest > testTopicsAvailability STANDARD_OUT
+    STARTING IMPORT
+    === TOPIC AVAILABILITY TEST (GROUP C) ===
+    - 1. The Earth in the Solar System: 32 questions
+    - 2. Globe: Latitudes and Longitudes: 9 questions
+    - 3. Motions of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 4. Maps: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 5. Major Domains of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 6. Major Landforms of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 7. Our Country - India: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 8. India: Climate, Vegetation and Wildlife: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 9. Geography as a Discipline: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 10. The Origin and Evolution of the Earth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 11. Interior of the Earth: 10 questions
+    - 12. Distribution of Oceans and Continents: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 13. Geomorphic Processes: 15 questions
+    - 14. Landforms and their Evolution: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 15. Composition and Structure of Atmosphere: 6 questions
+    - 16. Solar Radiation, Heat Balance and Temperature: 2 questions
+    - 17. Atmospheric Circulation and Weather Systems: 1 questions
+    - 18. Water in the Atmosphere: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 19. World Climate and Climate Change: 32 questions
+    - 20. Water (Oceans): 14 questions
+    - 21. Movements of Ocean Water: 3 questions
+    - 22. Biodiversity and Conservation: 2 questions
+    - 23. India - Location: 9 questions
+    - 24. Structure and Physiography: 183 questions
+    - 25. Drainage System: 152 questions
+    - 26. Climate: 25 questions
+    - 27. Natural Vegetation: 26 questions
+    - 28. Natural Hazards and Disasters: 2 questions
+    - 29. Human Geography Nature and Scope: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 30. The World Population Distribution, Density and Growth: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 31. Human Development: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 32. Primary Activities: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 33. Secondary Activities: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 34. Tertiary and Quaternary Activities: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 35. Transport and Communication: 11 questions
+    - 36. International Trade: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 37. Population: Distribution, Density, Growth and Composition: 70 questions
+    - 38. Human Settlements: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 39. Land Resources and Agriculture: 148 questions
+    - 40. Water Resources: 16 questions
+    - 41. Mineral and Energy Resources: 99 questions
+    - 42. Planning and Sustainable Development in Indian Context: 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 43. Transport and Communication (India): 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 44. International Trade (India): 0 questions
+      [FLAG] Zero questions available for this profile!
+    - 45. Unclassified (Requires Deeper Mapping): 0 questions
+      [FLAG] Zero questions available for this profile!
+    Total Topics: 45
+    Topics with 0 questions: 23
+    =========================================
+
+TopicSelectionTest > testTopicsAvailability PASSED
+
+MainViewModelTest > testDataStorePersistence STANDARD_OUT
+    Persistence verified! Profile is GROUP_A
+
+MainViewModelTest > testDataStorePersistence PASSED
+
+17 tests completed, 4 failed
+
+> Task :app:testDebugUnitTest FAILED
+> Task :app:finalizeTestRoborazziDebug SKIPPED
+
+[Incubating] Problems report is available at: file:///app/applet/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///app/applet/app/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 40s
+33 actionable tasks: 33 executed
+Configuration cache entry stored.

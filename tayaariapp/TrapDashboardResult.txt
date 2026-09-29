@@ -1,0 +1,7 @@
+=== TRAP DASHBOARD TRACE ===
+Generated Question: Which of the following statements about the Earth's interior is correct?
+Correct Answer: opt_B
+Selecting wrong option: opt_A which expects Trap: Factual Inversion
+Trap Dashboard Records Count: 1
+Trap Record: Type='Factual Inversion', Frequency=1
+=== END ===

@@ -1,0 +1,11 @@
+=== FULL LIVE TRACE ===
+Target Question ID: 1
+Target Question Text: Q617. Which  of  the  following  ports  was   deve...
+Bookmarks before action: 0
+Bookmarks after action: 1
+Bookmarked ID: 1
+--- APP KILLED & DB CLOSED ---
+Bookmarks after restart: 1
+Recovered Bookmarked ID: 1
+Persistence verified: true
+=== TRACE END ===

@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-09-10T10:37:52.927620+00:00",
+  "elapsed_seconds": 34.1,
+  "pipeline": "V13-Direct",
+  "sources_used": [
+    "NCERT Class VI Geography",
+    "NCERT/Fatman Composite Extract 2",
+    "NCERT Class XI Physical Geography",
+    "NCERT Class XI India Environment",
+    "NCERT Class XII Human Geography",
+    "NCERT Class XII India Economy",
+    "NCERT Class IX Geography",
+    "NCERT Class X Geography",
+    "Supplementary Verified Corpus"
+  ],
+  "candidates_generated_pre_gate": 136,
+  "accepted": 135,
+  "rejected_total": 4640,
+  "rejection_reasons": {
+    "NO_ONTOLOGY_CATEGORY": 1961,
+    "ENTITY_INVALID": 1460,
+    "EVIDENCE_INVALID": 106,
+    "NEAR_DUPLICATE": 20,
+    "STEM_ANSWER_LEAKAGE": 506,
+    "CORRECT_ANSWER_NOT_IN_CATEGORY": 373,
+    "FACTUAL_WRONG_CAT_PLANET_FOR_NON_SOLAR": 32,
+    "SAME_FACT": 124,
+    "STEM_BUILD_FAILED": 49,
+    "FACTUAL_SMALLER_THAN_SELF": 1,
+    "FACTUAL_PERIHELION_NOT_PLANET": 1,
+    "FACTUAL_PENINSULA_DEF_WRONG_ANS": 1,
+    "EXACT_DUPLICATE": 5,
+    "UNKNOWN": 1
+  },
+  "cognitive_distribution": {
+    "UNDERSTAND": 119,
+    "RECALL": 2,
+    "APPLY": 11,
+    "COMPARE": 3
+  },
+  "exam_distribution": {
+    "SSC_CGL": 27,
+    "BPSC": 31,
+    "RRB_NTPC": 26,
+    "UPSC_CSE": 50,
+    "SSC_CHSL": 1
+  },
+  "difficulty_distribution": {
+    "Standard": 135
+  },
+  "topic_distribution": {
+    "Physical Geography": 34,
+    "The Earth in the Solar System": 9,
+    "Maps": 7,
+    "Major Domains of the Earth": 10,
+    "Major Landforms of the Earth": 33,
+    "India: Climate, Vegetation and Wildlife": 3,
+    "Oceanography": 2,
+    "Our Country — India": 5,
+    "Mineral and Power Resources": 3,
+    "Globe: Latitudes and Longitudes": 5,
+    "Drainage and Rivers of India": 8,
+    "Indian Monsoon and Climate": 2,
+    "Agriculture": 2,
+    "Industries": 4,
+    "Energy Resources": 2,
+    "Transport and Communication": 3,
+    "International Trade": 3
+  },
+  "currentness_distribution": {
+    "HISTORICAL": 135
+  },
+  "topics_covered": 17,
+  "exact_duplicates_caught": 5,
+  "near_duplicates_caught": 20,
+  "same_fact_caught": 124,
+  "stem_invalid_caught": 49,
+  "adversarial_audit": {
+    "sample_size": 136,
+    "pass": 136,
+    "revise": 3,
+    "reject": 1,
+    "final_accepted": 135,
+    "rejection_details": [
+      {
+        "stem": "Which of the following is associated with the condition: Metamorphic rocks are r",
+        "flags": [
+          "CORRECT_NOT_IN_EVIDENCE"
+        ]
+      }
+    ]
+  },
+  "source_stats": {
+    "NCERT Class VI Geography": {
+      "generated": 16,
+      "accepted": 16,
+      "rejected": 107
+    },
+    "NCERT/Fatman Composite Extract 2": {
+      "generated": 9,
+      "accepted": 9,
+      "rejected": 88
+    },
+    "NCERT Class XI Physical Geography": {
+      "generated": 33,
+      "accepted": 33,
+      "rejected": 245
+    },
+    "NCERT Class XI India Environment": {
+      "generated": 20,
+      "accepted": 20,
+      "rejected": 91
+    },
+    "NCERT Class XII Human Geography": {
+      "generated": 31,
+      "accepted": 31,
+      "rejected": 84
+    },
+    "NCERT Class XII India Economy": {
+      "generated": 24,
+      "accepted": 24,
+      "rejected": 100
+    },
+    "NCERT Class IX Geography": {
+      "generated": 0,
+      "accepted": 0,
+      "rejected": 0
+    },
+    "NCERT Class X Geography": {
+      "generated": 3,
+      "accepted": 3,
+      "rejected": 21
+    },
+    "Supplementary Verified Corpus": {
+      "generated": 0,
+      "accepted": 0,
+      "rejected": 3
+    }
+  }
+}

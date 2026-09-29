@@ -1,0 +1,55 @@
+﻿diff --git a/v13_discovery/semantic_extractor.py b/v13_discovery/semantic_extractor.py
+--- a/v13_discovery/semantic_extractor.py
++++ b/v13_discovery/semantic_extractor.py
+@@ -550,1 +550,1 @@ class NoiseFilterGate:
+-            r'^\s*(?:In addition to|As well as|Out of total water resources|Due to which)\s*[\.\,]?\s*$',
++            r'^\s*(?:In addition to|As well as|Due to which|Out of\s+(?:the\s+|total\s+)?[a-z\s]+)\s*[\.\,]?\s*$',
+@@ -569,1 +569,1 @@ class NoiseFilterGate:
+-            r'\b(?:[A-Z][a-z]+\s+){5,}',
++            r'^(?![^.\n]*\b(?:is|are|was|were|has|have|had|orbits?|contains?|features?|forms?|emits?|reaches?|consists?|includes?|moves?)\b)(?:[A-Z][a-z]+\s+){4,}[A-Z][a-z]+[\.\s]*$',
+@@ -716,1 +716,1 @@ class LinguisticSemanticExtractor:
+-            r'^(?:(?:In|During)\s+[^,]+,\s+)?(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?:progresses through\s+(?:a\s+)?(?:[a-z\-]+\s+)*(?:sequence|stages|phases|steps|cycle)|commenced approximately.*followed by|arrive(?:s)? first.*followed sequentially by|(?:\b(?:is|are|was|were)\s+)?followed by|subsequently|.*?\b(?:metamorphose into.*before|stages? of|rock cycle)\b)\s*:?\s*(?P<pred>.*)$',
++            r'^(?:(?:In|During)\s+[^,]+,\s+)?(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?:progresses through\s+(?:a\s+)?(?:[a-z\-]+\s+)*(?:sequence|stages|phases|steps|cycle)|(?:(?:arrive(?:s)?|form(?:s)?|condense(?:s)?|begin(?:s)?|began|commence(?:s)?|commenced|start(?:s)?|started)\s+(?:first|initially)|(?:begin(?:s)?|began|commence(?:s)?|commenced|start(?:s)?|started|originate(?:s)?|originated))\b.*?\bfollowed\s+(?:by|sequentially\s+by|in\s+turn\s+by)|(?:\b(?:is|are|was|were)\s+)?followed by|subsequently|.*?\b(?:metamorphose into.*before|stages? of|rock cycle)\b)\s*:?\s*(?P<pred>.*)$',
+@@ -738,1 +738,1 @@ class LinguisticSemanticExtractor:
+-            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)(?:\s+in\s+a\s+vacuum)?\s+(?:has an? (?:[a-z\-]+\s+)?(?:radius|diameter|circumference|elevation|altitude|depth|density|mass|volume|area|tilt) of|extends to a depth of|reaches an? altitude of|constitutes approximately|maintains a constant tilt of|measures approximately|originated approximately|(?:travels|moves|propagates|rotates)\s+at(?:\s+approximately)?|standard meridian|passes through.*longitude|drops to\s+[-]?\d+|reaches\s+[-]?\d+|(?:is|measures)\s+(?:approximately|about|around)?\s*[\d,]+(?:\.\d+)?\s*(?:kilometres|km|meters|m|miles|percent|%|degrees|°C|mb|billion years|million light-years|kilometres per second))\s*(?P<pred>.*)$',
++            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)(?:\s+in\s+a\s+vacuum)?\s+(?:(?P<verb>has|have|had|maintains?|maintained|exhibits?|possesses?)\s+(?:an?|a\s+constant)?\s*(?:[a-z\-]+\s+)?(?:radius|diameter|circumference|elevation|altitude|depth|density|mass|volume|area|thickness|tilt|inclination|angle)\s+of|extends to a depth of|reaches an? altitude of|constitutes approximately|measures approximately|originated approximately|(?:travels|moves|propagates|rotates)\s+at(?:\s+approximately)?|standard meridian|passes through.*longitude|drops to\s+[-]?\d+|reaches\s+[-]?\d+|(?:is|measures)\s+(?:approximately|about|around)?\s*[\d,]+(?:\.\d+)?\s*(?:kilometres|km|meters|m|miles|percent|%|degrees|°C|mb|billion years|million light-years|kilometres per second))\s*(?P<pred>.*)$',
+@@ -754,1 +754,1 @@ class LinguisticSemanticExtractor:
+-            r'^(?:(?:\b(?:The|An|A|Our)\b\s+)?)(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?P<pred>(?:is|forms?|constitutes?)\s+(?:an?|the)?\s*(?:[a-z\-]+\s+)*(?:part|component|constituent|element|fraction|segment|envelope|layer|zone|shell|core|sphere|portion)\s+(?:(?:located|situated|found|positioned|embedded)\s+(?:[a-z\-]+\s+)?)?(?:of|within|in|beneath|under|underneath|above|below|between|around|across|throughout)\b.*|(?:is|forms?|constitutes?)\s+(?:about|approximately|around|nearly)?\s*[\d\.]+(?:%|\s*percent)\s+of\s+.*?\band\s+(?:lies|extends|forms)\b.*|(?:(?:is|are)\s+(?:composed|made up|constituted)\s+of|consists?\s+of)\s*:?\s*[A-Za-z0-9\s\-]{3,}.*|\bforms?\s+part of\b.*|component of.*|part of the.*|part of.*)$',
++            r'^(?:(?:\b(?:The|An|A|Our)\b\s+)?)(?P<entity>[A-Z][a-zA-Z0-9\s\(\)\'\-]+?)\s+(?P<pred>(?:is|forms?|constitutes?)\s+(?:an?|the)?\s*(?:[a-z\-]+\s+)*(?:part|component|constituent|element|fraction|segment|envelope|layer|zone|shell|core|sphere|portion|shield|barrier|reservoir|body|mass)\s+(?:(?:located|situated|found|positioned|embedded)\s+(?:[a-z\-]+\s+)?)?(?:of|within|in|beneath|under|underneath|above|below|between|around|across|throughout)\b.*|(?:is|forms?|constitutes?)\s+(?:about|approximately|around|nearly)?\s*[\d\.]+(?:%|\s*percent)\s+of\s+.*?\band\s+(?:lies|extends|forms)\b.*|(?:(?:is|are)\s+(?:composed|made up|constituted)\s+of|consists?\s+of)\s*:?\s*[A-Za-z0-9\s\-]{3,}.*|\bforms?\s+part of\b.*|component of.*|part of the.*|part of.*)$',
+@@ -776,1 +776,1 @@ class LinguisticSemanticExtractor:
+-            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?P<pred>(?:has|have|had|exhibits?|exhibited|possesses?|possessed|displays?|displayed)\s+(?:the\s+)?(?:highest|lowest|greatest|smallest|largest|thickest|thinnest|deepest|shallowest|fastest|slowest|densest|hottest|coldest|longest|shortest|oldest|youngest|heaviest|lightest|strongest|weakest|maximum|minimum)\s+(?:[a-z\-]+\s+)*[a-z]+(?:\s+among|\s+in|\s+at|\s+of\b|\s*,).*)$',
++            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?P<pred>(?:has|have|had|exhibits?|exhibited|possesses?|possessed|displays?|displayed|produced|produces?|generated|generates?|emitted|emits?|yielded|yields?)\s+(?:the\s+)?(?:highest|lowest|greatest|smallest|largest|thickest|thinnest|deepest|shallowest|fastest|slowest|densest|hottest|coldest|longest|shortest|oldest|youngest|heaviest|lightest|strongest|weakest|loudest|brightest|maximum|minimum)\s+(?:[a-z\-]+\s+)*[a-z]+(?:\s+among|\s+in|\s+at|\s+of\b|\s*,).*)$',
+@@ -792,1 +792,1 @@ class LinguisticSemanticExtractor:
+-            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?P<pred>(?:are|is)\s+(?:very|extremely|mostly)?\s*[a-z\-]+\s+and\s+[a-z\-]+(?:,\s*(?:(?:are|is|have|has|possess)\b|(?:[a-z\-]+\s+)?[a-z\-]+ing\b).*)*)$',
++            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\-]+?)\s+(?P<pred>(?:are|is)\s+(?:[a-z\-]+ly\s+|very\s+|mostly\s+)?\s*[a-z\-]+\s+and\s+[a-z\-]+(?:,\s*(?:(?:are|is|have|has|possess)\b|(?:[a-z\-]+\s+)?[a-z\-]+ing\b).*)*)$',
+@@ -983,1 +983,1 @@ class LinguisticSemanticExtractor:
+-            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\"\[\],\-\/]+?)\s+(?P<verb>is|are|was|were|has|have|had|form|forms|formed|occurs|occurred|constitutes|constituted|contains|contained|features|featured|progresses|progressed|develops|developed|comprises|comprised|falls|fell|exhibits?|exhibited|possesses?|possessed|displays?|displayed|moves?|revolves?|orbits?|rotates?|flows?)\s+(?P<rest>.*)',
++            r'^(?:(?:\b(?:The|An|A)\b\s+)?)(?P<entity>[A-Za-z0-9\s\(\)\'\"\[\],\-\/]+?)\s+(?P<verb>is|are|was|were|has|have|had|form|forms|formed|occurs|occurred|constitutes|constituted|contains|contained|features|featured|progresses|progressed|develops|developed|comprises|comprised|falls|fell|exhibits?|exhibited|possesses?|possessed|displays?|displayed|moves?|revolves?|orbits?|rotates?|flows?|produces?|produced|generates?|generated|emits?|emitted|yields?|yielded)\s+(?P<rest>.*)',
+@@ -1007,1 +1007,2 @@ class LinguisticSemanticExtractor:
+-                    "move", "moves", "revolve", "revolves", "orbit", "orbits", "rotate", "rotates", "flow", "flows"
++                    "move", "moves", "revolve", "revolves", "orbit", "orbits", "rotate", "rotates", "flow", "flows",
++                    "produces", "produced", "generates", "generated", "emits", "emitted", "yields", "yielded"
+diff --git a/v13_discovery/normalizer.py b/v13_discovery/normalizer.py
+--- a/v13_discovery/normalizer.py
++++ b/v13_discovery/normalizer.py
+@@ -196,11 +196,8 @@ class LayoutDesegmenter:
+-        s = re.sub(r'UniverseGalaxySolar System', 'Universe. Galaxy. Solar System.', s)
+-        s = re.sub(r'Planetesimal TheoryNebular HypothesisCopernicus Theory', 'Planetesimal Theory. Nebular Hypothesis. Copernicus Theory.', s)
+-        s = re.sub(r'MeteoroidMeteorMeteorite', 'Meteoroid. Meteor. Meteorite.', s)
+-        s = re.sub(r'PhotosphereChromosphereCorona', 'Photosphere. Chromosphere. Corona.', s)
+-        s = re.sub(r'Terrestrial PlanetsJovian Planets', 'Terrestrial Planets vs Jovian Planets.', s)
+-        s = re.sub(r'Three Types of Plate BoundariesThree Types of Plate Boundaries', 'Three Types of Plate Boundaries:', s)
+-        s = re.sub(r'(\d+\s*days?)(\d+\s*spin)', r'\1. \2', s)
+-        s = re.sub(r'(\d+\s*days?)([A-Z][a-z]+)', r'\1. \2', s)
+-        s = re.sub(r'([a-z])([A-Z][a-z]+)', r'\1 \2', s)  # general camelCase splitting
++        # 1. Deduplicate immediately repeated verbatim phrases
++        s = re.sub(r'^(.{6,}?)\s*\1\s*$', r'\1:', s)
++        s = re.sub(r'\b([A-Z][a-zA-Z\s]{5,}?)\s+\1\b', r'\1', s)
++        # 2. Split concatenated numeric units and subsequent headers/values
++        s = re.sub(r'(\d+\s*[a-zA-Z]+)(?=\d+\s*[a-zA-Z])', r'\1. ', s)
++        s = re.sub(r'(\d+\s*[a-zA-Z]+)(?=[A-Z][a-z]+)', r'\1. ', s)
++        # 3. Generalized PascalCase / camelCase word boundary splitting using zero-width lookahead
++        s = re.sub(r'([a-z])(?=[A-Z])', r'\1 ', s)
++        # 4. Clean up any trailing repeated phrases after spacing
++        s = re.sub(r'^(.{6,}?)\s*:\s*\1\s*$', r'\1:', s)
++        s = re.sub(r'^(.{6,}?)\s+\1\s*$', r'\1:', s)

@@ -1,0 +1,127 @@
+TableInfo {
+    name = 'questions',
+    columns = {    
+        Column {
+           name = 'correctAnswer',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'distractorDissections',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'examRelevance',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'explanation',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'familyId',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'false',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'familyStage',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'false',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'format',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'id',
+           type = 'INTEGER',
+           affinity = '3',
+           notNull = 'true',
+           primaryKeyPosition = '1',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'imageUrl',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'options',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'questionText',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'source',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'specificExam',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'tier',
+           type = 'TEXT',
+           affinity = '2',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        },
+        Column {
+           name = 'topicId',
+           type = 'INTEGER',
+           affinity = '3',
+           notNull = 'true',
+           primaryKeyPosition = '0',
+           defaultValue = 'undefined'
+        }
+    },
+    foreignKeys = { }
+    indices = { }
+}

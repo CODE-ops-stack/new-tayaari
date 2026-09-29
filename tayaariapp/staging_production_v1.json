@@ -1,0 +1,633 @@
+{
+  "batchId": "BATCH-PROD-V1",
+  "topic": "Multi-Topic / Multi-Exam Production",
+  "target": "UPSC / BPSC / SSC / RRB",
+  "size": 21,
+  "questions": [
+    {
+      "questionId": "Q-PROD-V1-71ab46d6",
+      "text": "According to standard geographic fact files, which of the following is the Highest Waterfall in the world?",
+      "options": [
+        "Tugela Falls",
+        "Angel Falls",
+        "Yosemite Falls",
+        "Victoria Falls"
+      ],
+      "correctIndex": 1,
+      "metadata": {
+        "examTarget": [
+          "RRB NTPC",
+          "RRB GROUP D"
+        ],
+        "topic": "World Geography",
+        "concept": "Extremes: Highest Waterfall",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_EASY",
+        "provenance": [
+          "OXFORD_ATLAS_PART06_PAGE128"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Atlas Page 128 explicitly lists Angel Falls as the Highest Waterfall."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-6dfda212",
+      "text": "According to standard geographic fact files, which of the following is the Largest Lake by Area in the world?",
+      "options": [
+        "Lake Superior",
+        "Lake Victoria",
+        "Caspian Sea",
+        "Lake Baikal"
+      ],
+      "correctIndex": 2,
+      "metadata": {
+        "examTarget": [
+          "RRB NTPC",
+          "RRB GROUP D"
+        ],
+        "topic": "World Geography",
+        "concept": "Extremes: Largest Lake by Area",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_EASY",
+        "provenance": [
+          "OXFORD_ATLAS_PART06_PAGE128"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Atlas Page 128 explicitly lists Caspian Sea as the Largest Lake by Area."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-272dfbb7",
+      "text": "According to standard geographic fact files, which of the following is the Longest River in the world?",
+      "options": [
+        "Mississippi",
+        "Amazon",
+        "Nile",
+        "Yangtze"
+      ],
+      "correctIndex": 2,
+      "metadata": {
+        "examTarget": [
+          "RRB NTPC",
+          "RRB GROUP D"
+        ],
+        "topic": "World Geography",
+        "concept": "Extremes: Longest River",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_EASY",
+        "provenance": [
+          "OXFORD_ATLAS_PART06_PAGE128"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Atlas Page 128 explicitly lists Nile as the Longest River."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-2a7efbcf",
+      "text": "National Waterway 1 (NW1) of India operates on which of the following river systems?",
+      "options": [
+        "Ganga-Bhagirathi-Hooghly",
+        "Brahmaputra",
+        "Godavari-Krishna",
+        "West Coast Canal"
+      ],
+      "correctIndex": 0,
+      "metadata": {
+        "examTarget": [
+          "RRB NTPC",
+          "SSC CGL"
+        ],
+        "topic": "Transport Geography",
+        "concept": "Inland Waterways",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "OXFORD_ATLAS_PART02_PAGE55"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "NW1 runs from Haldia to Allahabad on the Ganga system (Atlas Pg 55)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-7c0fde21",
+      "text": "The mining region of Khetri is primarily associated with the extraction of which of the following minerals?",
+      "options": [
+        "Iron Ore",
+        "Copper",
+        "Bauxite",
+        "Manganese"
+      ],
+      "correctIndex": 1,
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "SSC CHSL"
+        ],
+        "topic": "Economic Geography",
+        "concept": "Minerals: Khetri",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "OXFORD_ATLAS_PART02_PAGE48"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Khetri is famously mapped to Copper extraction (Atlas Pgs 48-49)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-ed0a1c84",
+      "text": "The mining region of Kudremukh is primarily associated with the extraction of which of the following minerals?",
+      "options": [
+        "Uranium",
+        "Mica",
+        "Gold",
+        "Iron Ore"
+      ],
+      "correctIndex": 3,
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "SSC CHSL"
+        ],
+        "topic": "Economic Geography",
+        "concept": "Minerals: Kudremukh",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "OXFORD_ATLAS_PART02_PAGE48"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Kudremukh is famously mapped to Iron Ore extraction (Atlas Pgs 48-49)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-cd28e3fe",
+      "text": "The mining region of Koraput is primarily associated with the extraction of which of the following minerals?",
+      "options": [
+        "Copper",
+        "Zinc",
+        "Limestone",
+        "Bauxite"
+      ],
+      "correctIndex": 3,
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "SSC CHSL"
+        ],
+        "topic": "Economic Geography",
+        "concept": "Minerals: Koraput",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "OXFORD_ATLAS_PART02_PAGE48"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Koraput is famously mapped to Bauxite extraction (Atlas Pgs 48-49)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-4a5b27d2",
+      "text": "Which of the following soil types is formed primarily due to intense leaching under high temperature and heavy rainfall?",
+      "options": [
+        "Laterite Soil",
+        "Black Soil (Regur)",
+        "Alluvial Soil",
+        "Red Soil"
+      ],
+      "correctIndex": 0,
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "UPSC"
+        ],
+        "topic": "Indian Soils",
+        "concept": "Laterite Leaching",
+        "format": "Conceptual",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "OXFORD_ATLAS_PART02_PAGE39",
+          "FATMAN-FRESH"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Laterite soils form in tropical climates where heavy rain washes away silica, leaving iron/aluminum (Fatman/Atlas Pg 39)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-cab66918",
+      "text": "Which of the following best describes the geographic location and nature of the Benguela Current?",
+      "options": [
+        "Warm current along the eastern coast of Southern Africa",
+        "Cold current along the western coast of Southern Africa",
+        "Cold current along the western coast of South America",
+        "Cold current in the North Atlantic"
+      ],
+      "correctIndex": 1,
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC",
+          "SSC CGL"
+        ],
+        "topic": "Oceanography",
+        "concept": "Ocean Currents: Benguela Current",
+        "format": "Map + Concept",
+        "difficulty": "PRELIMINARY_HARD",
+        "provenance": [
+          "OXFORD_ATLAS_PART05_PAGE110"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Benguela Current is correctly defined as Cold current along the western coast of Southern Africa (Atlas Pg 110)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-e84ce2f1",
+      "text": "Which of the following best describes the geographic location and nature of the Agulhas Current?",
+      "options": [
+        "Cold current along the western coast of Southern Africa",
+        "Warm current in the North Pacific",
+        "Warm current along the eastern coast of Southern Africa",
+        "Cold current in the North Atlantic"
+      ],
+      "correctIndex": 2,
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC",
+          "SSC CGL"
+        ],
+        "topic": "Oceanography",
+        "concept": "Ocean Currents: Agulhas Current",
+        "format": "Map + Concept",
+        "difficulty": "PRELIMINARY_HARD",
+        "provenance": [
+          "OXFORD_ATLAS_PART05_PAGE110"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Agulhas Current is correctly defined as Warm current along the eastern coast of Southern Africa (Atlas Pg 110)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-be666715",
+      "text": "Which of the following best describes the geographic location and nature of the Humboldt Current?",
+      "options": [
+        "Cold current along the western coast of Southern Africa",
+        "Cold current in the North Atlantic",
+        "Cold current along the western coast of South America",
+        "Warm current along the eastern coast of Australia"
+      ],
+      "correctIndex": 2,
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC",
+          "SSC CGL"
+        ],
+        "topic": "Oceanography",
+        "concept": "Ocean Currents: Humboldt Current",
+        "format": "Map + Concept",
+        "difficulty": "PRELIMINARY_HARD",
+        "provenance": [
+          "OXFORD_ATLAS_PART05_PAGE110"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Humboldt Current is correctly defined as Cold current along the western coast of South America (Atlas Pg 110)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-5a232dea",
+      "text": "Consider the following statements regarding the 'Roaring Forties':\n1. They are strong westerly winds found in the Southern Hemisphere.\n2. Their high velocity is due to the vast uninterrupted expanse of ocean.\nWhich of the statements is/are correct?",
+      "options": [
+        "1 only",
+        "2 only",
+        "Both 1 and 2",
+        "Neither 1 nor 2"
+      ],
+      "correctIndex": 2,
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Climatology",
+        "concept": "Roaring Forties",
+        "format": "Multi-statement",
+        "difficulty": "PRELIMINARY_HARD",
+        "provenance": [
+          "OXFORD_ATLAS_PART05_PAGE109"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Both statements are correct. The Southern Hemisphere lacks landmasses at 40S-50S to create friction, allowing westerlies to howl (Atlas Pg 109)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-c1bb337d",
+      "text": "The Chota Nagpur Plateau is often referred to as the 'Ruhr of India' because:",
+      "options": [
+        "It has the highest concentration of metallic and non-metallic mineral resources.",
+        "It is the primary center for India's software and IT industry.",
+        "It possesses the most fertile alluvial soil for intensive agriculture.",
+        "It is the source of all major Peninsular rivers."
+      ],
+      "correctIndex": 0,
+      "metadata": {
+        "examTarget": [
+          "BPSC",
+          "SSC CGL"
+        ],
+        "topic": "Economic Geography",
+        "concept": "Industrial Regions",
+        "format": "Conceptual Inference",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "OXFORD_ATLAS_PART02_PAGE51"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Chota Nagpur is mapped as the densest mineral and industrial belt in India (Atlas Pgs 48-51)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-36a62480",
+      "text": "In the context of Indian agriculture mapping, the region covering Saurashtra, Maharashtra, and parts of Northern Karnataka is most distinctly associated with the high-yield production of:",
+      "options": [
+        "Cotton",
+        "Tea",
+        "Jute",
+        "Rubber"
+      ],
+      "correctIndex": 0,
+      "metadata": {
+        "examTarget": [
+          "BPSC"
+        ],
+        "topic": "Indian Agriculture",
+        "concept": "Cotton Distribution",
+        "format": "Map + Concept",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "OXFORD_ATLAS_PART02_PAGE44"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Cotton is heavily correlated with the Black Soil (Regur) region covering the Deccan and Gujarat (Atlas Pg 44)."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-b8098bea",
+      "text": "Which Koppen climate classification corresponds to the 'Tropical Monsoon' region found along the Western Ghats of India?",
+      "options": [
+        "Cwg",
+        "Aw",
+        "BShw",
+        "Am"
+      ],
+      "correctIndex": 3,
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Mixed Geography",
+        "concept": "Koppen Climate",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "VERIFIED_CORPUS_ATLAS_FATMAN"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Sourced from verified corpus nodes."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-7df3dc04",
+      "text": "Based on the Seismic Zoning map of India, the city of Patna falls into which risk category?",
+      "options": [
+        "Zone I (No Risk)",
+        "Zone IV/V (High/Very High)",
+        "Zone III (Moderate)",
+        "Zone II (Low)"
+      ],
+      "correctIndex": 1,
+      "metadata": {
+        "examTarget": [
+          "BPSC"
+        ],
+        "topic": "Mixed Geography",
+        "concept": "Seismic Zones",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "VERIFIED_CORPUS_ATLAS_FATMAN"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Sourced from verified corpus nodes."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-167150b0",
+      "text": "The formation of the Mid-Atlantic Ridge is the result of:",
+      "options": [
+        "Divergent tectonic boundaries causing seafloor spreading",
+        "Convergent boundaries forming deep sea trenches",
+        "Intraplate hot-spots",
+        "Transform boundaries sliding laterally"
+      ],
+      "correctIndex": 0,
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Mixed Geography",
+        "concept": "Plate Tectonics",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "VERIFIED_CORPUS_ATLAS_FATMAN"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Sourced from verified corpus nodes."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-645539dc",
+      "text": "Which of the following Indian rivers flows through a rift valley and forms an estuary at its mouth?",
+      "options": [
+        "Krishna",
+        "Narmada",
+        "Cauvery",
+        "Godavari"
+      ],
+      "correctIndex": 1,
+      "metadata": {
+        "examTarget": [
+          "SSC CHSL"
+        ],
+        "topic": "Mixed Geography",
+        "concept": "Rivers",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "VERIFIED_CORPUS_ATLAS_FATMAN"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Sourced from verified corpus nodes."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-6ecc6686",
+      "text": "The Nokrek Biosphere Reserve is located in which state?",
+      "options": [
+        "Assam",
+        "Arunachal Pradesh",
+        "Manipur",
+        "Meghalaya"
+      ],
+      "correctIndex": 3,
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Mixed Geography",
+        "concept": "Biosphere Reserves",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "VERIFIED_CORPUS_ATLAS_FATMAN"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Sourced from verified corpus nodes."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-5deda1e2",
+      "text": "According to 2011 Census data represented in standard atlases, which Indian state records the lowest population density?",
+      "options": [
+        "Mizoram",
+        "Sikkim",
+        "Arunachal Pradesh",
+        "Jammu & Kashmir"
+      ],
+      "correctIndex": 2,
+      "metadata": {
+        "examTarget": [
+          "RRB NTPC"
+        ],
+        "topic": "Mixed Geography",
+        "concept": "Demographics",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "VERIFIED_CORPUS_ATLAS_FATMAN"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Sourced from verified corpus nodes."
+      }
+    },
+    {
+      "questionId": "Q-PROD-V1-8f910e01",
+      "text": "The Hugli industrial region in West Bengal was historically centered around which raw material?",
+      "options": [
+        "Iron Ore",
+        "Cotton",
+        "Jute",
+        "Bauxite"
+      ],
+      "correctIndex": 2,
+      "metadata": {
+        "examTarget": [
+          "BPSC"
+        ],
+        "topic": "Mixed Geography",
+        "concept": "Industrial",
+        "format": "Standard",
+        "difficulty": "PRELIMINARY_MODERATE",
+        "provenance": [
+          "VERIFIED_CORPUS_ATLAS_FATMAN"
+        ],
+        "status": "PRE_CLEARED",
+        "generationBasis": "Generator V2 Production Engine"
+      },
+      "validation": {
+        "distractorLogic": "Semantic neighbors matched strictly within the same conceptual category.",
+        "reasoning": "Sourced from verified corpus nodes."
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+=== FULL LIVE TRACE ===
+Loaded 5 real questions from DB.
+Q1: Q617. Which  of  the  following  ports  was   deve...
+   True Correct: opt_d
+   Simulating selection: opt_d (Correct)
+Q2: Q439. Which  of  the  following  is  NOT  a   prim...
+   True Correct: opt_a
+   Simulating selection (incorrect): opt_b
+Q3: Q454. Which  of  the  following  groups  of   plac...
+   True Correct: opt_a
+   Simulating selection: opt_a (Correct)
+Q4: Q510. Which  of  the  following  cities  is   call...
+   True Correct: opt_a
+   Simulating selection: SKIPPED
+Q5: Q1. What  are  the  streams  of  charged   particl...
+   True Correct: opt_b
+   Simulating selection (incorrect): opt_a
+-------------------------------------
+Final State after 5 questions:
+Total Questions Attempted/Skipped: 5
+Correct Responses (Q1, Q3): 2
+Incorrect Responses (Q2, Q5): 2
+Skipped Responses (Q4): 1
+Expected Score (Manual Arithmetic): 2
+Actual Score computed: 2
+Match: true
+=== TRACE END ===

@@ -1,0 +1,12 @@
+=== FULL LIVE TRACE ===
+Topic requested: Alien Encounters in Geography
+Question loaded: Which of the following statements about the Earth'...
+Chapter Code: AI-Generated-Concept
+True Correct: opt_B
+Simulating selection (incorrect): opt_A
+Expected Trap Type to trigger: Factual Inversion
+-------------------------------------
+Trap Dashboard Records:
+ - TrapType: Factual Inversion, Frequency: 1
+Match Found: true
+=== TRACE END ===

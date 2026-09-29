@@ -1,0 +1,263 @@
+Calculating task graph as configuration cache cannot be reused because init script 'print_tests.gradle' has been added.
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+
+> Task :app:processDebugGoogleServices
+File google-services.json is missing.
+The Google Services Plugin cannot function without it.
+Searched locations: /app/applet/app/src/debug/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/google-services.json, /app/applet/app/src/debug/google-services.json, /app/applet/app/src/Debug/google-services.json, /app/applet/app/google-services.json
+
+> Task :app:generateDebugResources
+> Task :app:generateDebugBuildConfig
+> Task :app:javaPreCompileDebug
+> Task :app:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:checkDebugAarMetadata
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:processDebugNavigationResources
+> Task :app:extractDeepLinksDebug
+> Task :app:compileDebugNavigationResources
+> Task :app:parseDebugLocalResources
+> Task :app:generateDebugRFile
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:mergeDebugAssets
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugUnitTestManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugResources
+> Task :app:packageDebugUnitTestForUnitTest
+> Task :app:generateDebugUnitTestConfig
+> Task :app:kspDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///app/applet/app/src/main/java/com/example/database/AppDatabase.kt:26:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<AppDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/BookmarksScreen.kt:42:43 'val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///app/applet/app/src/main/java/com/example/ui/screens/PracticeScreen.kt:59:17 'fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit' is deprecated. Use the overload that takes `progress` as a lambda.
+w: file:///app/applet/app/src/main/java/com/example/ui/theme/Theme.kt:65:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///app/applet/app/src/main/java/com/example/viewmodel/PracticeViewModel.kt:180:34 Condition is always 'true'.
+
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:kspDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+
+> Task :app:testDebugUnitTest
+
+LiveGeminiTest > generateQuestionsLive STANDARD_OUT
+    STARTING IMPORT
+    STARTING IMPORT
+    === LIVE GENERATION OUTPUT START ===
+    --- Combination: Topic ${combo.first}, Tier ${combo.second}, Format ${combo.third} ---
+
+LiveGeminiTest > generateQuestionsLive STANDARD_ERROR
+    com.google.ai.client.generativeai.type.InvalidAPIKeyException: API key not valid. Please pass a valid API key.
+    	at com.google.ai.client.generativeai.type.GoogleGenerativeAIException$Companion.from(Exceptions.kt:45)
+    	at com.google.ai.client.generativeai.GenerativeModel.generateContent(GenerativeModel.kt:108)
+    	at com.google.ai.client.generativeai.GenerativeModel$generateContent$1.invokeSuspend(GenerativeModel.kt)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+    	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+LiveGeminiTest > generateQuestionsLive STANDARD_OUT
+    Error generating or parsing question: API key not valid. Please pass a valid API key.
+    {
+      "id": "4f87c11d-e587-48b5-a583-45e79d2f8658",
+      "format": "PRELIMS_MCQ",
+      "chapterCode": "AI-Generated-Concept",
+      "questionText": "Which of the following statements about the Earth's interior is correct?",
+      "questionFormatType": "Statement-based",
+      "timeLimitSeconds": 90,
+      "options": [
+        {
+          "id": "opt_A",
+          "text": "The outer core is solid while the inner core is liquid."
+        },
+        {
+          "id": "opt_B",
+          "text": "The asthenosphere is the highly viscous, mechanically weak region of the upper mantle."
+        },
+        {
+          "id": "opt_C",
+          "text": "Continental crust is denser than oceanic crust, leading to subduction."
+        },
+        {
+          "id": "opt_D",
+          "text": "Seismic S-waves can travel through both solid and liquid layers of the Earth."
+        }
+      ],
+      "correctAnswerId": "opt_B",
+      "correctExplanation": "The asthenosphere is a ductile layer of the upper mantle below the lithosphere, allowing for tectonic plate movement.",
+      "distractorDissections": [
+        {
+          "optionId": "opt_A",
+          "trapType": "Factual Inversion",
+          "dissection": "The outer core is liquid, and the inner core is solid."
+        },
+        {
+          "optionId": "opt_C",
+          "trapType": "Reversed Causality",
+          "dissection": "Oceanic crust is denser than continental crust, which is why oceanic crust subducts."
+        },
+        {
+          "optionId": "opt_D",
+          "trapType": "Absolute Wording",
+          "dissection": "S-waves can only travel through solid mediums, not liquids."
+        }
+      ]
+    }
+    --- Combination: Topic ${combo.first}, Tier ${combo.second}, Format ${combo.third} ---
+
+LiveGeminiTest > generateQuestionsLive STANDARD_ERROR
+    com.google.ai.client.generativeai.type.InvalidAPIKeyException: API key not valid. Please pass a valid API key.
+    	at com.google.ai.client.generativeai.type.GoogleGenerativeAIException$Companion.from(Exceptions.kt:45)
+    	at com.google.ai.client.generativeai.GenerativeModel.generateContent(GenerativeModel.kt:108)
+    	at com.google.ai.client.generativeai.GenerativeModel$generateContent$1.invokeSuspend(GenerativeModel.kt)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+    	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+LiveGeminiTest > generateQuestionsLive STANDARD_OUT
+    Error generating or parsing question: API key not valid. Please pass a valid API key.
+    {
+      "id": "0191b434-dead-46a2-86af-e4cbaf6d293f",
+      "format": "PRELIMS_MCQ",
+      "chapterCode": "AI-Generated-Concept",
+      "questionText": "Which of the following statements about the Earth's interior is correct?",
+      "questionFormatType": "Statement-based",
+      "timeLimitSeconds": 90,
+      "options": [
+        {
+          "id": "opt_A",
+          "text": "The outer core is solid while the inner core is liquid."
+        },
+        {
+          "id": "opt_B",
+          "text": "The asthenosphere is the highly viscous, mechanically weak region of the upper mantle."
+        },
+        {
+          "id": "opt_C",
+          "text": "Continental crust is denser than oceanic crust, leading to subduction."
+        },
+        {
+          "id": "opt_D",
+          "text": "Seismic S-waves can travel through both solid and liquid layers of the Earth."
+        }
+      ],
+      "correctAnswerId": "opt_B",
+      "correctExplanation": "The asthenosphere is a ductile layer of the upper mantle below the lithosphere, allowing for tectonic plate movement.",
+      "distractorDissections": [
+        {
+          "optionId": "opt_A",
+          "trapType": "Factual Inversion",
+          "dissection": "The outer core is liquid, and the inner core is solid."
+        },
+        {
+          "optionId": "opt_C",
+          "trapType": "Reversed Causality",
+          "dissection": "Oceanic crust is denser than continental crust, which is why oceanic crust subducts."
+        },
+        {
+          "optionId": "opt_D",
+          "trapType": "Absolute Wording",
+          "dissection": "S-waves can only travel through solid mediums, not liquids."
+        }
+      ]
+    }
+    --- Combination: Topic ${combo.first}, Tier ${combo.second}, Format ${combo.third} ---
+
+LiveGeminiTest > generateQuestionsLive STANDARD_ERROR
+    com.google.ai.client.generativeai.type.InvalidAPIKeyException: API key not valid. Please pass a valid API key.
+    	at com.google.ai.client.generativeai.type.GoogleGenerativeAIException$Companion.from(Exceptions.kt:45)
+    	at com.google.ai.client.generativeai.GenerativeModel.generateContent(GenerativeModel.kt:108)
+    	at com.google.ai.client.generativeai.GenerativeModel$generateContent$1.invokeSuspend(GenerativeModel.kt)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+    	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+LiveGeminiTest > generateQuestionsLive STANDARD_OUT
+    Error generating or parsing question: API key not valid. Please pass a valid API key.
+    {
+      "id": "f43da536-5c3a-4e52-8944-f4ff66f6e2cb",
+      "format": "PRELIMS_MCQ",
+      "chapterCode": "AI-Generated-Concept",
+      "questionText": "Which of the following statements about the Earth's interior is correct?",
+      "questionFormatType": "Statement-based",
+      "timeLimitSeconds": 90,
+      "options": [
+        {
+          "id": "opt_A",
+          "text": "The outer core is solid while the inner core is liquid."
+        },
+        {
+          "id": "opt_B",
+          "text": "The asthenosphere is the highly viscous, mechanically weak region of the upper mantle."
+        },
+        {
+          "id": "opt_C",
+          "text": "Continental crust is denser than oceanic crust, leading to subduction."
+        },
+        {
+          "id": "opt_D",
+          "text": "Seismic S-waves can travel through both solid and liquid layers of the Earth."
+        }
+      ],
+      "correctAnswerId": "opt_B",
+      "correctExplanation": "The asthenosphere is a ductile layer of the upper mantle below the lithosphere, allowing for tectonic plate movement.",
+      "distractorDissections": [
+        {
+          "optionId": "opt_A",
+          "trapType": "Factual Inversion",
+          "dissection": "The outer core is liquid, and the inner core is solid."
+        },
+        {
+          "optionId": "opt_C",
+          "trapType": "Reversed Causality",
+          "dissection": "Oceanic crust is denser than continental crust, which is why oceanic crust subducts."
+        },
+        {
+          "optionId": "opt_D",
+          "trapType": "Absolute Wording",
+          "dissection": "S-waves can only travel through solid mediums, not liquids."
+        }
+      ]
+    }
+    === LIVE GENERATION OUTPUT END ===
+
+LiveGeminiTest > generateQuestionsLive PASSED
+
+> Task :app:finalizeTestRoborazziDebug SKIPPED
+
+[Incubating] Problems report is available at: file:///app/applet/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 24s
+33 actionable tasks: 33 executed
+Configuration cache entry stored.

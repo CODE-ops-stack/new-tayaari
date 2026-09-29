@@ -1,0 +1,1959 @@
+{
+  "batchId": "BATCH_1",
+  "totalGenerated": 50,
+  "totalAccepted": 50,
+  "totalRejected": 0,
+  "totalReview": 0,
+  "questions": [
+    {
+      "id": "gen_q_cosmo_001",
+      "concept": "Big Bang Theory",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding the Big Bang Theory and the evolution of the universe:\n1. The theory postulates that all matter forming the universe existed in one place in the form of a 'tiny ball' with an infinitely small volume, infinite temperature, and infinite density.\n2. Within the first fraction of a second after the Big Bang, a rapid expansion occurred, which led to a significant drop in temperature.\n3. The expansion of the universe implies that the galaxies are increasing in size over time.\n\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Statements 1 and 2 are correct. The Big Bang theory assumes a singular state of infinite density and temperature. After the initial expansion, the temperature dropped, allowing the formation of subatomic particles.",
+        "wrongReason": "Statement 3 is incorrect. The expansion of the universe means the space between galaxies is expanding, not the galaxies themselves. Gravity keeps individual galaxies intact.",
+        "examTakeaway": "Understanding the nuances of universe expansion (space expanding, not objects) is crucial for UPSC."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11; fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STATEMENT",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Multi-statement deep elimination testing conceptual clarity on universe expansion."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_002",
+      "concept": "Nebular Hypothesis",
+      "examTarget": "UPSC",
+      "questionText": "Given below are two statements, one labeled as Assertion (A) and the other as Reason (R):\nAssertion (A): The terrestrial planets (Mercury, Venus, Earth, Mars) are rocky and relatively smaller, whereas Jovian planets are largely composed of gases.\nReason (R): The solar wind was most intense near the sun, which blew off lots of gas and dust from the terrestrial planets, whereas it was not intense enough to cause similar removal from Jovian planets.\n\nSelect the correct answer using the codes given below:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both (A) and (R) are true and (R) is the correct explanation of (A)."
+        },
+        {
+          "id": "B",
+          "text": "Both (A) and (R) are true but (R) is not the correct explanation of (A)."
+        },
+        {
+          "id": "C",
+          "text": "(A) is true but (R) is false."
+        },
+        {
+          "id": "D",
+          "text": "(A) is false but (R) is true."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Both statements are factually correct. The intense solar winds in the vicinity of the sun stripped the inner planets of their primordial gaseous envelopes, explaining their rocky nature, while outer planets retained them.",
+        "wrongReason": "All other options are eliminated because the assertion is true and the reason provides the exact mechanism (solar wind) for the compositional differences.",
+        "examTakeaway": "Factors contributing to the differences between terrestrial and Jovian planets are a standard NCERT topic directly tested in UPSC."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11; fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Assertion-reasoning on solar system formation."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_003",
+      "concept": "Solar Activity",
+      "examTarget": "UPSC",
+      "questionText": "With reference to 'Coronal Mass Ejections (CMEs)' and 'Solar Flares', consider the following statements:\n1. Solar flares are large expulsions of plasma and magnetic field from the Sun's corona, whereas CMEs are flashes of light caused by magnetic reconnection.\n2. When directed at Earth, severe CMEs can cause geomagnetic storms that may disrupt satellite communications and power grids.\n3. Auroras are primarily the visual manifestation of solar wind particles interacting with the Earth's atmosphere.\n\nWhich of the statements given above are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Statements 2 and 3 are correct. CMEs cause geomagnetic storms impacting power grids/satellites, and auroras result from solar particles interacting with the Earth's magnetosphere and atmosphere.",
+        "wrongReason": "Statement 1 is incorrect because the definitions are swapped. Solar flares are flashes of light (electromagnetic radiation), while CMEs are expulsions of plasma and magnetic field.",
+        "examTakeaway": "UPSC frequently tests the application of solar physics on Earth's infrastructure and natural phenomena like Auroras."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_HARD",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Application of solar phenomena to Earth systems."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_004",
+      "concept": "Habitable Zone",
+      "examTarget": "BPSC",
+      "questionText": "The term 'Goldilocks Zone', often seen in the news in the context of space exploration, refers to:",
+      "options": [
+        {
+          "id": "A",
+          "text": "The region within a galaxy where star formation is most active."
+        },
+        {
+          "id": "B",
+          "text": "A hypothetical region around a star where the temperature is just right for liquid water to exist on a planet's surface."
+        },
+        {
+          "id": "C",
+          "text": "The boundary in the solar system beyond which solar wind has no effect."
+        },
+        {
+          "id": "D",
+          "text": "The zone in the Earth's atmosphere where the ozone layer is thickest."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "The 'Goldilocks Zone' or habitable zone is the range of orbits around a star within which a planetary surface can support liquid water given sufficient atmospheric pressure.",
+        "wrongReason": "Option A refers to starburst regions, C refers to the heliopause, and D refers to the stratosphere.",
+        "examTakeaway": "Current affairs in space often involve discoveries of exoplanets in the Goldilocks zone; a classic concept for Prelims."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Direct single-statement factual recall."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_005",
+      "concept": "Degassing and Photosynthesis",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following stages in the evolution of the Earth's atmosphere:\n1. Stripping of the primordial atmosphere by solar winds.\n2. Modification of the atmosphere through photosynthesis by early life forms.\n3. Release of gases and water vapour from the interior of the solid Earth (Degassing).\n\nWhat is the correct chronological sequence of the above stages?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 - 2 - 3"
+        },
+        {
+          "id": "B",
+          "text": "1 - 3 - 2"
+        },
+        {
+          "id": "C",
+          "text": "3 - 1 - 2"
+        },
+        {
+          "id": "D",
+          "text": "2 - 1 - 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "First, the primordial atmosphere (hydrogen/helium) was stripped by solar winds (Stage 1). Then, as Earth cooled, gases were released from the interior (Degassing - Stage 3). Finally, early life forms (cyanobacteria) contributed oxygen through photosynthesis (Stage 2).",
+        "wrongReason": "Any other sequence violates the logical progression from solar system formation to geological cooling to biological activity.",
+        "examTakeaway": "The chronology of Earth's atmospheric evolution is a direct NCERT Class 11 concept and vital for logical sequencing questions."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11",
+        "familyStage": "STATEMENT",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Chronological arrangement of geographical processes."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_006",
+      "concept": "Solar System Boundaries",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding the Kuiper Belt and the Oort Cloud:\n1. The Kuiper Belt is a disk-shaped region found beyond the orbit of Neptune, whereas the Oort Cloud is a spherical shell surrounding the entire solar system.\n2. Short-period comets generally originate from the Oort Cloud, while long-period comets originate from the Kuiper Belt.\n3. Pluto is considered the largest known object in the Kuiper Belt.\n\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 only"
+        },
+        {
+          "id": "B",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Statement 1 is correct (Kuiper belt is disc-shaped, Oort cloud is spherical). Statement 3 is correct (Pluto is a prominent Kuiper Belt Object).",
+        "wrongReason": "Statement 2 is reversed. Short-period comets (like Halley's) originate from the Kuiper Belt, whereas long-period comets come from the distant Oort Cloud.",
+        "examTakeaway": "Understanding the spatial arrangement and origins of celestial bodies helps eliminate incorrect statements in complex UPSC questions."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STATEMENT",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Conceptual distinction between two distant solar system regions."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_007",
+      "concept": "Eclipses",
+      "examTarget": "BPSC",
+      "questionText": "Although the Moon orbits the Earth approximately once a month, a solar or lunar eclipse does not occur every month. Which of the following is the primary reason for this?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The Moon's orbit is elliptical, causing its distance from Earth to vary significantly."
+        },
+        {
+          "id": "B",
+          "text": "The Moon's orbit is tilted at an angle of about 5 degrees relative to the Earth's orbital plane around the Sun."
+        },
+        {
+          "id": "C",
+          "text": "The Earth's rotation axis is tilted by 23.5 degrees, preventing perfect alignment."
+        },
+        {
+          "id": "D",
+          "text": "The speed of the Earth's revolution around the Sun varies due to Kepler's laws."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "The Moon's orbit is inclined by about 5 degrees relative to the ecliptic plane. Eclipses only happen when the Moon crosses this plane during a new or full moon (at the nodes).",
+        "wrongReason": "Options A, C, and D are true astronomical facts but they are not the reason eclipses don't occur monthly. The inclination of the Moon's orbit is the sole deciding factor.",
+        "examTakeaway": "Differentiating between the effects of Earth's axial tilt (seasons) and the Moon's orbital tilt (eclipses) is a favorite trap in exams."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Conceptual understanding of orbital mechanics and eclipses."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_008",
+      "concept": "Planetary Characteristics",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding the planets in our solar system:\n1. All terrestrial planets have at least one natural satellite (moon).\n2. Jovian planets have lower average densities compared to terrestrial planets.\n3. The rings around the Jovian planets are composed of small debris, ice, and dust.\n\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Statements 2 and 3 are correct. Gas giants are less dense than rocky planets, and all Jovian planets have ring systems made of debris/ice.",
+        "wrongReason": "Statement 1 is incorrect because Mercury and Venus do not have any natural satellites.",
+        "examTakeaway": "Absolute statements like 'All terrestrial planets...' are usually traps in UPSC. Knowing basic exceptions (Mercury/Venus lack moons) is critical."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11",
+        "familyStage": "STATEMENT",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Elimination of absolute statements using basic exceptions."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_009",
+      "concept": "Solar Wind Boundary",
+      "examTarget": "BPSC",
+      "questionText": "The 'Heliopause' is a significant boundary in space exploration. What does it represent?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The point in space where the Sun's gravitational pull is perfectly balanced by the gravitational pull of the Milky Way galaxy's center."
+        },
+        {
+          "id": "B",
+          "text": "The theoretical boundary where the solar wind is stopped by the interstellar medium, marking the edge of the heliosphere."
+        },
+        {
+          "id": "C",
+          "text": "The innermost atmospheric layer of the Sun where sunspots are formed."
+        },
+        {
+          "id": "D",
+          "text": "The boundary between the Kuiper Belt and the Oort Cloud."
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "The heliopause is the boundary where the pressure of the solar wind is counterbalanced by the interstellar medium, effectively marking the edge of the Sun's protective magnetic bubble (heliosphere).",
+        "wrongReason": "Option A is incorrect as gravity extends infinitely. Option C refers to the photosphere. Option D is factually incorrect as the Oort cloud extends far beyond the heliopause.",
+        "examTakeaway": "Space missions like Voyager 1 and 2 crossing the heliopause make this a high-yield topic for prelims."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Definition of key astrophysical boundaries relevant to current space missions."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_010",
+      "concept": "Astronomical Measurement",
+      "examTarget": "UPSC",
+      "questionText": "In astronomical measurements, the term 'Light Year' is frequently used. Consider the following statements:\n1. A light year is a measure of time, representing the time taken by light to travel from the Sun to the Earth.\n2. The distance between the Earth and the nearest star (other than the Sun) is more than 4 light years.\n3. An Astronomical Unit (AU) is significantly larger than a light year.\n\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "2 only"
+        },
+        {
+          "id": "B",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "C",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Statement 2 is correct; Proxima Centauri is about 4.24 light-years away.",
+        "wrongReason": "Statement 1 is incorrect; a light-year is a measure of distance, not time. Statement 3 is incorrect; an AU (Earth-Sun distance, ~150 million km) is much smaller than a light-year (~9.46 trillion km).",
+        "examTakeaway": "Foundational understanding of astronomical units (Light Year, Parsec, AU) and what they measure (distance vs time) is essential."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11",
+        "familyStage": "STATEMENT",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Testing basic definitions and comparative scale in astronomy."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_01",
+      "concept": "Origin of the Universe",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "Who among the following scientists first proposed the Big Bang Theory to explain the origin of the universe?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Edwin Hubble"
+        },
+        {
+          "id": "B",
+          "text": "Albert Einstein"
+        },
+        {
+          "id": "C",
+          "text": "Georges Lema\u00eetre"
+        },
+        {
+          "id": "D",
+          "text": "Stephen Hawking"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Georges Lema\u00eetre, a Belgian priest and physicist, first proposed the Big Bang Theory in the 1920s.",
+        "wrongReason": "Edwin Hubble provided evidence for the expanding universe but did not propose the theory itself. Einstein and Hawking made significant contributions to astrophysics but did not originate the Big Bang theory.",
+        "examTakeaway": "Memorize the key contributors to major cosmological theories. Georges Lema\u00eetre is associated with the Big Bang, while Edwin Hubble is known for the expanding universe observation."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamentals of Physical Geography Chapter 2",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual recall of scientific contributors commonly tested in SSC/RRB."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_02",
+      "concept": "Planetary Characteristics",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "Which planet in our solar system is known as the hottest planet, despite not being the closest to the Sun?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Mercury"
+        },
+        {
+          "id": "B",
+          "text": "Venus"
+        },
+        {
+          "id": "C",
+          "text": "Mars"
+        },
+        {
+          "id": "D",
+          "text": "Jupiter"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Venus is the hottest planet due to a runaway greenhouse effect caused by its thick atmosphere composed mainly of carbon dioxide.",
+        "wrongReason": "Mercury is closer to the sun but lacks a significant atmosphere to trap heat. Mars is cold, and Jupiter is a gas giant further away.",
+        "examTakeaway": "Venus holds the record for highest surface temperature in the solar system, primarily due to its thick CO2 atmosphere, a frequent trap for students who assume Mercury is hottest."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Direct single-statement fact contrasting proximity and temperature."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_03",
+      "concept": "Solar System Structure",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "The Asteroid Belt, a region of the solar system containing numerous irregularly shaped bodies, is located between the orbits of which two planets?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Earth and Mars"
+        },
+        {
+          "id": "B",
+          "text": "Mars and Jupiter"
+        },
+        {
+          "id": "C",
+          "text": "Jupiter and Saturn"
+        },
+        {
+          "id": "D",
+          "text": "Venus and Earth"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "The main asteroid belt lies roughly between the orbits of Mars (the last terrestrial planet) and Jupiter (the first gas giant).",
+        "wrongReason": "The other options list incorrect adjacent planet pairs. There is no major belt between Earth and Mars or Jupiter and Saturn.",
+        "examTakeaway": "The sequence of planets and the specific location of the asteroid belt is a highly repeated static geography question in RRB and SSC."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamentals of Physical Geography Chapter 2",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual spatial arrangement of the solar system."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_04",
+      "concept": "Solar Structure",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "What is the outermost layer of the Sun's atmosphere called, which is typically only visible during a total solar eclipse?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Photosphere"
+        },
+        {
+          "id": "B",
+          "text": "Chromosphere"
+        },
+        {
+          "id": "C",
+          "text": "Corona"
+        },
+        {
+          "id": "D",
+          "text": "Core"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "The Corona is the outermost part of the Sun's atmosphere and is visible as a pearly white halo during a total solar eclipse when the bright photosphere is obscured.",
+        "wrongReason": "The Photosphere is the visible surface. The Chromosphere is just above the photosphere. The Core is the innermost part where fusion occurs.",
+        "examTakeaway": "Different layers of the Sun (Core, Radiative zone, Convective zone, Photosphere, Chromosphere, Corona) have distinct properties. The Corona's visibility during eclipses is a key exam fact."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Identification of solar layers based on specific phenomena."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_05",
+      "concept": "Earth Characteristics",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "Which of the following planets has the highest average density in our solar system?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Jupiter"
+        },
+        {
+          "id": "B",
+          "text": "Saturn"
+        },
+        {
+          "id": "C",
+          "text": "Earth"
+        },
+        {
+          "id": "D",
+          "text": "Mercury"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Earth is the densest planet in the Solar System, with an average density of about 5.51 g/cm\u00b3.",
+        "wrongReason": "Mercury is the second densest. Jupiter and Saturn are gas giants with much lower densities; Saturn's density is even less than water.",
+        "examTakeaway": "Terrestrial planets (inner planets) are generally denser than Jovian planets. Earth tops the list, while Saturn has the lowest density."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamentals of Physical Geography Chapter 2",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Direct comparison of planetary physical properties."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_06",
+      "concept": "Planetary Motion",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "While most planets in the solar system rotate on their axis from west to east, which of the following pairs of planets rotate from east to west (retrograde rotation)?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Venus and Uranus"
+        },
+        {
+          "id": "B",
+          "text": "Mercury and Venus"
+        },
+        {
+          "id": "C",
+          "text": "Uranus and Neptune"
+        },
+        {
+          "id": "D",
+          "text": "Mars and Saturn"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Venus and Uranus have retrograde rotation, meaning they spin on their axes from east to west, opposite to the direction of Earth and most other planets.",
+        "wrongReason": "Mercury, Mars, Jupiter, Saturn, and Neptune all rotate prograde (west to east).",
+        "examTakeaway": "Exceptions in planetary motion are high-yield facts for one-liner MCQs. Venus and Uranus are the only two planets with retrograde rotation."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual recall of exceptions to general planetary rules."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_07",
+      "concept": "Astronomical Units",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "The term 'Light Year' is frequently used in astronomy. It is a unit of measurement for which of the following physical quantities?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Time"
+        },
+        {
+          "id": "B",
+          "text": "Speed of light"
+        },
+        {
+          "id": "C",
+          "text": "Distance"
+        },
+        {
+          "id": "D",
+          "text": "Luminosity"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "A light year is a unit of distance. It represents the distance that light travels in a vacuum in one Julian year (approximately 9.46 trillion kilometres).",
+        "wrongReason": "Despite having 'year' in the name, it does not measure time. It does not measure speed or luminosity.",
+        "examTakeaway": "Units like Light Year, Astronomical Unit (AU), and Parsec are measures of astronomical distances. Students often confuse 'Light Year' with time."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamentals of Physical Geography Chapter 2",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Basic conceptual clarity on physical units used in astronomy."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_08",
+      "concept": "Dwarf Planets",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "Which of the following celestial bodies was reclassified from a major planet to a 'dwarf planet' by the International Astronomical Union (IAU) in 2006?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Neptune"
+        },
+        {
+          "id": "B",
+          "text": "Pluto"
+        },
+        {
+          "id": "C",
+          "text": "Ceres"
+        },
+        {
+          "id": "D",
+          "text": "Eris"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Pluto was considered the ninth planet until 2006, when the IAU redefined 'planet', leading to Pluto's reclassification as a dwarf planet because it has not cleared its neighboring region of other objects.",
+        "wrongReason": "Neptune remains a major planet. Ceres and Eris are also dwarf planets, but they were not reclassified from being a major planet in 2006 (Ceres was an asteroid, Eris was newly discovered).",
+        "examTakeaway": "The 2006 IAU definition of a planet and the status of Pluto are standard historical trivia tested in static GK sections."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual knowledge regarding the classification of solar system bodies."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_09",
+      "concept": "Planetary Satellites",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "Ganymede, the largest natural satellite (moon) in our solar system, revolves around which of the following planets?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Saturn"
+        },
+        {
+          "id": "B",
+          "text": "Jupiter"
+        },
+        {
+          "id": "C",
+          "text": "Uranus"
+        },
+        {
+          "id": "D",
+          "text": "Neptune"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Ganymede is a moon of Jupiter. It is the largest and most massive moon in the Solar System, even larger than the planet Mercury.",
+        "wrongReason": "Saturn's largest moon is Titan. Uranus's largest is Titania. Neptune's largest is Triton.",
+        "examTakeaway": "Knowing the prominent moons (like Titan for Saturn, Ganymede for Jupiter, Phobos/Deimos for Mars) is essential for matching and single-statement questions."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Identification of major planetary satellites."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_cosmo_ssc_10",
+      "concept": "Galaxies",
+      "examTarget": "SSC CGL|RRB",
+      "questionText": "Our solar system is a part of the Milky Way galaxy. What is the nearest major spiral galaxy to the Milky Way?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Whirlpool Galaxy"
+        },
+        {
+          "id": "B",
+          "text": "Andromeda Galaxy"
+        },
+        {
+          "id": "C",
+          "text": "Triangulum Galaxy"
+        },
+        {
+          "id": "D",
+          "text": "Sombrero Galaxy"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "The Andromeda Galaxy (M31) is the closest large spiral galaxy to our own Milky Way, located about 2.5 million light-years away.",
+        "wrongReason": "Whirlpool, Triangulum, and Sombrero are other galaxies but are not the nearest major spiral galaxy to the Milky Way.",
+        "examTakeaway": "Questions on our cosmic neighborhood, including the name of our galaxy (Milky Way) and our nearest neighbor (Andromeda), are typical direct-hit questions in SSC."
+      },
+      "metadata": {
+        "knowledgeSource": "fatman Geography 2nd Edition_Part1 new.pdf (OCR_RECOVERED)",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Basic positional astronomy fact regarding our galactic neighborhood."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_01",
+      "concept": "Structure of the Atmosphere",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding the structure of the Earth's atmosphere:\n1. The thickness of the troposphere is greatest at the equator because heat is transported to great heights by strong convectional currents.\n2. In the stratosphere, the temperature continues to decrease with an increase in altitude due to the presence of the ozone layer.\n3. The mesosphere lies above the stratosphere, where temperature starts decreasing with altitude and reaches its minimum at the mesopause.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Statement 1 is correct; strong convective currents at the equator push the troposphere to a height of about 18 km. Statement 3 is correct; in the mesosphere (50-80 km), temperature drops to about -100\u00b0C at the mesopause.",
+        "wrongReason": "Statement 2 is incorrect; temperature actually INCREASES with altitude in the stratosphere because the ozone layer absorbs UV radiation.",
+        "examTakeaway": "Always remember the temperature alternation in atmospheric layers: Troposphere (decreases), Stratosphere (increases), Mesosphere (decreases), Thermosphere (increases)."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Multi-statement elimination typical of UPSC, testing deep conceptual clarity of temperature variations in atmospheric layers."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_02",
+      "concept": "Earth's Heat Budget",
+      "examTarget": "UPSC",
+      "questionText": "Given below are two statements, one labelled as Assertion (A) and the other as Reason (R):\nAssertion (A): The earth as a whole neither accumulates heat nor loses it, thereby maintaining its overall temperature.\nReason (R): The amount of heat received in the form of short-wave solar radiation equals the amount lost by the earth through long-wave terrestrial radiation.\nIn the context of the above two statements, which one of the following is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Both A and R are true, and R is the correct explanation of A."
+        },
+        {
+          "id": "B",
+          "text": "Both A and R are true, but R is not the correct explanation of A."
+        },
+        {
+          "id": "C",
+          "text": "A is true, but R is false."
+        },
+        {
+          "id": "D",
+          "text": "A is false, but R is true."
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "The Earth maintains its temperature (Assertion) precisely because the incoming short-wave solar radiation is balanced by outgoing long-wave terrestrial radiation, a concept known as the Heat Budget (Reason).",
+        "wrongReason": "Any option contradicting the direct causal relationship between the heat budget balance and the maintenance of Earth's temperature is incorrect.",
+        "examTakeaway": "The balance between insolation and terrestrial radiation defines the Earth's Heat Budget, crucial for sustaining a stable global temperature."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Assertion-Reasoning format to test fundamental understanding of the global heat balance."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_03",
+      "concept": "Temperature Inversion",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding 'Temperature Inversion':\n1. It refers to a departure from the normal lapse rate, where temperature increases with increasing altitude.\n2. A long winter night with clear skies and still air provides ideal conditions for surface inversion.\n3. Surface inversion promotes atmospheric stability and traps pollutants in the lower atmosphere.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "correctReason": "All statements are correct. Inversion is the reversal of the normal lapse rate (1). Ideal conditions are long winter nights, clear skies, and calm air which allow rapid radiational cooling of the ground (2). Because dense, cold air lies below warmer, lighter air, convection is halted, leading to atmospheric stability that traps smoke and dust (3).",
+        "wrongReason": "No statements are false. The distractors omit one or more correct statements.",
+        "examTakeaway": "Temperature inversion prevents upward movement of air (convection), which is why winter mornings in cities often have severe smog."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Multi-statement factual verification, requiring holistic understanding of the inversion phenomenon and its consequences."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_04",
+      "concept": "Distribution of Temperature",
+      "examTarget": "UPSC",
+      "questionText": "With reference to the global distribution of temperature, consider the following statements:\n1. Isotherms are generally parallel to the latitudes in the southern hemisphere due to the large, uninterrupted expanse of ocean.\n2. Ocean currents have a negligible effect on the temperature of adjacent coastal areas compared to latitudinal location.\n3. The normal lapse rate dictates that temperature decreases at an average rate of 6.5\u00b0C per 1,000 meters of ascent.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Statement 1 is correct; the lack of landmass in the southern hemisphere allows isotherms to run nearly parallel to latitudes. Statement 3 is the correct definition of the normal lapse rate.",
+        "wrongReason": "Statement 2 is incorrect; ocean currents significantly influence coastal temperatures (e.g., warm Gulf Stream warming Western Europe, cold Peru current cooling South America).",
+        "examTakeaway": "The differential heating of land and water, along with ocean currents, heavily distorts isotherms, especially in the northern hemisphere."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Tests the application of spatial temperature distribution concepts and the ability to eliminate absolute/false statements."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_05",
+      "concept": "Coriolis Force",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding the Coriolis Force:\n1. Its magnitude is directly proportional to the sine of the angle of latitude.\n2. It is maximum at the equator and becomes zero at the poles, allowing cyclones to form easily at the equator.\n3. It deflects the wind to the right in the northern hemisphere and to the left in the southern hemisphere.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Statement 1 is correct; Coriolis force increases with latitude (proportional to sin \u03b8). Statement 3 is correct (Ferrel's Law).",
+        "wrongReason": "Statement 2 is incorrect; Coriolis force is ZERO at the equator and MAXIMUM at the poles. This absence of Coriolis force at the equator prevents the formation of tropical cyclones there.",
+        "examTakeaway": "Coriolis force only affects the direction of the wind (not its speed), and its absence at the equator is why cyclones do not form between 0\u00b0 to 5\u00b0 latitudes."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_HARD",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Evaluates precise knowledge of atmospheric forces; relies on reversing a known physical relationship (equator vs poles) to act as a distractor."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_06",
+      "concept": "Local Winds",
+      "examTarget": "BPSC",
+      "questionText": "Which of the following pairs of local winds and their corresponding regions are correctly matched?\n1. Loo : Northern plains of India\n2. Foehn : Alps mountains\n3. Chinook : Rocky mountains\n4. Mistral : Andes mountains\nSelect the correct answer using the code given below:",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 2, and 3 only"
+        },
+        {
+          "id": "B",
+          "text": "1, 3, and 4 only"
+        },
+        {
+          "id": "C",
+          "text": "2, 3, and 4 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, 3, and 4"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Loo is a hot, dry wind in India (1). Foehn is a warm, dry wind descending the Alps (2). Chinook ('snow-eater') is a warm, dry wind descending the eastern slopes of the Rockies (3).",
+        "wrongReason": "Pair 4 is incorrectly matched. Mistral is a cold, dry local wind that blows in southern France (Europe), not the Andes.",
+        "examTakeaway": "Factual recall of local winds is a staple in State PSC exams. Associate Mistral with France/Mediterranean and Chinook/Foehn with their respective mountain ranges."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Straightforward matching question characteristic of BPSC and SSC exams, focusing on factual retention."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_07",
+      "concept": "ITCZ and Monsoons",
+      "examTarget": "UPSC",
+      "questionText": "With reference to the Inter Tropical Convergence Zone (ITCZ) and the Indian Monsoon, consider the following statements:\n1. The ITCZ is a high-pressure zone located at the equator where surface winds diverge.\n2. In July, the ITCZ shifts northwards over the Indo-Gangetic plain, creating a low-pressure trough called the monsoon trough.\n3. The northward shift of the ITCZ causes the southeast trade winds of the southern hemisphere to cross the equator and deflect right, becoming the southwest monsoon.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Statement 2 is correct; the summer shift of ITCZ over land creates the monsoon trough. Statement 3 is correct; as southeast trade winds cross the equator, the Coriolis force deflects them to the right, turning them into the southwest monsoon.",
+        "wrongReason": "Statement 1 is incorrect; the ITCZ is a broad trough of LOW pressure where trade winds CONVERGE, leading to ascending air and rainfall.",
+        "examTakeaway": "The dynamic nature of the ITCZ (shifting with the apparent movement of the sun) is the primary driver of the seasonal reversal of winds in the Indian subcontinent."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Conceptual application linking thermal equators (ITCZ) to planetary wind systems and monsoon origins."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_08",
+      "concept": "Extra-tropical vs Tropical Cyclones",
+      "examTarget": "UPSC",
+      "questionText": "Which of the following statements correctly distinguish Extra-tropical cyclones from Tropical cyclones?\n1. Extra-tropical cyclones have a clear frontal system associated with them, whereas tropical cyclones do not.\n2. Extra-tropical cyclones cover a much larger area and can originate over both land and sea, whereas tropical cyclones originate only over warm ocean surfaces.\n3. Extra-tropical cyclones move from east to west, whereas tropical cyclones generally move from west to east.\nSelect the correct answer using the code given below:",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Statement 1 is correct; temperate (extra-tropical) cyclones form along polar fronts. Statement 2 is correct; tropical cyclones need continuous latent heat from warm oceans and dissipate over land, whereas extra-tropical ones can form over land.",
+        "wrongReason": "Statement 3 is reversed and thus incorrect. Extra-tropical cyclones are driven by Westerlies (moving West to East), whereas Tropical cyclones are influenced by Trade Winds (initially moving East to West).",
+        "examTakeaway": "Understanding the energy source (latent heat vs frontal temperature contrast) is key to differentiating the origin and tracks of these two cyclone types."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_HARD",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Comparative analysis of cyclone types, requiring deep understanding of their formation mechanisms and planetary wind belts."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_09",
+      "concept": "Condensation and Dew Formation",
+      "examTarget": "BPSC",
+      "questionText": "Which of the following conditions are most favorable for the formation of dew?\n1. Clear sky\n2. Calm air\n3. High relative humidity\n4. Cold and long nights\nSelect the correct answer using the code given below:",
+      "options": [
+        {
+          "id": "A",
+          "text": "1, 2, and 3 only"
+        },
+        {
+          "id": "B",
+          "text": "2, 3, and 4 only"
+        },
+        {
+          "id": "C",
+          "text": "1, 3, and 4 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, 3, and 4"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "correctReason": "All four conditions are necessary. A clear sky and long nights allow maximum radiational cooling. Calm air prevents mixing of cold surface air with warmer upper air. High relative humidity ensures that only a small drop in temperature is needed to reach the dew point.",
+        "wrongReason": "Excluding any of these factors would be incomplete, as they collectively optimize the cooling of surfaces below the dew point without causing frost (provided the dew point is above freezing).",
+        "examTakeaway": "Dew requires the temperature of the contact surface to fall below the dew point of the adjacent air, emphasizing the need for rapid cooling (clear skies, long nights) and stable air (calm winds)."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual listing directly tested in multiple state PSC exams, checking comprehension of condensation prerequisites."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_clima_10",
+      "concept": "Humidity",
+      "examTarget": "UPSC",
+      "questionText": "With reference to the moisture in the atmosphere, consider the following statements:\n1. Relative humidity is the ratio between the actual amount of water vapour present in the air and the capacity of the air to hold water vapour at that temperature.\n2. The relative humidity is generally highest over the continents and lowest over the oceans.\n3. With an increase in the temperature of the air, its relative humidity decreases, provided the absolute moisture content remains constant.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2, and 3"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Statement 1 is the standard definition of relative humidity. Statement 3 is correct; as temperature rises, the air expands and its capacity to hold moisture increases, thereby decreasing the percentage of relative humidity if no new moisture is added.",
+        "wrongReason": "Statement 2 is incorrect; oceans have a continuous supply of moisture through evaporation, making relative humidity generally higher over oceans than over continents.",
+        "examTakeaway": "Relative humidity is inversely proportional to temperature (assuming constant absolute humidity). This principle drives cloud formation when ascending air cools."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Testing the physics of humidity and its spatial distribution, combining a definition, an empirical fact, and a conceptual correlation."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_001",
+      "concept": "Atmosphere Composition",
+      "examTarget": "SSC CGL",
+      "questionText": "Which of the following gases constitutes the highest percentage of the Earth's atmosphere after Nitrogen?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Argon"
+        },
+        {
+          "id": "B",
+          "text": "Carbon dioxide"
+        },
+        {
+          "id": "C",
+          "text": "Oxygen"
+        },
+        {
+          "id": "D",
+          "text": "Neon"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Oxygen is the second most abundant gas in the Earth's atmosphere, making up approximately 20.95% of its volume, trailing only Nitrogen (~78%).",
+        "wrongReason": "Argon is third (0.93%), Carbon dioxide is fourth (~0.036%), and Neon is present in trace amounts.",
+        "examTakeaway": "Remember the order of the top four gases in the atmosphere by volume: Nitrogen > Oxygen > Argon > Carbon Dioxide. SSC often asks for the 2nd or 3rd most abundant gas."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual recall of atmospheric composition, a frequent SSC CGL topic."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_002",
+      "concept": "Structure of Atmosphere",
+      "examTarget": "RRB",
+      "questionText": "In which layer of the atmosphere do almost all weather phenomena like rainfall, fog, and hailstorm occur?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Stratosphere"
+        },
+        {
+          "id": "B",
+          "text": "Mesosphere"
+        },
+        {
+          "id": "C",
+          "text": "Troposphere"
+        },
+        {
+          "id": "D",
+          "text": "Thermosphere"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "The troposphere is the lowest layer of the atmosphere where almost all weather processes take place because it contains most of the atmosphere's water vapour and dust particles.",
+        "wrongReason": "The stratosphere is mostly cloud-free, making it ideal for flying planes. The mesosphere is where meteors burn up, and the thermosphere contains the ionosphere.",
+        "examTakeaway": "Troposphere = Weather, Stratosphere = Ozone/Planes, Mesosphere = Meteors. This direct association is highly tested in RRB and SSC."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Direct single-statement matching layer to function."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_003",
+      "concept": "Structure of Atmosphere",
+      "examTarget": "SSC CGL",
+      "questionText": "The ozone layer, which protects the Earth from harmful ultraviolet radiation, is located in which atmospheric layer?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Troposphere"
+        },
+        {
+          "id": "B",
+          "text": "Stratosphere"
+        },
+        {
+          "id": "C",
+          "text": "Mesosphere"
+        },
+        {
+          "id": "D",
+          "text": "Ionosphere"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "The ozone layer (ozonosphere) is found within the stratosphere, mainly between 15 and 30 km above the Earth's surface. It absorbs ultraviolet (UV) radiation from the sun.",
+        "wrongReason": "Troposphere is the lowest weather layer. Mesosphere is above the stratosphere. Ionosphere is part of the thermosphere and reflects radio waves.",
+        "examTakeaway": "The location of the ozone layer is one of the most frequently repeated questions in one-day exams. Associate Stratosphere with Ozone."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual recall of atmospheric layers."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_004",
+      "concept": "Solar Radiation",
+      "examTarget": "RRB",
+      "questionText": "What is the term used to describe the incoming solar radiation intercepted by the Earth?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Terrestrial radiation"
+        },
+        {
+          "id": "B",
+          "text": "Albedo"
+        },
+        {
+          "id": "C",
+          "text": "Insolation"
+        },
+        {
+          "id": "D",
+          "text": "Convection"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Insolation stands for Incoming Solar Radiation. It is the solar energy received by the Earth in the form of shortwaves.",
+        "wrongReason": "Terrestrial radiation is outgoing longwave radiation from Earth. Albedo is reflected light. Convection is a method of heat transfer.",
+        "examTakeaway": "Understand terminology: Insolation (incoming shortwave) vs Terrestrial radiation (outgoing longwave)."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Definition-based direct question."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_005",
+      "concept": "Heat Balance",
+      "examTarget": "SSC CGL",
+      "questionText": "The proportion of solar radiation reflected back to space by a surface without being absorbed is called:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Albedo"
+        },
+        {
+          "id": "B",
+          "text": "Lapse rate"
+        },
+        {
+          "id": "C",
+          "text": "Advection"
+        },
+        {
+          "id": "D",
+          "text": "Conduction"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Albedo is the measure of the diffuse reflection of solar radiation out of the total solar radiation. Snow and ice have the highest albedo.",
+        "wrongReason": "Lapse rate is the rate of temperature decrease with altitude. Advection is horizontal heat transfer. Conduction is heat transfer through direct contact.",
+        "examTakeaway": "Albedo values of different surfaces (e.g., fresh snow > sand > forest > ocean) are common matching questions in SSC CGL."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Conceptual terminology standard in physical geography."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_006",
+      "concept": "Planetary Winds",
+      "examTarget": "RRB",
+      "questionText": "The terms 'Roaring Forties', 'Furious Fifties', and 'Shrieking Sixties' are associated with which of the following?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Trade winds in the Northern Hemisphere"
+        },
+        {
+          "id": "B",
+          "text": "Westerlies in the Southern Hemisphere"
+        },
+        {
+          "id": "C",
+          "text": "Polar Easterlies"
+        },
+        {
+          "id": "D",
+          "text": "Local winds in the Mediterranean region"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "These terms refer to the strong Westerly winds in the Southern Hemisphere, blowing between 40\u00b0 and 70\u00b0 South latitudes, due to the lack of landmasses to slow them down.",
+        "wrongReason": "Trade winds blow closer to the equator. Polar easterlies blow near the poles. The Northern Hemisphere Westerlies are weaker due to land friction.",
+        "examTakeaway": "Navigational terms for Southern Hemisphere Westerlies are classic factual trivia for RRB and SSC."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual association of wind nomenclature."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_007",
+      "concept": "Local Winds",
+      "examTarget": "SSC CGL",
+      "questionText": "Which among the following is a hot and dry local wind that blows over the northern plains of India during the summer season?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Chinook"
+        },
+        {
+          "id": "B",
+          "text": "Foehn"
+        },
+        {
+          "id": "C",
+          "text": "Loo"
+        },
+        {
+          "id": "D",
+          "text": "Mistral"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "The 'Loo' is a strong, dusty, gusty, hot and dry summer wind from the west which blows over the Indo-Gangetic Plain region of North India and Pakistan.",
+        "wrongReason": "Chinook blows over the Rockies in North America. Foehn is found in the Alps. Mistral is a cold wind blowing in France.",
+        "examTakeaway": "Matching local winds with their regions (e.g., Chinook - Rockies, Loo - India, Harmattan - West Africa) is a high-yield topic."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Local winds recall, directly tested in CGL."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_008",
+      "concept": "Precipitation",
+      "examTarget": "RRB",
+      "questionText": "Which type of rainfall is characterized by intense localized downpours associated with thunder and lightning, predominantly occurring in equatorial regions?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Orographic rainfall"
+        },
+        {
+          "id": "B",
+          "text": "Frontal rainfall"
+        },
+        {
+          "id": "C",
+          "text": "Convectional rainfall"
+        },
+        {
+          "id": "D",
+          "text": "Cyclonic rainfall"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Convectional rainfall occurs when the sun heats the ground rapidly, causing warm, moisture-laden air to rise, cool, and condense. It is common in equatorial regions and is often accompanied by thunderstorms.",
+        "wrongReason": "Orographic rain is caused by mountains forcing air upward. Frontal/Cyclonic rain occurs when warm and cold air masses meet.",
+        "examTakeaway": "Equatorial climate is characterized by daily convectional rainfall, often referred to as '4 o'clock showers'."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Types of rainfall classification."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_009",
+      "concept": "Atmospheric Pressure",
+      "examTarget": "SSC CGL",
+      "questionText": "Which instrument is used to measure atmospheric pressure?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hygrometer"
+        },
+        {
+          "id": "B",
+          "text": "Anemometer"
+        },
+        {
+          "id": "C",
+          "text": "Barometer"
+        },
+        {
+          "id": "D",
+          "text": "Seismograph"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "A barometer is a scientific instrument used to measure atmospheric pressure, often used in weather forecasting.",
+        "wrongReason": "A hygrometer measures humidity. An anemometer measures wind speed. A seismograph measures earthquakes.",
+        "examTakeaway": "Scientific instruments and their uses are a staple in SSC General Awareness sections."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Instrument-measurement pairs."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_climo_010",
+      "concept": "Cyclones",
+      "examTarget": "RRB",
+      "questionText": "Tropical cyclones occurring in the western Pacific Ocean and the South China Sea are known as:",
+      "options": [
+        {
+          "id": "A",
+          "text": "Hurricanes"
+        },
+        {
+          "id": "B",
+          "text": "Typhoons"
+        },
+        {
+          "id": "C",
+          "text": "Willy-willies"
+        },
+        {
+          "id": "D",
+          "text": "Tornadoes"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "Typhoons is the regional name for tropical cyclones in the western Pacific Ocean and the South China Sea.",
+        "wrongReason": "They are called Hurricanes in the Atlantic and Eastern Pacific, Willy-willies in Western Australia, and simply Cyclones in the Indian Ocean. Tornadoes are smaller, intense terrestrial funnels.",
+        "examTakeaway": "Regional names of tropical cyclones are a very common geography matching question."
+      },
+      "metadata": {
+        "knowledgeSource": "NCERT Class 11 Fundamental of Physical Geography",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Regional nomenclature of geographical phenomena."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_01",
+      "concept": "Tidal Mechanics",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding tides:\n1. Spring tides occur when the sun, the moon and the earth are in a straight line.\n2. Neap tides occur when the sun and moon are at right angles to each other.\n3. The time between the high tide and low tide, when the water level is falling, is called the flood or flux.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2 and 3"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Statements 1 and 2 are correct. Spring tides occur during the full moon and new moon phases when celestial bodies align. Neap tides occur during the first and third quarters when they are at right angles.",
+        "wrongReason": "Statement 3 is incorrect. The time between high tide and low tide when the water level is falling is called the 'ebb', not the flood. 'Flood' is when the water level is rising.",
+        "examTakeaway": "Terminology of tides (ebb and flood) and positional alignments (syzygy and quadrature) are frequent targets in UPSC prelims."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Testing conceptual clarity on tidal terminology and celestial alignments."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_02",
+      "concept": "Ocean Currents",
+      "examTarget": "SSC CGL",
+      "questionText": "Which of the following is a cold ocean current?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Agulhas Current"
+        },
+        {
+          "id": "B",
+          "text": "Kuroshio Current"
+        },
+        {
+          "id": "C",
+          "text": "Benguela Current"
+        },
+        {
+          "id": "D",
+          "text": "Brazilian Current"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "The Benguela Current is a cold, broad, northward-flowing ocean current that forms the eastern portion of the South Atlantic Ocean gyre.",
+        "wrongReason": "The Agulhas, Kuroshio, and Brazilian currents are all warm ocean currents.",
+        "examTakeaway": "Memorization of major warm and cold currents and their locations is a staple for SSC and RRB exams."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Direct factual recall of current temperatures."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_03",
+      "concept": "Ocean Salinity",
+      "examTarget": "UPSC",
+      "questionText": "With reference to the salinity of ocean waters, consider the following statements:\n1. Salinity generally increases with depth because denser water sinks to the bottom.\n2. The highest salinity in oceans is recorded near the equator due to high temperatures.\n3. The salinity of the Baltic Sea is low due to the influx of large quantities of fresh water from rivers.\nWhich of the statements given above is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "3 only"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Statements 1 and 3 are correct. Salinity increases density, so higher salinity water sinks. The Baltic Sea has low salinity due to river runoff.",
+        "wrongReason": "Statement 2 is incorrect. The highest salinity is recorded between 15\u00b0 and 20\u00b0 latitudes (subtropics) where evaporation is high and precipitation is low, not at the equator which experiences heavy rainfall.",
+        "examTakeaway": "Understanding the factors controlling salinity (evaporation vs. precipitation, river runoff) is critical for analytical questions."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_HARD",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Multi-statement question testing geographical understanding of salinity variables."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_04",
+      "concept": "Tidal Extremes",
+      "examTarget": "SSC CGL",
+      "questionText": "The highest tides in the world occur in which of the following locations?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Bay of Bengal"
+        },
+        {
+          "id": "B",
+          "text": "Bay of Fundy"
+        },
+        {
+          "id": "C",
+          "text": "Hudson Bay"
+        },
+        {
+          "id": "D",
+          "text": "Gulf of Mexico"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "correctReason": "The highest tides in the world occur in the Bay of Fundy in Nova Scotia, Canada, where the tidal range can reach up to 15-16 meters.",
+        "wrongReason": "The other bays mentioned do not have the extreme funnel-shaped topography that amplifies the tidal range to this extent.",
+        "examTakeaway": "Factual trivia regarding superlatives (highest, largest, deepest) is commonly tested in SSC CGL."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual knowledge of significant geographic records."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_05",
+      "concept": "Global Circulation Patterns",
+      "examTarget": "UPSC",
+      "questionText": "Consider the following statements regarding the circulation pattern of ocean currents:\n1. In the Northern Hemisphere, ocean currents generally circulate in a clockwise direction.\n2. The Coriolis force is responsible for the deflection of ocean currents.\n3. West coasts of continents in tropical and subtropical latitudes are bordered by warm currents.\nWhich of the statements given above are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "1 and 2 only"
+        },
+        {
+          "id": "B",
+          "text": "2 and 3 only"
+        },
+        {
+          "id": "C",
+          "text": "1 and 3 only"
+        },
+        {
+          "id": "D",
+          "text": "1, 2 and 3"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Statements 1 and 2 are correct. The Coriolis force deflects currents to the right in the NH (clockwise) and left in the SH (anti-clockwise).",
+        "wrongReason": "Statement 3 is incorrect. The west coasts of continents in tropical and subtropical latitudes are generally bordered by cold water currents (e.g., California, Peru, Benguela).",
+        "examTakeaway": "The interaction of wind systems, the Coriolis effect, and coastal geography dictates the global pattern of ocean gyres."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "STATEMENT",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Evaluating understanding of global gyres and current temperatures."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_06",
+      "concept": "Extreme Salinity",
+      "examTarget": "RRB",
+      "questionText": "Which of the following water bodies records the highest salinity in the world?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Dead Sea"
+        },
+        {
+          "id": "B",
+          "text": "Great Salt Lake"
+        },
+        {
+          "id": "C",
+          "text": "Lake Van"
+        },
+        {
+          "id": "D",
+          "text": "Red Sea"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "Lake Van in Turkey has the highest recorded salinity at around 330 parts per thousand (ppt).",
+        "wrongReason": "The Dead Sea has a salinity of ~238 ppt, and the Great Salt Lake has ~220 ppt. The Red Sea is highly saline for an open sea but much lower than these inland lakes.",
+        "examTakeaway": "Direct factual knowledge of geographical extremes from NCERT is highly relevant for SSC/RRB."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual recall of salinity superlatives."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_07",
+      "concept": "Types of Tides",
+      "examTarget": "UPSC",
+      "questionText": "With reference to the types of tides, which of the following statements is incorrect?",
+      "options": [
+        {
+          "id": "A",
+          "text": "A diurnal tide has only one high tide and one low tide during each day."
+        },
+        {
+          "id": "B",
+          "text": "A semidiurnal tide pattern consists of two high tides and two low tides each day."
+        },
+        {
+          "id": "C",
+          "text": "Mixed tides have variations in height and occur frequently along the west coast of North America."
+        },
+        {
+          "id": "D",
+          "text": "The time interval between two successive high tides in a semidiurnal pattern is exactly 12 hours."
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "correctReason": "Statement D is incorrect. The time interval between two successive high tides in a semidiurnal pattern is approximately 12 hours and 25 minutes, not exactly 12 hours, because the moon orbits the Earth as the Earth rotates.",
+        "wrongReason": "Statements A, B, and C accurately define diurnal, semidiurnal, and mixed tides as per fundamental physical geography principles.",
+        "examTakeaway": "Deep conceptual understanding of tidal timing (the 50-minute daily delay) is crucial for eliminating options in UPSC."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "STANDARD",
+        "estimatedDifficulty": "PRELIMINARY_HARD",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Testing precise conceptual mechanisms of Earth-Moon tidal physics."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_08",
+      "concept": "Oceanic Features",
+      "examTarget": "SSC CGL",
+      "questionText": "The Sargasso Sea is uniquely known for its lack of land boundaries. It is associated with which of the following oceans?",
+      "options": [
+        {
+          "id": "A",
+          "text": "North Atlantic Ocean"
+        },
+        {
+          "id": "B",
+          "text": "South Atlantic Ocean"
+        },
+        {
+          "id": "C",
+          "text": "North Pacific Ocean"
+        },
+        {
+          "id": "D",
+          "text": "Indian Ocean"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "The Sargasso Sea is located in the North Atlantic Ocean. It is unique because it is bounded by ocean currents (the North Atlantic gyre) rather than land boundaries.",
+        "wrongReason": "It is not found in the South Atlantic, Pacific, or Indian oceans.",
+        "examTakeaway": "Distinctive geographical features like a sea without land boundaries are classic SSC geography questions."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_MODERATE",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Factual recall of unique marine geographical entities."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_09",
+      "concept": "Currents and Economic Geography",
+      "examTarget": "UPSC",
+      "questionText": "The meeting of warm and cold ocean currents provides the best fishing grounds in the world. Which of the following is NOT an example of such a meeting point?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Meeting of Kuroshio and Oyashio currents off the coast of Japan."
+        },
+        {
+          "id": "B",
+          "text": "Meeting of Gulf Stream and Labrador current off the coast of Newfoundland."
+        },
+        {
+          "id": "C",
+          "text": "Meeting of Agulhas and Benguela currents off the coast of South Africa."
+        },
+        {
+          "id": "D",
+          "text": "Meeting of Brazil and Falkland currents off the coast of Argentina."
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "correctReason": "The Agulhas (warm) and Benguela (cold) currents do not directly meet to form a major fishing ground in the same way as the others; Benguela flows up the west coast of Africa while Agulhas flows down the east coast.",
+        "wrongReason": "A, B, and D are classic examples of warm and cold currents colliding to create excellent conditions for plankton growth and major fishing grounds.",
+        "examTakeaway": "Application of current patterns to economic geography (fishing zones) is a high-yield area for UPSC."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "APPLICATION",
+        "estimatedDifficulty": "PRELIMINARY_HARD",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Applying the concept of oceanic convergence to real-world economic geography."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    },
+    {
+      "id": "gen_q_ocean_10",
+      "concept": "Isolines",
+      "examTarget": "SSC CGL",
+      "questionText": "What are the lines on a map connecting points of equal salinity in the ocean called?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Isohalines"
+        },
+        {
+          "id": "B",
+          "text": "Isotherms"
+        },
+        {
+          "id": "C",
+          "text": "Isobaths"
+        },
+        {
+          "id": "D",
+          "text": "Isobars"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "correctReason": "Isohalines are lines drawn on a map to connect points of equal salinity in the ocean.",
+        "wrongReason": "Isotherms connect points of equal temperature, isobaths connect points of equal depth, and isobars connect points of equal atmospheric pressure.",
+        "examTakeaway": "Identifying specific isolines is a recurring question type in RRB and SSC CGL exams."
+      },
+      "metadata": {
+        "knowledgeSource": "Fundamental of Physical Geography (Class XI)",
+        "familyStage": "FOUNDATION",
+        "estimatedDifficulty": "PRELIMINARY_EASY",
+        "verificationStatus": "ACCEPTED",
+        "designBasis": "Direct factual recall of geographical mapping terminology."
+      },
+      "status": "REVIEW_REQUIRED",
+      "audit_note": "Retained in staging. No conflict with Batch 2."
+    }
+  ]
+}

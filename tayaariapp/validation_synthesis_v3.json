@@ -1,0 +1,281 @@
+﻿{
+  "batchId": "BATCH-V3-SYNTHESIS",
+  "candidates_attempted": 7,
+  "original_synthesis": 7,
+  "pyq_derived": 0,
+  "accepted": 5,
+  "rejected": 2,
+  "clue_leakage_detected": 2,
+  "repetition_violations_detected": 1,
+  "stats": {
+    "percent_recall": 20.0,
+    "percent_understand_plus": 80.0,
+    "upsc_candidates_passing_higher_order_gate": 2,
+    "distinct_concepts": 5,
+    "distinct_opportunities": 5,
+    "stopped_naturally": true
+  },
+  "questions": [
+    {
+      "text": "Which of the following seismic waves can travel through solid, liquid, and gaseous materials?",
+      "options": [
+        "L-waves",
+        "Rayleigh waves",
+        "S-waves",
+        "P-waves"
+      ],
+      "correctIndex": 3,
+      "explanation": "According to the evidence, P-waves travel through all states of matter, whereas S-waves travel only through solids, because of their differing wave mechanics.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "RRB NTPC"
+        ],
+        "topic": "Earthquakes",
+        "concept": "Shadow Zone Generation",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 27",
+            "evidenceExcerpt": "The shadow zone of S-wave is not only larger in extent but it is also a little over 40 per cent of the earth surface. This proves that the outer core is liquid. P-waves are refracted, creating a smaller shadow zone."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Types of seismic waves. Plausible misconception: Confusing P and S wave properties."
+      },
+      "questionId": "Q-PROD-V3-SYNC-5a4b7469",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Along the western coast of South America, the dense Nazca oceanic plate collides with the South American continental plate. Based on tectonic principles, what is the most direct consequence of this specific convergence?",
+      "options": [
+        "The Nazca plate subducts, leading to flux melting and the formation of the volcanic Andes mountain range.",
+        "The continental plate subducts beneath the ocean, exposing deep mantle rock on the seafloor.",
+        "The plates lock and slide horizontally, creating a major transform fault system without volcanism.",
+        "Both plates crumple upwards to form a massive, non-volcanic fold mountain range similar to the Himalayas."
+      ],
+      "correctIndex": 0,
+      "explanation": "Because oceanic crust is denser than continental crust, the oceanic plate always subducts. The evidence indicates this subduction causes trench formation and inland volcanic mountains (flux melting), exactly mapping to the Andes.",
+      "metadata": {
+        "examTarget": [
+          "UPSC",
+          "BPSC"
+        ],
+        "topic": "Plate Tectonics",
+        "concept": "Oceanic-Continental Convergence",
+        "format": "Conceptual Application",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 4, Page 35",
+            "evidenceExcerpt": "At convergent boundaries where oceanic and continental crust collide, the denser oceanic plate is pushed beneath the lighter continental plate into the mantle, a process called subduction. This forms trenches and inland volcanic mountains."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Boundary interaction outcomes. Plausible misconception: Confusing ocean-continent subduction with continent-continent collision or transform faulting."
+      },
+      "questionId": "Q-PROD-V3-SYNC-56a904ec",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Why do some of the Earth's most explosive volcanoes fail to build tall, towering mountain structures?",
+      "options": [
+        "Their magma is completely fluid, allowing it to spread horizontally into vast basalt plateaus.",
+        "Their immense explosivity destroys the structure during eruption, causing them to collapse inward and form depressions.",
+        "They are located in active subduction zones that pull the mountain downward continuously.",
+        "They occur exclusively underwater, where ocean currents immediately erode the erupted material."
+      ],
+      "correctIndex": 1,
+      "explanation": "Due to their extreme explosivity, these volcanoes blow apart their own edifices and collapse into the magma chamber, forming large depressions known as calderas, rather than building tall peaks.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "BPSC"
+        ],
+        "topic": "Geomorphology",
+        "concept": "Caldera Formation",
+        "format": "Conceptual",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 29",
+            "evidenceExcerpt": "These are the most explosive of the earth\u2019s volcanoes. They are usually so explosive that when they erupt they tend to collapse on themselves rather than building any tall structure. The collapsed depressions are called calderas."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Volcanic formation mechanisms. Plausible misconception: Confusing explosive calderas with effusive shield volcanoes (fluid magma) or deep-sea vents."
+      },
+      "questionId": "Q-PROD-V3-SYNC-427eb14f",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Which of the following best describes the nature of river 'meanders'?",
+      "options": [
+        "They are a channel pattern resulting from lateral erosion on gentle gradients.",
+        "They are isolated lakes cut off from the main river flow.",
+        "They are permanent ridges formed by consolidated rock deposition.",
+        "They are structural landforms built by rapid vertical erosion in mountainous terrain."
+      ],
+      "correctIndex": 0,
+      "explanation": "According to the evidence, a meander is strictly a channel pattern, not a structural landform, which develops because rivers on gentle gradients with loose alluvium tend to erode laterally on their banks.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL",
+          "BPSC"
+        ],
+        "topic": "Geomorphology",
+        "concept": "Meanders",
+        "format": "Conceptual",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "UNDERSTAND",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 7, Page 64",
+            "evidenceExcerpt": "In large flood and delta plains, rivers rarely flow in straight courses. Loop-like channel patterns called meanders develop over flood and delta plains. Meander is not a landform but is only a type of channel pattern."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Geomorphological features. Plausible misconception: Confusing meanders (patterns) with oxbow lakes or structural landforms."
+      },
+      "questionId": "Q-PROD-V3-SYNC-14946eca",
+      "status": "AUTOMATED_VALIDATED"
+    },
+    {
+      "text": "Identify the primary tectonic reason why the entire Himalayan belt is classified as highly vulnerable (Seismic Zone V).",
+      "options": [
+        "The presence of an active massive mantle plume directly beneath the Tibetan plateau.",
+        "The rapid spreading of the Eurasian plate causes divergent rifting throughout the region.",
+        "The continuous continent-continent collision accumulates immense stress along thrust faults like the MBT and HFF.",
+        "The lubricating effect of subducting oceanic crust triggers continuous deep-focus tremors."
+      ],
+      "correctIndex": 2,
+      "explanation": "Because the Indian and Eurasian plates are in an ongoing continental collision, immense tectonic stress is stored and released along major thrust faults (MBT, HFF). This makes the region highly seismically active.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Seismic Geography",
+        "concept": "Himalayan Frontal Fault",
+        "format": "Conceptual Application",
+        "difficulty": "HARD",
+        "cognitiveDemand": "APPLY",
+        "provenance": [
+          {
+            "sourceId": "OXFORD_ATLAS",
+            "section": "Part 3, Page 62",
+            "evidenceExcerpt": "The entire Himalayan belt is situated at the boundary of the converging Indian and Eurasian plates. Thrust faults such as the MBT and HFF accumulate immense stress, placing the entire region in Seismic Zone V."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS",
+        "mapEvidenceSufficient": false
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Macro-tectonic regional mechanisms. Plausible misconception: Attributing the seismicity to divergence or mantle plumes rather than continental collision."
+      },
+      "questionId": "Q-PROD-V3-SYNC-1f9bbdc5",
+      "status": "AUTOMATED_VALIDATED"
+    }
+  ],
+  "rejections": [
+    {
+      "text": "The observation that S-waves have a significantly larger shadow zone than P-waves conclusively proves which of the following regarding the Earth's interior?",
+      "options": [
+        "The mantle consists of highly viscous silicate rock.",
+        "The inner core is composed of solid iron and nickel.",
+        "The outer core is in a liquid state.",
+        "The crust is fragmented into multiple tectonic plates."
+      ],
+      "correctIndex": 2,
+      "explanation": "Because S-waves cannot travel through liquid media, their complete absence beyond 105 degrees establishes a massive shadow zone that proves the outer core must be liquid. P-waves, while refracted, still pass through.",
+      "metadata": {
+        "examTarget": [
+          "UPSC"
+        ],
+        "topic": "Earthquakes",
+        "concept": "Shadow Zone Generation",
+        "format": "Conceptual",
+        "difficulty": "MODERATE",
+        "cognitiveDemand": "INFER",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 27",
+            "evidenceExcerpt": "The shadow zone of S-wave is not only larger in extent but it is also a little over 40 per cent of the earth surface. This proves that the outer core is liquid. P-waves are refracted, creating a smaller shadow zone."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Major structural facts about Earth's interior. Plausible misconception: Misattributing wave behavior to the mantle or inner core."
+      },
+      "questionId": "Q-PROD-V3-SYNC-715d6951",
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage or SAME_FACT_SAME_LOGIC repetition."
+    },
+    {
+      "text": "Are P-waves capable of traveling through liquids?",
+      "options": [
+        "No, only S-waves do.",
+        "Only through the mantle.",
+        "Yes, they travel through all materials.",
+        "None of the above."
+      ],
+      "correctIndex": 2,
+      "explanation": "This is correct because P-waves have the physical capability to compress and expand all states of matter.",
+      "metadata": {
+        "examTarget": [
+          "SSC CGL"
+        ],
+        "topic": "Earthquakes",
+        "concept": "Shadow Zone Generation",
+        "format": "Standard",
+        "difficulty": "EASY",
+        "cognitiveDemand": "RECALL",
+        "provenance": [
+          {
+            "sourceId": "NCERT_CLASS11_PHYSICAL_GEO",
+            "section": "Chapter 3, Page 27",
+            "evidenceExcerpt": "The shadow zone of S-wave is not only larger in extent but it is also a little over 40 per cent of the earth surface. This proves that the outer core is liquid. P-waves are refracted, creating a smaller shadow zone."
+          }
+        ],
+        "currentness": "HISTORICAL",
+        "generationBasis": "ORIGINAL_SYNTHESIS"
+      },
+      "validation": {
+        "distractorLogic": "Semantic class: Wave properties."
+      },
+      "questionId": "Q-PROD-V3-SYNC-11eca341",
+      "status": "REJECTED",
+      "rejectionReason": "Batch level failure: Clue leakage or SAME_FACT_SAME_LOGIC repetition."
+    }
+  ],
+  "leak_details": [
+    "Leak: Q0 answer in Q1 stem",
+    "Leak: Q0 answer in Q2 stem"
+  ],
+  "repetition_details": [
+    "SAME_FACT_SAME_LOGIC: Concept 'Shadow Zone Generation' repeats demand 'RECALL'"
+  ]
+}

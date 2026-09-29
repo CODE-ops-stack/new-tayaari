@@ -1,0 +1,129 @@
+{
+  "requested_maximum": 20,
+  "concept_capacity": 18,
+  "candidates_generated": 10,
+  "duplicate_rate": 0,
+  "clue_leakage_count": 0,
+  "questions": [
+    {
+      "id": "70af5b75",
+      "text": "The river Narmada originates from which of the following locations?",
+      "options": [
+        "Multai, MP",
+        "Amarkantak, MP",
+        "Mahabaleshwar, MH",
+        "Sihawa, CG"
+      ],
+      "correctIndex": 1,
+      "concept": "origin_Narmada"
+    },
+    {
+      "id": "757cd210",
+      "text": "The river Tapi originates from which of the following locations?",
+      "options": [
+        "Multai, MP",
+        "Amarkantak, MP",
+        "Sihawa, CG",
+        "Brahmagiri Hills, KA"
+      ],
+      "correctIndex": 0,
+      "concept": "origin_Tapi"
+    },
+    {
+      "id": "f0d755f2",
+      "text": "The river Godavari originates from which of the following locations?",
+      "options": [
+        "Trimbakeshwar, MH",
+        "Mahabaleshwar, MH",
+        "Sihawa, CG",
+        "Multai, MP"
+      ],
+      "correctIndex": 0,
+      "concept": "origin_Godavari"
+    },
+    {
+      "id": "7239bc4c",
+      "text": "The river Krishna originates from which of the following locations?",
+      "options": [
+        "Amarkantak, MP",
+        "Multai, MP",
+        "Mahabaleshwar, MH",
+        "Sihawa, CG"
+      ],
+      "correctIndex": 2,
+      "concept": "origin_Krishna"
+    },
+    {
+      "id": "8c4fd35b",
+      "text": "The river Cauvery originates from which of the following locations?",
+      "options": [
+        "Sihawa, CG",
+        "Trimbakeshwar, MH",
+        "Amarkantak, MP",
+        "Brahmagiri Hills, KA"
+      ],
+      "correctIndex": 3,
+      "concept": "origin_Cauvery"
+    },
+    {
+      "id": "6963b40d",
+      "text": "The river Mahanadi originates from which of the following locations?",
+      "options": [
+        "Sihawa, CG",
+        "Amarkantak, MP",
+        "Trimbakeshwar, MH",
+        "Multai, MP"
+      ],
+      "correctIndex": 0,
+      "concept": "origin_Mahanadi"
+    },
+    {
+      "id": "39f4168b",
+      "text": "Which of the following is a major tributary of the Godavari river?",
+      "options": [
+        "Hemavati",
+        "Tungabhadra",
+        "Kabini",
+        "Pranhita"
+      ],
+      "correctIndex": 3,
+      "concept": "trib_Godavari"
+    },
+    {
+      "id": "bd200b08",
+      "text": "Which of the following is a major tributary of the Krishna river?",
+      "options": [
+        "Pranhita",
+        "Tungabhadra",
+        "Penganga",
+        "Bhavani"
+      ],
+      "correctIndex": 1,
+      "concept": "trib_Krishna"
+    },
+    {
+      "id": "1c80d0ec",
+      "text": "Which of the following pairs of rivers flow through a rift valley?",
+      "options": [
+        "Narmada and Tapi",
+        "Mahanadi and Godavari",
+        "Ganga and Yamuna",
+        "Krishna and Cauvery"
+      ],
+      "correctIndex": 0,
+      "concept": "rift_valley"
+    },
+    {
+      "id": "09f7da5e",
+      "text": "Which of the following is an inland drainage river that disappears into the Rann of Kutch?",
+      "options": [
+        "Tapi",
+        "Mahi",
+        "Luni",
+        "Sabarmati"
+      ],
+      "correctIndex": 2,
+      "concept": "inland_drainage"
+    }
+  ]
+}
