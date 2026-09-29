@@ -13,7 +13,11 @@ from v13_discovery.data_contract import VALID_TRAP_TYPES, validate_locked_questi
 from v13_discovery.question_synthesizer import OntologyRegistry, VALID_ROOM_TRAP_TYPES
 
 PLACEHOLDER_RE = re.compile(
-    r"\b(this entity|TBD|TODO|placeholder|dummy option|sample option)\b",
+    r"\b(this entity|the described feature|TBD|TODO|placeholder|dummy option|sample option)\b",
+    re.IGNORECASE,
+)
+OCR_JUNK_RE = re.compile(
+    r"(figure\s+\d|2018-19|attrib\b|\bpheno\b|best described as|\bit it\b)",
     re.IGNORECASE,
 )
 CONNECTIVE_START_RE = re.compile(
@@ -74,6 +78,26 @@ def validate_stem(q: Any) -> List[str]:
         errors.append("STEM_TOO_LONG")
     if stem.count("?") > 3:
         errors.append("STEM_MALFORMED_PUNCTUATION")
+    if OCR_JUNK_RE.search(stem):
+        errors.append("STEM_OCR_OR_TEMPLATE_JUNK")
+    if ".." in stem:
+        errors.append("STEM_DOUBLE_PERIOD")
+    if re.search(r"\bdefined as [A-Z]", stem) and "Assertion" not in stem:
+        errors.append("STEM_MISSING_ARTICLE")
+    if re.search(r"which of the following [A-Z][a-z]+ atmospheric", stem, re.I):
+        errors.append("STEM_MISSING_VERB")
+    if fmt == "Assertion-Reason":
+        am = re.search(r"Assertion \(A\):\s*(.+?)\.\s*Reason \(R\):\s*(.+?)\.", stem)
+        if am:
+            a = am.group(1).strip().lower()
+            r = am.group(2).strip().lower()
+            if a == r or a in r or r in a:
+                errors.append("AR_TAUTOLOGY")
+            r0 = am.group(2).strip().split()[0]
+            if r0 not in {"It", "The", "This", "A", "An"}:
+                errors.append("AR_FRAGMENT_REASON")
+        else:
+            errors.append("AR_MALFORMED")
     return errors
 
 
@@ -107,6 +131,11 @@ def validate_explanation(q: Any) -> List[str]:
         errors.append("EXPLANATION_IS_RAW_SOURCE_DUMP")
     if len(exp) < 40:
         errors.append("EXPLANATION_TOO_SHORT")
+    if OCR_JUNK_RE.search(exp):
+        errors.append("EXPLANATION_JUNK")
+    # Expert explanations must say why the key is right, not only dump a label.
+    if "do not" not in exp.lower() and "unlike" not in exp.lower() and "whereas" not in exp.lower() and "not " not in exp.lower():
+        errors.append("EXPLANATION_NO_DISTRACTOR_CONTRAST")
     return errors
 
 
