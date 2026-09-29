@@ -1,4 +1,4 @@
-﻿package com.example.repository
+package com.example.repository
 
 import android.content.Context
 import android.util.Log
@@ -36,7 +36,7 @@ object DataImporter {
 
         Log.d(TAG, "STARTING IMPORT")
         
-        // Clear old database first
+        // Clear old questions only (not learner attempts / revision / confusion).
         dao.clearAllQuestions()
         
         val blocks = mdContent.split(Regex("\\r?\\n## (?=\\d+\\. )"))
@@ -49,7 +49,7 @@ object DataImporter {
             val tNum = topicNumMatch.groupValues[1].toInt()
             val tName = topicNumMatch.groupValues[2].trim()
             
-            topics.add(Topic(tNum, "{tNum}. {tName}", "Mapped Source"))
+            topics.add(Topic(tNum, "$tNum. $tName", "Mapped Source", getTopicModule(tName)))
             
             val qPattern = Pattern.compile(
                 "- \\*\\*Topic\\*\\*: ([^\\r\\n]*?)\\s*\\n" +
@@ -99,7 +99,7 @@ object DataImporter {
                 var rawQText = matcher.group(9)?.trim() ?: ""
                 
                 var imageUrl = ""
-                val imageMatcher = Regex("\\[IMAGE:\\s*(.*?)\\]").find(rawQText)
+                val imageMatcher = Regex("\\[IMAGE:\\s*(.*?)]").find(rawQText)
                 if (imageMatcher != null) {
                     imageUrl = imageMatcher.groupValues[1].trim()
                     rawQText = rawQText.replace(imageMatcher.value, "").trim()
@@ -108,12 +108,12 @@ object DataImporter {
                 // Extract Correct Answer
                 val ansMatcher = Pattern.compile("(?i)Correct [Aa]nswer:\\s*(?:Option\\s*)?([a-eA-E])").matcher(rawQText)
                 if (!ansMatcher.find()) {
-                    Log.w(TAG, "Rejected Q{seqNum}: Missing or malformed Correct Answer.")
+                    Log.w(TAG, "Rejected Q$seqNum: Missing or malformed Correct Answer.")
                     totalQuestionsRejected++
                     continue
                 }
                 val correctAnswerLetter = ansMatcher.group(1)!!.lowercase().trim()
-                val correctAnswerStr = "opt_{correctAnswerLetter}"
+                val correctAnswerStr = "opt_$correctAnswerLetter"
                 rawQText = rawQText.substring(0, ansMatcher.start()).trim() // Remove correct answer from qText
 
                 // Extract Explanation
@@ -130,12 +130,13 @@ object DataImporter {
                 val optionMatches = optionsRegex.findAll(rawQText).toList()
                 
                 if (optionMatches.size < 2) {
-                    Log.w(TAG, "Rejected Q{seqNum}: Less than 2 options found.")
+                    Log.w(TAG, "Rejected Q$seqNum: Less than 2 options found.")
                     totalQuestionsRejected++
                     continue
                 }
 
                 val optionsList = mutableListOf<String>()
+                val optionIds = mutableListOf<String>()
                 var firstOptionIndex = -1
                 
                 for (match in optionMatches) {
@@ -147,7 +148,9 @@ object DataImporter {
                     
                     // JSON escape
                     optText = optText.replace("\"", "\\\"").replace("\n", " ")
-                    optionsList.add("{\"id\":\"opt_{letter}\",\"text\":\"{optText}\"}")
+                    val optId = "opt_$letter"
+                    optionIds.add(optId)
+                    optionsList.add("{\"id\":\"$optId\",\"text\":\"$optText\"}")
                 }
                 
                 val qText = if (firstOptionIndex != -1) {
@@ -157,7 +160,13 @@ object DataImporter {
                 }
                 
                 if (qText.isEmpty()) {
-                    Log.w(TAG, "Rejected Q{seqNum}: Empty question text.")
+                    Log.w(TAG, "Rejected Q$seqNum: Empty question text.")
+                    totalQuestionsRejected++
+                    continue
+                }
+
+                if (correctAnswerStr !in optionIds) {
+                    Log.w(TAG, "Rejected Q$seqNum: correctAnswer $correctAnswerStr not in $optionIds")
                     totalQuestionsRejected++
                     continue
                 }
@@ -166,7 +175,10 @@ object DataImporter {
                 
                 var distractorJson = "[]"
                 if (trapType.isNotEmpty()) {
-                    distractorJson = "[{\"optionId\":\"opt_distractor\",\"trapType\":\"{trapType}\",\"dissection\":\"Parsed from md\"}]"
+                    val dissectionParts = optionIds.filter { it != correctAnswerStr }.map { oid ->
+                        "{\"optionId\":\"$oid\",\"trapType\":\"$trapType\",\"dissection\":\"Parsed from md\"}"
+                    }
+                    distractorJson = "[" + dissectionParts.joinToString(",") + "]"
                 }
 
                 questions.add(Question(
@@ -187,7 +199,7 @@ object DataImporter {
             }
         }
         
-        Log.d(TAG, "IMPORT COMPLETED. Found: {totalQuestionsFound}, Accepted: {totalQuestionsAccepted}, Rejected: {totalQuestionsRejected}")
+        Log.d(TAG, "IMPORT COMPLETED. Found: $totalQuestionsFound, Accepted: $totalQuestionsAccepted, Rejected: $totalQuestionsRejected")
         
         dao.insertTopics(topics)
         dao.insertQuestions(questions)

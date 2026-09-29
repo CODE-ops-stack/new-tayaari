@@ -1,4 +1,4 @@
-﻿package com.example.repository
+package com.example.repository
 
 import android.util.Log
 import com.example.model.ExamBlueprint
@@ -103,7 +103,7 @@ class QuestionSelectionEngine(
                 if (parsedOptions.size < 2) continue
                 
             } catch (e: Exception) {
-                Log.e("QuestionSelectionEngine", "Skipping question {q.id} due to invalid options JSON")
+                Log.e("QuestionSelectionEngine", "Skipping question ${q.id} due to invalid options JSON")
                 continue
             }
             
@@ -121,7 +121,7 @@ class QuestionSelectionEngine(
                     }
                 }
             } catch (e: Exception) {
-                Log.e("QuestionSelectionEngine", "Error parsing distractors for question {q.id}", e)
+                Log.e("QuestionSelectionEngine", "Error parsing distractors for question ${q.id}", e)
             }
             
             selectedQuestions.add(
@@ -188,12 +188,12 @@ class QuestionSelectionEngine(
                     // RECENT_FAMILY_REPETITION moderate penalty
                     score -= 5.0
                     
-                    // EXACT_REPETITION strong penalty
+                    // EXACT_REPETITION: -10 (locked invariant). Combined with recent
+                    // exposure this ranks below same-stage siblings.
                     if (familyAttempt.questionId.toString() == q.id.toString()) {
-                        score -= 20.0
-                    } else if (q.familyStage == lastStage) {
-                        // FAMILY_STAGE_REPETITION moderate penalty
                         score -= 10.0
+                    } else if (q.familyStage == lastStage) {
+                        // FAMILY_STAGE_REPETITION — already counted as recent (-5)
                     } else {
                         // DIFFERENT STAGE: apply progression logic
                         if (outcome == "INCORRECT") {

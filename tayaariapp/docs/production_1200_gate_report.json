@@ -1,0 +1,58 @@
+{
+  "count": 1200,
+  "formats": {
+    "Direct Fact": 500,
+    "Statement-based": 167,
+    "Assertion-Reason": 188,
+    "Application": 179,
+    "Matching": 166
+  },
+  "tiers": {
+    "Basic": 167,
+    "Medium": 500,
+    "Advanced": 367,
+    "Elite": 166
+  },
+  "intents": {
+    "definition": 167,
+    "attribute": 167,
+    "classification": 333,
+    "cause_effect": 188,
+    "process": 179,
+    "comparison": 166
+  },
+  "topics": {
+    "Atmospheric Layers": 98,
+    "Atmospheric Pauses": 21,
+    "Atmospheric Circulation Cells": 14,
+    "Global Planetary Wind Belts": 35,
+    "Cloud Types": 35,
+    "Terrestrial Planets": 56,
+    "Jovian Outer Planets": 77,
+    "Dwarf Planets": 59,
+    "Celestial Constellations": 35,
+    "Celestial Types": 153,
+    "Natural Satellites (Moons)": 97,
+    "Earth and Planetary Motions": 63,
+    "Major Oceans": 70,
+    "Ocean Floor Relief Features": 49,
+    "Warm Ocean Currents": 14,
+    "Cold Ocean Currents": 7,
+    "Earth Interior Layers": 151,
+    "Major Tectonic Plates": 35,
+    "Tectonic Processes": 93,
+    "Mountain Types": 18,
+    "Major Mountain Ranges": 20
+  },
+  "exams": {
+    "SSC-CGL": 167,
+    "BPSC-Prelims": 500,
+    "UPSC-Prelims": 533
+  },
+  "rejected": {
+    "NO_GROUNDED_EVIDENCE": 23,
+    "GATE_OR_QUOTA": 114
+  },
+  "contract_failures": 0,
+  "status": "PASS"
+}

@@ -614,9 +614,10 @@ def generate_batch(max_candidates: int = 150) -> Tuple[List[Dict], List[Dict], D
                 rng = random.Random(int(hashlib.md5(stem.encode()).hexdigest(), 16))
                 rng.shuffle(all_options)
                 letters = ["a","b","c","d"]
-                options = {letters[i]: all_options[i] for i in range(4)}
-                correct_letter = next(k for k, v in options.items() if v == correct_text)
+                options = [{"id": f"opt_{letters[i]}", "text": all_options[i]} for i in range(4)]
+                correct_letter = next(letters[i] for i in range(4) if all_options[i] == correct_text)
                 correct_key = f"opt_{correct_letter}"
+                option_text = {opt["id"]: opt["text"] for opt in options}
 
                 # Exact duplicate check
                 norm_stem = re.sub(r"\s+", " ", stem.lower().strip())
@@ -679,16 +680,15 @@ def generate_batch(max_candidates: int = 150) -> Tuple[List[Dict], List[Dict], D
                     "examTarget": exam_target,
                     "topicId": topic_id,
                     "topicName": topic_name,
-                    "tier": "Standard",
+                    "tier": "Medium" if cognitive == "UNDERSTAND" else ("Advanced" if cognitive in ("APPLY", "COMPARE") else "Basic"),
                     "format": "Direct Fact",
                     "pdfSequenceNumber": f"V13-PROD-{len(accepted)+1:04d}",
                     "currentnessStatus": currentness,
                     "provenance": prov,
                     "distractorDissections": [{
-                        "option": d_letter,
-                        "optionText": options[d_letter],
+                        "optionId": f"opt_{d_letter}",
                         "trapType": "FACT_DISTORTION",
-                        "rationale": f"{options[d_letter]} is a different {cat_name.replace('_',' ')} and does not match the described fact.",
+                        "dissection": f"{option_text[f'opt_{d_letter}']} is a different {cat_name.replace('_',' ')} and does not match the described fact.",
                     } for d_letter in letters if d_letter != correct_letter],
                     "valid": True,
                 }
@@ -730,7 +730,12 @@ def adversarial_audit(questions: List[Dict]) -> Tuple[List[Dict], List[Dict], Di
             failures.append("ENTITY_PLACEHOLDER_LEAK")
 
         # A3: Distractors are from same category as correct (not random noise)
-        distractor_vals = [v for k, v in opts.items() if f"opt_{k}" != q["correctAnswer"]]
+        if isinstance(opts, list):
+            distractor_vals = [o["text"] for o in opts if o.get("id") != q["correctAnswer"]]
+            opt_values = [o.get("text", "") for o in opts]
+        else:
+            distractor_vals = [v for k, v in opts.items() if f"opt_{k}" != q["correctAnswer"]]
+            opt_values = list(opts.values())
         # All distractors should be plausible - if they're rocks for a planet question, reject
         if q["topicName"] in ("The Earth in the Solar System", "Origin of Universe"):
             for d in distractor_vals:
@@ -743,7 +748,7 @@ def adversarial_audit(questions: List[Dict]) -> Tuple[List[Dict], List[Dict], Di
 
         # A5: Correct answer is actually correct (basic fact check)
         # Check that multiple correct answers are not possible from the options
-        correct_candidates = [v for v in opts.values() if v.lower() in ev.lower()]
+        correct_candidates = [v for v in opt_values if v.lower() in ev.lower()]
         if len(correct_candidates) > 1:
             # If multiple options appear in evidence, this is ambiguous
             non_correct = [c for c in correct_candidates if c.lower() != correct.lower()]
@@ -889,9 +894,12 @@ def build_artifacts(accepted, gen_rejected, gen_stats, audit_rejected, audit_sum
         ans  = q["correctAnswer"]
         lines.append(f"### Q{i:03d} | {q['topicName']} | {q['cognitiveDemand']} | {q['examTarget']}")
         lines.append(f"\n**{q['stem']}**\n")
-        for k in sorted(opts.keys()):
-            m = "correct" if f"opt_{k}" == ans else " "
-            lines.append(f"- ({k.upper()}) [{m}] {opts[k]}")
+        opt_iter = opts if isinstance(opts, list) else [{"id": f"opt_{k}", "text": v} for k, v in sorted(opts.items())]
+        for opt in opt_iter:
+            oid = opt.get("id", "")
+            letter = oid.replace("opt_", "").upper()
+            m = "correct" if oid == ans else " "
+            lines.append(f"- ({letter}) [{m}] {opt.get('text', '')}")
         lines.append(f"\n**Explanation:** {q['explanation']}")
         lines.append(f"\n*Currentness: {q.get('currentnessStatus','?')}*\n")
         lines.append("---\n")

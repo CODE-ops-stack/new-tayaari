@@ -8,27 +8,16 @@ import com.example.database.Topic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import com.google.gson.Gson
+import com.google.gson.JsonArray
+import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
 import java.io.InputStreamReader
 
 object JsonQuestionImporter {
 
     private const val TAG = "JsonQuestionImporter"
 
-    // Mapping from source file names to topic IDs
-    private val sourceToTopicMap = mapOf(
-        "geography_extracted.txt" to 1,
-        "geography_extracted_2.txt" to 2,
-        "ncert_xi_physical_geo.txt" to 3,
-        "ncert_xi_india_env.txt" to 4,
-        "ncert_xii_human_geo.txt" to 5,
-        "ncert_xii_india_economy.txt" to 6,
-        "ncert_x_geo.txt" to 7,
-        "ncert_ix_geo.txt" to 8,
-    )
-
-    // Topic definitions
     private val topicDefinitions = listOf(
         Topic(1, "1. The Earth in the Solar System", "NCERT Class VI", "Physical Geography"),
         Topic(2, "2. Globe: Latitudes and Longitudes", "NCERT Class VI", "Physical Geography"),
@@ -52,90 +41,137 @@ object JsonQuestionImporter {
         Topic(20, "20. Human & Economic Geography", "Advanced", "Human Geography"),
     )
 
-    @OptIn(ExperimentalStdlibApi::class)
     suspend fun importFromJson(context: Context, jsonFileName: String = "generated_questions_1200_clean.json") = withContext(Dispatchers.IO) {
         val database = AppDatabase.getDatabase(context)
         val dao = database.appDao()
 
         Log.d(TAG, "Starting JSON import from $jsonFileName")
 
-        // Clear existing questions
         dao.deleteUpscQuestions()
-
-        // Insert topics first
         dao.insertTopics(topicDefinitions)
 
-        // Read JSON from assets
         val inputStream = context.assets.open(jsonFileName)
         val reader = InputStreamReader(inputStream)
-        
         val gson = Gson()
-        val type: Type = TypeToken.getParameterized(List::class.java, GeneratedQuestion::class.java).type
-        val questions = gson.fromJson<List<GeneratedQuestion>>(reader, type)
+        val raw: JsonArray = gson.fromJson(reader, JsonArray::class.java)
 
-        Log.d(TAG, "Parsed ${questions.size} questions from JSON")
+        Log.d(TAG, "Parsed ${raw.size()} questions from JSON")
 
-        // Convert to Room entities
         val roomQuestions = mutableListOf<Question>()
         var imported = 0
         var skipped = 0
 
-        for ((index, q) in questions.withIndex()) {
+        for (el in raw) {
+            if (!el.isJsonObject) {
+                skipped++
+                continue
+            }
+            val obj = el.asJsonObject
             try {
-                // Determine topic ID from source file
-                val sourceFile = q.provenance.sourceFile
-                val topicId = sourceToTopicMap.entries.find { sourceFile.contains(it.key) }?.value ?: 1
-                
-                // Determine tier from provenance metadata or default
-                val tier = q.provenance.metadata?.get("tier")?.toString() ?: "Medium"
-                
-                // Format
-                val format = q.format ?: "Direct Fact"
-                
-                // Exam relevance
-                val examRelevance = "Core"
-                
-                // Specific exam
-                val specificExam = q.provenance.metadata?.get("specificExam")?.toString() ?: "General"
+                val optionsEl = obj.get("options")
+                if (optionsEl == null || !optionsEl.isJsonArray) {
+                    Log.w(TAG, "Rejected ${optString(obj, "id")}: options is not a JSON array of {id,text}")
+                    skipped++
+                    continue
+                }
+                val lockedOptions = JsonArray()
+                var optionsOk = true
+                for (optEl in optionsEl.asJsonArray) {
+                    if (!optEl.isJsonObject) {
+                        optionsOk = false
+                        break
+                    }
+                    val o = optEl.asJsonObject
+                    if (!o.has("id") || !o.has("text")) {
+                        optionsOk = false
+                        break
+                    }
+                    lockedOptions.add(o)
+                }
+                if (!optionsOk || lockedOptions.size() < 2) {
+                    Log.w(TAG, "Rejected ${optString(obj, "id")}: malformed options list")
+                    skipped++
+                    continue
+                }
+                val ids = (0 until lockedOptions.size()).map { lockedOptions[it].asJsonObject.get("id").asString }
+                val correctAnswer = optString(obj, "correctAnswer")
+                if (correctAnswer.isEmpty() || correctAnswer !in ids) {
+                    Log.w(TAG, "Rejected ${optString(obj, "id")}: correctAnswer $correctAnswer not in $ids")
+                    skipped++
+                    continue
+                }
+
+                val dissectionsEl = obj.get("distractorDissections")
+                val dissectionsJson = if (dissectionsEl != null && dissectionsEl.isJsonArray) {
+                    gson.toJson(dissectionsEl)
+                } else {
+                    "[]"
+                }
+
+                val topicId = if (obj.has("topicId") && obj.get("topicId").isJsonPrimitive) {
+                    obj.get("topicId").asInt
+                } else {
+                    1
+                }
+                val provenance = obj.getAsJsonObject("provenance")
+                val familyId = firstNonBlank(
+                    optString(obj, "familyId"),
+                    if (provenance != null) optString(provenance, "knowledgeNodeId") else ""
+                )
+                val familyStage = firstNonBlank(
+                    optString(obj, "familyStage"),
+                    if (provenance != null) optString(provenance, "intentType") else ""
+                )
 
                 val roomQuestion = Question(
                     topicId = topicId,
-                    tier = tier,
-                    format = format,
-                    examRelevance = examRelevance,
-                    source = q.provenance.sourceFile,
-                    specificExam = specificExam,
-                    questionText = q.stem,
-                    options = gson.toJson(q.options),
-                    correctAnswer = q.correctAnswer,
-                    explanation = q.explanation,
-                    distractorDissections = gson.toJson(q.distractorDissections),
+                    tier = optString(obj, "tier").ifBlank { "Medium" },
+                    format = optString(obj, "format").ifBlank { "Direct Fact" },
+                    examRelevance = "Core",
+                    source = if (provenance != null) optString(provenance, "sourceFile") else "generated",
+                    specificExam = optString(obj, "examTarget").ifBlank { "General" },
+                    questionText = optString(obj, "stem"),
+                    options = gson.toJson(lockedOptions),
+                    correctAnswer = correctAnswer,
+                    explanation = optString(obj, "explanation"),
+                    distractorDissections = dissectionsJson,
                     imageUrl = "",
-                    familyId = q.provenance.knowledgeNodeId,
-                    familyStage = q.provenance.intentType
+                    familyId = familyId.ifBlank { null },
+                    familyStage = familyStage.ifBlank { null }
                 )
-                
                 roomQuestions.add(roomQuestion)
                 imported++
             } catch (e: Exception) {
-                Log.w(TAG, "Failed to convert question ${q.id}: ${e.message}")
+                Log.w(TAG, "Failed to convert question: ${e.message}")
                 skipped++
             }
         }
 
         Log.d(TAG, "Converted $imported questions, skipped $skipped")
 
-        // Batch insert
         if (roomQuestions.isNotEmpty()) {
             dao.insertQuestions(roomQuestions)
             Log.d(TAG, "Successfully inserted ${roomQuestions.size} questions into database")
         }
 
-        // Verify
         val count = dao.getQuestionCount()
         Log.d(TAG, "Total questions in database: $count")
 
         ImportResult(success = true, importedCount = imported, skippedCount = skipped, totalInDb = count)
+    }
+
+    private fun optString(obj: JsonObject, key: String): String {
+        val el: JsonElement? = obj.get(key)
+        if (el == null || el.isJsonNull) return ""
+        return try {
+            if (el.isJsonPrimitive) el.asString else el.toString()
+        } catch (e: Exception) {
+            ""
+        }
+    }
+
+    private fun firstNonBlank(vararg values: String): String {
+        return values.firstOrNull { it.isNotBlank() } ?: ""
     }
 
     data class ImportResult(
@@ -143,54 +179,5 @@ object JsonQuestionImporter {
         val importedCount: Int,
         val skippedCount: Int,
         val totalInDb: Int
-    )
-
-    data class GeneratedQuestion(
-        val id: String,
-        val stem: String,
-        val options: Map<String, String>,
-        val correctAnswer: String,
-        val explanation: String,
-        val distractorDissections: List<DistractorDissection>,
-        val provenance: ProvenanceData,
-        val cognitiveDemand: String,
-        val examTarget: String,
-        val tier: String,
-        val format: String,
-        val topicId: Int,
-        val topicName: String,
-        val pdfSequenceNumber: String,
-        val valid: Boolean = true
-    )
-
-    data class DistractorDissection(
-        val optionId: String,
-        val trapType: String,
-        val dissection: String
-    )
-
-    data class ProvenanceData(
-        val questionId: String,
-        val questionStem: String,
-        val intentType: String,
-        val knowledgeNodeId: String,
-        val evidenceText: String,
-        val sourceFile: String,
-        val sourceLocation: SourceLocation,
-        val provenanceHash: String,
-        val createdAt: String,
-        val schemaVersion: String,
-        val metadata: Map<String, Any>?,
-        val linkHashes: Map<String, String>?
-    )
-
-    data class SourceLocation(
-        val sourceId: String,
-        val sentence_count: Int,
-        val section_heading: String,
-        val concept: String,
-        val sentence_idx: Int,
-        val block_id: String,
-        val has_antecedent: Boolean
     )
 }

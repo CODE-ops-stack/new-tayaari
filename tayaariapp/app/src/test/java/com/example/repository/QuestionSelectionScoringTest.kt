@@ -1,4 +1,4 @@
-﻿package com.example.repository
+package com.example.repository
 
 import android.content.Context
 import androidx.room.Room
@@ -74,8 +74,8 @@ class QuestionSelectionScoringTest {
         
         assertEquals(3, selected.size)
         assertEquals("3", selected[0].id) // +20 progression bonus -> highest score
-        assertEquals("2", selected[1].id) // -10 family stage match -> middle score
-        assertEquals("1", selected[2].id) // -20 exact match -> lowest score
+        assertEquals("2", selected[1].id) // -5 recent family -> middle score
+        assertEquals("1", selected[2].id) // -10 exact + -5 recent -> lowest score
     }
     
     private fun createFamilyQuestion(id: Int, familyId: String, familyStage: String): Question {

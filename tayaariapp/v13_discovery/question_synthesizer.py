@@ -303,7 +303,7 @@ class OntologyRegistry:
         return self.categories.get(cid)
 
     def find_category_for_entity(self, entity: str) -> Optional[CategoryDefinition]:
-        """Resolves the category definition for an entity string or descriptive phrase."""
+        """Exact entity match + controlled aliases only. Unknown → None (never guess)."""
         if not entity:
             return None
         clean = entity.strip().lower()
@@ -314,41 +314,27 @@ class OntologyRegistry:
         norm = re.sub(r"^(?:the|a|an)\s+", "", clean).strip()
         if norm in self.entity_to_category:
             return self.categories[self.entity_to_category[norm]]
-        for ent, cat_id in self.entity_to_category.items():
-            if len(ent) < 4:
-                continue
-            if ent in clean or clean in ent:
-                return self.categories[cat_id]
+        if norm in self.alias_to_category:
+            return self.categories[self.alias_to_category[norm]]
         return None
 
     def get_siblings(self, entity: str, limit: int = 3) -> List[str]:
         """
         Retrieves domain siblings for an entity, strictly excluding the entity itself.
         Deterministic ordering via md5 so repeated runs are stable.
+
+        Unknown category → empty list (no silent rock_types / first-category fallback).
         """
         cat = self.find_category_for_entity(entity)
         if not cat:
-            cat = self.categories.get("rock_types") or list(self.categories.values())[0]
+            return []
         clean_ent = entity.strip().lower()
-        siblings = [
-            m for m in cat.members
-            if m.lower() != clean_ent
-            and (clean_ent in m.lower() or m.lower() in clean_ent)
-        ]
-        seed_val = int(hashlib.md5(entity.encode("utf-8")).hexdigest(), 16)
-        shuffled = list(siblings)
-        shuffled.sort(key=lambda key: (seed_val, key))
-        result = shuffled[0:limit]
-        if len(result) < limit:
-            # Top up from the rest of the category, still excluding the entity
-            # itself and anything already chosen, so a 4-option question stays
-            # constructible for small categories. Deterministic.
-            for m in cat.members:
-                if m.lower() != clean_ent and m not in result:
-                    result.append(m)
-                if len(result) >= limit:
-                    break
-        return result
+        siblings = [m for m in cat.members if m.lower() != clean_ent]
+        shuffled = sorted(
+            siblings,
+            key=lambda key: hashlib.md5(f"{entity}|{key}".encode("utf-8")).hexdigest(),
+        )
+        return shuffled[:limit]
 
     def _load_core_taxonomies(self) -> None:
         """
@@ -369,6 +355,7 @@ class OntologyRegistry:
         self.register_category(CategoryDefinition(category_id='jovian_planets', domain='astronomy', display_name='Jovian Outer Planets', entity_type='PROPER_NOUN', grammatical_number='SINGULAR', members=['Jupiter', 'Saturn', 'Uranus', 'Neptune'], descriptions={'Jupiter': 'Largest planet in the solar system with prominent gaseous bands and Great Red Spot.', 'Saturn': 'Famous for spectacular rings made of ice, dust, and rock debris; lowest density.', 'Uranus': 'Ice giant with extreme axial tilt (98 degrees), rotating almost on its side.', 'Neptune': 'Farthest giant planet with intense supersonic winds and deep blue methane atmosphere.'}, aliases={'gas giants': 'jovian_planets', 'outer planets': 'jovian_planets'}, default_traps=['FACT_DISTORTION', 'CONCEPT_MIX']))
         self.register_category(CategoryDefinition(category_id='dwarf_planets', domain='astronomy', display_name='Dwarf Planets', entity_type='PROPER_NOUN', grammatical_number='SINGULAR', members=['Pluto', 'Ceres', 'Eris', 'Haumea', 'Makemake'], descriptions={'Pluto': 'Dwarf planet in the Kuiper belt, formerly classified as the ninth planet until 2006.', 'Ceres': 'Largest body and only dwarf planet in the asteroid belt between Mars and Jupiter.', 'Eris': 'Massive trans-Neptunian dwarf planet whose discovery led to IAU reclassification of Pluto.', 'Haumea': 'Elongated, rapidly rotating Kuiper belt dwarf planet known for its ring system.', 'Makemake': 'Extremely bright Kuiper belt dwarf planet with surface covered in frozen methane.'}, default_traps=['CONCEPT_MIX', 'FACT_DISTORTION']))
         self.register_category(CategoryDefinition(category_id='constellations', domain='astronomy', display_name='Celestial Constellations', entity_type='PROPER_NOUN', grammatical_number='SINGULAR', members=['Ursa Major', 'Saptarishi', 'Orion', 'Cassiopeia', 'Ursa Minor'], descriptions={'Ursa Major': 'Great Bear constellation containing the seven prominent pointer stars.', 'Saptarishi': 'Group of seven easily identifiable stars forming part of Ursa Major that point to the Pole Star.', 'Orion': 'The Hunter constellation visible during winter evenings featuring Betelgeuse and Rigel.', 'Cassiopeia': 'W-shaped constellation located in the northern sky visible during winter.', 'Ursa Minor': 'Little Bear constellation containing the North Star (Polaris) at the end of its tail.'}, aliases={'constellation': 'constellations'}, default_traps=['FAMILIARITY_TRAP', 'CONCEPT_MIX']))
+        self.register_category(CategoryDefinition(category_id='celestial_types', domain='astronomy', display_name='Celestial Types', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Star', 'Planet', 'Satellite', 'Asteroid', 'Comet', 'Meteoroid', 'Galaxy', 'Nebula', 'Dwarf Planet'], descriptions={'Star': 'Self-luminous celestial body of hot gases that generates energy by nuclear fusion.', 'Planet': 'Celestial body revolving around a star, not producing its own light.', 'Satellite': 'Celestial body that revolves around a planet.', 'Asteroid': 'Small rocky body orbiting the Sun, mostly between Mars and Jupiter.', 'Comet': 'Icy body that develops a glowing coma and tail when near the Sun.', 'Meteoroid': 'Small rocky or metallic body in the solar system, smaller than an asteroid.', 'Galaxy': 'Vast system of stars, gas and dust bound by gravity, such as the Milky Way.', 'Nebula': 'Cloud of gas and dust in space, often a region of star formation.', 'Dwarf Planet': 'Celestial body orbiting the Sun that has not cleared its neighbourhood, such as Pluto.'}, aliases={'celestial body': 'celestial_types', 'celestial bodies': 'celestial_types', 'heavenly body': 'celestial_types'}, default_traps=['CONCEPT_MIX', 'FACT_DISTORTION', 'FAMILIARITY_TRAP']))
         self.register_category(CategoryDefinition(category_id='moons', domain='astronomy', display_name='Natural Satellites (Moons)', entity_type='PROPER_NOUN', grammatical_number='SINGULAR', members=['Moon', 'Phobos', 'Deimos', 'Ganymede', 'Europa', 'Callisto', 'Titan', 'Triton', 'Io', 'Charon'], descriptions={'Moon': "Earth's only natural satellite, orbits in 27.3 days, causes tides.", 'Phobos': 'Larger and inner moon of Mars, irregular shape, orbits in 7.6 hours.', 'Deimos': 'Smaller and outer moon of Mars, irregular shape, orbits in 30.3 hours.', 'Ganymede': 'Largest moon in the Solar System, orbits Jupiter, larger than Mercury.', 'Europa': 'Moon of Jupiter with subsurface ocean beneath icy crust.', 'Callisto': 'Heavily cratered moon of Jupiter, outermost Galilean moon.', 'Titan': 'Largest moon of Saturn, thick nitrogen atmosphere, hydrocarbon lakes.', 'Triton': 'Largest moon of Neptune, retrograde orbit, geologically active.', 'Io': 'Innermost Galilean moon of Jupiter, most volcanically active body in Solar System.', 'Charon': "Largest moon of Pluto, nearly half Pluto's size, tidally locked."}, aliases={'moon': 'moons', 'natural satellite': 'moons', 'natural satellites': 'moons', 'satellite': 'moons'}, default_traps=['CONCEPT_MIX', 'FACT_DISTORTION', 'FAMILIARITY_TRAP']))
         self.register_category(CategoryDefinition(category_id='planetary_motions', domain='astronomy', display_name='Earth and Planetary Motions', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Rotation', 'Revolution', 'Precession', 'Axial Tilt', 'Nutation'], descriptions={'Rotation': 'Movement of Earth on its axis once every 24 hours causing day and night.', 'Revolution': 'Movement of Earth around the Sun in an elliptical orbit in 365.25 days causing seasons.', 'Precession': "Slow wobble of Earth's rotational axis in a 26,000-year cycle altering pointer stars.", 'Axial Tilt': "Inclination of Earth's axis at 23.5 degrees to the perpendicular of its orbital plane.", 'Nutation': "Small periodic oscillation superimposed on the precession of Earth's rotational axis."}, default_traps=['CONCEPT_MIX', 'FACT_DISTORTION']))
         self.register_category(CategoryDefinition(category_id='major_oceans', domain='oceanography', display_name='Major Oceans', entity_type='PROPER_NOUN', grammatical_number='SINGULAR', members=['Pacific Ocean', 'Atlantic Ocean', 'Indian Ocean', 'Southern Ocean', 'Arctic Ocean'], descriptions={'Pacific Ocean': 'Largest ocean covering one-third of the earth; contains Mariana Trench.', 'Atlantic Ocean': 'S-shaped ocean with highly indented coastline, busiest for commercial shipping.', 'Indian Ocean': 'Only ocean named after a country; triangular in shape.', 'Southern Ocean': 'Encircles the continent of Antarctica extending to 60°S latitude.', 'Arctic Ocean': 'Surrounds the North Pole within the Arctic Circle, connected via Bering Strait.'}, aliases={'oceans': 'major_oceans'}, default_traps=['FACT_DISTORTION', 'CONCEPT_MIX']))
@@ -380,7 +367,7 @@ class OntologyRegistry:
         self.register_category(CategoryDefinition(category_id='tectonic_processes', domain='geomorphology', display_name='Tectonic Processes', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Subduction', 'Seafloor Spreading', 'Continental Drift', 'Plate Tectonics', 'Orogeny', 'Rifting', 'Faulting', 'Folding'], descriptions={'Subduction': 'Process where a denser oceanic plate plunges beneath a lighter continental plate into the mantle.', 'Seafloor Spreading': 'Process where new oceanic crust forms at mid-ocean ridges and spreads outward.', 'Continental Drift': "Gradual movement of continents across Earth's surface over geological time.", 'Plate Tectonics': "Theory explaining Earth's lithosphere as divided into plates that move over the asthenosphere.", 'Orogeny': 'Mountain-building process through tectonic plate collision and crustal deformation.', 'Rifting': 'Process where lithosphere stretches and thins, forming rift valleys and new plate boundaries.', 'Faulting': 'Fracturing and displacement of rock layers along a plane of weakness due to tectonic stress.', 'Folding': 'Bending of rock layers due to compressional forces, creating anticlines and synclines.'}, aliases={'tectonic process': 'tectonic_processes', 'plate tectonics': 'tectonic_processes'}, default_traps=['CONCEPT_MIX', 'FACT_DISTORTION', 'TIMELINE_MISMATCH']))
         self.register_category(CategoryDefinition(category_id='mountain_types', domain='geomorphology', display_name='Mountain Types', entity_type='COMMON_NOUN', grammatical_number='PLURAL', members=['Fold Mountains', 'Block Mountains', 'Volcanic Mountains', 'Residual Mountains'], descriptions={'Fold Mountains': 'Mountains formed by tectonic compressional forces buckling continental sedimentary strata.', 'Block Mountains': 'Horst landforms created when large land masses are uplifted between crustal faults.', 'Volcanic Mountains': 'Mountains built up by accumulated lava, tephra, and ash extruded through volcanic vents.', 'Residual Mountains': 'Relict elevated landforms remaining after surrounding strata have been lowered by erosion.'}, default_traps=['CONCEPT_MIX', 'FACT_DISTORTION']))
         self.register_category(CategoryDefinition(category_id='mountain_ranges', domain='geomorphology', display_name='Major Mountain Ranges', entity_type='PROPER_NOUN', grammatical_number='PLURAL', members=['Himalayas', 'Alps', 'Andes', 'Rockies', 'Appalachians', 'Urals', 'Aravallis', 'Western Ghats'], descriptions={'Himalayas': 'Young fold mountains of Asia with rugged relief and conical peaks.', 'Alps': 'Young fold mountain system of central Europe formed during Alpine orogeny.', 'Andes': "World's longest continental mountain range running along western South America.", 'Rockies': 'Major mountain system of western North America extending from Canada to New Mexico.', 'Appalachians': 'Old fold mountains of eastern North America with rounded relief shaped by erosion.', 'Urals': 'Ancient fold mountain range marking the geographical boundary between Europe and Asia.', 'Aravallis': 'One of the oldest fold mountain ranges in the world, heavily eroded.', 'Western Ghats': 'Mountain range running parallel to the western coast of India.'}, default_traps=['TIMELINE_MISMATCH', 'CONCEPT_MIX', 'FACT_DISTORTION']))
-        self.register_category(CategoryDefinition(category_id='fluvial_landforms', domain='geomorphology', display_name='Geomorphic Landforms', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Oxbow lake', 'Delta', 'Gorge', 'Meander', 'Floodplain', 'Alluvial fan'], descriptions={'Oxbow lake': 'Crescent-shaped lake formed when a river meander is cut off from the main channel.', 'Delta': 'Triangular deposit of sediment at the mouth of a river where it enters standing water.', 'Gorge': 'Deep, narrow valley with very steep rocky sides, carved by active vertical river erosion.', 'Meander': 'Looping curve or bend in a river channel formed by lateral erosion and deposition.', 'Floodplain': 'Flat expanse of land adjacent to a river formed by successive layers of fertile silt deposition.', 'Alluvial fan': 'Cone-shaped deposit of river sediment formed where a steep mountain stream flows onto a flat plain.'}, aliases={'geomorphic landforms': 'fluvial_landforms', 'geomorphic features': 'fluvial_landforms', 'landforms': 'fluvial_landforms'}, default_traps=['CONCEPT_MIX', 'FAMILIARITY_TRAP']))
+        self.register_category(CategoryDefinition(category_id='fluvial_landforms', domain='geomorphology', display_name='Geomorphic Landforms', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Oxbow lake', 'Delta', 'Gorge', 'Meander', 'Floodplain', 'Alluvial fan'], descriptions={'Oxbow lake': 'Crescent-shaped lake formed when a river meander is cut off from the main channel.', 'Delta': 'Triangular deposit of sediment at the mouth of a river where it enters standing water.', 'Gorge': 'Deep, narrow valley with very steep rocky sides, carved by active vertical river erosion.', 'Meander': 'Looping curve or bend in a river channel formed by lateral erosion and deposition.', 'Floodplain': 'Flat expanse of land adjacent to a river formed by successive layers of fertile silt deposition.', 'Alluvial fan': 'Cone-shaped deposit of river sediment formed where a steep mountain stream flows onto a flat plain.'}, aliases={'geomorphic landforms': 'fluvial_landforms', 'geomorphic features': 'fluvial_landforms', 'landforms': 'fluvial_landforms', 'physical feature': 'fluvial_landforms'}, default_traps=['CONCEPT_MIX', 'FAMILIARITY_TRAP']))
         self.register_category(CategoryDefinition(category_id='glacial_landforms', domain='geomorphology', display_name='Glacial Landforms', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Cirque', 'Arete', 'Horn', 'U-shaped valley', 'Moraine', 'Esker', 'Drumlin'], descriptions={'Cirque': 'Steep-walled, hollow amphitheatre carved into a mountain crest by alpine glacier plucking.', 'Arete': 'Knife-edge rocky ridge formed between two adjacent glaciated cirque valleys.', 'Horn': 'Pyramidal mountain peak formed when multiple glaciers gouge cirques on three or more sides.', 'U-shaped valley': 'Deep, steep-sided valley with flat floor carved by glacial scouring of a pre-existing valley.', 'Moraine': 'Unsorted glacial debris and till deposited along edges or terminus of a glacier.', 'Esker': 'Sinuous ridge of stratified sand and gravel deposited by subglacial meltwater streams.', 'Drumlin': 'Tear-drop shaped elongated hill of compact glacial till aligned with ice flow direction.'}, default_traps=['CONCEPT_MIX', 'FACT_DISTORTION']))
         self.register_category(CategoryDefinition(category_id='aeolian_landforms', domain='geomorphology', display_name='Aeolian Landforms', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Mushroom rock', 'Yardang', 'Zeugen', 'Inselberg', 'Barchan', 'Loess'], descriptions={'Mushroom rock': 'Rock pedestal shaped by wind-blown sand abrasion concentrated near ground level.', 'Yardang': 'Sharp, streamlined wind-carved ridge aligned parallel to prevailing desert winds.', 'Zeugen': 'Tabular landform formed by differential weathering of horizontal hard and soft rock layers.', 'Inselberg': 'Isolated steep-sided residual hill rising abruptly from an arid or semi-arid plain.', 'Barchan': 'Crescent-shaped sand dune with horns pointing downwind formed in areas of unidirectional wind.', 'Loess': 'Extensive accumulation of wind-blown, fine silt particles transported from arid or glacial regions.'}, default_traps=['CONCEPT_MIX', 'FAMILIARITY_TRAP']))
         self.register_category(CategoryDefinition(category_id='coastal_landforms', domain='geomorphology', display_name='Coastal Landforms', entity_type='COMMON_NOUN', grammatical_number='SINGULAR', members=['Sea cave', 'Sea arch', 'Stack', 'Sea cliff', 'Wave-cut platform', 'Spit'], descriptions={'Sea cave': 'Hollow excavated by hydraulic action and abrasion along weakness zones in rocky coastlines.', 'Sea arch': 'Coastal opening formed when two opposing sea caves erode completely through a headland.', 'Stack': 'Isolated vertical rock column left standing in the ocean after a sea arch collapses.', 'Sea cliff': 'Steep coastal rock face formed by continuous wave undercutting and subsequent rockfalls.', 'Wave-cut platform': 'Flat rock bench sloping gently seaward carved by wave erosion at low-tide level.', 'Spit': 'Narrow ridge of sand or shingle deposited across an estuary mouth by longshore drift.'}, default_traps=['CONCEPT_MIX', 'TIMELINE_MISMATCH']))
@@ -1096,6 +1083,12 @@ class QuestionSynthesizer:
 
         cat = self.ontology.find_category_for_entity(entity)
         if cat is None:
+            # Named entity that is not in the ontology must be rejected.
+            # Evidence scan is allowed only when the extractor could not name an entity.
+            if entity and str(entity).strip():
+                return self._create_invalid_question(
+                    node_id, node, "Unknown category — no silent fallback"
+                )
             cat = self._resolve_category_from_evidence(evidence)
         if cat is None:
             return self._create_invalid_question(
@@ -1168,7 +1161,21 @@ class QuestionSynthesizer:
         # Learner-facing text must show the DISPLAYED letter, not the internal
         # option id. DataImporter.kt slices the explanation at the correct-answer
         # boundary, so the prefix has to be exactly "Option (X) is correct.".
-        explanation = f"Option ({correct_letter.upper()}) is correct. {evidence}".strip()
+        # Explanation is derived from the same knowledge unit (category description),
+        # not a raw source dump.
+        unit_desc = ""
+        if cat:
+            unit_desc = (cat.descriptions or {}).get(correct_answer_text, "") or ""
+        if unit_desc:
+            explanation = (
+                f"Option ({correct_letter.upper()}) is correct. "
+                f"{correct_answer_text}: {unit_desc}".strip()
+            )
+        else:
+            explanation = (
+                f"Option ({correct_letter.upper()}) is correct. "
+                f"{correct_answer_text} is the entity that satisfies the stem."
+            )
         qid = f"q_{uuid.uuid4().hex[:12]}"
         # Deterministic: hash() is salted per process, md5 is not.
         seq_num = int(hashlib.md5(qid.encode("utf-8")).hexdigest(), 16) % 900 + 100
@@ -1179,6 +1186,18 @@ class QuestionSynthesizer:
         else:
             cog_demand = "UNDERSTAND"
 
+        if cog_demand == "RECALL":
+            assigned_tier = "Basic"
+        elif cog_demand == "UNDERSTAND":
+            assigned_tier = "Medium"
+        elif cog_demand == "APPLY":
+            assigned_tier = "Advanced"
+        else:
+            assigned_tier = "Elite"
+        assigned_exam = "UPSC-Prelims" if assigned_tier in {"Advanced", "Elite"} else (
+            "BPSC-Prelims" if assigned_tier == "Medium" else "SSC-CGL"
+        )
+
         cq = CandidateQuestion(
             id=qid,
             stem=stem,
@@ -1188,8 +1207,8 @@ class QuestionSynthesizer:
             distractorDissections=dissections,
             provenance={},
             cognitiveDemand=cog_demand,
-            examTarget="UPSC-Prelims",
-            tier="Standard",
+            examTarget=assigned_exam,
+            tier=assigned_tier,
             format="Direct Fact",
             topicId=1,
             topicName=cat.display_name if cat else "Physical Geography",
