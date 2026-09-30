@@ -80,6 +80,8 @@ def validate_stem(q: Any) -> List[str]:
         errors.append("STEM_MALFORMED_PUNCTUATION")
     if OCR_JUNK_RE.search(stem):
         errors.append("STEM_OCR_OR_TEMPLATE_JUNK")
+    if re.search(r"\ban earth['’]s\b|\ba himalayan\b|\ba trans-himalayan\b", stem, re.I):
+        errors.append("STEM_ARTICLE_ERROR")
     if ".." in stem:
         errors.append("STEM_DOUBLE_PERIOD")
     if re.search(r"\bdefined as [A-Z]", stem) and "Assertion" not in stem:

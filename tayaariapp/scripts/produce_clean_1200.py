@@ -96,20 +96,44 @@ def tidy(desc: str) -> str:
     return d
 
 
+PROPER_ADJ = {
+    "himalayan", "trans-himalayan", "indian", "pacific", "atlantic", "arctic",
+    "southern", "galilean", "deccan", "kuiper", "western", "eastern", "northern",
+    "great", "inner", "outer",
+}
+
+
 def as_np(desc: str) -> str:
     """Turn a knowledge-unit description into a grammatical noun/verb phrase."""
     d = tidy(desc)
     if not d:
         return d
     first = d.split()[0]
-    if first.lower() in VERB_FIRST:
-        if first.lower() not in PROPER_FIRST:
-            d = first.lower() + d[len(first):]
+    fl = first.lower()
+    base = re.sub(r"['’]s$", "", fl)
+
+    if fl in VERB_FIRST:
+        return first.lower() + d[len(first):]
+
+    # Possessive proper nouns: Earth's only natural satellite
+    if re.search(r"['’]s$", first):
         return d
-    if first.lower() not in PROPER_FIRST and not first.isupper():
-        d = first.lower() + d[len(first):]
+
     if re.match(r"^(the|a|an)\b", d, re.I):
         return d
+
+    # Proper names / adjectives keep original capitalisation
+    if base in PROPER_FIRST or fl in PROPER_ADJ or fl.startswith("trans-"):
+        if fl in {
+            "himalayan", "trans-himalayan", "pacific", "atlantic", "indian",
+            "arctic", "southern", "great",
+        }:
+            return "the " + d
+        return d
+
+    if first[0].isupper() and first.lower() not in PROPER_FIRST:
+        d = first.lower() + d[len(first):]
+
     if re.match(
         r"^(lowest|outermost|innermost|largest|smallest|longest|major|main|"
         r"cold|warm|fine|coarse|thick|thin|rigid|molten|solid|only|"
@@ -309,7 +333,7 @@ def build_definition(entity, cat, desc, sibs, seed):
 def build_attribute(entity, cat, desc, sibs, seed):
     np = as_np(desc)
     stem = (
-        f"With reference to {cat.display_name.lower()}, "
+        f"With reference to {cat.display_name}, "
         f"which one of the following is {np}?"
     )
     options, cid = shuffle_values(entity, sibs, seed + "|attr")
@@ -386,7 +410,7 @@ def build_assertion(entity, cat, desc, sibs, seed):
 def build_application(entity, cat, desc, sibs, seed):
     np = as_np(desc)
     stem = (
-        f"A student notes a feature of {cat.display_name.lower()} that is {np}. "
+        f"A student notes a feature of {cat.display_name} that is {np}. "
         f"Which one of the following does this identify?"
     )
     options, cid = shuffle_values(entity, sibs, seed + "|app")
