@@ -1,4 +1,4 @@
-﻿package com.example
+package com.example
 
 import android.os.Bundle
 import android.util.Log
@@ -38,17 +38,26 @@ import com.example.ui.screens.RevisionDashboardScreen
 import com.example.viewmodel.BookmarksViewModel
 import com.example.repository.UserPreferencesRepository
 import com.example.ui.screens.OnboardingScreen
+import com.example.ui.screens.AuthScreen
 import com.example.viewmodel.MainViewModel
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+private const val QUESTION_BANK_VERSION = 5
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val db = AppDatabase.getDatabase(applicationContext)
+                val db = AppDatabase.getDatabase(applicationContext)
+        val authFactory = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                return com.example.viewmodel.AuthViewModel(db.userDao()) as T
+            }
+        }
         val localRepository = LocalRepository(
             bookmarkDao = db.bookmarkDao(),
             trapAnalyticsDao = db.trapAnalyticsDao(),
@@ -63,16 +72,19 @@ class MainActivity : ComponentActivity() {
 
         enableEdgeToEdge()
         
-        // Import questions from JSON if database is empty (run on IO thread)
-        CoroutineScope(Dispatchers.IO).launch {
+        // Sync questions dynamically from Cloud CDN repository (IO thread)
+        lifecycleScope.launch(Dispatchers.IO) {
             val questionCount = db.appDao().getQuestionCount()
-            if (questionCount == 0) {
-                Log.d("MainActivity", "Database empty, importing questions from JSON...")
-                val result = JsonQuestionImporter.importFromJson(this@MainActivity)
-                Log.d("MainActivity", "Import result: $result")
-            } else {
-                Log.d("MainActivity", "Database already has $questionCount questions, skipping import")
+            val syncResult = com.example.repository.CloudQuestionSyncService.syncWithCloud(this@MainActivity)
+            Log.d("MainActivity", "Cloud Sync Result: $syncResult")
+            if (syncResult is com.example.repository.CloudQuestionSyncService.SyncResult.Failure && !syncResult.usingCache && questionCount == 0) {
+                Log.w("MainActivity", "Cloud database fetch failed on first launch: ${syncResult.message}")
             }
+        }
+
+        // Autonomous Over-The-Air (OTA) APK update trigger on launch
+        lifecycleScope.launch(Dispatchers.IO) {
+            com.example.updater.AppUpdateManager.checkForUpdates(applicationContext, autoDownload = true)
         }
         
         val practiceFactory = object : ViewModelProvider.Factory {
@@ -129,7 +141,7 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 val mainViewModel: MainViewModel = viewModel(factory = mainFactory)
                 val isLoading by mainViewModel.isLoading.collectAsStateWithLifecycle()
-                val selectedProfile by mainViewModel.selectedProfile.collectAsStateWithLifecycle()
+                val selectedProfiles by mainViewModel.selectedProfiles.collectAsStateWithLifecycle()
 
                 val showSplash = androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(true) }
 
@@ -138,12 +150,32 @@ class MainActivity : ComponentActivity() {
                     showSplash.value = false
                 }
                 
+                val loggedInUserId by mainViewModel.loggedInUserId.collectAsStateWithLifecycle()
+                
                 if (showSplash.value || isLoading) {
                     com.example.ui.screens.SplashScreen()
-                } else if (selectedProfile == null) {
+                } else if (loggedInUserId == null) {
+                    val authViewModel: com.example.viewmodel.AuthViewModel = viewModel(factory = authFactory)
+                    val authUiState by authViewModel.uiState.collectAsStateWithLifecycle()
+                    AuthScreen(
+                        uiState = authUiState,
+                        onUsernameChange = authViewModel::onUsernameChange,
+                        onPasswordChange = authViewModel::onPasswordChange,
+                        onToggleMode = authViewModel::toggleMode,
+                        onSubmit = {
+                            authViewModel.authenticate { userId ->
+                                mainViewModel.loginUser(userId)
+                            }
+                        },
+                        onGuestLogin = {
+                            mainViewModel.loginUser(1)
+                            mainViewModel.saveProfiles(listOf(com.example.model.ExamBlueprintRegistry.blueprints.first()))
+                        }
+                    )
+                } else if (selectedProfiles.isEmpty()) {
                     OnboardingScreen(
-                        onProfileSelected = { profile ->
-                            mainViewModel.saveProfile(profile)
+                        onProfilesSelected = { profiles ->
+                            mainViewModel.saveProfiles(profiles)
                         }
                     )
                 } else {
@@ -156,16 +188,25 @@ class MainActivity : ComponentActivity() {
                     val topicViewModel: TopicSelectionViewModel = viewModel(factory = topicFactory)
                     val topics by topicViewModel.topics.collectAsStateWithLifecycle()
                     val nextAction by topicViewModel.nextAction.collectAsStateWithLifecycle()
+                    val isSyncing by topicViewModel.isSyncing.collectAsStateWithLifecycle()
+                    val syncStatusMessage by topicViewModel.syncStatusMessage.collectAsStateWithLifecycle()
+                    val updateState by com.example.updater.AppUpdateManager.updateState.collectAsStateWithLifecycle()
                     
                     NavHost(navController = navController, startDestination = "topics") {
                         composable("topics") {
                             TopicSelectionScreen(
                                 topics = topics,
                                 nextAction = nextAction,
-                                profile = selectedProfile,
-                                                                  onTopicSelected = { topicName, tier, format ->
+                                profile = selectedProfiles.firstOrNull(),
+                                isSyncing = isSyncing,
+                                syncStatusMessage = syncStatusMessage,
+                                updateState = updateState,
+                                onTopicSelected = { topicName, tier, format ->
                                       topicViewModel.onPracticeIntent(topicName, tier, format) { t, r, f ->
-                                          navController.navigate("practice///")
+                                          val encT = android.net.Uri.encode(t)
+                                          val encR = android.net.Uri.encode(r)
+                                          val encF = android.net.Uri.encode(f)
+                                          navController.navigate("practice/$encT/$encR/$encF")
                                       }
                                   },
                                 onBookmarksClick = {
@@ -183,8 +224,22 @@ class MainActivity : ComponentActivity() {
                                 onReadinessClick = {
                                     navController.navigate("readiness")
                                 },
+                                onInsightsClick = {
+                                    navController.navigate("insights")
+                                },
                                 onChangeExam = {
                                     mainViewModel.clearProfile()
+                                },
+                                onRefreshSync = {
+                                    topicViewModel.refreshFromCloud(this@MainActivity)
+                                    lifecycleScope.launch(Dispatchers.IO) {
+                                        com.example.updater.AppUpdateManager.checkForUpdates(applicationContext, autoDownload = true)
+                                    }
+                                },
+                                onCheckUpdate = {
+                                    lifecycleScope.launch(Dispatchers.IO) {
+                                        com.example.updater.AppUpdateManager.checkForUpdates(applicationContext, autoDownload = true)
+                                    }
                                 }
                             )
                         }
@@ -193,7 +248,7 @@ class MainActivity : ComponentActivity() {
                 composable("insights") {
                     InsightsDashboardScreen(
                         localRepository = localRepository,
-                        profile = selectedProfile,
+                        profile = selectedProfiles.firstOrNull(),
                         onStartMistakeReplay = { navController.navigate("mistake_replay") },
                         onBack = { navController.popBackStack() }
                     )
@@ -217,9 +272,9 @@ class MainActivity : ComponentActivity() {
                             val tier = android.net.Uri.decode(backStackEntry.arguments?.getString("tier") ?: "")
                             val format = android.net.Uri.decode(backStackEntry.arguments?.getString("format") ?: "")
                             
-                            androidx.compose.runtime.LaunchedEffect(topicName, tier, format, selectedProfile) {
-                                if (selectedProfile != null) {
-                                    viewModel.startPractice(topicName, selectedProfile!!, tier, format)
+                            androidx.compose.runtime.LaunchedEffect(topicName, tier, format, selectedProfiles) {
+                                if (selectedProfiles.isNotEmpty()) {
+                                    viewModel.startPractice(topicName, selectedProfiles.first(), tier, format)
                                 }
                             }
                             
@@ -230,13 +285,14 @@ class MainActivity : ComponentActivity() {
                                 uiState = uiState,
                                 onOptionSelected = viewModel::onOptionPending,
                                 onOptionCrossOut = viewModel::toggleOptionCrossedOut,
-                                onSubmitAnswerWithConfidence = viewModel::submitAnswerWithConfidence,
+                                onSubmitAnswer = viewModel::submitAnswer,
                                 onBookmarkToggle = viewModel::toggleBookmark,
                                 onPrevious = viewModel::generatePreviousQuestion,
                                 onSkip = viewModel::skipQuestion,
                                 onNext = viewModel::generateNextQuestion,
                                 onDashboardClick = { navController.navigate("dashboard") },
                                 onRestart = viewModel::restartPractice,
+                                  onJumpToQuestion = viewModel::jumpToQuestion,
                                 onBack = { navController.popBackStack() }
                             )
                         }
@@ -256,12 +312,12 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("papertwin") {
-                            val profile = mainViewModel.selectedProfile.collectAsStateWithLifecycle().value
+                            val profile = mainViewModel.selectedProfiles.collectAsStateWithLifecycle().value.firstOrNull()
                             val paperTwinViewModel: com.example.viewmodel.PaperTwinViewModel = viewModel(factory = paperTwinFactory)
                             if (profile != null) {
                                 com.example.ui.screens.PaperTwinScreen(
                                     viewModel = paperTwinViewModel,
-                                    examId = profile.examId,
+                                    examId = selectedProfiles.firstOrNull()?.examId ?: "",
                                     onBack = { navController.popBackStack() },
                                     onStartTest = {
                                         navController.navigate("practice_papertwin")
@@ -271,7 +327,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("practice_papertwin") {
                             val practiceViewModel: PracticeViewModel = viewModel(factory = practiceFactory)
-                            val profile = mainViewModel.selectedProfile.collectAsStateWithLifecycle().value
+                            val profile = mainViewModel.selectedProfiles.collectAsStateWithLifecycle().value.firstOrNull()
                             val paper = localRepository.getLastGeneratedPaper()
                             val uiState by practiceViewModel.uiState.collectAsStateWithLifecycle()
                             
@@ -288,13 +344,14 @@ class MainActivity : ComponentActivity() {
                                 uiState = uiState,
                                 onOptionSelected = practiceViewModel::onOptionPending,
                                 onOptionCrossOut = practiceViewModel::toggleOptionCrossedOut,
-                                onSubmitAnswerWithConfidence = practiceViewModel::submitAnswerWithConfidence,
+                                onSubmitAnswer = practiceViewModel::submitAnswer,
                                 onBookmarkToggle = practiceViewModel::toggleBookmark,
                                 onPrevious = practiceViewModel::generatePreviousQuestion,
                                 onSkip = practiceViewModel::skipQuestion,
                                 onNext = practiceViewModel::generateNextQuestion,
                                 onDashboardClick = { navController.navigate("dashboard") },
                                 onRestart = practiceViewModel::restartPractice,
+                                  onJumpToQuestion = practiceViewModel::jumpToQuestion,
                                 onBack = { navController.popBackStack() }
                             )
                         }
@@ -310,6 +367,14 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch(Dispatchers.IO) {
+            com.example.repository.CloudQuestionSyncService.syncWithCloud(this@MainActivity)
+            com.example.updater.AppUpdateManager.checkForUpdates(applicationContext, autoDownload = true)
         }
     }
 }
