@@ -37,7 +37,7 @@ object CloudQuestionSyncService {
     private const val TAG = "CloudQuestionSync"
 
     val isSyncing = MutableStateFlow(false)
-    val syncStatusMessage = MutableStateFlow("Pure Online Stream (v18 • 3,522 MCQs on Cloud CDN • Zero Local Questions)")
+    val syncStatusMessage = MutableStateFlow("Pure Online Stream (v19 • 3,942 MCQs on Cloud CDN • Zero Local Questions)")
 
     private val syncMutex = Mutex()
 
@@ -83,7 +83,8 @@ object CloudQuestionSyncService {
     private val defaultTopicCounts = mapOf(
         1 to 116, 2 to 135, 3 to 83, 4 to 317, 5 to 279, 6 to 113, 7 to 295, 8 to 132,
         9 to 130, 10 to 209, 11 to 244, 12 to 120, 13 to 132, 14 to 126, 15 to 171, 16 to 100,
-        17 to 147, 18 to 122, 19 to 142, 20 to 124, 21 to 103, 22 to 120, 23 to 62
+        17 to 147, 18 to 122, 19 to 142, 20 to 124, 21 to 103, 22 to 120, 23 to 62,
+        24 to 60, 25 to 60, 26 to 60, 27 to 60, 28 to 60, 29 to 60, 30 to 60
     )
 
     val topicNameToIdMap = mapOf(
@@ -132,7 +133,21 @@ object CloudQuestionSyncService {
         "World Regional Geography" to 22,
         "🗺️ World Regional Geography" to 22,
         "Bihar Geography" to 23,
-        "📍 Bihar Geography" to 23
+        "📍 Bihar Geography" to 23,
+        "Perspectives in Human Geography (Geographical Thought)" to 24,
+        "🧠 Perspectives in Human Geography (Geographical Thought)" to 24,
+        "Models, Theories & Laws in Human Geography" to 25,
+        "📐 Models, Theories & Laws in Human Geography" to 25,
+        "Regional Planning & Regionalisation" to 26,
+        "🗺️ Regional Planning & Regionalisation" to 26,
+        "Cultural Setting of India" to 27,
+        "👥 Cultural Setting of India" to 27,
+        "Political Aspects of Indian Geography" to 28,
+        "🏛️ Political Aspects of Indian Geography" to 28,
+        "Advanced Geomorphology & Landscape Evolution" to 29,
+        "⛰️ Advanced Geomorphology & Landscape Evolution" to 29,
+        "Advanced Ocean Topography & Climatology Models" to 30,
+        "🌊 Advanced Ocean Topography & Climatology Models" to 30
     )
 
     fun getTopicCount(topicId: Int): Int {
@@ -156,6 +171,7 @@ object CloudQuestionSyncService {
             in 1..8 -> "Physical Geography"
             in 9..19, 23 -> "Indian Geography"
             in 20..22 -> "World & Human Geography"
+            in 24..30 -> "🎓 UPSC Geography Optional"
             else -> "Physical Geography"
         }
     }
@@ -202,8 +218,8 @@ object CloudQuestionSyncService {
                 dao.clearAllQuestions()
             }
 
-            val totalOnlineQuestions = manifest?.totalQuestions ?: 3522
-            val version = manifest?.version ?: 18
+            val totalOnlineQuestions = manifest?.totalQuestions ?: 3942
+            val version = manifest?.version ?: 19
             val successMsg = "Pure Online Stream (v$version • $totalOnlineQuestions MCQs) • Zero Local Asset"
             syncStatusMessage.value = successMsg
             isSyncing.value = false
@@ -226,7 +242,7 @@ object CloudQuestionSyncService {
         format: String = ""
     ): List<ExamQuestion> = withContext(Dispatchers.IO) {
         val topicId = getTopicIdByName(topicName)
-        val urls = if (topicId in 1..23) {
+        val urls = if (topicId in 1..30) {
             listOf(
                 String.format(RAW_TOPIC_URL_TEMPLATE, topicId),
                 String.format(CDN_TOPIC_URL_TEMPLATE, topicId)
