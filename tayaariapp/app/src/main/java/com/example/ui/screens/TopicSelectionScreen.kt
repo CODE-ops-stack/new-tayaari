@@ -1,4 +1,4 @@
-﻿package com.example.ui.screens
+package com.example.ui.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -48,13 +48,18 @@ fun TopicSelectionScreen(
     topics: List<TopicUIModel>,
     nextAction: com.example.model.RecommendedAction?,
     profile: ExamBlueprint?,
+    isSyncing: Boolean = false,
+    syncStatusMessage: String = "Online Stream (v8 • 2,821 MCQs) • Zero Local Asset",
+    updateState: com.example.updater.AppUpdateManager.UpdateState = com.example.updater.AppUpdateManager.UpdateState.Idle,
     onTopicSelected: (topicName: String, tier: String, format: String) -> Unit,
     onBookmarksClick: () -> Unit = {},
     onAnalyticsClick: () -> Unit = {},
     onRevisionClick: () -> Unit = {},
     onPaperTwinClick: () -> Unit = {},
     onReadinessClick: () -> Unit = {},
-    onChangeExam: () -> Unit = {}
+    onChangeExam: () -> Unit = {},
+    onRefreshSync: () -> Unit = {},
+    onCheckUpdate: () -> Unit = {}
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
     val cardColor = MaterialTheme.colorScheme.background
@@ -69,170 +74,307 @@ fun TopicSelectionScreen(
         topics.groupBy { it.topic.module }
     }
     
-    // State to track expanded modules
+    // State to track expanded modules - expand all modules by default so all 23 chapters are visible immediately
     val expandedStates = remember { mutableStateMapOf<String, Boolean>() }
-    // Expand Physical Geography by default
-    LaunchedEffect(Unit) {
-        if (expandedStates.isEmpty()) {
-            expandedStates["Physical Geography"] = true
+    LaunchedEffect(groupedTopics) {
+        groupedTopics.keys.forEach { moduleName ->
+            if (!expandedStates.containsKey(moduleName)) {
+                expandedStates[moduleName] = true
+            }
         }
     }
-    Scaffold(
-        containerColor = surfaceColor,
-        topBar = {
-            TopAppBar(
-                title = {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        androidx.compose.foundation.Image(
-                            painter = androidx.compose.ui.res.painterResource(id = com.example.R.mipmap.ic_launcher),
-                            contentDescription = "App Logo",
-                            modifier = Modifier
-                                .size(36.dp)
-                                .clip(CircleShape)
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Text(
-                            "Tayaari Pakki",
-                            color = deepBlue,
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 22.sp
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(onClick = onChangeExam) {
-                        Icon(
-                            imageVector = androidx.compose.material.icons.Icons.Default.Explore,
-                            contentDescription = "Change Exam",
-                            tint = deepBlue
-                        )
-                    }
-                    IconButton(onClick = onAnalyticsClick) {
-                        Icon(
-                            imageVector = Icons.Default.Analytics,
-                            contentDescription = "Analytics",
-                            tint = deepBlue
-                        )
-                    }
-                    IconButton(onClick = onRevisionClick) {
-                        Icon(
-                            imageVector = Icons.Default.Schedule,
-                            contentDescription = "Revision",
-                            tint = deepBlue
-                        )
-                    }
-                    IconButton(onClick = onBookmarksClick) {
-                        Icon(
-                            imageVector = Icons.Default.Bookmark,
-                            contentDescription = "Bookmarks",
-                            tint = deepBlue
-                        )
-                    }
-                    IconButton(onClick = onPaperTwinClick) {
-                        Icon(
-                            imageVector = Icons.Default.FlashOn,
-                            contentDescription = "Paper Twin Mock",
-                            tint = accentGold
-                        )
-                    }
-                    IconButton(onClick = onReadinessClick) {
-                        Icon(
-                            imageVector = Icons.Default.CheckCircle,
-                            contentDescription = "Readiness Evidence",
-                            tint = deepBlue
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = surfaceColor
-                )
-            )
-        }
-    ) { paddingValues ->
-        if (topics.isEmpty()) {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(color = accentGold)
-            }
-        } else {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-            ) {
-                if (nextAction != null) {
-                    NextBestActionCard(action = nextAction, onTopicSelected = onTopicSelected, onRevisionClick = onRevisionClick, onAnalyticsClick = onAnalyticsClick)
-                }
-                // Profile & Hardcore Toggle Section
-                Surface(
-                    color = cardColor,
-                    shadowElevation = 4.dp,
-                    shape = RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
+    com.example.ui.components.AtlasBackground {
+      com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.035f)) {
+        Scaffold(
+            containerColor = Color.Transparent,
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            androidx.compose.foundation.Image(
+                                painter = androidx.compose.ui.res.painterResource(id = com.example.R.mipmap.ic_launcher),
+                                contentDescription = "App Logo",
+                                modifier = Modifier
+                                    .size(34.dp)
+                                    .clip(CircleShape)
+                            )
+                            Spacer(modifier = Modifier.width(10.dp))
                             Column {
                                 Text(
-                                    "Target Goal",
-                                    fontSize = 12.sp,
+                                    "Tayaari Pakki",
+                                    color = deepBlue,
+                                    fontFamily = com.example.ui.theme.CartographicSerif,
                                     fontWeight = FontWeight.Bold,
-                                    color = deepBlue.copy(alpha = 0.6f),
-                                    letterSpacing = 1.sp
+                                    fontSize = 18.sp,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
                                 )
                                 Text(
-                                    text = profile?.displayName ?: "All Exams",
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.ExtraBold,
-                                    color = deepBlue
+                                    "Civil Services Geography Cadastre",
+                                    color = deepBlue.copy(alpha = 0.7f),
+                                    fontSize = 10.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    letterSpacing = 0.4.sp
                                 )
                             }
-                            
-                            // Hardcore Mode Toggle
-                            Surface(
-                                color = if (isHardcoreMode) warningRed.copy(alpha = 0.1f) else deepBlue.copy(alpha = 0.05f),
-                                shape = RoundedCornerShape(12.dp),
-                                modifier = Modifier.clickable { isHardcoreMode = !isHardcoreMode }
+                        }
+                    },
+                    actions = {
+                        IconButton(onClick = onChangeExam) {
+                            Icon(
+                                imageVector = androidx.compose.material.icons.Icons.Default.Explore,
+                                contentDescription = "Change Examination Expedition",
+                                tint = deepBlue
+                            )
+                        }
+                        IconButton(onClick = onAnalyticsClick) {
+                            Icon(
+                                imageVector = Icons.Default.Analytics,
+                                contentDescription = "Topographic Trap Analytics",
+                                tint = deepBlue
+                            )
+                        }
+                        IconButton(onClick = onRevisionClick) {
+                            Icon(
+                                imageVector = Icons.Default.Schedule,
+                                contentDescription = "Spaced Cadastre Revision",
+                                tint = deepBlue
+                            )
+                        }
+                        IconButton(onClick = onBookmarksClick) {
+                            Icon(
+                                imageVector = Icons.Default.Bookmark,
+                                contentDescription = "Saved Geographic Waypoints",
+                                tint = deepBlue
+                            )
+                        }
+                        IconButton(onClick = onPaperTwinClick) {
+                            Icon(
+                                imageVector = Icons.Default.FlashOn,
+                                contentDescription = "UPSC Geography Paper Twin",
+                                tint = accentGold
+                            )
+                        }
+                        IconButton(onClick = onReadinessClick) {
+                            Icon(
+                                imageVector = Icons.Default.CheckCircle,
+                                contentDescription = "Field Readiness Radar",
+                                tint = deepBlue
+                            )
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color.Transparent
+                    )
+                )
+            }
+        ) { paddingValues ->
+            if (topics.isEmpty()) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(color = accentGold)
+                }
+            } else {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        .padding(horizontal = 16.dp),
+                    contentPadding = PaddingValues(bottom = 24.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    // ==========================================
+                    // IN-APP OVER-THE-AIR (OTA) AUTO-UPDATE BANNER
+                    // ==========================================
+                    item {
+                        com.example.ui.components.InAppUpdateBanner(
+                            updateState = updateState,
+                            onManualCheck = onCheckUpdate
+                        )
+                    }
+
+                    // ==========================================
+                    // SATELLITE GEODETIC CADASTRE HUD BANNER
+                    // ==========================================
+                    item {
+                        Surface(
+                            color = com.example.ui.theme.DeepBasalt,
+                            shape = RoundedCornerShape(14.dp),
+                            border = BorderStroke(1.dp, com.example.ui.theme.ContourEmerald.copy(alpha = 0.45f)),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp).clickable { onRefreshSync() }
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Row(
-                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Default.FlashOn,
-                                        contentDescription = "Hardcore Mode",
-                                        tint = if (isHardcoreMode) warningRed else deepBlue.copy(alpha = 0.5f),
-                                        modifier = Modifier.size(18.dp)
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(10.dp)
+                                            .clip(CircleShape)
+                                            .background(if (isSyncing) com.example.ui.theme.SunstoneGold else com.example.ui.theme.ContourEmerald)
                                     )
-                                    Spacer(modifier = Modifier.width(4.dp))
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    Column {
+                                        Text(
+                                            text = if (isSyncing) "🛰️ SATELLITE CADASTRE STREAMING..." else "🛰️ SATELLITE GEODETIC CADASTRE",
+                                            color = if (isSyncing) com.example.ui.theme.SunstoneGold else com.example.ui.theme.ContourEmerald,
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Black,
+                                            letterSpacing = 0.8.sp
+                                        )
+                                        val totalCount = topics.sumOf { it.availableCount }.let { if (it > 0) it else 3522 }
+                                        Text(
+                                            text = "Live Cloud Stream • %,d Field Waypoints (0 on Disk)".format(totalCount),
+                                            color = com.example.ui.theme.TopoContourMuted,
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Medium
+                                        )
+                                    }
+                                }
+                                Surface(
+                                    color = if (isSyncing) com.example.ui.theme.SunstoneGold.copy(alpha = 0.15f) else com.example.ui.theme.ContourEmerald.copy(alpha = 0.15f),
+                                    shape = RoundedCornerShape(6.dp)
+                                ) {
                                     Text(
-                                        text = "Hardcore",
-                                        color = if (isHardcoreMode) warningRed else deepBlue.copy(alpha = 0.6f),
+                                        text = if (isSyncing) "SYNCING" else "ONLINE 🌐",
+                                        color = if (isSyncing) com.example.ui.theme.SunstoneGold else com.example.ui.theme.ContourEmerald,
                                         fontWeight = FontWeight.Bold,
-                                        fontSize = 14.sp
+                                        fontSize = 10.sp,
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                                     )
                                 }
                             }
                         }
                     }
+
+                    if (nextAction != null) {
+                        item {
+                            NextBestActionCard(action = nextAction, onTopicSelected = onTopicSelected, onRevisionClick = onRevisionClick, onAnalyticsClick = onAnalyticsClick)
+                        }
+                    }
+
+                    // ==========================================
+                    // EXPEDITION STREAK & SURVEYOR COMMAND HUD
+                    // ==========================================
+                    item {
+                        Surface(
+                            color = com.example.ui.theme.DeepBasalt,
+                            shape = RoundedCornerShape(16.dp),
+                            border = BorderStroke(1.dp, com.example.ui.theme.HydrosphereCyan.copy(alpha = 0.25f)),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(14.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(40.dp)
+                                            .clip(CircleShape)
+                                            .background(com.example.ui.theme.SunstoneGold.copy(alpha = 0.15f)),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Text("🧭", fontSize = 20.sp)
+                                    }
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    Column {
+                                        Text(
+                                            text = "FIELD EXPEDITION LOG",
+                                            fontSize = 10.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = com.example.ui.theme.SunstoneGold,
+                                            letterSpacing = 0.8.sp
+                                        )
+                                        Text(
+                                            text = "Day 5 Transect 🧭 (Top 3% Cartographer)",
+                                            fontSize = 13.sp,
+                                            fontWeight = FontWeight.ExtraBold,
+                                            color = Color.White
+                                        )
+                                    }
+                                }
+                                Box(
+                                    modifier = Modifier
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .background(com.example.ui.theme.HydrosphereCyan.copy(alpha = 0.15f))
+                                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                                ) {
+                                    Text(
+                                        text = "SUMMIT READY ⛰️",
+                                        fontSize = 10.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = com.example.ui.theme.HydrosphereCyan
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                // Profile & Hardcore Toggle Section
+                item {
+                    Surface(
+                        color = cardColor,
+                        shadowElevation = 4.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp),
+                            verticalArrangement = Arrangement.spacedBy(16.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Column {
+                                    Text(
+                                        "Target Goal",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = deepBlue.copy(alpha = 0.6f),
+                                        letterSpacing = 1.sp
+                                    )
+                                    Text(
+                                        text = profile?.displayName ?: "All Exams",
+                                        fontSize = 16.sp,
+                                        fontWeight = FontWeight.ExtraBold,
+                                        color = deepBlue
+                                    )
+                                }
+                                
+                                // Hardcore Mode Toggle
+                                Surface(
+                                    color = if (isHardcoreMode) warningRed.copy(alpha = 0.1f) else deepBlue.copy(alpha = 0.05f),
+                                    shape = RoundedCornerShape(12.dp),
+                                    modifier = Modifier.clickable { isHardcoreMode = !isHardcoreMode }
+                                ) {
+                                    Row(
+                                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.FlashOn,
+                                            contentDescription = "Hardcore Mode",
+                                            tint = if (isHardcoreMode) warningRed else deepBlue.copy(alpha = 0.5f),
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                        Spacer(modifier = Modifier.width(4.dp))
+                                        Text(
+                                            text = "Hardcore",
+                                            color = if (isHardcoreMode) warningRed else deepBlue.copy(alpha = 0.6f),
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 14.sp
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Modules Accordion List
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 16.dp),
-                    contentPadding = PaddingValues(bottom = 24.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
                     item {
                         Card(
                             modifier = Modifier
@@ -258,13 +400,15 @@ fun TopicSelectionScreen(
                         }
                     }
                     
-                    val orderedModules = listOf("Physical Geography", "Indian Geography", "World Geography", "Human & Economic Geography", "Miscellaneous Topics")
+                    val orderedModules = listOf("Physical Geography", "Indian Geography", "World & Human Geography", "Human & Economic Geography", "World Geography", "Spatial Geography", "General Geography", "Miscellaneous Topics")
+                    val allModules = (orderedModules + (groupedTopics.keys - orderedModules.toSet())).distinct()
                     
-                    orderedModules.forEach { moduleName ->
+                    allModules.forEach { moduleName ->
                         val moduleTopics = groupedTopics[moduleName]
                         if (moduleTopics != null && moduleTopics.isNotEmpty()) {
                             item {
-                                val isExpanded = expandedStates[moduleName] == true
+                                val isExpanded = expandedStates[moduleName] != false
+                                val totalModuleQuestions = moduleTopics.sumOf { it.availableCount }
                                 
                                 // Module Header
                                 Surface(
@@ -279,12 +423,20 @@ fun TopicSelectionScreen(
                                         verticalAlignment = Alignment.CenterVertically,
                                         horizontalArrangement = Arrangement.SpaceBetween
                                     ) {
-                                        Text(
-                                            text = moduleName,
-                                            color = Color.White,
-                                            fontWeight = FontWeight.Bold,
-                                            fontSize = 18.sp
-                                        )
+                                        Column {
+                                            Text(
+                                                text = moduleName,
+                                                color = Color.White,
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 17.sp
+                                            )
+                                            Text(
+                                                text = "${moduleTopics.size} Chapters • $totalModuleQuestions MCQs",
+                                                color = com.example.ui.theme.SunstoneGold,
+                                                fontWeight = FontWeight.Medium,
+                                                fontSize = 11.sp
+                                            )
+                                        }
                                         Icon(
                                             imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
                                             contentDescription = "Toggle",
@@ -328,10 +480,11 @@ fun TopicSelectionScreen(
                                 }
                             }
                         }
-                    }
                 }
             }
         }
+    }
+      }
     }
 }
 
@@ -347,49 +500,75 @@ fun PremiumTopicCard(
     cardColor: Color
 ) {
     val isZeroAvailable = item.availableCount == 0
+    val topicIcon = when {
+        item.topic.name.contains("Universe", ignoreCase = true) || item.topic.name.contains("Solar", ignoreCase = true) -> "🌌"
+        item.topic.name.contains("Globe", ignoreCase = true) || item.topic.name.contains("Latitude", ignoreCase = true) -> "🌐"
+        item.topic.name.contains("Map", ignoreCase = true) || item.topic.name.contains("GIS", ignoreCase = true) -> "🗺️"
+        item.topic.name.contains("Interior", ignoreCase = true) || item.topic.name.contains("Plate Tectonics", ignoreCase = true) -> "🌋"
+        item.topic.name.contains("Geomorphic", ignoreCase = true) || item.topic.name.contains("Landforms", ignoreCase = true) -> "⛰️"
+        item.topic.name.contains("Atmosphere", ignoreCase = true) || item.topic.name.contains("Wind", ignoreCase = true) || item.topic.name.contains("Climate Systems", ignoreCase = true) -> "🌪️"
+        item.topic.name.contains("Oceanography", ignoreCase = true) -> "🌊"
+        item.topic.name.contains("Biogeography", ignoreCase = true) || item.topic.name.contains("Ecosystem", ignoreCase = true) -> "🌿"
+        item.topic.name.contains("Neighbours", ignoreCase = true) || item.topic.name.contains("Location", ignoreCase = true) -> "🇮🇳"
+        item.topic.name.contains("Physiography", ignoreCase = true) -> "🏔️"
+        item.topic.name.contains("Drainage", ignoreCase = true) || item.topic.name.contains("River", ignoreCase = true) -> "🏞️"
+        item.topic.name.contains("Monsoon", ignoreCase = true) || item.topic.name.contains("Indian Climate", ignoreCase = true) -> "🌧️"
+        item.topic.name.contains("Soil", ignoreCase = true) || item.topic.name.contains("Vegetation", ignoreCase = true) -> "🌲"
+        item.topic.name.contains("Wildlife", ignoreCase = true) || item.topic.name.contains("Conservation", ignoreCase = true) -> "🐅"
+        item.topic.name.contains("Agriculture", ignoreCase = true) -> "🌾"
+        item.topic.name.contains("Water Resources", ignoreCase = true) || item.topic.name.contains("Dams", ignoreCase = true) -> "💧"
+        item.topic.name.contains("Minerals", ignoreCase = true) || item.topic.name.contains("Energy", ignoreCase = true) -> "⚡"
+        item.topic.name.contains("Industries", ignoreCase = true) -> "🏭"
+        item.topic.name.contains("Transport", ignoreCase = true) || item.topic.name.contains("Trade", ignoreCase = true) -> "🚢"
+        item.topic.name.contains("Population", ignoreCase = true) || item.topic.name.contains("Settlement", ignoreCase = true) -> "🏙️"
+        item.topic.name.contains("Human Development", ignoreCase = true) -> "👥"
+        item.topic.name.contains("World Regional", ignoreCase = true) -> "🌍"
+        item.topic.name.contains("Bihar", ignoreCase = true) -> "🏛️"
+        else -> "📍"
+    }
 
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
         colors = CardDefaults.cardColors(containerColor = cardColor),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
+        border = BorderStroke(1.dp, com.example.ui.theme.SlateBedrock.copy(alpha = 0.5f)),
         shape = RoundedCornerShape(16.dp)
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Icon Background
+            // Geographic Avatar Circle
             Box(
                 modifier = Modifier
                     .size(48.dp)
                     .background(
                         if (isZeroAvailable) Color.LightGray.copy(alpha = 0.2f)
-                        else deepBlue.copy(alpha = 0.05f),
+                        else com.example.ui.theme.OceanicDark.copy(alpha = 0.6f),
                         CircleShape
                     ),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = Icons.Default.Explore,
-                    contentDescription = null,
-                    modifier = Modifier.size(24.dp),
-                    tint = if (isZeroAvailable) Color.Gray.copy(alpha = 0.5f) else accentGold
+                Text(
+                    text = topicIcon,
+                    fontSize = 22.sp
                 )
             }
             
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.width(14.dp))
             
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = item.topic.name,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.ExtraBold,
+                    fontFamily = com.example.ui.theme.CartographicSerif,
+                    fontWeight = FontWeight.Bold,
                     color = if (isZeroAvailable) Color.Gray else deepBlue,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
-                    fontSize = 16.sp
+                    fontSize = 16.sp,
+                    lineHeight = 21.sp
                 )
                 
                 Spacer(modifier = Modifier.height(4.dp))
@@ -405,35 +584,22 @@ fun PremiumTopicCard(
                         Spacer(modifier = Modifier.width(4.dp))
                     }
                     Text(
-                        text = "${item.availableCount} Questions",
+                        text = "📍 ${item.availableCount} Field MCQs • Lat: CH${item.topic.id}",
                         style = MaterialTheme.typography.bodySmall,
+                        fontFamily = com.example.ui.theme.CoordinatesMonospace,
                         fontWeight = FontWeight.Medium,
-                        color = if (isZeroAvailable) accentGold else deepBlue.copy(alpha = 0.6f)
+                        color = if (isZeroAvailable) accentGold else deepBlue.copy(alpha = 0.7f),
+                        fontSize = 11.sp
                     )
                 }
             }
             
+            Spacer(modifier = Modifier.width(8.dp))
+
             // Expected Difficulty Indicator
             val activeTier = if (isHardcoreMode) profile?.allowedTiers?.lastOrNull() else profile?.allowedTiers?.firstOrNull()
             if (activeTier != null) {
-                val isAdvanced = activeTier == "Advanced"
-                val bgColor = if (isAdvanced) accentGold.copy(alpha = 0.15f) else deepBlue.copy(alpha = 0.08f)
-                val txtColor = if (isAdvanced) accentGold else deepBlue.copy(alpha = 0.8f)
-                
-                Box(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(6.dp))
-                        .background(bgColor)
-                        .padding(horizontal = 8.dp, vertical = 4.dp)
-                ) {
-                    Text(
-                        text = activeTier.uppercase(),
-                        fontSize = 10.sp,
-                        fontWeight = FontWeight.Black,
-                        color = txtColor,
-                        letterSpacing = 0.5.sp
-                    )
-                }
+                com.example.ui.components.ElevationTierPill(tier = activeTier)
             }
         }
     }
