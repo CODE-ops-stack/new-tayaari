@@ -34,35 +34,60 @@ class PracticeViewModel(
         currentFormat = format
         currentProfile = profile
         viewModelScope.launch {
-            _uiState.update { it.copy(isLoading = true) }
-            val engine = QuestionSelectionEngine(repository)
-            val questions = engine.getQuestionsForProfile(topicName, profile, 20, format, null)
-            _uiState.update {
-                it.copy(
-                    allQuestions = questions,
-                    currentQuestion = questions.firstOrNull(),
-                    questionNumber = 1,
-                    totalQuestionsInSet = questions.size,
-                    selectedOptionId = null,
-                    pendingOptionId = null,
-                    selectedConfidence = null,
-                    detectedConfusionPair = null,
-                    isTestFinished = questions.isEmpty(),
-                    userAnswers = emptyMap(),
-                    crossedOutOptionIds = emptySet(),
-                    skippedQuestions = emptySet(),
-                    isLoading = false,
-                    currentScore = ExactFraction.ZERO
+            _uiState.update { it.copy(isLoading = true, error = null) }
+            try {
+                val questions = com.example.repository.CloudQuestionSyncService.fetchQuestionsOnline(
+                    topicName = topicName,
+                    profile = profile,
+                    limit = 60,
+                    format = format
                 )
+                if (questions.isEmpty()) {
+                    _uiState.update {
+                        it.copy(
+                            isLoading = false,
+                            error = "No questions available online for $topicName."
+                        )
+                    }
+                } else {
+                    _uiState.update {
+                        it.copy(
+                            allQuestions = questions,
+                            currentQuestion = questions.firstOrNull(),
+                            questionNumber = 1,
+                            totalQuestionsInSet = questions.size,
+                            selectedOptionId = null,
+                            pendingOptionId = null,
+                            selectedConfidence = null,
+                            detectedConfusionPair = null,
+                            isTestFinished = false,
+                            userAnswers = emptyMap(),
+                            crossedOutOptionIds = emptySet(),
+                            skippedQuestions = emptySet(),
+                            isLoading = false,
+                            error = null,
+                            currentScore = ExactFraction.ZERO
+                        )
+                    }
+                    updateBookmarkStatus()
+                }
+            } catch (e: Exception) {
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        error = e.message ?: "No Internet Connection. Questions are served 100% on-demand from the online database. Please connect to Wi-Fi or mobile data."
+                    )
+                }
             }
-            updateBookmarkStatus()
         }
     }
 
+    private var bookmarkJob: kotlinx.coroutines.Job? = null
     private fun updateBookmarkStatus() {
         val q = _uiState.value.currentQuestion
+        bookmarkJob?.cancel()
         if (q != null) {
-            viewModelScope.launch {
+            bookmarkJob = viewModelScope.launch {
                 repository.isBookmarked(q.id).collect { isBookmarked ->
                     _uiState.update { it.copy(isBookmarked = isBookmarked) }
                 }
@@ -79,17 +104,17 @@ class PracticeViewModel(
     }
 
     fun onOptionPending(optionId: String) {
-        _uiState.update { it.copy(pendingOptionId = optionId) }
+        selectOption(optionId)
     }
 
-    fun submitAnswerWithConfidence(confidence: String) {
-        val pending = _uiState.value.pendingOptionId ?: return
+    fun selectOption(optionId: String) {
+        if (_uiState.value.selectedOptionId != null) return
         val currentQ = _uiState.value.currentQuestion
-        val isCorrect = if (currentQ is MCQQuestion) pending == currentQ.correctAnswerId else false
+        val isCorrect = if (currentQ is MCQQuestion) optionId == currentQ.correctAnswerId else false
 
         if (currentQ is MCQQuestion && !isCorrect) {
             viewModelScope.launch {
-                val selectedText = currentQ.options.find { it.id == pending }?.text ?: ""
+                val selectedText = currentQ.options.find { it.id == optionId }?.text ?: ""
                 val initialResult = com.example.repository.ConfusionNetwork.detectConfusion(
                     currentQ.questionText, selectedText
                 )
@@ -129,26 +154,32 @@ class PracticeViewModel(
 
         _uiState.update {
             val newAnswers = it.userAnswers.toMutableMap()
-            newAnswers[currentQ?.id ?: ""] = pending
+            newAnswers[currentQ?.id ?: ""] = optionId
             
             val newScore = computeScore(newAnswers, it.skippedQuestions, it.allQuestions, currentProfile)
+            val newStreak = if (isCorrect) it.currentStreak + 1 else 0
+            val newBest = maxOf(it.bestStreak, newStreak)
+            val earnedPoints = if (isCorrect) 15 else 5
             
             it.copy(
-                selectedOptionId = pending,
-                selectedConfidence = confidence,
+                selectedOptionId = optionId,
+                selectedConfidence = "Certain",
                 pendingOptionId = null,
                 userAnswers = newAnswers,
-                currentScore = newScore
+                currentScore = newScore,
+                currentStreak = newStreak,
+                bestStreak = newBest,
+                mindPowerPoints = it.mindPowerPoints + earnedPoints
             )
         }
 
         viewModelScope.launch {
             if (currentQ is MCQQuestion) {
-                val distractor = currentQ.distractorDissections?.find { it.optionId == pending }
+                val distractor = currentQ.distractorDissections?.find { it.optionId == optionId }
                 repository.logQuestionAttempt(
                     questionId = currentQ.id,
                     outcome = if (isCorrect) AttemptOutcome.CORRECT else AttemptOutcome.INCORRECT,
-                    confidence = confidence,
+                    confidence = "Certain",
                     timeSpentSeconds = 30,
                     trapFallenInto = distractor?.trapType
                 )
@@ -157,6 +188,11 @@ class PracticeViewModel(
                 }
             }
         }
+    }
+
+    fun submitAnswer() {
+        val pending = _uiState.value.pendingOptionId ?: return
+        selectOption(pending)
     }
 
     fun skipQuestion() {
@@ -246,6 +282,7 @@ class PracticeViewModel(
                     crossedOutOptionIds = emptySet()
                 )
             }
+
             updateBookmarkStatus()
         }
     }
@@ -263,7 +300,18 @@ class PracticeViewModel(
         }
     }
 
+    fun retryPractice() {
+        val prof = currentProfile
+        if (prof != null) {
+            startPractice(currentTopic, prof, currentTier, currentFormat)
+        }
+    }
+
     fun restartPractice() {
+        if (_uiState.value.allQuestions.isEmpty() && currentProfile != null) {
+            retryPractice()
+            return
+        }
         _uiState.update {
             it.copy(
                 currentQuestion = it.allQuestions.firstOrNull(),
@@ -282,6 +330,25 @@ class PracticeViewModel(
         updateBookmarkStatus()
     }
     
+    
+    fun jumpToQuestion(index: Int) {
+        val state = _uiState.value
+        val questions = state.allQuestions
+        if (index in questions.indices) {
+            val q = questions[index]
+            val existingAnswer = state.userAnswers[q.id]
+            _uiState.update { it.copy(
+                currentQuestion = q,
+                questionNumber = index + 1,
+                selectedOptionId = existingAnswer,
+                pendingOptionId = existingAnswer,
+                crossedOutOptionIds = emptySet(),
+                detectedConfusionPair = null
+            )}
+            updateBookmarkStatus()
+        }
+    }
+
     companion object {
         fun computeScore(
             answers: Map<String, String>,

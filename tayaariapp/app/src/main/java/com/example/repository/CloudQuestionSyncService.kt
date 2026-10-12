@@ -317,7 +317,28 @@ object CloudQuestionSyncService {
         }
 
         val finalCandidates = if (filteredByFormat.isNotEmpty()) filteredByFormat else pool
-        finalCandidates.shuffled().take(limit).map { it.toMCQQuestion() }
+        
+        // Strict Pedagogical Progression:
+        // Basic/Foundation (tier 1) -> Medium/Analytical (tier 2) -> Hard/UPSC Ranker (tier 3).
+        // For full simulation (Paper Twin), questions are randomized to simulate exam conditions.
+        val orderedCandidates = if (format == "Paper Twin") {
+            finalCandidates.shuffled()
+        } else {
+            finalCandidates.sortedWith(compareBy { q ->
+                when (q.tier) {
+                    "Basic" -> 1
+                    "Medium" -> 2
+                    "Hard" -> 3
+                    else -> 4
+                }
+            })
+        }
+        val finalSelection = if (limit > 0 && limit < orderedCandidates.size) {
+            orderedCandidates.take(limit)
+        } else {
+            orderedCandidates
+        }
+        finalSelection.map { it.toMCQQuestion() }
     }
 
     private fun JsonQuestionImporter.GeneratedQuestion.toMCQQuestion(): MCQQuestion {

@@ -47,7 +47,7 @@ fun TopicSelectionScreen(
     nextAction: com.example.model.RecommendedAction?,
     profile: ExamBlueprint?,
     isSyncing: Boolean = false,
-    syncStatusMessage: String = "Online Stream (v18 • 3,522 MCQs) • Zero Local Asset",
+    syncStatusMessage: String = "Online Stream (v19 • 3,942 MCQs) • Zero Local Asset",
     updateState: com.example.updater.AppUpdateManager.UpdateState = com.example.updater.AppUpdateManager.UpdateState.Idle,
     onTopicSelected: (topicName: String, tier: String, format: String) -> Unit,
     onBookmarksClick: () -> Unit = {},
@@ -72,7 +72,7 @@ fun TopicSelectionScreen(
         topics.groupBy { it.topic.module }
     }
 
-    // Expand all modules by default so all 23 chapters are visible immediately
+    // Expand all modules by default so all 30 chapters are visible immediately
     val expandedStates = remember { mutableStateMapOf<String, Boolean>() }
     LaunchedEffect(groupedTopics) {
         groupedTopics.keys.forEach { moduleName ->
@@ -109,7 +109,7 @@ fun TopicSelectionScreen(
                                         overflow = TextOverflow.Ellipsis
                                     )
                                     Text(
-                                        "Civil Services Geography Cadastre • v18.0",
+                                        "Civil Services Geography Cadastre • v19.0",
                                         color = deepBlue.copy(alpha = 0.7f),
                                         fontSize = 10.sp,
                                         fontWeight = FontWeight.Medium,
@@ -285,7 +285,7 @@ fun TopicSelectionScreen(
                                                 fontWeight = FontWeight.Black,
                                                 letterSpacing = 0.8.sp
                                             )
-                                            val totalCount = topics.sumOf { it.availableCount }.let { if (it > 0) it else 3522 }
+                                            val totalCount = topics.sumOf { it.availableCount }.let { if (it > 0) it else 3942 }
                                             Text(
                                                 text = "Live Cloud Stream • %,d Field Waypoints (0 on Disk)".format(totalCount),
                                                 color = TopoContourMuted,
@@ -521,11 +521,7 @@ fun TopicSelectionScreen(
                             "Physical Geography",
                             "Indian Geography",
                             "World & Human Geography",
-                            "Human & Economic Geography",
-                            "World Geography",
-                            "Spatial Geography",
-                            "General Geography",
-                            "Miscellaneous Topics"
+                            "🎓 UPSC Geography Optional"
                         )
                         val allModules = (orderedModules + (groupedTopics.keys - orderedModules.toSet())).distinct()
 
@@ -535,11 +531,13 @@ fun TopicSelectionScreen(
                                 item {
                                     val isExpanded = expandedStates[moduleName] != false
                                     val totalModuleQuestions = moduleTopics.sumOf { it.availableCount }
+                                    val isOptionalModule = moduleName.contains("Optional")
 
                                     // Module Header Accordion
                                     Surface(
-                                        color = deepBlue,
+                                        color = if (isOptionalModule) deepBlue.copy(alpha = 0.95f) else deepBlue,
                                         shape = RoundedCornerShape(12.dp),
+                                        border = if (isOptionalModule) androidx.compose.foundation.BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.7f)) else null,
                                         modifier = Modifier
                                             .fillMaxWidth()
                                             .clickable { expandedStates[moduleName] = !isExpanded }
@@ -550,15 +548,35 @@ fun TopicSelectionScreen(
                                             horizontalArrangement = Arrangement.SpaceBetween
                                         ) {
                                             Column {
+                                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                                    Text(
+                                                        text = moduleName,
+                                                        color = if (isOptionalModule) SummitGold else Color.White,
+                                                        fontWeight = FontWeight.Bold,
+                                                        fontSize = 17.sp
+                                                    )
+                                                    if (isOptionalModule) {
+                                                        Spacer(modifier = Modifier.width(8.dp))
+                                                        Surface(
+                                                            color = SummitGold.copy(alpha = 0.2f),
+                                                            shape = RoundedCornerShape(4.dp)
+                                                        ) {
+                                                            Text(
+                                                                text = "ADVANCED MAINS",
+                                                                color = SummitGold,
+                                                                fontSize = 9.sp,
+                                                                fontWeight = FontWeight.ExtraBold,
+                                                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                                            )
+                                                        }
+                                                    }
+                                                }
                                                 Text(
-                                                    text = moduleName,
-                                                    color = Color.White,
-                                                    fontWeight = FontWeight.Bold,
-                                                    fontSize = 17.sp
-                                                )
-                                                Text(
-                                                    text = "${moduleTopics.size} Chapters • $totalModuleQuestions MCQs",
-                                                    color = SunstoneGold,
+                                                    text = if (isOptionalModule)
+                                                        "${moduleTopics.size} Specialized Papers • $totalModuleQuestions Master MCQs"
+                                                    else
+                                                        "${moduleTopics.size} Chapters • $totalModuleQuestions MCQs",
+                                                    color = if (isOptionalModule) GlacierAzure else SunstoneGold,
                                                     fontWeight = FontWeight.Medium,
                                                     fontSize = 11.sp
                                                 )
@@ -694,30 +712,41 @@ fun PremiumTopicCard(
     cardColor: Color
 ) {
     val isZeroAvailable = item.availableCount == 0
-    val topicIcon = when {
+    val isOptionalTopic = item.topic.module.contains("Optional")
+
+    // Extract authentic leading emoji from topic name if present, else resolve via comprehensive mapping
+    val leadingEmojiMatch = Regex("^[\\p{So}\\p{Sk}\\p{Sm}\\p{Sc}]").find(item.topic.name.trim())
+    val topicIcon = if (leadingEmojiMatch != null) {
+        leadingEmojiMatch.value
+    } else when {
         item.topic.name.contains("Universe", ignoreCase = true) || item.topic.name.contains("Solar", ignoreCase = true) -> "🌌"
         item.topic.name.contains("Globe", ignoreCase = true) || item.topic.name.contains("Latitude", ignoreCase = true) -> "🌐"
         item.topic.name.contains("Map", ignoreCase = true) || item.topic.name.contains("GIS", ignoreCase = true) -> "🗺️"
         item.topic.name.contains("Interior", ignoreCase = true) || item.topic.name.contains("Plate Tectonics", ignoreCase = true) -> "🌋"
-        item.topic.name.contains("Geomorphic", ignoreCase = true) || item.topic.name.contains("Landforms", ignoreCase = true) -> "⛰️"
+        item.topic.name.contains("Geomorphic", ignoreCase = true) || item.topic.name.contains("Landforms", ignoreCase = true) || item.topic.name.contains("Geomorphology", ignoreCase = true) -> "⛰️"
         item.topic.name.contains("Atmosphere", ignoreCase = true) || item.topic.name.contains("Wind", ignoreCase = true) || item.topic.name.contains("Climate Systems", ignoreCase = true) -> "🌪️"
-        item.topic.name.contains("Oceanography", ignoreCase = true) -> "🌊"
+        item.topic.name.contains("Oceanography", ignoreCase = true) || item.topic.name.contains("Ocean", ignoreCase = true) -> "🌊"
         item.topic.name.contains("Biogeography", ignoreCase = true) || item.topic.name.contains("Ecosystem", ignoreCase = true) -> "🌿"
         item.topic.name.contains("Neighbours", ignoreCase = true) || item.topic.name.contains("Location", ignoreCase = true) -> "🇮🇳"
         item.topic.name.contains("Physiography", ignoreCase = true) -> "🏔️"
         item.topic.name.contains("Drainage", ignoreCase = true) || item.topic.name.contains("River", ignoreCase = true) -> "🏞️"
         item.topic.name.contains("Monsoon", ignoreCase = true) || item.topic.name.contains("Indian Climate", ignoreCase = true) -> "🌧️"
-        item.topic.name.contains("Soil", ignoreCase = true) || item.topic.name.contains("Vegetation", ignoreCase = true) -> "🌲"
+        item.topic.name.contains("Soil", ignoreCase = true) || item.topic.name.contains("Vegetation", ignoreCase = true) -> "🌱"
         item.topic.name.contains("Wildlife", ignoreCase = true) || item.topic.name.contains("Conservation", ignoreCase = true) -> "🐅"
         item.topic.name.contains("Agriculture", ignoreCase = true) -> "🌾"
         item.topic.name.contains("Water Resources", ignoreCase = true) || item.topic.name.contains("Dams", ignoreCase = true) -> "💧"
-        item.topic.name.contains("Minerals", ignoreCase = true) || item.topic.name.contains("Energy", ignoreCase = true) -> "⚡"
+        item.topic.name.contains("Minerals", ignoreCase = true) || item.topic.name.contains("Energy", ignoreCase = true) -> "⛏️"
         item.topic.name.contains("Industries", ignoreCase = true) -> "🏭"
-        item.topic.name.contains("Transport", ignoreCase = true) || item.topic.name.contains("Trade", ignoreCase = true) -> "🚢"
-        item.topic.name.contains("Population", ignoreCase = true) || item.topic.name.contains("Settlement", ignoreCase = true) -> "🏙️"
-        item.topic.name.contains("Human Development", ignoreCase = true) -> "👥"
-        item.topic.name.contains("World Regional", ignoreCase = true) -> "🌍"
-        item.topic.name.contains("Bihar", ignoreCase = true) -> "🏛️"
+        item.topic.name.contains("Transport", ignoreCase = true) || item.topic.name.contains("Trade", ignoreCase = true) -> "🚆"
+        item.topic.name.contains("Population", ignoreCase = true) || item.topic.name.contains("Settlement", ignoreCase = true) -> "👥"
+        item.topic.name.contains("Human Development", ignoreCase = true) -> "📈"
+        item.topic.name.contains("World Regional", ignoreCase = true) -> "🗺️"
+        item.topic.name.contains("Bihar", ignoreCase = true) -> "📍"
+        item.topic.name.contains("Perspectives", ignoreCase = true) || item.topic.name.contains("Thought", ignoreCase = true) -> "🧠"
+        item.topic.name.contains("Models", ignoreCase = true) || item.topic.name.contains("Theories", ignoreCase = true) || item.topic.name.contains("Laws", ignoreCase = true) -> "📐"
+        item.topic.name.contains("Regional Planning", ignoreCase = true) || item.topic.name.contains("Regionalisation", ignoreCase = true) -> "🗺️"
+        item.topic.name.contains("Cultural Setting", ignoreCase = true) -> "👥"
+        item.topic.name.contains("Political Aspects", ignoreCase = true) -> "🏛️"
         else -> "📍"
     }
 
@@ -726,8 +755,11 @@ fun PremiumTopicCard(
             .fillMaxWidth()
             .clickable(onClick = onClick),
         colors = CardDefaults.cardColors(containerColor = cardColor),
-        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
-        border = BorderStroke(1.dp, SlateBedrock.copy(alpha = 0.5f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = if (isOptionalTopic) 4.dp else 3.dp),
+        border = BorderStroke(
+            1.dp,
+            if (isOptionalTopic) SunstoneGold.copy(alpha = 0.5f) else SlateBedrock.copy(alpha = 0.5f)
+        ),
         shape = RoundedCornerShape(16.dp)
     ) {
         Row(
@@ -740,6 +772,7 @@ fun PremiumTopicCard(
                     .size(48.dp)
                     .background(
                         if (isZeroAvailable) Color.LightGray.copy(alpha = 0.2f)
+                        else if (isOptionalTopic) SunstoneGold.copy(alpha = 0.15f)
                         else OceanicDark.copy(alpha = 0.6f),
                         CircleShape
                     ),
@@ -782,11 +815,15 @@ fun PremiumTopicCard(
                         Spacer(modifier = Modifier.width(4.dp))
                     }
                     Text(
-                        text = "📍 ${item.availableCount} Field MCQs • Lat: CH${item.topic.id}",
+                        text = if (isOptionalTopic) {
+                            "🎓 ${item.availableCount} Master MCQs • Optional Paper: CH${item.topic.id}"
+                        } else {
+                            "📍 ${item.availableCount} Field MCQs • Lat: CH${item.topic.id}"
+                        },
                         style = MaterialTheme.typography.bodySmall,
                         fontFamily = CoordinatesMonospace,
                         fontWeight = FontWeight.Medium,
-                        color = if (isZeroAvailable) accentGold else deepBlue.copy(alpha = 0.7f),
+                        color = if (isZeroAvailable) accentGold else if (isOptionalTopic) SummitGold else deepBlue.copy(alpha = 0.7f),
                         fontSize = 11.sp
                     )
                 }
