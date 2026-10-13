@@ -71,6 +71,17 @@ class MainActivity : ComponentActivity() {
         val userPrefsRepo = UserPreferencesRepository(applicationContext)
 
         enableEdgeToEdge()
+
+        // Notification channel and background alarm setup
+        com.example.updater.UpdateNotificationHelper.createNotificationChannel(applicationContext)
+        com.example.updater.AppUpdateManager.schedulePeriodicCheck(applicationContext)
+
+        // Android 13+ runtime notification permission request
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
+            }
+        }
         
         // Sync questions dynamically from Cloud CDN repository (IO thread)
         lifecycleScope.launch(Dispatchers.IO) {
@@ -83,6 +94,7 @@ class MainActivity : ComponentActivity() {
         }
 
         // Autonomous Over-The-Air (OTA) APK update trigger on launch
+        val isExplicitUpdateIntent = intent.getBooleanExtra("EXTRA_TRIGGER_UPDATE", false)
         lifecycleScope.launch(Dispatchers.IO) {
             com.example.updater.AppUpdateManager.checkForUpdates(applicationContext, autoDownload = true)
         }
