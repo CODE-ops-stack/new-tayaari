@@ -21,7 +21,7 @@ class UpdateCheckReceiver : BroadcastReceiver() {
                 if (action == "com.example.TRIGGER_UPDATE_NOTIFICATION") {
                     // Force display update notification immediately
                     val meta = AppUpdateManager.fetchCloudMetadata()
-                    val version = meta?.version ?: 19
+                    val version = meta?.version ?: 21
                     val questions = meta?.totalQuestions ?: 3942
 
                     val updatesDir = File(context.cacheDir, "updates")

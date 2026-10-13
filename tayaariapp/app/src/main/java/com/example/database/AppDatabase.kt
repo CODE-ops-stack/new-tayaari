@@ -9,8 +9,9 @@ import kotlinx.coroutines.launch
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [BookmarkedQuestionEntity::class, TrapAnalyticsEntity::class, Topic::class, Question::class, TestSession::class, RevisionItemEntity::class, QuestionAttemptEntity::class, ConfusionEventEntity::class, ReplayOutcomeEntity::class], version = 21, exportSchema = false)
+@Database(entities = [BookmarkedQuestionEntity::class, TrapAnalyticsEntity::class, Topic::class, Question::class, TestSession::class, RevisionItemEntity::class, QuestionAttemptEntity::class, ConfusionEventEntity::class, ReplayOutcomeEntity::class, UserEntity::class], version = 24, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun userDao(): UserDao
     abstract fun bookmarkDao(): BookmarkDao
     abstract fun confusionEventDao(): ConfusionEventDao
     abstract fun trapAnalyticsDao(): TrapAnalyticsDao
@@ -21,6 +22,25 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun analyticsDao(): AnalyticsDao
 
     companion object {
+        
+                        val MIGRATION_23_24 = object : Migration(23, 24) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE `users` RENAME COLUMN `targetExamId` TO `targetExamIds`")
+            }
+        }
+
+        val MIGRATION_22_23 = object : Migration(22, 23) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT NOT NULL, `passwordHash` TEXT NOT NULL, `targetExamId` TEXT)")
+            }
+        }
+
+        val MIGRATION_21_22 = object : Migration(21, 22) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                // No-op: Data sync handled dynamically by CloudQuestionSyncService
+            }
+        }
+
         val MIGRATION_20_21 = object : Migration(20, 21) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE topics ADD COLUMN module TEXT NOT NULL DEFAULT 'Miscellaneous Topics'")
@@ -55,7 +75,7 @@ abstract class AppDatabase : RoomDatabase() {
                     "tayaari_database"
                 )
                 
-                .addMigrations(MIGRATION_17_18, MIGRATION_18_19, MIGRATION_19_20, MIGRATION_20_21)
+                .addMigrations(MIGRATION_17_18, MIGRATION_18_19, MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24)
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onOpen(db: androidx.sqlite.db.SupportSQLiteDatabase) {
                         super.onOpen(db)
@@ -64,13 +84,11 @@ abstract class AppDatabase : RoomDatabase() {
                                 val dao = getDatabase(context).appDao()
                                 // Populate if topics OR questions are empty
                                 val topicCount = dao.getTopicsCount()
-                                val questionCount = dao.getQuestionCount()
-                                if (topicCount == 0 || questionCount == 0) {
-                                    val mdContent = context.assets.open("consolidated_grounding.md").bufferedReader().use { it.readText() }
-                                    com.example.repository.DataImporter.importFromMarkdown(context, mdContent)
+                                if (topicCount == 0) {
+                                    com.example.repository.CloudQuestionSyncService.syncWithCloud(context, force = true)
                                 }
                             } catch (e: Exception) {
-                                e.printStackTrace()
+                                android.util.Log.e("AppDatabase", "Error initializing topics catalog from cloud", e)
                             }
                         }
                     }

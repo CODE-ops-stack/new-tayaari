@@ -52,10 +52,22 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-                val db = AppDatabase.getDatabase(applicationContext)
+        // Production Anti-Piracy: Blocks screen recording & screenshots of Mains blueprints
+        if (!BuildConfig.DEBUG) {
+            window.setFlags(
+                android.view.WindowManager.LayoutParams.FLAG_SECURE,
+                android.view.WindowManager.LayoutParams.FLAG_SECURE
+            )
+        }
+
+        val db = AppDatabase.getDatabase(applicationContext)
         val authFactory = object : ViewModelProvider.Factory {
+            @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return com.example.viewmodel.AuthViewModel(db.userDao()) as T
+                if (modelClass.isAssignableFrom(com.example.viewmodel.AuthViewModel::class.java)) {
+                    return com.example.viewmodel.AuthViewModel(db.userDao()) as T
+                }
+                throw IllegalArgumentException("Unknown ViewModel class")
             }
         }
         val localRepository = LocalRepository(
@@ -236,6 +248,9 @@ class MainActivity : ComponentActivity() {
                                 onReadinessClick = {
                                     navController.navigate("readiness")
                                 },
+                                onMainsPracticeClick = {
+                                    navController.navigate("mains_practice")
+                                },
                                 onInsightsClick = {
                                     navController.navigate("insights")
                                 },
@@ -255,7 +270,19 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                         }
-                        
+                        composable("mains_practice") {
+                            com.example.ui.mains.MainsPracticeScreen(
+                                questionId = "MAINS-Q1",
+                                onBack = { navController.popBackStack() }
+                            )
+                        }
+                        composable("mains_practice/{questionId}") { backStackEntry ->
+                            val qId = backStackEntry.arguments?.getString("questionId") ?: "MAINS-Q1"
+                            com.example.ui.mains.MainsPracticeScreen(
+                                questionId = qId,
+                                onBack = { navController.popBackStack() }
+                            )
+                        }
 
                 composable("insights") {
                     InsightsDashboardScreen(
@@ -304,7 +331,8 @@ class MainActivity : ComponentActivity() {
                                 onNext = viewModel::generateNextQuestion,
                                 onDashboardClick = { navController.navigate("dashboard") },
                                 onRestart = viewModel::restartPractice,
-                                  onJumpToQuestion = viewModel::jumpToQuestion,
+                                onJumpToQuestion = viewModel::jumpToQuestion,
+                                onToggleGameMode = viewModel::toggleGameMode,
                                 onBack = { navController.popBackStack() }
                             )
                         }
@@ -363,7 +391,8 @@ class MainActivity : ComponentActivity() {
                                 onNext = practiceViewModel::generateNextQuestion,
                                 onDashboardClick = { navController.navigate("dashboard") },
                                 onRestart = practiceViewModel::restartPractice,
-                                  onJumpToQuestion = practiceViewModel::jumpToQuestion,
+                                onJumpToQuestion = practiceViewModel::jumpToQuestion,
+                                onToggleGameMode = practiceViewModel::toggleGameMode,
                                 onBack = { navController.popBackStack() }
                             )
                         }
