@@ -37,7 +37,7 @@ object CloudQuestionSyncService {
     private const val TAG = "CloudQuestionSync"
 
     val isSyncing = MutableStateFlow(false)
-    val syncStatusMessage = MutableStateFlow("Pure Online Stream (v19 • 3,942 MCQs on Cloud CDN • Zero Local Questions)")
+    val syncStatusMessage = MutableStateFlow("Pure Online Stream (v22.0 • 3,942 MCQs on Cloud CDN • Zero Local Questions)")
 
     private val syncMutex = Mutex()
 

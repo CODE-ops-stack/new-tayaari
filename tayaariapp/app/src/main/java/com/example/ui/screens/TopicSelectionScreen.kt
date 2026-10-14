@@ -47,7 +47,7 @@ fun TopicSelectionScreen(
     nextAction: com.example.model.RecommendedAction?,
     profile: ExamBlueprint?,
     isSyncing: Boolean = false,
-    syncStatusMessage: String = "Online Stream (v19 • 3,942 MCQs) • Zero Local Asset",
+    syncStatusMessage: String = "Online Stream (v22.0 • 3,942 MCQs) • Zero Local Asset",
     updateState: com.example.updater.AppUpdateManager.UpdateState = com.example.updater.AppUpdateManager.UpdateState.Idle,
     onTopicSelected: (topicName: String, tier: String, format: String) -> Unit,
     onBookmarksClick: () -> Unit = {},
@@ -110,7 +110,7 @@ fun TopicSelectionScreen(
                                         overflow = TextOverflow.Ellipsis
                                     )
                                     Text(
-                                        "Civil Services Geography Cadastre • v19.0",
+                                        "Civil Services Geography Cadastre • v22.0",
                                         color = deepBlue.copy(alpha = 0.7f),
                                         fontSize = 10.sp,
                                         fontWeight = FontWeight.Medium,
@@ -373,16 +373,46 @@ fun TopicSelectionScreen(
                                     )
                                 }
 
-                                // 5. Mains Answer Architect (Chief Evaluator Portal)
-                                CommandHubCard(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    icon = "🏛️",
-                                    title = "Mains Answer Architect",
-                                    subtitle = "7m/11m/14m Timers • 20s Diagram Tracing • Infinite Chief Evaluator Scoring",
-                                    tag = "300+ MAINS PORTAL",
-                                    accentColor = SunstoneGold,
-                                    onClick = onMainsPracticeClick
-                                )
+                                // 5. Mains Answer Architect (Chief Evaluator Portal) - STRICTLY FOR UPSC ASPIRANTS ONLY
+                                val isUpsc = profile?.examId?.contains("UPSC", ignoreCase = true) == true
+                                if (isUpsc) {
+                                    CommandHubCard(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        icon = "🏛️",
+                                        title = "Mains Answer Architect",
+                                        subtitle = "7m/11m/14m Timers • 20s Diagram Tracing • Infinite Chief Evaluator Scoring",
+                                        tag = "300+ MAINS PORTAL",
+                                        accentColor = SunstoneGold,
+                                        onClick = onMainsPracticeClick
+                                    )
+                                } else {
+                                    val isBpsc = profile?.examId?.contains("BPSC", ignoreCase = true) == true
+                                    if (isBpsc) {
+                                        CommandHubCard(
+                                            modifier = Modifier.fillMaxWidth(),
+                                            icon = "🌾",
+                                            title = "State PCS Bihar Special Drills",
+                                            subtitle = "Bihar Physiography • Drainage • Soils • High-Yield BPSC Focus",
+                                            tag = "BPSC SPECIAL",
+                                            accentColor = ContourEmerald,
+                                            onClick = {
+                                                onTopicSelected("Bihar Geography: Physiography, Rivers & Resources", "Medium", "Smart Practice")
+                                            }
+                                        )
+                                    } else {
+                                        CommandHubCard(
+                                            modifier = Modifier.fillMaxWidth(),
+                                            icon = "⚡",
+                                            title = "Speed & Accuracy Sprint",
+                                            subtitle = "CBT-1 Rapid Fire Mode • 100% Negative Marking Simulation",
+                                            tag = "${profile?.displayName ?: "CBT"} SPRINT",
+                                            accentColor = SunstoneGold,
+                                            onClick = {
+                                                onTopicSelected("Global", "Basic", "Speed + Accuracy")
+                                            }
+                                        )
+                                    }
+                                }
                             }
                         }
 

@@ -121,7 +121,7 @@ class MainActivity : ComponentActivity() {
         val mainFactory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return MainViewModel(userPrefsRepo) as T
+                return MainViewModel(userPrefsRepo, db.userDao()) as T
             }
         }
 
@@ -271,17 +271,31 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("mains_practice") {
-                            com.example.ui.mains.MainsPracticeScreen(
-                                questionId = "MAINS-Q1",
-                                onBack = { navController.popBackStack() }
-                            )
+                            val isUpsc = selectedProfiles.firstOrNull()?.examId?.contains("UPSC", ignoreCase = true) == true
+                            if (!isUpsc) {
+                                androidx.compose.runtime.LaunchedEffect(Unit) {
+                                    navController.popBackStack()
+                                }
+                            } else {
+                                com.example.ui.mains.MainsPracticeScreen(
+                                    questionId = "MAINS-Q1",
+                                    onBack = { navController.popBackStack() }
+                                )
+                            }
                         }
                         composable("mains_practice/{questionId}") { backStackEntry ->
-                            val qId = backStackEntry.arguments?.getString("questionId") ?: "MAINS-Q1"
-                            com.example.ui.mains.MainsPracticeScreen(
-                                questionId = qId,
-                                onBack = { navController.popBackStack() }
-                            )
+                            val isUpsc = selectedProfiles.firstOrNull()?.examId?.contains("UPSC", ignoreCase = true) == true
+                            if (!isUpsc) {
+                                androidx.compose.runtime.LaunchedEffect(Unit) {
+                                    navController.popBackStack()
+                                }
+                            } else {
+                                val qId = backStackEntry.arguments?.getString("questionId") ?: "MAINS-Q1"
+                                com.example.ui.mains.MainsPracticeScreen(
+                                    questionId = qId,
+                                    onBack = { navController.popBackStack() }
+                                )
+                            }
                         }
 
                 composable("insights") {
