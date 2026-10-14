@@ -1,4 +1,4 @@
-﻿package com.example.repository
+package com.example.repository
 
 import com.example.model.ExamBlueprint
 import com.example.model.ExamQuestion
@@ -95,7 +95,9 @@ class PatternShockEngine(
                     val obj = arr.getJSONObject(i)
                     parsedOptions.add(com.example.model.Option(id = obj.getString("id"), text = obj.getString("text")))
                 }
-            } catch (e: Exception) {}
+            } catch (e: Exception) {
+                android.util.Log.w("PatternShockEngine", "Failed to parse options for question ${q.id}", e)
+            }
             
             if (parsedOptions.size < 2) continue
             
@@ -112,7 +114,9 @@ class PatternShockEngine(
                         ))
                     }
                 }
-            } catch (e: Exception) {}
+            } catch (e: Exception) {
+                android.util.Log.w("PatternShockEngine", "Failed to parse distractors for question ${q.id}", e)
+            }
             
             shockPaper.add(
                 MCQQuestion(

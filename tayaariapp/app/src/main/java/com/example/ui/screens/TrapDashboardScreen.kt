@@ -44,115 +44,119 @@ fun TrapDashboardScreen(
     val warningRed = MaterialTheme.colorScheme.error
     val accentGold = MaterialTheme.colorScheme.tertiary
 
-    Scaffold(
-        containerColor = surfaceColor,
-        topBar = {
-            TopAppBar(
-                title = {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = Icons.Default.Analytics,
-                            contentDescription = null,
-                            tint = deepBlue,
-                            modifier = Modifier.size(24.dp)
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(
-                            "Trap Analytics",
-                            color = deepBlue,
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 22.sp
-                        )
-                    }
-                },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                            tint = deepBlue
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = surfaceColor
+    com.example.ui.components.AtlasBackground {
+      com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.035f)) {
+        Scaffold(
+            containerColor = Color.Transparent,
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("🧭", fontSize = 22.sp)
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Column {
+                                Text(
+                                    "Topographic Hazard Radar",
+                                    color = deepBlue,
+                                    fontFamily = com.example.ui.theme.CartographicSerif,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 19.sp
+                                )
+                                Text(
+                                    "Examiner Traps & Conceptual Conflation Tracking",
+                                    color = deepBlue.copy(alpha = 0.7f),
+                                    fontSize = 10.sp,
+                                    fontWeight = FontWeight.Medium
+                                )
+                            }
+                        }
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBack) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = "Back",
+                                tint = deepBlue
+                            )
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = Color.Transparent
+                    )
                 )
-            )
-        }
-    ) { paddingValues ->
-        if (trapAnalytics.isEmpty()) {
-            // Premium Empty State
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .padding(32.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Box(
+            }
+        ) { paddingValues ->
+            if (trapAnalytics.isEmpty()) {
+                // Premium Empty State
+                Column(
                     modifier = Modifier
-                        .size(120.dp)
-                        .background(deepBlue.copy(alpha = 0.05f), CircleShape),
-                    contentAlignment = Alignment.Center
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        .padding(32.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.WarningAmber,
-                        contentDescription = null,
-                        tint = deepBlue.copy(alpha = 0.5f),
-                        modifier = Modifier.size(64.dp)
-                    )
-                }
-                Spacer(modifier = Modifier.height(24.dp))
-                Text(
-                    text = "No Traps Encountered",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = deepBlue
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "You haven't fallen for any cognitive traps yet. Keep up the rigorous practice!",
-                    fontSize = 16.sp,
-                    color = deepBlue.copy(alpha = 0.7f),
-                    textAlign = TextAlign.Center
-                )
-            }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .padding(horizontal = 16.dp),
-                contentPadding = PaddingValues(vertical = 16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                item {
+                    Box(
+                        modifier = Modifier
+                            .size(120.dp)
+                            .background(deepBlue.copy(alpha = 0.05f), CircleShape),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text("🛡️", fontSize = 54.sp)
+                    }
+                    Spacer(modifier = Modifier.height(24.dp))
                     Text(
-                        text = "Identify your cognitive vulnerabilities. The higher the frequency, the more susceptible you are to that specific trap format.",
-                        fontSize = 14.sp,
-                        color = deepBlue.copy(alpha = 0.6f),
-                        modifier = Modifier.padding(bottom = 8.dp)
+                        text = "Zero Geographic Pitfalls Encountered",
+                        fontSize = 20.sp,
+                        fontFamily = com.example.ui.theme.CartographicSerif,
+                        fontWeight = FontWeight.Bold,
+                        color = deepBlue
                     )
-                    HorizontalDivider(
-                        color = deepBlue.copy(alpha = 0.1f)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "You have navigated through all geographic waypoints without succumbing to examiner traps. Keep your expedition compass calibrated!",
+                        fontSize = 15.sp,
+                        color = deepBlue.copy(alpha = 0.7f),
+                        textAlign = TextAlign.Center
                     )
                 }
+            } else {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        .padding(horizontal = 16.dp),
+                    contentPadding = PaddingValues(vertical = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    item {
+                        Text(
+                            text = "Identify cognitive vulnerabilities across Physical, Indian & World Geography. The higher the frequency, the more susceptible you are to that specific trap format.",
+                            fontSize = 13.sp,
+                            color = deepBlue.copy(alpha = 0.7f),
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+                        HorizontalDivider(
+                            color = deepBlue.copy(alpha = 0.1f)
+                        )
+                    }
 
-                val maxFreq = trapAnalytics.maxOfOrNull { it.frequency } ?: 1
-                items(trapAnalytics.sortedByDescending { it.frequency }) { trap ->
-                    EnhancedTrapStatCard(
-                        trap = trap,
-                        maxFreq = maxFreq,
-                        deepBlue = deepBlue,
-                        warningRed = warningRed,
-                        accentGold = accentGold,
-                        cardColor = cardColor,
-                        onPracticeTrap = onPracticeTrap
-                    )
+                    val maxFreq = trapAnalytics.maxOfOrNull { it.frequency } ?: 1
+                    items(trapAnalytics.sortedByDescending { it.frequency }) { trap ->
+                        EnhancedTrapStatCard(
+                            trap = trap,
+                            maxFreq = maxFreq,
+                            deepBlue = deepBlue,
+                            warningRed = warningRed,
+                            accentGold = accentGold,
+                            cardColor = cardColor,
+                            onPracticeTrap = onPracticeTrap
+                        )
+                    }
                 }
             }
         }
+      }
     }
 }
 

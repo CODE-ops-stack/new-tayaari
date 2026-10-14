@@ -30,6 +30,8 @@ open class LocalRepository(
     private val analyticsDao: com.example.database.AnalyticsDao,
     private val confusionEventDao: com.example.database.ConfusionEventDao
 ) {
+    var activeProfiles: List<ExamBlueprint> = emptyList()
+
     private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     val mistakeReplayEngine = MistakeReplayEngine(mistakeReplayDao, trapAnalyticsDao, confusionEventDao, questionAttemptDao, appDao, revisionDao)
     val learnerModelEngine = LearnerModelEngine(appDao, questionAttemptDao, revisionDao, trapAnalyticsDao, confusionEventDao, analyticsDao, mistakeReplayDao)
@@ -237,27 +239,101 @@ open class LocalRepository(
         }
     }
 
+    fun getQuestionCountFlow(): Flow<Int> = appDao.getQuestionCountFlow()
+
     suspend fun getQuestionCountForProfile(topicName: String, profile: ExamBlueprint): Int = withContext(Dispatchers.IO) {
         val allowElite = profile.allowedTiers.contains("Elite")
         appDao.getQuestionCountForTopicAndProfile(topicName, profile.allowedTiers, allowElite)
     }
 
-    suspend fun getQuestionsForProfile(topicName: String, profile: ExamBlueprint, limit: Int): List<Question> = withContext(Dispatchers.IO) {
-        val allowElite = profile.allowedTiers.contains("Elite")
-        if (topicName == "Global") {
-            appDao.getAllQuestionsForProfile(profile.allowedTiers, allowElite, limit)
+    suspend fun getQuestionsForTopic(topicId: Int, profile: ExamBlueprint, limit: Int): List<Question> = withContext(Dispatchers.IO) {
+        val rawTiers = if (activeProfiles.isNotEmpty()) activeProfiles.flatMap { it.allowedTiers }.distinct() else profile.allowedTiers
+        val combinedTiers = if (rawTiers.contains("Advanced") || rawTiers.contains("Elite")) (rawTiers + "Hard").distinct() else rawTiers
+        val effectiveTiers = if (combinedTiers.isEmpty()) listOf("Basic", "Medium", "Hard") else combinedTiers
+        val allowElite = effectiveTiers.contains("Elite")
+        val isSpeedExamOnly = if (activeProfiles.isNotEmpty()) activeProfiles.all { it.examId.contains("SSC") || it.examId.contains("RRB") } else (profile.examId.contains("SSC") || profile.examId.contains("RRB"))
+        val allowsComplex = !isSpeedExamOnly
+
+        val topicQuestions = appDao.getQuestionsByTopicIdForProfile(topicId, effectiveTiers, allowElite, limit * 3)
+        val rawQuestions = if (topicQuestions.isNotEmpty()) topicQuestions else appDao.getAllQuestionsForProfile(effectiveTiers, allowElite, limit * 3)
+        val filtered = if (allowsComplex) {
+            rawQuestions
         } else {
-            appDao.getQuestionsForProfile(topicName, profile.allowedTiers, allowElite, limit)
+            rawQuestions.filter { q ->
+                val f = q.format.lowercase()
+                !f.contains("statement") && !f.contains("assertion") && !f.contains("reason") && !f.contains("pairs") && !f.contains("elimination")
+            }
         }
+        val candidateList = if (filtered.isNotEmpty()) filtered else rawQuestions
+        candidateList.take(limit)
+    }
+
+    suspend fun getQuestionsForProfile(topicName: String, profile: ExamBlueprint, limit: Int): List<Question> = withContext(Dispatchers.IO) {
+        val rawTiers = if (activeProfiles.isNotEmpty()) activeProfiles.flatMap { it.allowedTiers }.distinct() else profile.allowedTiers
+        val combinedTiers = if (rawTiers.contains("Advanced") || rawTiers.contains("Elite")) (rawTiers + "Hard").distinct() else rawTiers
+        val effectiveTiers = if (combinedTiers.isEmpty()) listOf("Basic", "Medium", "Hard") else combinedTiers
+        val allowElite = effectiveTiers.contains("Elite")
+        val isSpeedExamOnly = if (activeProfiles.isNotEmpty()) activeProfiles.all { it.examId.contains("SSC") || it.examId.contains("RRB") } else (profile.examId.contains("SSC") || profile.examId.contains("RRB"))
+        val allowsComplex = !isSpeedExamOnly
+
+        val isAllTopics = topicName.isBlank() || 
+            topicName.equals("Global", ignoreCase = true) || 
+            topicName.equals("Mixed", ignoreCase = true) || 
+            topicName.equals("Smart Practice", ignoreCase = true) ||
+            topicName.equals("Paper Twin", ignoreCase = true)
+
+        val rawQuestions = if (isAllTopics) {
+            appDao.getAllQuestionsForProfile(effectiveTiers, allowElite, limit * 3)
+        } else {
+            val topicQuestions = appDao.getQuestionsForProfile(topicName, effectiveTiers, allowElite, limit * 3)
+            if (topicQuestions.isNotEmpty()) topicQuestions else appDao.getAllQuestionsForProfile(effectiveTiers, allowElite, limit * 3)
+        }
+        
+        val filtered = if (allowsComplex) {
+            rawQuestions
+        } else {
+            rawQuestions.filter { q ->
+                val f = q.format.lowercase()
+                !f.contains("statement") && !f.contains("assertion") && !f.contains("reason") && !f.contains("pairs") && !f.contains("elimination")
+            }
+        }
+        val candidateList = if (filtered.isNotEmpty()) filtered else rawQuestions
+        candidateList.take(limit)
     }
 
     suspend fun getQuestionsForProfileWithFormat(topicName: String, profile: ExamBlueprint, format: String, limit: Int): List<Question> = withContext(Dispatchers.IO) {
-        val allowElite = profile.allowedTiers.contains("Elite")
-        val results = appDao.getQuestionsForProfileWithFormat(topicName, profile.allowedTiers, format, allowElite, limit)
-        if (results.isEmpty()) {
-            appDao.getQuestionsForProfile(topicName, profile.allowedTiers, allowElite, limit)
+        val rawTiers = if (activeProfiles.isNotEmpty()) activeProfiles.flatMap { it.allowedTiers }.distinct() else profile.allowedTiers
+        val combinedTiers = if (rawTiers.contains("Advanced") || rawTiers.contains("Elite")) (rawTiers + "Hard").distinct() else rawTiers
+        val effectiveTiers = if (combinedTiers.isEmpty()) listOf("Basic", "Medium", "Hard") else combinedTiers
+        val allowElite = effectiveTiers.contains("Elite")
+        val isSpeedExamOnly = if (activeProfiles.isNotEmpty()) activeProfiles.all { it.examId.contains("SSC") || it.examId.contains("RRB") } else (profile.examId.contains("SSC") || profile.examId.contains("RRB"))
+        val allowsComplex = !isSpeedExamOnly
+        
+        val isAllTopics = topicName.isBlank() || 
+            topicName.equals("Global", ignoreCase = true) || 
+            topicName.equals("Mixed", ignoreCase = true) || 
+            topicName.equals("Smart Practice", ignoreCase = true) ||
+            topicName.equals("Paper Twin", ignoreCase = true)
+
+        val results = if (isAllTopics) {
+            appDao.getAllQuestionsForProfileWithFormat(effectiveTiers, format, allowElite, limit * 3)
         } else {
+            val res = appDao.getQuestionsForProfileWithFormat(topicName, effectiveTiers, format, allowElite, limit * 3)
+            if (res.isNotEmpty()) res else appDao.getAllQuestionsForProfileWithFormat(effectiveTiers, format, allowElite, limit * 3)
+        }
+        
+        val filtered = if (allowsComplex) {
             results
+        } else {
+            results.filter { q ->
+                val f = q.format.lowercase()
+                !f.contains("statement") && !f.contains("assertion") && !f.contains("reason") && !f.contains("pairs") && !f.contains("elimination")
+            }
+        }
+        if (filtered.isEmpty()) {
+            getQuestionsForProfile(topicName, profile, limit)
+        } else {
+            filtered.take(limit)
         }
     }
 

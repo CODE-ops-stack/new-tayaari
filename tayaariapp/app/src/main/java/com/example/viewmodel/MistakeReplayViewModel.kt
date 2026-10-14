@@ -1,4 +1,4 @@
-﻿package com.example.viewmodel
+package com.example.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -103,7 +103,9 @@ class MistakeReplayViewModel(
             for (i in 0 until arr.length()) {
                 list.add(arr.getJSONObject(i).getString("text"))
             }
-        } catch (e: Exception) {}
+        } catch (e: Exception) {
+            android.util.Log.w("MistakeReplayVM", "Failed to parse options JSON: $jsonStr", e)
+        }
         return list
     }
 
@@ -113,7 +115,9 @@ class MistakeReplayViewModel(
             for (i in 0 until arr.length()) {
                 if (arr.getJSONObject(i).getString("id") == correctId) return i
             }
-        } catch (e: Exception) {}
+        } catch (e: Exception) {
+            android.util.Log.w("MistakeReplayVM", "Failed to parse correct index from JSON: $jsonStr", e)
+        }
         return -1
     }
 }

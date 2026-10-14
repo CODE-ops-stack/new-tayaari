@@ -5,6 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.model.ExamBlueprint
 import com.example.model.ExamBlueprintRegistry
@@ -16,20 +17,39 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "us
 class UserPreferencesRepository(private val context: Context) {
 
     private val EXAM_PROFILE_KEY = stringPreferencesKey("exam_profile")
+    private val LOGGED_IN_USER_KEY = intPreferencesKey("logged_in_user_id")
 
-    val selectedExamProfile: Flow<ExamBlueprint?> = context.dataStore.data
+    val selectedExamProfiles: Flow<List<ExamBlueprint>> = context.dataStore.data
         .map { preferences ->
-            val examId = preferences[EXAM_PROFILE_KEY]
-            if (examId != null) {
-                ExamBlueprintRegistry.getBlueprint(examId)
+            val examIdsStr = preferences[EXAM_PROFILE_KEY]
+            if (examIdsStr.isNullOrEmpty()) {
+                emptyList()
             } else {
-                null
+                val ids = examIdsStr.split(",")
+                ids.mapNotNull { ExamBlueprintRegistry.getBlueprint(it) }
             }
         }
 
-    suspend fun saveExamProfile(blueprint: ExamBlueprint) {
+    val loggedInUserId: Flow<Int?> = context.dataStore.data
+        .map { preferences ->
+            preferences[LOGGED_IN_USER_KEY]
+        }
+
+    suspend fun saveLoggedInUser(userId: Int) {
         context.dataStore.edit { preferences ->
-            preferences[EXAM_PROFILE_KEY] = blueprint.examId
+            preferences[LOGGED_IN_USER_KEY] = userId
+        }
+    }
+
+    suspend fun clearLoggedInUser() {
+        context.dataStore.edit { preferences ->
+            preferences.remove(LOGGED_IN_USER_KEY)
+        }
+    }
+
+    suspend fun saveExamProfiles(blueprints: List<ExamBlueprint>) {
+        context.dataStore.edit { preferences ->
+            preferences[EXAM_PROFILE_KEY] = blueprints.joinToString(",") { it.examId }
         }
     }
 

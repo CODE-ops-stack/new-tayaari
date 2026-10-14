@@ -37,90 +37,123 @@ fun BookmarksScreen(
     val availableTopics by viewModel.availableTopics.collectAsState()
     val selectedTopic by viewModel.selectedTopic.collectAsState()
 
-    // Premium color palette
-    val surfaceColor = Color(0xFFFDFCF8)
-    val deepBlue = Color(0xFF1B3B5A)
-    val accentGold = Color(0xFFF4A261)
-    val cardColor = Color.White
-    val errorRed = Color(0xFFE07A5F)
-    val successGreen = Color(0xFF2E7D32)
-
-    Scaffold(
-        containerColor = surfaceColor,
-        topBar = {
-            TopAppBar(
-                title = { 
-                    Text(
-                        "Saved Questions",
-                        color = deepBlue,
-                        fontWeight = FontWeight.ExtraBold,
-                        fontSize = 22.sp
-                    ) 
-                },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = deepBlue)
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = surfaceColor)
-            )
-        }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxSize()
-        ) {
-            if (availableTopics.size > 1) {
-                LazyRow(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 12.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(availableTopics) { topic ->
-                        val isSelected = topic == selectedTopic
-                        Surface(
-                            color = if (isSelected) accentGold else Color.Transparent,
-                            shape = CircleShape,
-                            border = BorderStroke(1.dp, if (isSelected) accentGold else deepBlue.copy(alpha = 0.1f)),
-                            modifier = Modifier.clickable { viewModel.filterByTopic(topic) }
-                        ) {
-                            Text(
-                                text = topic,
-                                color = if (isSelected) Color.White else deepBlue.copy(alpha = 0.7f),
-                                fontSize = 14.sp,
-                                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
-                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-                            )
-                        }
-                    }
-                }
-            }
-
-            if (questions.isEmpty()) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(
-                        text = "No bookmarked questions.", 
-                        color = deepBlue.copy(alpha = 0.5f),
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium
+    com.example.ui.components.AtlasBackground {
+        com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.035f)) {
+            Scaffold(
+                containerColor = Color.Transparent,
+                topBar = {
+                    TopAppBar(
+                        title = { 
+                            Column {
+                                Text(
+                                    "Saved Folios & Waypoints 📍",
+                                    color = com.example.ui.theme.SummitGold,
+                                    fontFamily = com.example.ui.theme.CartographicSerif,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 18.sp
+                                )
+                                Text(
+                                    "FIELD CADASTRE REPOSITORY",
+                                    color = com.example.ui.theme.GlacierAzure,
+                                    fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                                    fontSize = 10.sp,
+                                    letterSpacing = 1.sp
+                                )
+                            }
+                        },
+                        navigationIcon = {
+                            IconButton(onClick = onBack) {
+                                Icon(
+                                    Icons.AutoMirrored.Filled.ArrowBack, 
+                                    contentDescription = "Back", 
+                                    tint = com.example.ui.theme.AtlasParchment
+                                )
+                            }
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = com.example.ui.theme.OceanicDark.copy(alpha = 0.95f)
+                        )
                     )
                 }
-            } else {
-                LazyColumn(
-                    modifier = Modifier.fillMaxSize().padding(horizontal = 20.dp),
-                    contentPadding = PaddingValues(bottom = 24.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) { paddingValues ->
+                Column(
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize()
                 ) {
-                    items(questions, key = { it.id }) { q ->
-                        PremiumBookmarkCard(
-                            question = q,
-                            onRemove = { viewModel.removeBookmark(q.id) },
-                            deepBlue = deepBlue,
-                            accentGold = accentGold,
-                            successGreen = successGreen,
-                            errorRed = errorRed,
-                            cardColor = cardColor
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Box(modifier = Modifier.padding(horizontal = 16.dp)) {
+                        com.example.ui.components.CartographicCoordinatesBanner(
+                            coordinatesText = "📍 GEOGRAPHIC FIELD FOLIO // ${questions.size} RECORDED WAYPOINTS"
                         )
+                    }
+
+                    if (availableTopics.size > 1) {
+                        LazyRow(
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 10.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            items(availableTopics) { topic ->
+                                val isSelected = topic == selectedTopic
+                                Surface(
+                                    color = if (isSelected) com.example.ui.theme.DeepBasalt else com.example.ui.theme.OceanicDark,
+                                    shape = RoundedCornerShape(8.dp),
+                                    border = BorderStroke(
+                                        1.dp, 
+                                        if (isSelected) com.example.ui.theme.SunstoneGold else com.example.ui.theme.SlateBedrock
+                                    ),
+                                    modifier = Modifier.clickable { viewModel.filterByTopic(topic) }
+                                ) {
+                                    Text(
+                                        text = "🗺️ $topic",
+                                        color = if (isSelected) com.example.ui.theme.SummitGold else com.example.ui.theme.TopoContourMuted,
+                                        fontSize = 12.sp,
+                                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    if (questions.isEmpty()) {
+                        Box(modifier = Modifier.fillMaxSize().padding(32.dp), contentAlignment = Alignment.Center) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                Text(
+                                    text = "🧭",
+                                    fontSize = 48.sp
+                                )
+                                Spacer(modifier = Modifier.height(12.dp))
+                                Text(
+                                    text = "No Field Waypoints Recorded", 
+                                    fontFamily = com.example.ui.theme.CartographicSerif,
+                                    color = com.example.ui.theme.AtlasParchment,
+                                    fontSize = 18.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                                Spacer(modifier = Modifier.height(6.dp))
+                                Text(
+                                    text = "Tap the bookmark ribbon (🔖) during any expedition transect to save crucial map questions, diagrams, and memory keys to your folio.",
+                                    color = com.example.ui.theme.TopoContourMuted,
+                                    fontSize = 13.sp,
+                                    lineHeight = 18.sp,
+                                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                                )
+                            }
+                        }
+                    } else {
+                        LazyColumn(
+                            modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
+                            contentPadding = PaddingValues(top = 8.dp, bottom = 24.dp),
+                            verticalArrangement = Arrangement.spacedBy(14.dp)
+                        ) {
+                            items(questions, key = { it.id }) { q ->
+                                PremiumBookmarkCard(
+                                    question = q,
+                                    onRemove = { viewModel.removeBookmark(q.id) }
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -131,94 +164,103 @@ fun BookmarksScreen(
 @Composable
 fun PremiumBookmarkCard(
     question: ExamQuestion,
-    onRemove: () -> Unit,
-    deepBlue: Color,
-    accentGold: Color,
-    successGreen: Color,
-    errorRed: Color,
-    cardColor: Color
+    onRemove: () -> Unit
 ) {
-    Surface(
-        color = cardColor,
-        shape = RoundedCornerShape(16.dp),
-        shadowElevation = 2.dp,
+    com.example.ui.components.AtlasCard(
         modifier = Modifier.fillMaxWidth()
     ) {
-        Column(modifier = Modifier.padding(20.dp)) {
+        Column(modifier = Modifier.padding(16.dp)) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.Top
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    val formatText = (question as? MCQQuestion)?.questionFormatType ?: "Direct Fact"
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Box(
-                            modifier = Modifier
-                                .background(accentGold, RoundedCornerShape(4.dp))
-                                .padding(horizontal = 6.dp, vertical = 2.dp)
+                    val formatText = (question as? MCQQuestion)?.questionFormatType ?: "Direct Cartography"
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp), 
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Surface(
+                            color = com.example.ui.theme.OceanicDark,
+                            shape = RoundedCornerShape(4.dp),
+                            border = BorderStroke(1.dp, com.example.ui.theme.SlateBedrock)
                         ) {
                             Text(
-                                text = formatText.uppercase(),
-                                color = Color.White,
+                                text = "🧭 ${formatText.uppercase()}",
+                                color = com.example.ui.theme.GlacierAzure,
                                 fontSize = 10.sp,
-                                fontWeight = FontWeight.Black,
-                                letterSpacing = 0.5.sp
+                                fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
                             )
                         }
                         Text(
-                            text = question.chapterCode,
-                            color = deepBlue.copy(alpha = 0.6f),
-                            fontSize = 12.sp,
+                            text = "📍 ${question.chapterCode}",
+                            color = com.example.ui.theme.SunstoneGold,
+                            fontSize = 11.sp,
+                            fontFamily = com.example.ui.theme.CoordinatesMonospace,
                             fontWeight = FontWeight.Bold
                         )
                     }
                 }
                 IconButton(onClick = onRemove, modifier = Modifier.size(24.dp)) {
-                    Icon(Icons.Filled.DeleteOutline, contentDescription = "Remove Bookmark", tint = errorRed)
+                    Icon(
+                        Icons.Filled.DeleteOutline, 
+                        contentDescription = "Remove Bookmark", 
+                        tint = com.example.ui.theme.MagmaCrimson
+                    )
                 }
             }
             
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
             
             Text(
                 text = question.questionText.trim(),
-                color = deepBlue,
-                fontSize = 16.sp,
+                color = com.example.ui.theme.AtlasParchment,
+                fontFamily = com.example.ui.theme.CartographicSerif,
+                fontSize = 15.sp,
                 fontWeight = FontWeight.SemiBold,
-                lineHeight = 24.sp
+                lineHeight = 22.sp
             )
 
             val mcq = question as? MCQQuestion
             if (mcq != null) {
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(14.dp))
                 val correctOption = mcq.options.find { it.id == mcq.correctAnswerId }
                 
                 Surface(
-                    color = successGreen.copy(alpha = 0.05f),
-                    shape = RoundedCornerShape(12.dp),
-                    border = BorderStroke(1.dp, successGreen.copy(alpha = 0.2f)),
+                    color = com.example.ui.theme.OceanicDark,
+                    shape = RoundedCornerShape(10.dp),
+                    border = BorderStroke(1.dp, com.example.ui.theme.ContourEmerald.copy(alpha = 0.5f)),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Column(modifier = Modifier.padding(16.dp)) {
+                    Column(modifier = Modifier.padding(12.dp)) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Filled.CheckCircleOutline, contentDescription = null, tint = successGreen, modifier = Modifier.size(18.dp))
-                            Spacer(modifier = Modifier.width(8.dp))
+                            Icon(
+                                Icons.Filled.CheckCircleOutline, 
+                                contentDescription = null, 
+                                tint = com.example.ui.theme.ContourEmerald, 
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
                             Text(
-                                text = correctOption?.text ?: "Unknown",
-                                color = successGreen,
-                                fontSize = 14.sp,
+                                text = "SURVEYOR GENERAL KEY: ${correctOption?.text ?: "Unknown"}",
+                                color = com.example.ui.theme.ContourEmerald,
+                                fontSize = 13.sp,
                                 fontWeight = FontWeight.Bold,
-                                lineHeight = 20.sp
+                                lineHeight = 18.sp
                             )
                         }
-                        Spacer(modifier = Modifier.height(8.dp))
-                        Text(
-                            text = mcq.correctExplanation,
-                            color = deepBlue.copy(alpha = 0.8f),
-                            fontSize = 13.sp,
-                            lineHeight = 18.sp
-                        )
+                        if (mcq.correctExplanation.isNotBlank()) {
+                            Spacer(modifier = Modifier.height(6.dp))
+                            Text(
+                                text = "🗺️ ${mcq.correctExplanation}",
+                                color = com.example.ui.theme.TopoContourMuted,
+                                fontSize = 12.sp,
+                                lineHeight = 17.sp
+                            )
+                        }
                     }
                 }
             }

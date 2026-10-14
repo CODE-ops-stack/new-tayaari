@@ -1,36 +1,33 @@
-import re
+import os
 
-file = 'app/src/main/java/com/example/viewmodel/MistakeReplayViewModel.kt'
-with open(file, 'r', encoding='utf-8') as f:
+path = 'c:/Users/harsh/Downloads/tayaari/tayaariapp/app/src/main/java/com/example/viewmodel/PracticeViewModel.kt'
+with open(path, 'r', encoding='utf-8') as f:
     text = f.read()
 
-# Replace fun loadCandidate()
-text = re.sub(
-    r'fun loadCandidate\(\)\s*\{\s*viewModelScope\.launch\s*\{([\s\S]*?)\}\s*\}',
-    r'fun loadCandidate() { viewModelScope.launch { loadCandidateSync() } }\n\n    suspend fun loadCandidateSync() {\1}',
-    text
-)
+text = text.replace('fun submitAnswerWithConfidence(confidence: String) {', 'fun submitAnswer(optionId: String) {\n        onOptionPending(optionId)\n        val confidence = "Certain"')
 
-# Replace fun commitToRepair()
-text = re.sub(
-    r'fun commitToRepair\(\)\s*\{\s*viewModelScope\.launch\s*\{([\s\S]*?)\}\s*\}',
-    r'fun commitToRepair() { viewModelScope.launch { commitToRepairSync() } }\n\n    suspend fun commitToRepairSync() {\1}',
-    text
-)
+jump_to_question = '''
+    fun jumpToQuestion(index: Int) {
+        if (index in 0 until _uiState.value.allQuestions.size) {
+            val newQ = _uiState.value.allQuestions[index]
+            _uiState.update { 
+                it.copy(
+                    currentQuestion = newQ,
+                    questionNumber = index + 1,
+                    selectedOptionId = it.userAnswers[newQ.id],
+                    pendingOptionId = null,
+                    detectedConfusionPair = null,
+                    crossedOutOptionIds = emptySet()
+                )
+            }
+            updateBookmarkStatus()
+        }
+    }
 
-# Replace fun proceedToAlternate()
-text = re.sub(
-    r'fun proceedToAlternate\(\)\s*\{\s*viewModelScope\.launch\s*\{([\s\S]*?)\}\s*\}',
-    r'fun proceedToAlternate() { viewModelScope.launch { proceedToAlternateSync() } }\n\n    suspend fun proceedToAlternateSync() {\1}',
-    text
-)
+    fun toggleBookmark() {'''
 
-# Replace fun submitAlternateAnswer
-text = re.sub(
-    r'fun submitAlternateAnswer\(isCorrect: Boolean\)\s*\{\s*viewModelScope\.launch\s*\{([\s\S]*?)\}\s*\}',
-    r'fun submitAlternateAnswer(isCorrect: Boolean) { viewModelScope.launch { submitAlternateAnswerSync(isCorrect) } }\n\n    suspend fun submitAlternateAnswerSync(isCorrect: Boolean) {\1}',
-    text
-)
+text = text.replace('fun toggleBookmark() {', jump_to_question)
 
-with open(file, 'w', encoding='utf-8') as f:
+with open(path, 'w', encoding='utf-8') as f:
     f.write(text)
+print('Fixed PracticeViewModel.kt')

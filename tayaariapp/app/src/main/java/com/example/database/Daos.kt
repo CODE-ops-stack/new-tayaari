@@ -1,4 +1,4 @@
-﻿package com.example.database
+package com.example.database
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -79,18 +79,27 @@ interface AppDao {
     
     @Query("SELECT COUNT(*) FROM questions")
     suspend fun getQuestionCount(): Int
+
+    @Query("SELECT COUNT(*) FROM questions")
+    fun getQuestionCountFlow(): Flow<Int>
     
     @Query("DELETE FROM questions")
     suspend fun clearAllQuestions(): Int
     
     @Query("DELETE FROM questions WHERE examRelevance = 'Elite'")
     suspend fun deleteUpscQuestions(): Int
+    
+    @Query("DELETE FROM topics")
+    suspend fun deleteAllTopics()
 
     @Query("SELECT * FROM questions WHERE examRelevance = 'Elite' ORDER BY RANDOM() LIMIT 5")
     suspend fun getRandomUpscQuestions(): List<Question>
 
     @Query("SELECT COUNT(*) FROM questions WHERE examRelevance = 'Elite'")
     suspend fun getUpscQuestionCount(): Int
+
+    @Query("SELECT * FROM questions WHERE topicId = :topicId AND tier IN (:allowedTiers) AND (:allowElite = 1 OR examRelevance != 'Elite') ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getQuestionsByTopicIdForProfile(topicId: Int, allowedTiers: List<String>, allowElite: Boolean, limit: Int): List<Question>
 
     @Query("SELECT * FROM questions WHERE topicId = (SELECT id FROM topics WHERE name LIKE :topicName || '%' LIMIT 1) AND tier = :tier ORDER BY RANDOM() LIMIT :limit")
     suspend fun getQuestionsByTopicAndTier(topicName: String, tier: String, limit: Int): List<Question>
@@ -100,6 +109,9 @@ interface AppDao {
 
     @Query("SELECT * FROM questions WHERE tier IN (:allowedTiers) AND (:allowElite = 1 OR examRelevance != 'Elite') ORDER BY RANDOM() LIMIT :limit")
     suspend fun getAllQuestionsForProfile(allowedTiers: List<String>, allowElite: Boolean, limit: Int): List<Question>
+
+    @Query("SELECT * FROM questions WHERE tier IN (:allowedTiers) AND format = :format AND (:allowElite = 1 OR examRelevance != 'Elite') ORDER BY RANDOM() LIMIT :limit")
+    suspend fun getAllQuestionsForProfileWithFormat(allowedTiers: List<String>, format: String, allowElite: Boolean, limit: Int): List<Question>
 
     @Query("SELECT * FROM questions WHERE topicId = (SELECT id FROM topics WHERE name LIKE :topicName || '%' LIMIT 1) AND tier IN (:allowedTiers) AND format = :format AND (:allowElite = 1 OR examRelevance != 'Elite') ORDER BY RANDOM() LIMIT :limit")
     suspend fun getQuestionsForProfileWithFormat(topicName: String, allowedTiers: List<String>, format: String, allowElite: Boolean, limit: Int): List<Question>

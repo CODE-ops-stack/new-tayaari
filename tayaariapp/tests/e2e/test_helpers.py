@@ -284,10 +284,10 @@ class DataImporterSimulator:
         """
         Formats a CandidateQuestion into valid DataImporter markdown entry.
         """
-        stem = cq.stem.strip()
+        stem = cq.stem.strip().replace("`", "'")
         opts_lines = []
         for opt in sorted(cq.options, key=lambda x: x["id"]):
-            val = opt.get("text", "").strip()
+            val = opt.get("text", "").strip().replace("`", "'")
             letter = opt["id"].replace("opt_", "").upper()
             opts_lines.append(f"({letter}) {val}")
         opts_str = "\n".join(opts_lines)

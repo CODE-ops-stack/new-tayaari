@@ -1,4 +1,4 @@
-﻿package com.example.viewmodel
+package com.example.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -45,14 +45,16 @@ class TopicSelectionViewModel(
     // Temporary storage for when they bypass the intercept
     var pendingPracticeIntent: Triple<String, String, String>? = null
 
+    val isSyncing = com.example.repository.CloudQuestionSyncService.isSyncing.asStateFlow()
+    val syncStatusMessage = com.example.repository.CloudQuestionSyncService.syncStatusMessage.asStateFlow()
+
     init {
         viewModelScope.launch {
-            userPrefsRepo.selectedExamProfile.collectLatest { p ->
-                _profile.value = p
-                if (p != null) {
-                    loadTopics(p)
-                    loadNextAction(p.examId)
-                }
+            userPrefsRepo.selectedExamProfiles.collectLatest { p ->
+                val selectedProfile = p.firstOrNull() ?: com.example.model.ExamBlueprintRegistry.blueprints.first()
+                _profile.value = selectedProfile
+                loadTopics(selectedProfile)
+                loadNextAction(selectedProfile.examId)
             }
         }
     }
@@ -89,13 +91,24 @@ class TopicSelectionViewModel(
         _nextAction.value = actionEngine.getNextBestAction(examId)
     }
 
-    private suspend fun loadTopics(p: ExamBlueprint) {
-        val t = localRepository.getAllTopics().first()
-        val uiModels = t.map { topic ->
-            val count = localRepository.getQuestionsForProfile(topic.name, p, 1000).size
-            TopicUIModel(topic, count)
+    private var topicsJob: kotlinx.coroutines.Job? = null
+    private fun loadTopics(p: ExamBlueprint) {
+        topicsJob?.cancel()
+        topicsJob = viewModelScope.launch {
+            localRepository.getAllTopics().collectLatest { topicsList ->
+                val uiModels = topicsList.map { topic ->
+                    val count = com.example.repository.CloudQuestionSyncService.getTopicCount(topic.id)
+                    TopicUIModel(topic, count)
+                }
+                _topics.value = uiModels
+            }
         }
-        _topics.value = uiModels
+    }
+
+    fun refreshFromCloud(context: android.content.Context) {
+        viewModelScope.launch {
+            com.example.repository.CloudQuestionSyncService.syncWithCloud(context, force = true)
+        }
     }
 }
 

@@ -9,16 +9,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material.icons.filled.RemoveCircleOutline
 import androidx.compose.material3.*
-import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.foundation.clickable
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -35,81 +31,105 @@ fun ResultsScreen(
     score: java.math.BigDecimal,
     onDashboardClick: () -> Unit
 ) {
-    val parchmentColor = Color(0xFFF4F1E1)
-    val deepOceanBlue = Color(0xFF1B3B5A)
-    val forestGreen = Color(0xFF2E7D32)
-    val terracotta = Color(0xFFE07A5F)
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Test Results", fontWeight = FontWeight.Bold) },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = deepOceanBlue,
-                    titleContentColor = parchmentColor
-                )
-            )
-        },
-        containerColor = parchmentColor
-    ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            item {
-                ScoreHeader(score, questions.size, deepOceanBlue)
-            }
-            item {
-                ElevationProfileVisualization(questions, userAnswers, forestGreen, terracotta)
-            }
-            item {
-                BreakdownSection(questions, userAnswers, deepOceanBlue, forestGreen)
-            }
-            item {
-                Text(
-                    text = "Question Review",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = deepOceanBlue,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(top = 16.dp, bottom = 8.dp)
-                )
-            }
-            items(questions) { q ->
-                val mcq = q as? MCQQuestion
-                if (mcq != null) {
-                    val userAnswerId = userAnswers[mcq.id]
-                    val isSkipped = userAnswerId == null
-                    val opt = mcq.options.find { it.id == userAnswerId }
-                    val isAbstain = opt?.role == com.example.model.OptionRole.ABSTAIN
-                    
-                    val outcome = when {
-                        isSkipped -> com.example.model.AttemptOutcome.UNANSWERED
-                        isAbstain -> com.example.model.AttemptOutcome.ABSTAINED
-                        userAnswerId == mcq.correctAnswerId -> com.example.model.AttemptOutcome.CORRECT
-                        else -> com.example.model.AttemptOutcome.INCORRECT
-                    }
-
-                    ReviewCard(
-                        question = mcq,
-                        userAnswerId = userAnswerId,
-                        outcome = outcome,
-                        deepOceanBlue = deepOceanBlue,
-                        forestGreen = forestGreen,
-                        terracotta = terracotta
+    com.example.ui.components.AtlasBackground {
+        com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.035f)) {
+            Scaffold(
+                containerColor = Color.Transparent,
+                topBar = {
+                    TopAppBar(
+                        title = { 
+                            Column {
+                                Text(
+                                    "Expedition Debrief 🧭", 
+                                    fontFamily = com.example.ui.theme.CartographicSerif,
+                                    fontWeight = FontWeight.Bold,
+                                    color = com.example.ui.theme.SummitGold,
+                                    fontSize = 18.sp
+                                )
+                                Text(
+                                    "SURVEY SUMMARY & ELEVATION REPORT",
+                                    fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                                    fontSize = 10.sp,
+                                    color = com.example.ui.theme.GlacierAzure,
+                                    letterSpacing = 1.sp
+                                )
+                            }
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = com.example.ui.theme.OceanicDark.copy(alpha = 0.95f)
+                        )
                     )
                 }
-            }
-            
-            item {
-                Button(
-                    onClick = onDashboardClick,
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = deepOceanBlue)
+            ) { paddingValues ->
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        .padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    Text("Return to Dashboard", color = parchmentColor, fontWeight = FontWeight.Bold)
+                    item {
+                        com.example.ui.components.CartographicCoordinatesBanner(
+                            coordinatesText = "📍 EXPEDITION TRANSECT COMPLETED // DEBRIEF LOG"
+                        )
+                    }
+                    item {
+                        ScoreHeader(score, questions.size)
+                    }
+                    item {
+                        ElevationProfileVisualization(questions, userAnswers)
+                    }
+                    item {
+                        BreakdownSection(questions, userAnswers)
+                    }
+                    item {
+                        Text(
+                            text = "Surveyed Waypoint Logs 📍",
+                            style = MaterialTheme.typography.titleLarge,
+                            fontFamily = com.example.ui.theme.CartographicSerif,
+                            color = com.example.ui.theme.SummitGold,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(top = 12.dp, bottom = 4.dp)
+                        )
+                    }
+                    items(questions) { q ->
+                        val mcq = q as? MCQQuestion
+                        if (mcq != null) {
+                            val userAnswerId = userAnswers[mcq.id]
+                            val isSkipped = userAnswerId == null
+                            val opt = mcq.options.find { it.id == userAnswerId }
+                            val isAbstain = opt?.role == com.example.model.OptionRole.ABSTAIN
+                            
+                            val outcome = when {
+                                isSkipped -> com.example.model.AttemptOutcome.UNANSWERED
+                                isAbstain -> com.example.model.AttemptOutcome.ABSTAINED
+                                userAnswerId == mcq.correctAnswerId -> com.example.model.AttemptOutcome.CORRECT
+                                else -> com.example.model.AttemptOutcome.INCORRECT
+                            }
+
+                            ReviewCard(
+                                question = mcq,
+                                userAnswerId = userAnswerId,
+                                outcome = outcome
+                            )
+                        }
+                    }
+                    
+                    item {
+                        Button(
+                            onClick = onDashboardClick,
+                            modifier = Modifier.fillMaxWidth().height(50.dp).padding(vertical = 4.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = com.example.ui.theme.ContourEmerald),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text(
+                                "🧭 Return to Cadastre Central", 
+                                color = com.example.ui.theme.AbyssNavy, 
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 15.sp
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -117,26 +137,45 @@ fun ResultsScreen(
 }
 
 @Composable
-fun ScoreHeader(score: java.math.BigDecimal, total: Int, textColor: Color) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+fun ScoreHeader(score: java.math.BigDecimal, total: Int) {
+    com.example.ui.components.AtlasCard(
+        modifier = Modifier.fillMaxWidth()
     ) {
         Column(
-            modifier = Modifier.padding(24.dp).fillMaxWidth(),
+            modifier = Modifier.padding(20.dp).fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Overall Score", style = MaterialTheme.typography.titleMedium, color = Color.Gray)
             Text(
-                text = "${score.setScale(2, java.math.RoundingMode.HALF_UP).stripTrailingZeros().toPlainString()} / $total",
-                style = MaterialTheme.typography.displayLarge,
-                color = textColor,
+                "⛰️ ELEVATION POINTS GAINED", 
+                style = MaterialTheme.typography.labelSmall, 
+                fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                color = com.example.ui.theme.GlacierAzure,
+                letterSpacing = 1.sp
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = "${score.setScale(2, java.math.RoundingMode.HALF_UP).stripTrailingZeros().toPlainString()} / $total GP",
+                style = MaterialTheme.typography.displayMedium,
+                fontFamily = com.example.ui.theme.CartographicSerif,
+                color = com.example.ui.theme.SummitGold,
                 fontWeight = FontWeight.Bold
             )
             val percentage = if (total > 0) (score.toFloat() / total * 100).toInt() else 0
-            Text("$percentage%", style = MaterialTheme.typography.titleMedium, color = textColor)
+            Spacer(modifier = Modifier.height(4.dp))
+            Surface(
+                color = com.example.ui.theme.OceanicDark,
+                shape = RoundedCornerShape(6.dp),
+                border = BorderStroke(1.dp, com.example.ui.theme.SlateBedrock)
+            ) {
+                Text(
+                    text = "🧭 Field Mastery: $percentage% // Summit Transect",
+                    color = com.example.ui.theme.ContourEmerald,
+                    fontSize = 11.sp,
+                    fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                )
+            }
         }
     }
 }
@@ -144,19 +183,20 @@ fun ScoreHeader(score: java.math.BigDecimal, total: Int, textColor: Color) {
 @Composable
 fun ElevationProfileVisualization(
     questions: List<ExamQuestion>,
-    userAnswers: Map<String, String>,
-    forestGreen: Color,
-    terracotta: Color
+    userAnswers: Map<String, String>
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    com.example.ui.components.AtlasCard(
+        modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text("Performance Profile", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                "Expedition Topographic Profile 🗺️", 
+                style = MaterialTheme.typography.titleMedium, 
+                fontFamily = com.example.ui.theme.CartographicSerif,
+                color = com.example.ui.theme.SummitGold,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(14.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -171,12 +211,12 @@ fun ElevationProfileVisualization(
                     val isCorrect = mcq != null && ans == mcq.correctAnswerId
                     
                     val barColor = when {
-                        isSkipped -> Color.LightGray
-                        isAbstain -> Color.Gray
-                        isCorrect -> forestGreen
-                        else -> terracotta
+                        isSkipped -> com.example.ui.theme.MeridianMuted
+                        isAbstain -> com.example.ui.theme.TopoContourMuted
+                        isCorrect -> com.example.ui.theme.ContourEmerald
+                        else -> com.example.ui.theme.MagmaCrimson
                     }
-                    val height = if (isCorrect) 60.dp else if (isAbstain) 30.dp else if (isSkipped) 20.dp else 10.dp
+                    val height = if (isCorrect) 56.dp else if (isAbstain) 28.dp else if (isSkipped) 18.dp else 12.dp
                     
                     Box(
                         modifier = Modifier
@@ -194,14 +234,9 @@ fun ElevationProfileVisualization(
 @Composable
 fun BreakdownSection(
     questions: List<ExamQuestion>,
-    userAnswers: Map<String, String>,
-    deepOceanBlue: Color,
-    forestGreen: Color
+    userAnswers: Map<String, String>
 ) {
-    val formatStats = mutableMapOf<String, Pair<Int, Int>>() // Format -> (Correct, Total)
-    // Note: Since we don't store Tier per question directly in ExamQuestion, 
-    // we might just show breakdown by Format for now. 
-    // If we want Tier, we can try to extract it or we just stick to Format.
+    val formatStats = mutableMapOf<String, Pair<Int, Int>>()
 
     questions.forEach { q ->
         val mcq = q as? MCQQuestion
@@ -224,23 +259,35 @@ fun BreakdownSection(
         }
     }
 
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    com.example.ui.components.AtlasCard(
+        modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text("Breakdown by Format", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = deepOceanBlue)
-            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                "Field Format Transect Breakdown 🧭", 
+                style = MaterialTheme.typography.titleMedium, 
+                fontFamily = com.example.ui.theme.CartographicSerif,
+                fontWeight = FontWeight.Bold, 
+                color = com.example.ui.theme.SummitGold
+            )
+            Spacer(modifier = Modifier.height(10.dp))
             formatStats.forEach { (format, stats) ->
                 Row(
                     modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(format, style = MaterialTheme.typography.bodyMedium)
+                    Text(
+                        "📍 $format", 
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = com.example.ui.theme.AtlasParchment
+                    )
                     val percentage = if (stats.second > 0) (stats.first * 100 / stats.second) else 0
-                    Text("${stats.first}/${stats.second} ($percentage%)", style = MaterialTheme.typography.bodyMedium, color = if (percentage >= 50) forestGreen else Color.Gray)
+                    Text(
+                        "${stats.first}/${stats.second} ($percentage%)", 
+                        style = MaterialTheme.typography.bodyMedium, 
+                        fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                        color = if (percentage >= 50) com.example.ui.theme.ContourEmerald else com.example.ui.theme.SunstoneGold
+                    )
                 }
             }
         }
@@ -251,16 +298,13 @@ fun BreakdownSection(
 fun ReviewCard(
     question: MCQQuestion,
     userAnswerId: String?,
-    outcome: com.example.model.AttemptOutcome,
-    deepOceanBlue: Color,
-    forestGreen: Color,
-    terracotta: Color
+    outcome: com.example.model.AttemptOutcome
 ) {
     val borderColor = when (outcome) {
-        com.example.model.AttemptOutcome.CORRECT -> forestGreen
-        com.example.model.AttemptOutcome.INCORRECT -> terracotta
-        com.example.model.AttemptOutcome.ABSTAINED -> Color.Gray
-        com.example.model.AttemptOutcome.UNANSWERED -> Color.LightGray
+        com.example.model.AttemptOutcome.CORRECT -> com.example.ui.theme.ContourEmerald
+        com.example.model.AttemptOutcome.INCORRECT -> com.example.ui.theme.MagmaCrimson
+        com.example.model.AttemptOutcome.ABSTAINED -> com.example.ui.theme.TopoContourMuted
+        com.example.model.AttemptOutcome.UNANSWERED -> com.example.ui.theme.MeridianMuted
     }
     val icon = when (outcome) {
         com.example.model.AttemptOutcome.CORRECT -> Icons.Filled.CheckCircle
@@ -268,34 +312,35 @@ fun ReviewCard(
         else -> Icons.Filled.Cancel
     }
 
-    Card(
+    com.example.ui.components.AtlasCard(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        border = BorderStroke(1.dp, borderColor),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+        borderColor = borderColor.copy(alpha = 0.5f)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     imageVector = icon,
                     contentDescription = outcome.name,
-                    tint = borderColor
+                    tint = borderColor,
+                    modifier = Modifier.size(18.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = "Format: ${question.questionFormatType}",
+                    text = "🧭 ${question.questionFormatType.uppercase()} // ${question.chapterCode}",
                     style = MaterialTheme.typography.labelSmall,
-                    color = Color.Gray
+                    fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                    color = com.example.ui.theme.GlacierAzure
                 )
             }
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(10.dp))
             
             Text(
                 text = question.questionText,
                 style = MaterialTheme.typography.bodyMedium,
+                fontFamily = com.example.ui.theme.CartographicSerif,
                 fontWeight = FontWeight.Medium,
-                color = deepOceanBlue
+                color = com.example.ui.theme.AtlasParchment,
+                lineHeight = 22.sp
             )
             
             Spacer(modifier = Modifier.height(12.dp))
@@ -305,16 +350,16 @@ fun ReviewCard(
             
             if (userAnswerId != null) {
                 Text(
-                    text = "Your Answer: ${userOption?.text ?: "Unknown"}",
+                    text = "Your Recorded Bearing: ${userOption?.text ?: "Unknown"}",
                     style = MaterialTheme.typography.bodySmall,
                     color = borderColor,
                     fontWeight = FontWeight.Bold
                 )
             } else {
                 Text(
-                    text = "Your Answer: Skipped",
+                    text = "Your Bearing: Skipped Waypoint",
                     style = MaterialTheme.typography.bodySmall,
-                    color = Color.Gray,
+                    color = com.example.ui.theme.TopoContourMuted,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -322,9 +367,9 @@ fun ReviewCard(
             if (outcome != com.example.model.AttemptOutcome.CORRECT) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = "Correct Answer: ${correctOption?.text ?: "Unknown"}",
+                    text = "Verified Atlas Key: ${correctOption?.text ?: "Unknown"}",
                     style = MaterialTheme.typography.bodySmall,
-                    color = forestGreen,
+                    color = com.example.ui.theme.ContourEmerald,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -332,14 +377,16 @@ fun ReviewCard(
             Spacer(modifier = Modifier.height(8.dp))
             
             Surface(
-                color = borderColor.copy(alpha = 0.1f),
-                shape = RoundedCornerShape(8.dp)
+                color = com.example.ui.theme.OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                border = BorderStroke(1.dp, com.example.ui.theme.SlateBedrock)
             ) {
                 Text(
-                    text = "Explanation: ${question.correctExplanation}",
+                    text = "🗺️ Cadastre Key: ${question.correctExplanation}",
                     style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(8.dp),
-                    color = Color.DarkGray
+                    modifier = Modifier.padding(10.dp),
+                    color = com.example.ui.theme.TopoContourMuted,
+                    lineHeight = 16.sp
                 )
             }
         }

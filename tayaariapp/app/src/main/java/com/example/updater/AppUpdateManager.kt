@@ -1,7 +1,9 @@
 package com.example.updater
 
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInstaller
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
@@ -23,13 +25,14 @@ import java.util.concurrent.TimeUnit
 /**
  * AppUpdateManager
  *
- * Provides automatic, wireless Over-The-Air (OTA) APK updates for Android devices
+ * Provides autonomous, wireless Over-The-Air (OTA) APK updates for Android devices
  * operating without physical PC/cable connections.
  *
- * Workflow:
- * 1. Checks cloud `metadata.json` for newer build versions.
- * 2. Streams the APK in the background with real-time download progress.
- * 3. Triggers the Android package installer via FileProvider.
+ * Unattended / Silent Architecture:
+ * 1. Proactive permission onboarding: prompts user ONCE to grant "Install unknown apps" ("take permission for now").
+ * 2. Unattended background updates: once permission is granted, uses Android 12+ (API 31+) PackageInstaller
+ *    session with `USER_ACTION_NOT_REQUIRED` to stream and commit updates completely silently ("auto update without permission").
+ * 3. Fallback: on Android < 12 or if permission not yet granted, gracefully falls back to the system 1-tap confirmation.
  */
 object AppUpdateManager {
 
@@ -86,6 +89,9 @@ object AppUpdateManager {
             val apkFile: File,
             val version: Int
         ) : UpdateState()
+        data class Installing(
+            val version: Int
+        ) : UpdateState()
         data class PermissionRequired(
             val apkFile: File,
             val version: Int
@@ -99,7 +105,7 @@ object AppUpdateManager {
     private val updateMutex = Mutex()
 
     /**
-     * Checks cloud metadata on app launch or resume.
+     * Checks cloud metadata on app launch, resume, or background alarm.
      * If [autoDownload] is true, immediately streams the update in the background.
      */
     suspend fun checkForUpdates(context: Context, autoDownload: Boolean = true): UpdateState = withContext(Dispatchers.IO) {
@@ -139,7 +145,7 @@ object AppUpdateManager {
     }
 
     /**
-     * Downloads the APK file to the app's cache directory and updates state.
+     * Downloads the APK file to the app's cache directory and triggers installation.
      */
     suspend fun downloadAndPrepareApk(context: Context, metadata: CloudMetadata): UpdateState = withContext(Dispatchers.IO) {
         try {
@@ -148,13 +154,13 @@ object AppUpdateManager {
 
             val apkFile = File(updatesDir, "tayaari-update-v${metadata.version}.apk")
 
-            // If already downloaded and matches expected size, mark ready, pop notification and trigger install immediately
+            // If already downloaded and matches expected size, mark ready, pop notification and trigger install
             if (apkFile.exists() && metadata.apkSizeBytes != null && apkFile.length() == metadata.apkSizeBytes) {
                 val ready = UpdateState.ReadyToInstall(apkFile, metadata.version)
                 _updateState.value = ready
                 UpdateNotificationHelper.showUpdateNotification(context, metadata.version, metadata.totalQuestions, apkFile)
                 withContext(Dispatchers.Main) {
-                    installApk(context, apkFile)
+                    installApk(context, apkFile, metadata.version)
                 }
                 return@withContext ready
             }
@@ -172,7 +178,7 @@ object AppUpdateManager {
                 }
 
                 val body = response.body ?: throw IllegalStateException("Empty response body")
-                val totalLength = if (body.contentLength() > 0) body.contentLength() else (metadata.apkSizeBytes ?: 33973819L)
+                val totalLength = if (body.contentLength() > 0) body.contentLength() else (metadata.apkSizeBytes ?: 33788213L)
 
                 body.byteStream().use { input ->
                     FileOutputStream(apkFile).use { output ->
@@ -206,7 +212,7 @@ object AppUpdateManager {
             Log.i(TAG, "Downloaded APK successfully: ${apkFile.absolutePath} (${apkFile.length()} bytes)")
             UpdateNotificationHelper.showUpdateNotification(context, metadata.version, metadata.totalQuestions, apkFile)
             withContext(Dispatchers.Main) {
-                installApk(context, apkFile)
+                installApk(context, apkFile, metadata.version)
             }
             return@withContext ready
 
@@ -219,43 +225,114 @@ object AppUpdateManager {
     }
 
     /**
-     * Prompts the Android OS to install the downloaded APK.
+     * Installs the downloaded APK.
+     * If user has granted permission ("take permission for now"), performs silent unattended install without prompt.
+     * Otherwise, requests permission from the user.
      */
-    fun installApk(context: Context, apkFile: File) {
+    fun installApk(context: Context, apkFile: File, version: Int = 0) {
         try {
             if (!apkFile.exists() || apkFile.length() == 0L) {
                 Log.e(TAG, "Cannot install: APK file does not exist or is empty")
                 return
             }
 
-            // Android 8.0+ Unknown App Sources Permission Check
+            // Step 1: Check if permission has been granted ("take permission for now")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (!context.packageManager.canRequestPackageInstalls()) {
-                    _updateState.value = UpdateState.PermissionRequired(apkFile, getInstalledVersionCode(context))
-                    Log.w(TAG, "Requesting unknown app sources permission from user")
-                    try {
-                        val settingsIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
-                            data = Uri.parse("package:${context.packageName}")
-                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        }
-                        context.startActivity(settingsIntent)
-                    } catch (e: Exception) {
-                        try {
-                            val genericIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
-                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            }
-                            context.startActivity(genericIntent)
-                        } catch (e2: Exception) {
-                            val secIntent = Intent(Settings.ACTION_SECURITY_SETTINGS).apply {
-                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            }
-                            context.startActivity(secIntent)
-                        }
-                    }
+                    _updateState.value = UpdateState.PermissionRequired(apkFile, version)
+                    Log.w(TAG, "Install permission required. Requesting permission from user...")
+                    requestInstallPermission(context)
                     return
                 }
             }
 
+            // Step 2: Permission IS granted! Attempt silent unattended update without prompt ("auto update without permission")
+            val silentInitiated = installApkSilently(context, apkFile, version)
+            if (silentInitiated) {
+                _updateState.value = UpdateState.Installing(version)
+                Log.i(TAG, "Initiated silent PackageInstaller session for v$version")
+                return
+            }
+
+            // Step 3: Fallback to standard interactive installer (for Android < 12)
+            Log.i(TAG, "Falling back to standard PackageInstaller UI intent")
+            launchStandardInstallIntent(context, apkFile)
+
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to launch package installer", e)
+        }
+    }
+
+    /**
+     * Silent / unattended installation using Android 12+ PackageInstaller session API.
+     * Does NOT show any user prompt or require confirmation ("auto update without permission").
+     */
+    fun installApkSilently(context: Context, apkFile: File, version: Int): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return false // USER_ACTION_NOT_REQUIRED is API 31+
+        }
+
+        if (!context.packageManager.canRequestPackageInstalls()) {
+            Log.w(TAG, "Cannot install silently: REQUEST_INSTALL_PACKAGES not granted yet")
+            return false
+        }
+
+        var session: PackageInstaller.Session? = null
+        try {
+            val packageInstaller = context.packageManager.packageInstaller
+            val params = PackageInstaller.SessionParams(PackageInstaller.SessionParams.MODE_FULL_INSTALL).apply {
+                setAppPackageName(context.packageName)
+                setRequireUserAction(PackageInstaller.SessionParams.USER_ACTION_NOT_REQUIRED)
+                setSize(apkFile.length())
+            }
+
+            val sessionId = packageInstaller.createSession(params)
+            session = packageInstaller.openSession(sessionId)
+
+            apkFile.inputStream().use { input ->
+                session.openWrite("base.apk", 0, apkFile.length()).use { output ->
+                    input.copyTo(output)
+                    session.fsync(output)
+                }
+            }
+
+            val callbackIntent = Intent(context, InstallStatusReceiver::class.java).apply {
+                action = InstallStatusReceiver.ACTION_INSTALL_STATUS
+                putExtra(InstallStatusReceiver.EXTRA_VERSION, version)
+                putExtra(InstallStatusReceiver.EXTRA_APK_PATH, apkFile.absolutePath)
+            }
+
+            val pendingIntent = PendingIntent.getBroadcast(
+                context,
+                sessionId,
+                callbackIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+            )
+
+            session.commit(pendingIntent.intentSender)
+            Log.i(TAG, "Successfully committed unattended PackageInstaller session $sessionId for v$version")
+            return true
+
+        } catch (e: Exception) {
+            Log.e(TAG, "Silent PackageInstaller session failed", e)
+            try {
+                session?.abandon()
+            } catch (abandonEx: Exception) {
+                Log.w(TAG, "Could not abandon session: ${abandonEx.message}")
+            }
+            return false
+        } finally {
+            try {
+                session?.close()
+            } catch (ignored: Exception) {}
+        }
+    }
+
+    /**
+     * Standard interactive installation via FileProvider and Intent.ACTION_VIEW (Fallback).
+     */
+    fun launchStandardInstallIntent(context: Context, apkFile: File) {
+        try {
             val apkUri: Uri = FileProvider.getUriForFile(
                 context,
                 "${context.packageName}.fileprovider",
@@ -269,10 +346,36 @@ object AppUpdateManager {
             }
 
             context.startActivity(installIntent)
-            Log.i(TAG, "Launched PackageInstaller for URI: $apkUri")
-
+            Log.i(TAG, "Launched standard PackageInstaller for URI: $apkUri")
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to launch package installer", e)
+            Log.e(TAG, "Failed to launch standard PackageInstaller intent", e)
+        }
+    }
+
+    /**
+     * Directs the user to Android Settings to enable "Install unknown apps" ("take permission for now").
+     */
+    fun requestInstallPermission(context: Context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            try {
+                val settingsIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
+                    data = Uri.parse("package:${context.packageName}")
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                context.startActivity(settingsIntent)
+            } catch (e: Exception) {
+                try {
+                    val genericIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+                    context.startActivity(genericIntent)
+                } catch (e2: Exception) {
+                    val secIntent = Intent(Settings.ACTION_SECURITY_SETTINGS).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+                    context.startActivity(secIntent)
+                }
+            }
         }
     }
 
@@ -303,7 +406,7 @@ object AppUpdateManager {
     }
 
     /**
-     * Schedules inexact periodic background checks via Android AlarmManager.
+     * Schedules periodic background update checks via Android AlarmManager.
      * Ensures update checks fire periodically even when the app is completely closed.
      */
     fun schedulePeriodicCheck(context: Context) {
@@ -312,11 +415,11 @@ object AppUpdateManager {
             val intent = Intent(context, UpdateCheckReceiver::class.java).apply {
                 action = "com.example.CHECK_FOR_UPDATE"
             }
-            val pendingIntent = android.app.PendingIntent.getBroadcast(
+            val pendingIntent = PendingIntent.getBroadcast(
                 context,
                 2001,
                 intent,
-                android.app.PendingIntent.FLAG_UPDATE_CURRENT or android.app.PendingIntent.FLAG_IMMUTABLE
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
             // Repeat every 2 hours
             val intervalMillis = 2 * 60 * 60 * 1000L

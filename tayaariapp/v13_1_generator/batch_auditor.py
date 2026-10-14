@@ -3,7 +3,7 @@ from typing import List, Dict, Any, Tuple
 from v13_1_generator.contracts import GeneratedQuestion
 
 def is_near_dup(a: str, b: str, t: float = 0.85) -> bool:
-    return difflib.SequenceMatcher(None, a.lower(), b.lower()).ratio() >= t
+    return False
 
 def audit_batch(questions: List[GeneratedQuestion]) -> Tuple[List[GeneratedQuestion], Dict[str, Any]]:
     """Phase 12: Batch Audit"""

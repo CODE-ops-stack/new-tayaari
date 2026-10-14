@@ -44,9 +44,12 @@ class MistakeReplayEngine(
         val emergingOrConfirmed = confusions.filter { it.evidenceLevel == "EMERGING_CONFUSION" || it.evidenceLevel == "CONFIRMED_CONFUSION" }
         for (conf in emergingOrConfirmed) {
             if (shouldReplay(conf.questionId)) {
-                val questions = appDao.getQuestionsByIds(listOf(conf.questionId.toInt()))
-                if (questions.isNotEmpty()) {
-                    return@withContext ReplayCandidate(questions.first(), "CONFUSION", conf.pairId, 100, "Contrast Lab")
+                val qIdInt = conf.questionId.toIntOrNull()
+                if (qIdInt != null) {
+                    val questions = appDao.getQuestionsByIds(listOf(qIdInt))
+                    if (questions.isNotEmpty()) {
+                        return@withContext ReplayCandidate(questions.first(), "CONFUSION", conf.pairId, 100, "Contrast Lab")
+                    }
                 }
             }
         }
@@ -57,9 +60,12 @@ class MistakeReplayEngine(
         val trapAttempts = attempts.filter { it.trapFallenInto != null && verifiedTrapTypes.contains(it.trapFallenInto) && it.outcome == "INCORRECT" }
         for (attempt in trapAttempts) {
             if (shouldReplay(attempt.questionId)) {
-                val questions = appDao.getQuestionsByIds(listOf(attempt.questionId.toInt()))
-                if (questions.isNotEmpty()) {
-                    return@withContext ReplayCandidate(questions.first(), "TRAP", attempt.trapFallenInto!!, 90, "Trap Training")
+                val qIdInt = attempt.questionId.toIntOrNull()
+                if (qIdInt != null) {
+                    val questions = appDao.getQuestionsByIds(listOf(qIdInt))
+                    if (questions.isNotEmpty()) {
+                        return@withContext ReplayCandidate(questions.first(), "TRAP", attempt.trapFallenInto!!, 90, "Trap Training")
+                    }
                 }
             }
         }
@@ -68,10 +74,13 @@ class MistakeReplayEngine(
         val attemptGroups = attempts.filter { it.outcome == "INCORRECT" }.groupBy { it.questionId }
         for ((qId, fails) in attemptGroups) {
             if (fails.size > 1 && shouldReplay(qId)) {
-                val questions = appDao.getQuestionsByIds(listOf(qId.toInt()))
-                if (questions.isNotEmpty()) {
-                    val candidate = ReplayCandidate(questions.first(), "REPEATED_INCORRECT", "Failed ${fails.size} times", 80, "Concept Repair")
-                    if (bestCandidate == null || bestCandidate.priority < candidate.priority) bestCandidate = candidate
+                val qIdInt = qId.toIntOrNull()
+                if (qIdInt != null) {
+                    val questions = appDao.getQuestionsByIds(listOf(qIdInt))
+                    if (questions.isNotEmpty()) {
+                        val candidate = ReplayCandidate(questions.first(), "REPEATED_INCORRECT", "Failed ${fails.size} times", 80, "Concept Repair")
+                        if (bestCandidate == null || bestCandidate.priority < candidate.priority) bestCandidate = candidate
+                    }
                 }
             }
         }
@@ -82,9 +91,12 @@ class MistakeReplayEngine(
         val highConfFails = attempts.filter { it.outcome == "INCORRECT" && (it.confidence == "Sure" || it.confidence == "Highly Likely") }
         for (attempt in highConfFails) {
             if (shouldReplay(attempt.questionId)) {
-                val questions = appDao.getQuestionsByIds(listOf(attempt.questionId.toInt()))
-                if (questions.isNotEmpty()) {
-                    return@withContext ReplayCandidate(questions.first(), "HIGH_CONFIDENCE_WRONG", "Confidence: ${attempt.confidence}", 70, "Confidence Calibration")
+                val qIdInt = attempt.questionId.toIntOrNull()
+                if (qIdInt != null) {
+                    val questions = appDao.getQuestionsByIds(listOf(qIdInt))
+                    if (questions.isNotEmpty()) {
+                        return@withContext ReplayCandidate(questions.first(), "HIGH_CONFIDENCE_WRONG", "Confidence: ${attempt.confidence}", 70, "Confidence Calibration")
+                    }
                 }
             }
         }
@@ -125,12 +137,15 @@ class MistakeReplayEngine(
         mistakeReplayDao.insertOutcome(entity)
         
         val existingRev = revisionDao.getRevisionItem(candidate.originalQuestion.id.toString())
+        val isMapQuestion = candidate.originalQuestion.topicId == 21
+        val modifier = if (isMapQuestion) 0.5 else 1.0
+
         val newNextReview = if (outcome == "IMPROVED") {
-            System.currentTimeMillis() + 7L * 24 * 60 * 60 * 1000
+            System.currentTimeMillis() + (7L * 24 * 60 * 60 * 1000 * modifier).toLong()
         } else if (outcome == "PARTIALLY_IMPROVED") {
-            System.currentTimeMillis() + 3L * 24 * 60 * 60 * 1000
+            System.currentTimeMillis() + (3L * 24 * 60 * 60 * 1000 * modifier).toLong()
         } else {
-            System.currentTimeMillis() + 1L * 24 * 60 * 60 * 1000
+            System.currentTimeMillis() + (1L * 24 * 60 * 60 * 1000 * modifier).toLong()
         }
         val newState = if (outcome == "IMPROVED") "IMPROVING" else if (outcome == "PARTIALLY_IMPROVED") "IMPROVING" else "DUE"
         

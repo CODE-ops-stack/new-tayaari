@@ -70,6 +70,7 @@ class PracticeViewModel(
                         )
                     }
                     updateBookmarkStatus()
+                    startQuestionTimer()
                 }
             } catch (e: Exception) {
                 _uiState.update {
@@ -80,6 +81,25 @@ class PracticeViewModel(
                 }
             }
         }
+    }
+
+    private var questionTimerJob: kotlinx.coroutines.Job? = null
+    private var questionStartTimeMs: Long = 0L
+
+    private fun startQuestionTimer() {
+        questionTimerJob?.cancel()
+        questionStartTimeMs = System.currentTimeMillis()
+        _uiState.update { it.copy(questionTimerSeconds = 35, isOxygenBoostActive = false, elevationGainLastAnswer = 0) }
+        questionTimerJob = viewModelScope.launch {
+            for (sec in 34 downTo 0) {
+                kotlinx.coroutines.delay(1000)
+                _uiState.update { it.copy(questionTimerSeconds = sec) }
+            }
+        }
+    }
+
+    fun toggleGameMode() {
+        _uiState.update { it.copy(isGameModeEnabled = !it.isGameModeEnabled) }
     }
 
     private var bookmarkJob: kotlinx.coroutines.Job? = null
@@ -152,6 +172,10 @@ class PracticeViewModel(
             }
         }
 
+        questionTimerJob?.cancel()
+        val elapsedMs = if (questionStartTimeMs > 0) System.currentTimeMillis() - questionStartTimeMs else 15000L
+        val isOxygenBoost = isCorrect && (elapsedMs <= 12000L)
+
         _uiState.update {
             val newAnswers = it.userAnswers.toMutableMap()
             newAnswers[currentQ?.id ?: ""] = optionId
@@ -159,7 +183,16 @@ class PracticeViewModel(
             val newScore = computeScore(newAnswers, it.skippedQuestions, it.allQuestions, currentProfile)
             val newStreak = if (isCorrect) it.currentStreak + 1 else 0
             val newBest = maxOf(it.bestStreak, newStreak)
-            val earnedPoints = if (isCorrect) 15 else 5
+            val earnedPoints = if (isCorrect) (if (isOxygenBoost) 25 else 15) else 5
+
+            val baseGain = if (isCorrect) {
+                ((it.targetAltitudeMeters - 500) / maxOf(1, it.totalQuestionsInSet)).coerceAtLeast(120)
+            } else 0
+            val actualGain = if (isOxygenBoost) baseGain + 180 else baseGain
+            val newAltitude = if (isCorrect) (it.currentAltitudeMeters + actualGain).coerceAtMost(it.targetAltitudeMeters) else it.currentAltitudeMeters
+            val newTotalCorrect = if (isCorrect) it.totalCorrectCount + 1 else it.totalCorrectCount
+            val isSummit = newAltitude >= it.targetAltitudeMeters || (newTotalCorrect >= it.totalQuestionsInSet && it.totalQuestionsInSet > 0)
+            val newCombo = if (isCorrect) it.comboMultiplier + 1 else 1
             
             it.copy(
                 selectedOptionId = optionId,
@@ -169,7 +202,14 @@ class PracticeViewModel(
                 currentScore = newScore,
                 currentStreak = newStreak,
                 bestStreak = newBest,
-                mindPowerPoints = it.mindPowerPoints + earnedPoints
+                mindPowerPoints = it.mindPowerPoints + earnedPoints,
+                currentAltitudeMeters = newAltitude,
+                elevationGainLastAnswer = actualGain,
+                isOxygenBoostActive = isOxygenBoost,
+                comboMultiplier = newCombo,
+                lastAnswerSpeedMs = elapsedMs,
+                totalCorrectCount = newTotalCorrect,
+                summitReached = isSummit
             )
         }
 
@@ -261,6 +301,9 @@ class PracticeViewModel(
                 )
             }
             updateBookmarkStatus()
+            if (state.userAnswers[nextQ.id] == null) {
+                startQuestionTimer()
+            }
         } else {
             _uiState.update { it.copy(isTestFinished = true) }
         }
@@ -284,6 +327,9 @@ class PracticeViewModel(
             }
 
             updateBookmarkStatus()
+            if (state.userAnswers[prevQ.id] == null) {
+                startQuestionTimer()
+            }
         }
     }
 
@@ -324,12 +370,18 @@ class PracticeViewModel(
                 userAnswers = emptyMap(),
                 crossedOutOptionIds = emptySet(),
                 skippedQuestions = emptySet(),
-                currentScore = ExactFraction.ZERO
+                currentScore = ExactFraction.ZERO,
+                currentAltitudeMeters = 500,
+                elevationGainLastAnswer = 0,
+                isOxygenBoostActive = false,
+                comboMultiplier = 1,
+                totalCorrectCount = 0,
+                summitReached = false
             )
         }
         updateBookmarkStatus()
+        startQuestionTimer()
     }
-    
     
     fun jumpToQuestion(index: Int) {
         val state = _uiState.value
@@ -346,6 +398,9 @@ class PracticeViewModel(
                 detectedConfusionPair = null
             )}
             updateBookmarkStatus()
+            if (existingAnswer == null) {
+                startQuestionTimer()
+            }
         }
     }
 

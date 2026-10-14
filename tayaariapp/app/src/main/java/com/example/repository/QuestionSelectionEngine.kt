@@ -1,4 +1,4 @@
-﻿package com.example.repository
+package com.example.repository
 
 import android.util.Log
 import com.example.model.ExamBlueprint
@@ -210,11 +210,37 @@ class QuestionSelectionEngine(
 Pair(q, score)
         }
         
-        // Sort descending by score
-        val sortedQuestions = scoredQuestions.sortedByDescending { it.second }.map { it.first }
+        // =========================================================================
+        // PSYCHOLOGICAL HOOK & FLOW PACING (Sweller Cognitive Load & Kahneman Peak-End Rule)
+        // =========================================================================
+        val candidates = scoredQuestions.sortedByDescending { it.second }.map { it.first }.toMutableList()
+        val finalQuestions = mutableListOf<ExamQuestion>()
         
-        return@withContext sortedQuestions.take(targetCount)
-        
+        if (candidates.size > 2 && targetCount >= 3) {
+            // 1. Hook / Confidence Primers (Q1 & Q2): Pick accessible questions to build immediate self-efficacy
+            val primer = candidates.firstOrNull { it.questionText.length < 240 || it.questionFormatType?.contains("Direct", ignoreCase = true) == true } 
+                ?: candidates.first()
+            finalQuestions.add(primer)
+            candidates.remove(primer)
+            
+            // 2. Middle Questions: Interleave challenging multi-statement, map, and conceptual questions
+            val middleTarget = targetCount - 2
+            val remainingNeeded = minOf(middleTarget, candidates.size - 1)
+            for (i in 0 until remainingNeeded) {
+                val lastFormat = finalQuestions.lastOrNull()?.questionFormatType ?: ""
+                val nextQ = candidates.firstOrNull { it.questionFormatType != lastFormat } ?: candidates.first()
+                finalQuestions.add(nextQ)
+                candidates.remove(nextQ)
+            }
+            
+            // 3. Peak-End Closure (Final Question): Finish with high-yield conceptual anchor for victorious closure
+            if (candidates.isNotEmpty()) {
+                finalQuestions.add(candidates.first())
+            }
+            return@withContext finalQuestions
+        } else {
+            return@withContext candidates.take(targetCount)
+        }
     }
 }
 

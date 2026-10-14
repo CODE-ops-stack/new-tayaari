@@ -1,4 +1,4 @@
-﻿package com.example.model
+package com.example.model
 
 enum class QuestionFormat {
     PRELIMS_MCQ,
@@ -132,7 +132,20 @@ data class TestUiState(
     val userAnswers: Map<String, String> = emptyMap(),
     val skippedQuestions: Set<String> = emptySet(),
     val allQuestions: List<ExamQuestion> = emptyList(),
-    val marksLostReport: List<String> = emptyList()
+    val marksLostReport: List<String> = emptyList(),
+    val currentStreak: Int = 0,
+    val bestStreak: Int = 0,
+    val mindPowerPoints: Int = 0,
+    val isGameModeEnabled: Boolean = true,
+    val currentAltitudeMeters: Int = 500,
+    val targetAltitudeMeters: Int = 8848,
+    val questionTimerSeconds: Int = 35,
+    val isOxygenBoostActive: Boolean = false,
+    val comboMultiplier: Int = 1,
+    val lastAnswerSpeedMs: Long = 0L,
+    val elevationGainLastAnswer: Int = 0,
+    val summitReached: Boolean = false,
+    val totalCorrectCount: Int = 0
 )
 
 

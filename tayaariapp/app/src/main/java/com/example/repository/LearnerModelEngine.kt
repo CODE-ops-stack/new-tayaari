@@ -72,17 +72,20 @@ class LearnerModelEngine(
         val topicPerf = mutableMapOf<Int, TopicPerformance>()
         topics.forEach { t -> topicPerf[t.id] = TopicPerformance(t.id, t.name, 0, 0, 0.0) }
         
-        val qIds = attempts.map { it.questionId.toInt() }.distinct()
-        val questions = if(qIds.isNotEmpty()) appDao.getQuestionsByIds(qIds) else emptyList()
+        val qIds = attempts.mapNotNull { it.questionId.toIntOrNull() }.distinct()
+        val questions = if (qIds.isNotEmpty()) appDao.getQuestionsByIds(qIds) else emptyList()
         val qToTopic = questions.associate { it.id to it.topicId }
         
         attempts.forEach { att ->
-            val tId = qToTopic[att.questionId.toInt()]
+            val qIdInt = att.questionId.toIntOrNull()
+            val tId = if (qIdInt != null) qToTopic[qIdInt] else null
             if (tId != null && (att.outcome == "CORRECT" || att.outcome == "INCORRECT")) {
-                val curr = topicPerf[tId]!!
-                val nCorrect = curr.correct + if (att.outcome == "CORRECT") 1 else 0
-                val nTotal = curr.total + 1
-                topicPerf[tId] = curr.copy(correct = nCorrect, total = nTotal, accuracy = nCorrect.toDouble()/nTotal)
+                val curr = topicPerf[tId]
+                if (curr != null) {
+                    val nCorrect = curr.correct + if (att.outcome == "CORRECT") 1 else 0
+                    val nTotal = curr.total + 1
+                    topicPerf[tId] = curr.copy(correct = nCorrect, total = nTotal, accuracy = nCorrect.toDouble() / nTotal)
+                }
             }
         }
         

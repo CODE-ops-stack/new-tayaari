@@ -1,4 +1,8 @@
-﻿package com.example.ui.screens
+package com.example.ui.screens
+
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.runtime.getValue
+
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
@@ -34,6 +38,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.foundation.gestures.detectTransformGestures
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -55,15 +66,35 @@ fun PracticeScreen(
     uiState: TestUiState,
     onOptionSelected: (String) -> Unit,
     onOptionCrossOut: (String) -> Unit = {},
-    onSubmitAnswerWithConfidence: (String) -> Unit = {},
+    onSubmitAnswer: () -> Unit = {},
     onBookmarkToggle: () -> Unit,
     onPrevious: () -> Unit,
     onSkip: () -> Unit,
     onNext: () -> Unit,
     onDashboardClick: () -> Unit,
     onRestart: () -> Unit,
+    onJumpToQuestion: (Int) -> Unit,
+    onToggleGameMode: () -> Unit = {},
     onBack: () -> Unit
 ) {
+    var showSummitModal by remember { mutableStateOf(false) }
+    LaunchedEffect(uiState.summitReached) {
+        if (uiState.summitReached) {
+            showSummitModal = true
+        }
+    }
+
+    if (showSummitModal) {
+        com.example.ui.game.SummitTriumphDialog(
+            uiState = uiState,
+            onDismiss = { showSummitModal = false },
+            onRestart = {
+                showSummitModal = false
+                onRestart()
+            }
+        )
+    }
+
     // Premium color palette mapping to MaterialTheme
     val surfaceColor = MaterialTheme.colorScheme.surface
     val deepBlue = MaterialTheme.colorScheme.primary
@@ -73,9 +104,11 @@ fun PracticeScreen(
     val successGreen = MaterialTheme.colorScheme.secondary
     val trapBackground = MaterialTheme.colorScheme.errorContainer
 
-    Scaffold(
-        containerColor = surfaceColor,
-        topBar = {
+    com.example.ui.components.AtlasBackground {
+      com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.035f)) {
+        Scaffold(
+            containerColor = androidx.compose.ui.graphics.Color.Transparent,
+            topBar = {
             Column {
                 Row(
                     modifier = Modifier
@@ -91,17 +124,27 @@ fun PracticeScreen(
                         )
                     }
                     Column(modifier = Modifier.weight(1f)) {
+                        val cleanTopicName = remember(topicName) {
+                            topicName.substringAfter(". ")
+                                .replace(Regex("^[\\p{So}\\p{Sk}\\p{Sm}\\p{Sc}\\s]+"), "")
+                                .trim()
+                        }
                         Text(
-                            text = topicName.substringAfter(". ").trim(),
+                            text = if (cleanTopicName.isNotEmpty()) cleanTopicName else topicName,
                             color = deepBlue,
-                            fontWeight = FontWeight.ExtraBold,
+                            fontFamily = com.example.ui.theme.CartographicSerif,
+                            fontWeight = FontWeight.Bold,
                             fontSize = 20.sp,
                             maxLines = 1
                         )
                         Spacer(modifier = Modifier.height(6.dp))
-                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            BadgeChip(text = tier.uppercase(), color = accentGold, textColor = Color.White)
-                            BadgeChip(text = format, color = deepBlue.copy(alpha = 0.1f), textColor = deepBlue)
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                            com.example.ui.components.ElevationTierPill(tier = tier)
+                            BadgeChip(text = "🗺️ $format", color = deepBlue.copy(alpha = 0.1f), textColor = deepBlue)
+                            if (uiState.currentStreak >= 2) {
+                                BadgeChip(text = "🧭 ${uiState.currentStreak} COMBO", color = com.example.ui.theme.SunstoneGold, textColor = Color.Black)
+                            }
+                            BadgeChip(text = "📍 ${uiState.mindPowerPoints} GP", color = com.example.ui.theme.HydrosphereCyan.copy(alpha = 0.15f), textColor = com.example.ui.theme.HydrosphereCyan)
                         }
                     }
                     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -120,15 +163,58 @@ fun PracticeScreen(
                     }
                 }
 
-                // Progress Bar
+                // ==========================================
+                // HIMALAYAN SUMMIT RUSH (VISUAL GAME ENGINE)
+                // ==========================================
                 if (!uiState.isTestFinished && uiState.totalQuestionsInSet > 0) {
-                    LinearProgressIndicator(
-                        progress = { uiState.questionNumber.toFloat() / uiState.totalQuestionsInSet },
-                        modifier = Modifier.fillMaxWidth().height(4.dp),
-                        color = accentGold,
-                        trackColor = deepBlue.copy(alpha = 0.1f)
+                    com.example.ui.game.SummitRushCanvas(
+                        uiState = uiState,
+                        onToggleGameMode = onToggleGameMode
                     )
                 }
+                
+                // --- Navigation Grid ---
+                if (!uiState.isTestFinished && uiState.totalQuestionsInSet > 0) {
+                    androidx.compose.foundation.lazy.LazyRow(
+                        modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 8.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        items(uiState.totalQuestionsInSet) { index ->
+                            val isCurrent = index == uiState.questionNumber - 1
+                            val qId = uiState.allQuestions.getOrNull(index)?.id
+                            val isAnswered = qId != null && uiState.userAnswers.containsKey(qId)
+                            val isCorrect = if (isAnswered) {
+                                val uq = uiState.allQuestions[index] as? com.example.model.MCQQuestion
+                                uq?.correctAnswerId == uiState.userAnswers[qId]
+                            } else false
+                            
+                            val bgColor = when {
+                                isCurrent -> accentGold
+                                isAnswered && isCorrect -> successGreen
+                                isAnswered && !isCorrect -> errorRed
+                                else -> deepBlue.copy(alpha = 0.1f)
+                            }
+                            val textColor = if (isCurrent || isAnswered) Color.White else deepBlue
+                            
+                            Box(
+                                modifier = Modifier
+                                    .size(36.dp)
+                                    .clip(CircleShape)
+                                    .background(bgColor)
+                                    .clickable { onJumpToQuestion(index) },
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = (index + 1).toString(),
+                                    color = textColor,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 14.sp
+                                )
+                            }
+                        }
+                    }
+                }
+
             }
         },
         bottomBar = {
@@ -234,11 +320,23 @@ fun PracticeScreen(
                             textAlign = TextAlign.Center
                         )
                         Spacer(modifier = Modifier.height(24.dp))
-                        Button(
-                            onClick = onBack,
-                            colors = ButtonDefaults.buttonColors(containerColor = deepBlue)
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Text("Back to Topics")
+                            OutlinedButton(
+                                onClick = onBack,
+                                colors = ButtonDefaults.outlinedButtonColors(contentColor = deepBlue),
+                                border = BorderStroke(1.dp, deepBlue.copy(alpha = 0.5f))
+                            ) {
+                                Text("Back to Topics")
+                            }
+                            Button(
+                                onClick = onRestart,
+                                colors = ButtonDefaults.buttonColors(containerColor = accentGold)
+                            ) {
+                                Text("Retry Connection", color = Color.Black, fontWeight = FontWeight.Bold)
+                            }
                         }
                     }
                 }
@@ -309,7 +407,7 @@ fun PracticeScreen(
                         }
                         Spacer(modifier = Modifier.height(24.dp))
                         Text(
-                            "Session Complete!",
+                            "Expedition Successful!",
                             color = deepBlue,
                             fontWeight = FontWeight.ExtraBold,
                             fontSize = 24.sp
@@ -415,7 +513,7 @@ fun PracticeScreen(
                                         detectedConfusionPair = uiState.detectedConfusionPair,
                                         onOptionSelected = onOptionSelected,
                                         onOptionCrossOut = onOptionCrossOut,
-                                        onSubmitAnswerWithConfidence = onSubmitAnswerWithConfidence,
+                                        onSubmitAnswer = onSubmitAnswer,
                                         deepBlue = deepBlue,
                                         successGreen = successGreen,
                                         errorRed = errorRed,
@@ -426,6 +524,14 @@ fun PracticeScreen(
 
                                 // Always show correct explanation after any answer is submitted
                                 if (uiState.selectedOptionId != null) {
+                                    val isUserCorrect = uiState.selectedOptionId == targetQuestion.correctAnswerId
+                                    item {
+                                        DopamineCognitiveFeedbackBanner(
+                                            isCorrect = isUserCorrect,
+                                            streak = uiState.currentStreak,
+                                            points = if (isUserCorrect) 15 else 5
+                                        )
+                                    }
                                     item {
                                         CorrectExplanationCard(
                                             explanation = targetQuestion.correctExplanation,
@@ -443,6 +549,8 @@ fun PracticeScreen(
         }
     }
 }
+      }
+    }
 
 @Composable
 fun BadgeChip(text: String, color: Color, textColor: Color) {
@@ -469,45 +577,138 @@ fun CorrectExplanationCard(
     successGreen: Color
 ) {
     Surface(
-        color = successGreen.copy(alpha = 0.05f),
+        color = Color(0xFF0F172A),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(1.dp, successGreen.copy(alpha = 0.2f)),
-        modifier = Modifier.fillMaxWidth()
+        border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.35f)),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
     ) {
-        Column(modifier = Modifier.padding(20.dp)) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            // Header Row
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    Icons.Default.CheckCircleOutline,
-                    contentDescription = null,
-                    tint = successGreen,
-                    modifier = Modifier.size(20.dp)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
+                Box(
+                    modifier = Modifier
+                        .size(28.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFF10B981).copy(alpha = 0.15f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        Icons.Default.CheckCircleOutline,
+                        contentDescription = null,
+                        tint = Color(0xFF10B981),
+                        modifier = Modifier.size(18.dp)
+                    )
+                }
+                Spacer(modifier = Modifier.width(10.dp))
                 Text(
-                    text = "CORRECT ANSWER",
-                    color = successGreen,
+                    text = "SURVEYOR GENERAL DISSECTION // VERIFIED ATLAS KEY",
+                    color = Color(0xFF10B981),
                     fontWeight = FontWeight.Black,
-                    fontSize = 12.sp,
+                    fontSize = 11.sp,
                     letterSpacing = 1.sp
                 )
             }
+
             if (correctOption != null) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = correctOption.text,
-                    color = deepBlue,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 15.sp,
-                    lineHeight = 22.sp
-                )
+                Spacer(modifier = Modifier.height(10.dp))
+                Surface(
+                    color = Color(0xFF10B981).copy(alpha = 0.1f),
+                    shape = RoundedCornerShape(8.dp),
+                    border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.25f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = "📍 Verified Cartographic Key: ${correctOption.text}",
+                        color = Color(0xFF34D399),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 14.sp,
+                        lineHeight = 20.sp,
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                    )
+                }
             }
-            Spacer(modifier = Modifier.height(12.dp))
-            Text(
-                text = explanation,
-                color = deepBlue.copy(alpha = 0.8f),
-                fontSize = 14.sp,
-                lineHeight = 20.sp
-            )
+
+            Spacer(modifier = Modifier.height(14.dp))
+
+            // Parse Takeaway / Mnemonic
+            val hasTakeaway = explanation.contains("🎯 Ranker's Takeaway:") || explanation.contains("💡")
+            val baseText = if (hasTakeaway) {
+                explanation.substringBefore("🎯 Ranker's Takeaway:").substringBefore("💡").trim()
+            } else {
+                explanation.trim()
+            }
+            val rawTakeaway = if (hasTakeaway) {
+                if (explanation.contains("🎯 Ranker's Takeaway:")) {
+                    explanation.substringAfter("🎯 Ranker's Takeaway:").trim()
+                } else {
+                    explanation.substringAfter("💡").trim()
+                }
+            } else ""
+            val takeawayText = rawTakeaway
+                .replace(Regex("^(RANKER'S MEMORY LOCK|MEMORY LOCK)[:\\s-]*", RegexOption.IGNORE_CASE), "")
+                .trim()
+
+            // Bullet-point or structured breakdown rendering
+            val lines = baseText.split("\n").filter { it.isNotBlank() }
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                lines.forEach { line ->
+                    val isBullet = line.trimStart().startsWith("•") || line.trimStart().startsWith("-")
+                    val cleanLine = if (isBullet) line.trimStart().removePrefix("•").removePrefix("-").trim() else line.trim()
+                    
+                    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) {
+                        if (isBullet) {
+                            Text(
+                                text = "◆",
+                                color = Color(0xFF00F0FF),
+                                fontSize = 11.sp,
+                                modifier = Modifier.padding(top = 4.dp, end = 8.dp)
+                            )
+                        }
+                        Text(
+                            text = cleanLine,
+                            color = Color(0xFFE2E8F0),
+                            fontSize = 14.sp,
+                            lineHeight = 21.sp,
+                            fontWeight = if (cleanLine.contains("CORRECT") || cleanLine.contains("INCORRECT")) FontWeight.SemiBold else FontWeight.Normal
+                        )
+                    }
+                }
+            }
+
+            // High-Yield Ranker's Takeaway Banner
+            if (takeawayText.isNotBlank()) {
+                Spacer(modifier = Modifier.height(14.dp))
+                Surface(
+                    color = Color(0xFFF59E0B).copy(alpha = 0.12f),
+                    shape = RoundedCornerShape(10.dp),
+                    border = BorderStroke(1.dp, Color(0xFFF59E0B).copy(alpha = 0.35f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.Top
+                    ) {
+                        Text(text = "🗺️", fontSize = 16.sp, modifier = Modifier.padding(end = 8.dp))
+                        Column {
+                            Text(
+                                text = "GEOGRAPHER'S MEMORY LOCK / ATLAS MNEMONIC",
+                                color = Color(0xFFF59E0B),
+                                fontWeight = FontWeight.Black,
+                                fontSize = 10.sp,
+                                letterSpacing = 0.8.sp
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = takeawayText,
+                                color = Color(0xFFFDE68A),
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Medium,
+                                lineHeight = 19.sp
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -534,9 +735,9 @@ fun PremiumQuestionCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "QUESTION",
+                    text = "🧭 EXPEDITION TRANSECT // FIELD QUESTION",
                     color = accentGold,
-                    fontSize = 12.sp,
+                    fontSize = 11.sp,
                     fontWeight = FontWeight.Black,
                     letterSpacing = 1.2.sp
                 )
@@ -548,25 +749,255 @@ fun PremiumQuestionCard(
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
+            var showImageDialog by remember { mutableStateOf(false) }
+            
             if (!question.imageUrl.isNullOrEmpty()) {
-                coil.compose.AsyncImage(
-                    model = question.imageUrl,
-                    contentDescription = "Question Image",
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(200.dp)
-                        .clip(RoundedCornerShape(8.dp)),
-                    contentScale = androidx.compose.ui.layout.ContentScale.Crop
-                )
+                        .clip(RoundedCornerShape(12.dp))
+                        .clickable { showImageDialog = true }
+                ) {
+                    coil.compose.AsyncImage(
+                        model = question.imageUrl,
+                        contentDescription = "Question Image",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp),
+                        contentScale = androidx.compose.ui.layout.ContentScale.Fit
+                    )
+                    Surface(
+                        color = Color.Black.copy(alpha = 0.65f),
+                        shape = RoundedCornerShape(6.dp),
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(8.dp)
+                    ) {
+                        Text(
+                            text = "🔍 Tap to Inspect Topographic Map & Coordinates",
+                            color = Color(0xFF00F0FF),
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+                }
                 Spacer(modifier = Modifier.height(16.dp))
+                
+                if (showImageDialog) {
+                    ZoomableImageDialog(
+                        imageUrl = question.imageUrl!!,
+                        onDismiss = { showImageDialog = false }
+                    )
+                }
             }
-            Text(
-                text = question.questionText.trim(),
-                color = deepBlue,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.SemiBold,
-                lineHeight = 26.sp
+            StructuredQuestionContent(
+                questionText = question.questionText.trim(),
+                textColor = deepBlue
             )
+        }
+    }
+}
+
+@Composable
+fun DopamineCognitiveFeedbackBanner(
+    isCorrect: Boolean,
+    streak: Int,
+    points: Int
+) {
+    val borderColor = if (isCorrect) Color(0xFF10B981) else Color(0xFFF59E0B)
+    val bgColor = if (isCorrect) Color(0xFF10B981).copy(alpha = 0.12f) else Color(0xFFF59E0B).copy(alpha = 0.12f)
+    val titleColor = if (isCorrect) Color(0xFF10B981) else Color(0xFFF59E0B)
+
+    Surface(
+        color = bgColor,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.5.dp, borderColor),
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(44.dp)
+                    .clip(CircleShape)
+                    .background(borderColor.copy(alpha = 0.2f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = if (isCorrect) "🧭" else "🛡️",
+                    fontSize = 22.sp
+                )
+            }
+            Spacer(modifier = Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = if (isCorrect) "TRUE NORTH CONFIRMED // KNOWLEDGE LOCKED" else "GEOGRAPHY TRAP NEUTRALIZED // COURSE CORRECTION",
+                        color = titleColor,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 12.sp,
+                        letterSpacing = 0.8.sp
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "+$points GP",
+                        color = titleColor,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 12.sp
+                    )
+                }
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = if (isCorrect) {
+                        if (streak >= 2) "🔥 $streak Waypoint Streak! Topographic memory locked."
+                        else "Geographic concept firmly anchored in active memory."
+                    } else {
+                        "Cognitive immunity acquired. Review the cartographic trap dissection below!"
+                    },
+                    color = Color.White.copy(alpha = 0.85f),
+                    fontSize = 12.sp,
+                    lineHeight = 16.sp
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun StructuredQuestionContent(
+    questionText: String,
+    textColor: Color
+) {
+    val lines = remember(questionText) {
+        questionText.trim().split("\n").map { it.trim() }.filter { it.isNotEmpty() }
+    }
+
+    val isMultiStatement = remember(lines) {
+        lines.any { it.matches(Regex("^[0-9]+\\..*")) || it.startsWith("Statement-I:", ignoreCase = true) || it.startsWith("Assertion (A):", ignoreCase = true) }
+    }
+
+    if (!isMultiStatement || lines.size <= 1) {
+        Text(
+            text = questionText.trim(),
+            color = textColor,
+            fontSize = 17.sp,
+            fontWeight = FontWeight.SemiBold,
+            lineHeight = 25.sp,
+            letterSpacing = 0.2.sp
+        )
+    } else {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            lines.forEach { line ->
+                val isStatement = line.matches(Regex("^[0-9]+\\..*"))
+                val isPrompt = line.startsWith("Which of the", ignoreCase = true) || 
+                               line.startsWith("How many", ignoreCase = true) ||
+                               line.startsWith("Select the correct", ignoreCase = true) ||
+                               line.startsWith("Arrange the following", ignoreCase = true)
+                val isAssertionReason = line.startsWith("Assertion (A):", ignoreCase = true) || 
+                                        line.startsWith("Reason (R):", ignoreCase = true) ||
+                                        line.startsWith("Statement-I:", ignoreCase = true) ||
+                                        line.startsWith("Statement-II:", ignoreCase = true)
+
+                when {
+                    isStatement -> {
+                        val num = line.substringBefore(".").trim()
+                        val content = line.substringAfter(".").trim()
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(Color(0xFF1E293B).copy(alpha = 0.6f))
+                                .padding(horizontal = 12.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.Top
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(24.dp)
+                                    .clip(CircleShape)
+                                    .background(Color(0xFF00F0FF).copy(alpha = 0.2f)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = num,
+                                    color = Color(0xFF00F0FF),
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.ExtraBold
+                                )
+                            }
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Text(
+                                text = content,
+                                color = textColor,
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Medium,
+                                lineHeight = 22.sp,
+                                modifier = Modifier.weight(1f)
+                            )
+                        }
+                    }
+                    isAssertionReason -> {
+                        val label = line.substringBefore(":").trim()
+                        val content = line.substringAfter(":").trim()
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(Color(0xFF1E293B).copy(alpha = 0.6f))
+                                .padding(horizontal = 12.dp, vertical = 8.dp)
+                        ) {
+                            Text(
+                                text = label.uppercase(),
+                                color = Color(0xFFF59E0B),
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                letterSpacing = 0.8.sp
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = content,
+                                color = textColor,
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Medium,
+                                lineHeight = 22.sp
+                            )
+                        }
+                    }
+                    isPrompt -> {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(Color(0xFF00F0FF).copy(alpha = 0.1f))
+                                .border(1.dp, Color(0xFF00F0FF).copy(alpha = 0.3f), RoundedCornerShape(10.dp))
+                                .padding(horizontal = 12.dp, vertical = 10.dp)
+                        ) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("🎯", fontSize = 14.sp)
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = line,
+                                    color = Color(0xFF00F0FF),
+                                    fontSize = 15.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    lineHeight = 22.sp
+                                )
+                            }
+                        }
+                    }
+                    else -> {
+                        Text(
+                            text = line,
+                            color = textColor.copy(alpha = 0.95f),
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            lineHeight = 24.sp
+                        )
+                    }
+                }
+            }
         }
     }
 }
@@ -583,7 +1014,7 @@ fun PremiumOptionsList(
     detectedConfusionPair: com.example.repository.ConfusionDetectionResult? = null,
     onOptionSelected: (String) -> Unit,
     onOptionCrossOut: (String) -> Unit = {},
-    onSubmitAnswerWithConfidence: (String) -> Unit = {},
+    onSubmitAnswer: () -> Unit = {},
     deepBlue: Color,
     successGreen: Color,
     errorRed: Color,
@@ -686,29 +1117,30 @@ fun PremiumOptionsList(
                     }
                 }
 
-                // Trap Dissection â€” only for the incorrectly selected option
+                // Trap Dissection — only for the incorrectly selected option
                 AnimatedVisibility(visible = showTrapFeedback) {
                     val dissection = distractorDissections.find { it.optionId == option.id }
                     Spacer(modifier = Modifier.height(12.dp))
                     FeedbackBox(
-                        title = "TRAP: ${dissection?.trapType?.uppercase() ?: "INCORRECT"}",
+                        title = "⚠️ GEOGRAPHIC TRAP: ${dissection?.trapType?.uppercase() ?: "DISTRACTOR"}",
                         message = dissection?.dissection ?: "That is not the correct answer.",
                         color = errorRed,
                         bgColor = trapBackground
                     )
                 }
             }
+        }
 
-    // CONFUSION PAIR DISAMBIGUATION
+        // CONFUSION PAIR DISAMBIGUATION
         detectedConfusionPair?.let { result ->
             val pair = result.pair
             val evidenceLevel = result.evidenceLevel
             
             val (titleText, color) = when (evidenceLevel) {
-                com.example.repository.ConfusionEvidenceLevel.CONFIRMED_CONFUSION -> "Recurring confusion" to Color(0xFFD32F2F)
-                com.example.repository.ConfusionEvidenceLevel.CONFIRMED_CONTEXT -> "Recurring confusion" to Color(0xFFD32F2F)
-                com.example.repository.ConfusionEvidenceLevel.EMERGING_CONFUSION -> "Pattern emerging" to Color(0xFFF57C00)
-                com.example.repository.ConfusionEvidenceLevel.POSSIBLE_CONFUSION -> "Possible confusion" to Color(0xFFFBC02D)
+                com.example.repository.ConfusionEvidenceLevel.CONFIRMED_CONFUSION -> "Recurring geographic confusion" to Color(0xFFD32F2F)
+                com.example.repository.ConfusionEvidenceLevel.CONFIRMED_CONTEXT -> "Recurring geographic confusion" to Color(0xFFD32F2F)
+                com.example.repository.ConfusionEvidenceLevel.EMERGING_CONFUSION -> "Geographic pattern emerging" to Color(0xFFF57C00)
+                com.example.repository.ConfusionEvidenceLevel.POSSIBLE_CONFUSION -> "Possible conceptual confusion" to Color(0xFFFBC02D)
                 else -> "None" to Color.Transparent
             }
 
@@ -728,7 +1160,7 @@ fun PremiumOptionsList(
                             Text(titleText, fontWeight = FontWeight.Bold, color = color)
                         }
                         Spacer(modifier = Modifier.height(12.dp))
-                        Text("It seems you might be confusing two related concepts. Let's disambiguate:", fontSize = 14.sp, color = Color.DarkGray)
+                        Text("Geographic Disambiguation: You may be conflating two adjacent concepts. Let's delineate:", fontSize = 14.sp, color = Color.DarkGray)
                         Spacer(modifier = Modifier.height(16.dp))
                         
                         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
@@ -746,46 +1178,7 @@ fun PremiumOptionsList(
                 }
             }
         }
-
-    // CONFIDENCE CALIBRATION UI
-        AnimatedVisibility(visible = pendingOptionId != null && selectedOptionId == null) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp)
-                    .background(deepBlue.copy(alpha = 0.05f), RoundedCornerShape(12.dp))
-                    .border(1.dp, deepBlue.copy(alpha = 0.1f), RoundedCornerShape(12.dp))
-                    .padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text(
-                    text = "How confident are you?",
-                    color = deepBlue,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    val confidences = listOf("Certain", "Likely", "Unsure", "Guessing")
-                    confidences.forEach { conf ->
-                        Button(
-                            onClick = { onSubmitAnswerWithConfidence(conf) },
-                            colors = ButtonDefaults.buttonColors(containerColor = deepBlue),
-                            shape = RoundedCornerShape(8.dp),
-                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp)
-                        ) {
-                            Text(text = conf, fontSize = 12.sp)
-                        }
-                    }
-                }
-            }
-        }
     }
-}
-
 }
 
 @Composable
@@ -829,3 +1222,65 @@ fun FeedbackBox(title: String, message: String, color: Color, bgColor: Color) {
 
 
 
+
+
+@Composable
+fun ZoomableImageDialog(imageUrl: String, onDismiss: () -> Unit) {
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(usePlatformDefaultWidth = false)
+    ) {
+        var scale by remember { mutableFloatStateOf(1f) }
+        var offsetX by remember { mutableFloatStateOf(0f) }
+        var offsetY by remember { mutableFloatStateOf(0f) }
+
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = Color.Black.copy(alpha = 0.9f)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(Unit) {
+                        detectTransformGestures { _, pan, zoom, _ ->
+                            scale = (scale * zoom).coerceIn(1f, 5f)
+                            if (scale > 1f) {
+                                offsetX += pan.x
+                                offsetY += pan.y
+                            } else {
+                                offsetX = 0f
+                                offsetY = 0f
+                            }
+                        }
+                    }
+            ) {
+                coil.compose.AsyncImage(
+                    model = imageUrl,
+                    contentDescription = "Zoomed Image",
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .graphicsLayer(
+                            scaleX = scale,
+                            scaleY = scale,
+                            translationX = offsetX,
+                            translationY = offsetY
+                        ),
+                    contentScale = androidx.compose.ui.layout.ContentScale.Fit
+                )
+                
+                IconButton(
+                    onClick = onDismiss,
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .padding(16.dp)
+                ) {
+                    Icon(
+                        Icons.Default.Close,
+                        contentDescription = "Close",
+                        tint = Color.White
+                    )
+                }
+            }
+        }
+    }
+}

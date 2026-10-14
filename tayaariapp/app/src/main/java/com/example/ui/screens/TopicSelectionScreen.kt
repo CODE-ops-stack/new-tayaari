@@ -55,6 +55,7 @@ fun TopicSelectionScreen(
     onRevisionClick: () -> Unit = {},
     onPaperTwinClick: () -> Unit = {},
     onReadinessClick: () -> Unit = {},
+    onMainsPracticeClick: () -> Unit = {},
     onChangeExam: () -> Unit = {},
     onRefreshSync: () -> Unit = {},
     onCheckUpdate: () -> Unit = {}
@@ -371,6 +372,17 @@ fun TopicSelectionScreen(
                                         onClick = onInsightsClick
                                     )
                                 }
+
+                                // 5. Mains Answer Architect (Chief Evaluator Portal)
+                                CommandHubCard(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    icon = "🏛️",
+                                    title = "Mains Answer Architect",
+                                    subtitle = "7m/11m/14m Timers • 20s Diagram Tracing • Infinite Chief Evaluator Scoring",
+                                    tag = "300+ MAINS PORTAL",
+                                    accentColor = SunstoneGold,
+                                    onClick = onMainsPracticeClick
+                                )
                             }
                         }
 

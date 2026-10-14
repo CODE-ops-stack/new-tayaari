@@ -52,98 +52,88 @@ object JsonQuestionImporter {
         Topic(20, "20. Human & Economic Geography", "Advanced", "Human Geography"),
     )
 
-    @OptIn(ExperimentalStdlibApi::class)
-    suspend fun importFromJson(context: Context, jsonFileName: String = "generated_questions_1200_clean.json") = withContext(Dispatchers.IO) {
-        val database = AppDatabase.getDatabase(context)
+    
+    suspend fun importFromJson(context: android.content.Context, jsonFileName: String = "generated_questions_1200_clean.json") = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+        val database = com.example.database.AppDatabase.getDatabase(context)
         val dao = database.appDao()
 
-        Log.d(TAG, "Starting JSON import from $jsonFileName")
+        android.util.Log.d("JsonQuestionImporter", "Starting JSON import from $jsonFileName")
 
-        // Clear existing questions
+        // Clear existing questions and topics
         dao.deleteUpscQuestions()
-
-        // Insert topics first
-        dao.insertTopics(topicDefinitions)
+        dao.deleteAllTopics()
 
         // Read JSON from assets
         val inputStream = context.assets.open(jsonFileName)
-        val reader = InputStreamReader(inputStream)
+        val reader = java.io.InputStreamReader(inputStream)
         
-        val gson = Gson()
-        val type: Type = TypeToken.getParameterized(List::class.java, GeneratedQuestion::class.java).type
+        val gson = com.google.gson.Gson()
+        val type: java.lang.reflect.Type = com.google.gson.reflect.TypeToken.getParameterized(List::class.java, GeneratedQuestion::class.java).type
         val questions = gson.fromJson<List<GeneratedQuestion>>(reader, type)
 
-        Log.d(TAG, "Parsed ${questions.size} questions from JSON")
+        android.util.Log.d("JsonQuestionImporter", "Parsed ${questions.size} questions from JSON")
+
+        // DYNAMIC TOPIC EXTRACTION
+        val topicMap = mutableMapOf<Int, com.example.database.Topic>()
+        for (q in questions) {
+            val tId = q.topicId
+            if (!topicMap.containsKey(tId)) {
+                val tName = q.topicName ?: "Unknown Topic"
+                val lowerName = tName.lowercase()
+                val module = when {
+                    lowerName.contains("india") || lowerName.contains("monsoon") -> "Indian Geography"
+                    lowerName.contains("geomorphology") || lowerName.contains("ocean") || lowerName.contains("climat") || lowerName.contains("earth") -> "Physical Geography"
+                    lowerName.contains("population") || lowerName.contains("urban") || lowerName.contains("trade") || lowerName.contains("econom") || lowerName.contains("farm") || lowerName.contains("industr") || lowerName.contains("resourc") -> "Human & Economic Geography"
+                    lowerName.contains("map") || lowerName.contains("spatial") -> "Spatial Geography"
+                    else -> "Miscellaneous Topics"
+                }
+                topicMap[tId] = com.example.database.Topic(tId, tName, "Generated", module)
+            }
+        }
+        dao.insertTopics(topicMap.values.toList())
 
         // Convert to Room entities
-        val roomQuestions = mutableListOf<Question>()
+        val roomQuestions = mutableListOf<com.example.database.Question>()
         var imported = 0
         var skipped = 0
 
         for ((index, q) in questions.withIndex()) {
             try {
-                // Determine topic ID from source file
-                val sourceFile = q.provenance.sourceFile
-                val topicId = sourceToTopicMap.entries.find { sourceFile.contains(it.key) }?.value ?: 1
-                
-                // Determine tier from provenance metadata or default
-                val tier = q.provenance.metadata?.get("tier")?.toString() ?: "Medium"
-                
-                // Format
+                val tier = q.tier ?: "Medium"
                 val format = q.format ?: "Direct Fact"
-                
-                // Exam relevance
                 val examRelevance = "Core"
-                
-                // Specific exam
-                val specificExam = q.provenance.metadata?.get("specificExam")?.toString() ?: "General"
+                val specificExam = "General"
 
-                val roomQuestion = Question(
-                    topicId = topicId,
+                val roomQuestion = com.example.database.Question(
+                    topicId = q.topicId,
                     tier = tier,
                     format = format,
                     examRelevance = examRelevance,
-                    source = q.provenance.sourceFile,
+                    source = q.provenance?.sourceFile ?: "",
                     specificExam = specificExam,
                     questionText = q.stem,
-                    options = gson.toJson(q.options),
+                    options = gson.toJson(q.options.map { mapEntry -> 
+                        mapOf("id" to mapEntry.key, "text" to mapEntry.value)
+                    }),
                     correctAnswer = q.correctAnswer,
                     explanation = q.explanation,
-                    distractorDissections = gson.toJson(q.distractorDissections),
-                    imageUrl = "",
-                    familyId = q.provenance.knowledgeNodeId,
-                    familyStage = q.provenance.intentType
+                    distractorDissections = gson.toJson(q.distractorDissections ?: emptyList<Any>()),
+                    imageUrl = q.imageUrl ?: "",
+                    familyId = q.provenance?.knowledgeNodeId ?: "",
+                    familyStage = q.provenance?.intentType ?: ""
                 )
                 
                 roomQuestions.add(roomQuestion)
                 imported++
             } catch (e: Exception) {
-                Log.w(TAG, "Failed to convert question ${q.id}: ${e.message}")
+                android.util.Log.w("JsonQuestionImporter", "Failed to convert question ${q.id}: ${e.message}")
                 skipped++
             }
         }
 
-        Log.d(TAG, "Converted $imported questions, skipped $skipped")
-
-        // Batch insert
-        if (roomQuestions.isNotEmpty()) {
-            dao.insertQuestions(roomQuestions)
-            Log.d(TAG, "Successfully inserted ${roomQuestions.size} questions into database")
-        }
-
-        // Verify
-        val count = dao.getQuestionCount()
-        Log.d(TAG, "Total questions in database: $count")
-
-        ImportResult(success = true, importedCount = imported, skippedCount = skipped, totalInDb = count)
+        dao.insertQuestions(roomQuestions)
+        android.util.Log.d("JsonQuestionImporter", "Imported $imported questions, skipped $skipped")
     }
-
-    data class ImportResult(
-        val success: Boolean,
-        val importedCount: Int,
-        val skippedCount: Int,
-        val totalInDb: Int
-    )
 
     data class GeneratedQuestion(
         val id: String,
@@ -151,15 +141,17 @@ object JsonQuestionImporter {
         val options: Map<String, String>,
         val correctAnswer: String,
         val explanation: String,
-        val distractorDissections: List<DistractorDissection>,
-        val provenance: ProvenanceData,
-        val cognitiveDemand: String,
-        val examTarget: String,
-        val tier: String,
-        val format: String,
-        val topicId: Int,
-        val topicName: String,
-        val pdfSequenceNumber: String,
+        val distractorDissections: List<DistractorDissection>?,
+        val provenance: ProvenanceData?,
+        val cognitiveDemand: String? = null,
+        val examTarget: String? = null,
+        val tier: String? = null,
+        val format: String? = null,
+        val topicId: Int = 0,
+        val topicName: String? = null,
+        val pdfSequenceNumber: String? = null,
+        val imageUrl: String? = null,
+        val needsMapDiagram: Boolean? = null,
         val valid: Boolean = true
     )
 

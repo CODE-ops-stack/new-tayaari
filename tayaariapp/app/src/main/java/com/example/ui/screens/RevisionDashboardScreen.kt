@@ -1,5 +1,6 @@
 package com.example.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,6 +20,11 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ui.theme.CartographicSerif
+import com.example.ui.theme.DeepBasalt
+import com.example.ui.theme.SunstoneGold
+import com.example.ui.theme.HydrosphereCyan
+import com.example.ui.theme.ContourEmerald
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,71 +33,81 @@ fun RevisionDashboardScreen(
     onStartRevision: () -> Unit,
     onBack: () -> Unit
 ) {
-    val deepBlue = Color(0xFF0F172A)
-    val accentGold = Color(0xFFEAB308)
-    val cardColor = Color(0xFF1E293B)
     val lightText = Color(0xFFF8FAFC)
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Smart Revision", fontWeight = FontWeight.Bold, color = lightText) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = lightText)
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = deepBlue)
-            )
-        },
-        containerColor = deepBlue
-    ) { padding ->
-        LazyColumn(
-            modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            item {
-                RevisionCard(
-                    title = "Today's Revision",
-                    subtitle = "Questions due today",
-                    reason = "Due because you previously missed or need to review these questions.",
-                    count = dueCount,
-                    icon = Icons.Filled.Schedule,
-                    cardColor = cardColor,
-                    lightText = lightText,
-                    accentGold = accentGold,
-                    onClick = {
-                        if (dueCount > 0) onStartRevision()
-                    }
+    com.example.ui.components.AtlasBackground {
+      com.example.ui.components.TopographicBackground(lineColor = ContourEmerald.copy(alpha = 0.035f)) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text("🧭", fontSize = 20.sp)
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Column {
+                                Text("Atlas Spaced Cadastre Revision", fontFamily = CartographicSerif, fontWeight = FontWeight.Bold, color = lightText, fontSize = 18.sp)
+                                Text("Spaced Active Recall for Civil Services Geography", fontSize = 10.sp, color = lightText.copy(alpha = 0.7f))
+                            }
+                        }
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBack) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = lightText)
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
                 )
-            }
-            item {
-                RevisionCard(
-                    title = "High Priority",
-                    subtitle = "Repeated mistakes & weak traps",
-                    reason = "Priority because you have made these traps multiple times.",
-                    count = null,
-                    icon = Icons.Filled.Warning,
-                    cardColor = cardColor,
-                    lightText = lightText,
-                    accentGold = accentGold,
-                    onClick = onStartRevision
-                )
-            }
-            item {
-                RevisionCard(
-                    title = "Continue Learning",
-                    subtitle = "Recently studied material",
-                    reason = "Recently missed questions that you are improving on.",
-                    count = null,
-                    icon = Icons.Filled.PlayCircle,
-                    cardColor = cardColor,
-                    lightText = lightText,
-                    accentGold = accentGold,
-                    onClick = onStartRevision
-                )
+            },
+            containerColor = Color.Transparent
+        ) { padding ->
+            LazyColumn(
+                modifier = Modifier.fillMaxSize().padding(padding).padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                item {
+                    RevisionCard(
+                        title = "Today's Cadastre Review 📍",
+                        subtitle = "$dueCount Geographic Waypoints Due for Spaced Recall",
+                        reason = "Reinforce vulnerable physical, Indian, and climatic concepts before forgetting occurs.",
+                        count = dueCount,
+                        icon = Icons.Filled.Schedule,
+                        cardColor = DeepBasalt,
+                        lightText = lightText,
+                        accentGold = SunstoneGold,
+                        onClick = {
+                            if (dueCount > 0) onStartRevision()
+                        }
+                    )
+                }
+                item {
+                    RevisionCard(
+                        title = "High-Priority Hazard Points 🛡️",
+                        subtitle = "Repeatedly Conflated Geomorphic & Climatic Traps",
+                        reason = "Prioritized because you previously tripped on adjacent concepts or spatial inversion traps.",
+                        count = null,
+                        icon = Icons.Filled.Warning,
+                        cardColor = DeepBasalt,
+                        lightText = lightText,
+                        accentGold = SunstoneGold,
+                        onClick = onStartRevision
+                    )
+                }
+                item {
+                    RevisionCard(
+                        title = "Expedition Continuity ⛰️",
+                        subtitle = "Recently Surveyed Topographic Topics",
+                        reason = "Solidify conceptual mastery of recently studied river basins, biomes, and rock strata.",
+                        count = null,
+                        icon = Icons.Filled.PlayCircle,
+                        cardColor = DeepBasalt,
+                        lightText = lightText,
+                        accentGold = SunstoneGold,
+                        onClick = onStartRevision
+                    )
+                }
             }
         }
+      }
     }
 }
 
@@ -111,43 +127,47 @@ fun RevisionCard(
         modifier = Modifier.fillMaxWidth().clickable { onClick() },
         colors = CardDefaults.cardColors(containerColor = cardColor),
         shape = RoundedCornerShape(16.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        border = BorderStroke(1.dp, HydrosphereCyan.copy(alpha = 0.25f)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(icon, contentDescription = null, tint = accentGold, modifier = Modifier.size(28.dp))
-                Spacer(modifier = Modifier.width(12.dp))
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(title, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = lightText)
-                    Text(subtitle, fontSize = 14.sp, color = lightText.copy(alpha = 0.7f))
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(accentGold.copy(alpha = 0.15f), RoundedCornerShape(8.dp)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(icon, contentDescription = null, tint = accentGold, modifier = Modifier.size(24.dp))
+                    }
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Column {
+                        Text(title, fontWeight = FontWeight.Bold, color = lightText, fontSize = 16.sp, fontFamily = CartographicSerif)
+                        Text(subtitle, fontSize = 12.sp, color = lightText.copy(alpha = 0.7f))
+                    }
                 }
                 if (count != null) {
                     Surface(
-                        color = accentGold,
+                        color = if (count > 0) accentGold else Color.Gray.copy(alpha = 0.2f),
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Text(
-                            text = count.toString(),
-                            fontWeight = FontWeight.Black,
-                            color = Color.Black,
-                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                            text = "$count DUE",
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = if (count > 0) Color.Black else lightText
                         )
                     }
                 }
             }
             Spacer(modifier = Modifier.height(12.dp))
-            Surface(
-                color = Color.Black.copy(alpha = 0.2f),
-                shape = RoundedCornerShape(8.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = reason,
-                    fontSize = 12.sp,
-                    color = lightText.copy(alpha = 0.6f),
-                    modifier = Modifier.padding(12.dp)
-                )
-            }
+            Text(reason, fontSize = 13.sp, color = lightText.copy(alpha = 0.8f), lineHeight = 18.sp)
         }
     }
 }

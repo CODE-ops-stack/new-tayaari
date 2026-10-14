@@ -54,12 +54,14 @@ fun SplashScreen() {
         )
     }
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surface),
-        contentAlignment = Alignment.Center
-    ) {
+    com.example.ui.components.AtlasBackground {
+      com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.045f)) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(androidx.compose.ui.graphics.Color.Transparent),
+            contentAlignment = Alignment.Center
+        ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -76,19 +78,37 @@ fun SplashScreen() {
             Spacer(modifier = Modifier.height(24.dp))
             Text(
                 text = "Tayaari Pakki",
-                fontSize = 32.sp,
-                fontWeight = FontWeight.ExtraBold,
-                color = MaterialTheme.colorScheme.primary,
+                fontSize = 34.sp,
+                fontFamily = com.example.ui.theme.CartographicSerif,
+                fontWeight = FontWeight.Bold,
+                color = com.example.ui.theme.SummitGold,
                 modifier = Modifier.alpha(alpha.value)
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = "Master Your Exams",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Medium,
-                color = MaterialTheme.colorScheme.primary.copy(alpha = 0.6f),
+                text = "CIVIL SERVICES GEOGRAPHY CADASTRE",
+                fontSize = 13.sp,
+                fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                fontWeight = FontWeight.Bold,
+                letterSpacing = 1.2.sp,
+                color = com.example.ui.theme.GlacierAzure,
                 modifier = Modifier.alpha(alpha.value)
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = "UPSC • State PSC • Terrestrial Atlas Engine",
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Medium,
+                color = com.example.ui.theme.AtlasParchment.copy(alpha = 0.85f),
+                modifier = Modifier.alpha(alpha.value)
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            com.example.ui.components.CartographicCoordinatesBanner(
+                modifier = Modifier.alpha(alpha.value),
+                coordinatesText = "📍 82°30′E IST // 23°30′N TROPIC OF CANCER"
             )
         }
+    }
+      }
     }
 }

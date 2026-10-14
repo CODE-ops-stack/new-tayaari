@@ -94,6 +94,23 @@ OPTION_ID_PREFIX = "opt_"
 SUPPORTED_OPTION_LETTERS = ("a", "b", "c", "d", "e")
 OPTION_ID_RE = re.compile(r"^opt_[a-e]$")
 CANONICAL_OPTION_IDS = frozenset(f"{OPTION_ID_PREFIX}{c}" for c in SUPPORTED_OPTION_LETTERS)
+
+# CONSTITUTION §EXAM BLUEPRINTS -- KNOWN DEVIATION, PHASE 1.
+#
+# The Engineering Constitution requires that the number of options per question
+# be owned by the exam's ExamBlueprint and NEVER hardcoded in the synthesizer.
+# These two constants violate that rule: they assume every exam is either
+# 4-option or 5-option.
+#
+# This is deliberately NOT refactored in Phase 1 because dynamic option counts
+# require reworking the core synthesis loop, distractor generation, distractor
+# dissection cardinality (3 distractors == exactly 4 options), and the
+# DataImporter option parser, which accepts only (A)-(E). Changing it here would
+# silently alter the canonical contract that Android already depends on.
+#
+# Mitigation in place: tests/test_v13_task1_closure_regressions.py asserts that
+# these bounds still agree with every ExamBlueprint fixture in the repo, so the
+# first blueprint that diverges fails loudly instead of being silently clamped.
 MIN_OPTION_COUNT = 4
 MAX_OPTION_COUNT = 5
 
@@ -189,6 +206,22 @@ def normalize_correct_key(raw_answer: Any) -> str:
     return "a"
 
 
+def _sanitize_fence_unsafe(text: Any) -> str:
+    """
+    Removes characters that would break the DataImporter.kt question block.
+
+    The Android regex captures the question body non-greedily up to the NEXT
+    backtick, so a literal backtick in learner-facing text silently truncates the
+    block. Backticks are replaced with a typographic apostrophe rather than
+    dropped so the sentence stays readable.
+    """
+    if text is None:
+        return ""
+    if not isinstance(text, str):
+        text = str(text)
+    return text.replace("`", "'")
+
+
 @dataclass
 class CandidateQuestion:
     """
@@ -233,14 +266,19 @@ class CandidateQuestion:
         emitting ``` would cause Android to silently drop every question.
         Do not "upgrade" this to a fenced code block.
         """
-        stem_clean = self.stem.strip()
+        # DataImporter.kt line 63 is DOTALL with a non-greedy capture, so the
+        # FIRST backtick terminates the question block. Any literal backtick in
+        # the stem/options/explanation would silently truncate the parsed
+        # question (or drop it entirely). Sanitize fail-closed.
+        stem_clean = _sanitize_fence_unsafe(self.stem.strip())
         opts_lines: List[str] = []
         for opt in normalize_options(self.options):
             opt_id = opt.get("id", "")
-            val = opt.get("text", "")
+            val = _sanitize_fence_unsafe(opt.get("text", ""))
             letter = opt_id.replace(OPTION_ID_PREFIX, "").upper()
             opts_lines.append(f"({letter}) {val}")
         opts_str = "\n".join(opts_lines)
+        explanation_clean = _sanitize_fence_unsafe(self.explanation)
         correct_letter = normalize_correct_key(self.correctAnswer).upper()
         first_trap = ""
         if self.distractorDissections:
@@ -257,7 +295,7 @@ class CandidateQuestion:
             md += f"- **Trap-Type**: {first_trap}\n"
         md += f"- **PDF-Sequence-Number**: {self.pdfSequenceNumber}\n"
         # SINGLE backtick fences -- must match DataImporter.kt line 63 exactly.
-        md += f"- **Question**: `\n{stem_clean}\n{opts_str}\nExplanation: {self.explanation}"
+        md += f"- **Question**: `\n{stem_clean}\n{opts_str}\nExplanation: {explanation_clean}"
         md += f"\nCorrect Answer: Option {correct_letter}\n`\n"
         return md
 
@@ -908,6 +946,25 @@ class NaturalStemSynthesizer:
         text = re.sub(r"[,\s]+\s*$", "", text)
         return text
 
+    @staticmethod
+    def normalize_terminal_punctuation(stem: str) -> str:
+        """
+        Removes a sentence-final period that sits immediately before a terminal
+        question/exclamation mark.
+
+        The 14 intent branches below interpolate raw corpus predicates, many of
+        which already end in '.'. Appending '?' therefore produced double
+        punctuation such as "one such constellation.?".
+
+        Failure mode if this is missing: the stem is still syntactically parseable
+        but is learner-facing broken text, and any regex keyed on a trailing
+        period+mark will miss it.
+        """
+        if not stem:
+            return stem
+        cleaned = re.sub(r"\.([?!])$", r"\1", stem.strip())
+        return cleaned.strip()
+
     @classmethod
     def synthesize_stem(
         cls,
@@ -921,6 +978,16 @@ class NaturalStemSynthesizer:
         CRITICAL: Never uses placeholder tokens like "this entity", "it", "this".
         Instead restructures the question to ask directly about the predicate.
         """
+        stem = cls._synthesize_stem_raw(node, category, target_entity)
+        return cls.normalize_terminal_punctuation(stem)
+
+    @classmethod
+    def _synthesize_stem_raw(
+        cls,
+        node: Any,
+        category: Optional[CategoryDefinition],
+        target_entity: str,
+    ) -> str:
         intent = canonicalize_intent(
             getattr(node, "intent_type", None) or getattr(node, "intentType", None) or "definition"
         )
