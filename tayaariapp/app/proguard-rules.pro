@@ -3,6 +3,8 @@
 -keepclassmembers class com.example.model.** { *; }
 -keep class com.example.model.** { *; }
 -keep class com.example.database.** { *; }
+-keep class com.example.repository.** { *; }
+-keep class com.example.updater.** { *; }
 
 # Preserve serialized names for Moshi / Gson
 -keepclassmembers class * {
