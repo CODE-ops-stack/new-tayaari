@@ -7,7 +7,7 @@ import com.example.database.Question
 import com.example.database.Topic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import com.google.gson.Gson
+import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 import java.io.InputStreamReader
@@ -162,27 +162,102 @@ object JsonQuestionImporter {
     )
 
     data class ProvenanceData(
-        val questionId: String,
-        val questionStem: String,
-        val intentType: String,
-        val knowledgeNodeId: String,
-        val evidenceText: String,
-        val sourceFile: String,
-        val sourceLocation: SourceLocation,
-        val provenanceHash: String,
-        val createdAt: String,
-        val schemaVersion: String,
-        val metadata: Map<String, Any>?,
-        val linkHashes: Map<String, String>?
+        val questionId: String = "",
+        val questionStem: String = "",
+        val intentType: String = "",
+        val knowledgeNodeId: String = "",
+        val evidenceText: String = "",
+        val sourceFile: String = "",
+        val sourceLocation: SourceLocation? = null,
+        val provenanceHash: String = "",
+        val createdAt: String = "",
+        val schemaVersion: String = "1.0",
+        val metadata: Map<String, Any>? = null,
+        val linkHashes: Map<String, String>? = null
     )
 
     data class SourceLocation(
-        val sourceId: String,
-        val sentence_count: Int,
-        val section_heading: String,
-        val concept: String,
-        val sentence_idx: Int,
-        val block_id: String,
-        val has_antecedent: Boolean
+        val sourceId: String = "",
+        val sentence_count: Int = 0,
+        val section_heading: String = "",
+        val concept: String = "",
+        val sentence_idx: Int = 0,
+        val block_id: String = "",
+        val has_antecedent: Boolean = false
     )
+
+    /**
+     * Defensive polymorphic deserializer for ProvenanceData.
+     * Prevents any IllegalStateException if provenance is received as a String or an Object.
+     */
+    class ProvenanceDeserializer : JsonDeserializer<ProvenanceData?> {
+        override fun deserialize(
+            json: JsonElement?,
+            typeOfT: Type?,
+            context: JsonDeserializationContext?
+        ): ProvenanceData? {
+            if (json == null || json.isJsonNull) return null
+            return try {
+                if (json.isJsonObject) {
+                    val obj = json.asJsonObject
+                    val locObj = if (obj.has("sourceLocation") && obj.get("sourceLocation").isJsonObject) {
+                        obj.getAsJsonObject("sourceLocation")
+                    } else null
+
+                    val sourceLoc = locObj?.let {
+                        SourceLocation(
+                            sourceId = it.get("sourceId")?.asString ?: "",
+                            sentence_count = it.get("sentence_count")?.asInt ?: 0,
+                            section_heading = it.get("section_heading")?.asString ?: "",
+                            concept = it.get("concept")?.asString ?: "",
+                            sentence_idx = it.get("sentence_idx")?.asInt ?: 0,
+                            block_id = it.get("block_id")?.asString ?: "",
+                            has_antecedent = it.get("has_antecedent")?.asBoolean ?: false
+                        )
+                    }
+
+                    ProvenanceData(
+                        questionId = obj.get("questionId")?.asString ?: "",
+                        questionStem = obj.get("questionStem")?.asString ?: "",
+                        intentType = obj.get("intentType")?.asString ?: "",
+                        knowledgeNodeId = obj.get("knowledgeNodeId")?.asString ?: "",
+                        evidenceText = obj.get("evidenceText")?.asString ?: "",
+                        sourceFile = obj.get("sourceFile")?.asString ?: "",
+                        sourceLocation = sourceLoc,
+                        provenanceHash = obj.get("provenanceHash")?.asString ?: "",
+                        createdAt = obj.get("createdAt")?.asString ?: "",
+                        schemaVersion = obj.get("schemaVersion")?.asString ?: "1.0",
+                        metadata = null,
+                        linkHashes = null
+                    )
+                } else if (json.isJsonPrimitive) {
+                    val str = json.asString
+                    ProvenanceData(
+                        questionId = "",
+                        questionStem = "",
+                        intentType = str,
+                        knowledgeNodeId = str,
+                        evidenceText = str,
+                        sourceFile = str,
+                        sourceLocation = SourceLocation(str, 0, "", "", 0, "", false),
+                        provenanceHash = str,
+                        createdAt = "",
+                        schemaVersion = "1.0",
+                        metadata = null,
+                        linkHashes = null
+                    )
+                } else {
+                    null
+                }
+            } catch (e: Exception) {
+                null
+            }
+        }
+    }
+
+    fun createSafeGson(): Gson {
+        return GsonBuilder()
+            .registerTypeAdapter(ProvenanceData::class.java, ProvenanceDeserializer())
+            .create()
+    }
 }

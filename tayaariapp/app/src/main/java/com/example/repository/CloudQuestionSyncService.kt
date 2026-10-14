@@ -37,7 +37,7 @@ object CloudQuestionSyncService {
     private const val TAG = "CloudQuestionSync"
 
     val isSyncing = MutableStateFlow(false)
-    val syncStatusMessage = MutableStateFlow("Pure Online Stream (v22.0 • 3,942 MCQs on Cloud CDN • Zero Local Questions)")
+    val syncStatusMessage = MutableStateFlow("Pure Online Stream (v23.0 • 3,942 MCQs on Cloud CDN • Zero Local Questions)")
 
     private val syncMutex = Mutex()
 
@@ -285,7 +285,7 @@ object CloudQuestionSyncService {
             )
         }
 
-        val gson = Gson()
+        val gson = JsonQuestionImporter.createSafeGson()
         val type = object : TypeToken<List<JsonQuestionImporter.GeneratedQuestion>>() {}.type
         val generatedList: List<JsonQuestionImporter.GeneratedQuestion> = gson.fromJson(jsonReader, type)
         jsonReader.close()

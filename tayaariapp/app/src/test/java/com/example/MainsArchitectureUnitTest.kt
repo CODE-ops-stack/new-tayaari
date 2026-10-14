@@ -181,4 +181,71 @@ class MainsArchitectureUnitTest {
         assertFalse("SSC must not include Bihar Geography", sscTopics.contains(23))
         assertFalse("SSC must not include UPSC Optional", sscTopics.contains(24))
     }
+
+    @Test
+    fun testDefensiveProvenanceDeserialization() {
+        val safeGson = com.example.repository.JsonQuestionImporter.createSafeGson()
+        val type = object : com.google.gson.reflect.TypeToken<List<com.example.repository.JsonQuestionImporter.GeneratedQuestion>>() {}.type
+
+        // Test mixed JSON array containing:
+        // 1. Provenance as an Object
+        // 2. Provenance as a String (which previously crashed with IllegalStateException)
+        // 3. Provenance as null
+        val mixedJson = """
+            [
+              {
+                "id": "1",
+                "stem": "Sample Question 1",
+                "options": {"opt_a": "A", "opt_b": "B", "opt_c": "C", "opt_d": "D"},
+                "correctAnswer": "opt_a",
+                "explanation": "Expl 1",
+                "provenance": {
+                  "questionId": "1",
+                  "questionStem": "Stem 1",
+                  "intentType": "conceptual",
+                  "knowledgeNodeId": "node-1",
+                  "evidenceText": "Evidence 1",
+                  "sourceFile": "file1.txt",
+                  "sourceLocation": {"sourceId": "s1", "sentence_count": 1, "section_heading": "h1", "concept": "c1", "sentence_idx": 0, "block_id": "b1", "has_antecedent": false},
+                  "provenanceHash": "hash1",
+                  "createdAt": "2026-10-14",
+                  "schemaVersion": "1.0",
+                  "metadata": null,
+                  "linkHashes": null
+                }
+              },
+              {
+                "id": "2",
+                "stem": "Sample Question 2 (String Provenance)",
+                "options": {"opt_a": "A", "opt_b": "B", "opt_c": "C", "opt_d": "D"},
+                "correctAnswer": "opt_b",
+                "explanation": "Expl 2",
+                "provenance": "UPSC_EXPERT_PREDICTIVE"
+              },
+              {
+                "id": "3",
+                "stem": "Sample Question 3 (Null Provenance)",
+                "options": {"opt_a": "A", "opt_b": "B", "opt_c": "C", "opt_d": "D"},
+                "correctAnswer": "opt_c",
+                "explanation": "Expl 3",
+                "provenance": null
+              }
+            ]
+        """.trimIndent()
+
+        val parsed: List<com.example.repository.JsonQuestionImporter.GeneratedQuestion> = safeGson.fromJson(mixedJson, type)
+
+        assertEquals(3, parsed.size)
+        // Verify question 1: object provenance preserved
+        assertEquals("file1.txt", parsed[0].provenance?.sourceFile)
+        assertEquals("conceptual", parsed[0].provenance?.intentType)
+
+        // Verify question 2: string provenance gracefully wrapped without crashing
+        assertNotNull(parsed[1].provenance)
+        assertEquals("UPSC_EXPERT_PREDICTIVE", parsed[1].provenance?.intentType)
+        assertEquals("UPSC_EXPERT_PREDICTIVE", parsed[1].provenance?.sourceFile)
+
+        // Verify question 3: null provenance handled
+        assertNull(parsed[2].provenance)
+    }
 }
