@@ -134,6 +134,9 @@ object CloudQuestionSyncService {
         "🗺️ World Regional Geography" to 22,
         "Bihar Geography" to 23,
         "📍 Bihar Geography" to 23,
+        "Bihar Geography: Physiography, Rivers & Resources" to 23,
+        "📍 Bihar Geography: Physiography, Rivers & Resources" to 23,
+        "State PCS Bihar Special Drills" to 23,
         "Perspectives in Human Geography (Geographical Thought)" to 24,
         "🧠 Perspectives in Human Geography (Geographical Thought)" to 24,
         "Models, Theories & Laws in Human Geography" to 25,
@@ -338,13 +341,24 @@ object CloudQuestionSyncService {
         } else {
             orderedCandidates
         }
-        finalSelection.map { it.toMCQQuestion() }
+        finalSelection.map { it.toMCQQuestion(profile) }
     }
 
-    private fun JsonQuestionImporter.GeneratedQuestion.toMCQQuestion(): MCQQuestion {
+    private fun JsonQuestionImporter.GeneratedQuestion.toMCQQuestion(profile: ExamBlueprint): MCQQuestion {
         val parsedOptions = options.map { (key, value) ->
             Option(id = key, text = value, role = OptionRole.ANSWER_CHOICE)
+        }.toMutableList()
+
+        if (profile.synthesizeAbstainOption && parsedOptions.size == profile.optionCount - 1) {
+            parsedOptions.add(
+                Option(
+                    id = "opt_abstain",
+                    text = profile.abstainOptionLabel,
+                    role = OptionRole.ABSTAIN
+                )
+            )
         }
+
         val parsedDistractors = distractorDissections?.map {
             com.example.model.DistractorDissection(
                 optionId = it.optionId,

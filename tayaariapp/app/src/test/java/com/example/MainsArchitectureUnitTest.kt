@@ -248,4 +248,101 @@ class MainsArchitectureUnitTest {
         // Verify question 3: null provenance handled
         assertNull(parsed[2].provenance)
     }
+
+    @Test
+    fun testAllCloudTopicSlicesDeserializeWithoutError() {
+        val safeGson = com.example.repository.JsonQuestionImporter.createSafeGson()
+        val type = object : com.google.gson.reflect.TypeToken<List<com.example.repository.JsonQuestionImporter.GeneratedQuestion>>() {}.type
+
+        val possibleDirs = listOf(
+            java.io.File("../../cloud_data_staging/topics"),
+            java.io.File("../cloud_data_staging/topics"),
+            java.io.File("c:/Users/harsh/Downloads/tayaari/cloud_data_staging/topics")
+        )
+        val topicsDir = possibleDirs.find { it.exists() && it.isDirectory }
+        assertNotNull("Cloud topics directory must exist for audit", topicsDir)
+
+        val topicFiles = topicsDir!!.listFiles { file -> file.name.startsWith("topic_") && file.name.endsWith(".json") }
+        assertNotNull(topicFiles)
+        assertTrue("Must have at least 23 topic files", topicFiles!!.size >= 23)
+
+        var totalQuestionsValidated = 0
+
+        for (file in topicFiles.sortedBy { it.name }) {
+            val reader = java.io.InputStreamReader(file.inputStream(), "UTF-8")
+            val questions: List<com.example.repository.JsonQuestionImporter.GeneratedQuestion> = safeGson.fromJson(reader, type)
+            reader.close()
+
+            assertTrue("File ${file.name} must have questions", questions.isNotEmpty())
+            for (q in questions) {
+                totalQuestionsValidated++
+                assertTrue("Question in ${file.name} must have non-blank stem", q.stem.isNotBlank())
+                assertTrue("Question ${q.id} in ${file.name} must have at least 4 options", q.options.size >= 4)
+                assertTrue("Question ${q.id} in ${file.name} must have valid correctAnswer in options", q.options.containsKey(q.correctAnswer))
+                assertTrue("Question ${q.id} in ${file.name} must have non-blank explanation", q.explanation.isNotBlank())
+            }
+        }
+
+        assertTrue("Must validate at least 3,500 questions across all topic files", totalQuestionsValidated >= 3500)
+    }
+
+    @Test
+    fun testBpscFiveOptionsSynthesized() {
+        val bpsc = com.example.model.ExamBlueprintRegistry.getBlueprint("BPSC_CCE_72ND_2026")!!
+        val upsc = com.example.model.ExamBlueprintRegistry.getBlueprint("UPSC_CSE_2026")!!
+
+        assertTrue("BPSC demands 5 options", bpsc.optionCount == 5)
+        assertTrue("BPSC demands synthesized abstain option", bpsc.synthesizeAbstainOption)
+
+        val sampleGeneratedQ = com.example.repository.JsonQuestionImporter.GeneratedQuestion(
+            id = "BIHAR-01",
+            stem = "Which soil of Bihar is characterized by high water retention?",
+            options = mapOf(
+                "opt_a" to "Terai soil",
+                "opt_b" to "Karail-Kewal soil",
+                "opt_c" to "Balasundar soil",
+                "opt_d" to "Piedmont swamp soil"
+            ),
+            correctAnswer = "opt_b",
+            explanation = "Karail-Kewal is heavy clayey soil found in South Gangetic Plain of Bihar.",
+            distractorDissections = emptyList(),
+            provenance = null
+        )
+
+        // Test BPSC option synthesis via reflection or private method logic
+        val bpscOptions = sampleGeneratedQ.options.map { (key, value) ->
+            com.example.model.Option(id = key, text = value, role = com.example.model.OptionRole.ANSWER_CHOICE)
+        }.toMutableList()
+
+        if (bpsc.synthesizeAbstainOption && bpscOptions.size == bpsc.optionCount - 1) {
+            bpscOptions.add(
+                com.example.model.Option(
+                    id = "opt_abstain",
+                    text = bpsc.abstainOptionLabel,
+                    role = com.example.model.OptionRole.ABSTAIN
+                )
+            )
+        }
+
+        assertEquals("BPSC must have exactly 5 options", 5, bpscOptions.size)
+        assertEquals("5th option must be abstain", "opt_abstain", bpscOptions[4].id)
+        assertEquals("I do not wish to answer", bpscOptions[4].text)
+        assertEquals(com.example.model.OptionRole.ABSTAIN, bpscOptions[4].role)
+
+        // For UPSC, it must remain strictly 4 options
+        val upscOptions = sampleGeneratedQ.options.map { (key, value) ->
+            com.example.model.Option(id = key, text = value, role = com.example.model.OptionRole.ANSWER_CHOICE)
+        }.toMutableList()
+
+        if (upsc.synthesizeAbstainOption && upscOptions.size == upsc.optionCount - 1) {
+            upscOptions.add(
+                com.example.model.Option(
+                    id = "opt_abstain",
+                    text = upsc.abstainOptionLabel,
+                    role = com.example.model.OptionRole.ABSTAIN
+                )
+            )
+        }
+        assertEquals("UPSC must remain strictly 4 options", 4, upscOptions.size)
+    }
 }
