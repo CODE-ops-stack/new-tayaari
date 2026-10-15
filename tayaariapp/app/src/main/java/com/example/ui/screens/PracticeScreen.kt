@@ -63,6 +63,7 @@ fun PracticeScreen(
     topicName: String,
     tier: String,
     format: String,
+    profile: com.example.model.ExamBlueprint? = null,
     uiState: TestUiState,
     onOptionSelected: (String) -> Unit,
     onOptionCrossOut: (String) -> Unit = {},
@@ -139,6 +140,10 @@ fun PracticeScreen(
                         )
                         Spacer(modifier = Modifier.height(6.dp))
                         Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                            if (profile != null) {
+                                val shortExamName = profile.displayName.substringBefore(" (").trim()
+                                BadgeChip(text = "🏛️ $shortExamName", color = com.example.ui.theme.SunstoneGold.copy(alpha = 0.2f), textColor = com.example.ui.theme.SunstoneGold)
+                            }
                             com.example.ui.components.ElevationTierPill(tier = tier)
                             BadgeChip(text = "🗺️ $format", color = deepBlue.copy(alpha = 0.1f), textColor = deepBlue)
                             if (uiState.currentStreak >= 2) {
@@ -414,13 +419,28 @@ fun PracticeScreen(
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         
+                        val maxMarks = (profile?.positiveMarks?.toDouble() ?: 1.0) * uiState.totalQuestionsInSet
+                        val maxMarksFormatted = if (maxMarks % 1.0 == 0.0) maxMarks.toInt().toString() else String.format("%.1f", maxMarks)
                         Text(
-                            "You scored ${uiState.currentScore.toDisplayString()} out of ${uiState.totalQuestionsInSet}",
-                            color = deepBlue.copy(alpha = 0.7f),
+                            "Score: ${uiState.currentScore.toDisplayString()} / $maxMarksFormatted Marks (${uiState.totalCorrectCount}/${uiState.totalQuestionsInSet} Correct)",
+                            color = deepBlue,
                             fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        val penaltyRule = profile?.negativePenaltyRule
+                        val penaltyText = if (penaltyRule != null && penaltyRule != com.example.model.PenaltyRule.NONE) {
+                            "Official Negative Marking: -${penaltyRule.numerator}/${penaltyRule.denominator} marks per wrong attempt"
+                        } else {
+                            "Official Commission Scoring Scheme Applied"
+                        }
+                        Text(
+                            penaltyText,
+                            color = com.example.ui.theme.TopoContourMuted,
+                            fontSize = 12.sp,
                             fontWeight = FontWeight.Medium
                         )
-                        Spacer(modifier = Modifier.height(24.dp))
+                        Spacer(modifier = Modifier.height(20.dp))
                         
                         if (uiState.marksLostReport.isNotEmpty()) {
                             Card(

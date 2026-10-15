@@ -329,16 +329,17 @@ class MainActivity : ComponentActivity() {
                             val tier = android.net.Uri.decode(backStackEntry.arguments?.getString("tier") ?: "")
                             val format = android.net.Uri.decode(backStackEntry.arguments?.getString("format") ?: "")
                             
-                            androidx.compose.runtime.LaunchedEffect(topicName, tier, format, selectedProfiles) {
-                                if (selectedProfiles.isNotEmpty()) {
-                                    viewModel.startPractice(topicName, selectedProfiles.first(), tier, format)
-                                }
+                            val activeProfile = selectedProfiles.firstOrNull() ?: com.example.model.ExamBlueprintRegistry.blueprints.first()
+
+                            androidx.compose.runtime.LaunchedEffect(topicName, tier, format, activeProfile) {
+                                viewModel.startPractice(topicName, activeProfile, tier, format)
                             }
                             
                             PracticeScreen(
                                 topicName = topicName,
                                 tier = tier,
                                 format = format,
+                                profile = activeProfile,
                                 uiState = uiState,
                                 onOptionSelected = viewModel::onOptionPending,
                                 onOptionCrossOut = viewModel::toggleOptionCrossedOut,
