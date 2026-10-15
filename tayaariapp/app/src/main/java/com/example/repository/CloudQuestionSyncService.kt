@@ -319,7 +319,17 @@ object CloudQuestionSyncService {
             emptyList()
         }
 
-        val finalCandidates = if (filteredByFormat.isNotEmpty()) filteredByFormat else pool
+        val candidatesByExam = if (profile.examId.startsWith("SSC") || profile.examId.startsWith("RRB")) {
+            val sscPool = pool.filter { q -> q.id.startsWith("ssc_pyq") || q.examTarget == "SSC_CGL" }
+            if (sscPool.isNotEmpty()) sscPool else pool
+        } else if (profile.examId.startsWith("UPSC")) {
+            val upscPool = pool.filter { q -> !q.id.startsWith("ssc_pyq") }
+            if (upscPool.isNotEmpty()) upscPool else pool
+        } else {
+            pool
+        }
+
+        val finalCandidates = if (filteredByFormat.isNotEmpty()) filteredByFormat else candidatesByExam
         
         // Strict Pedagogical Progression:
         // Basic/Foundation (tier 1) -> Medium/Analytical (tier 2) -> Hard/UPSC Ranker (tier 3).

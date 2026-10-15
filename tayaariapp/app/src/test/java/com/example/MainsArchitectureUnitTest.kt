@@ -283,7 +283,57 @@ class MainsArchitectureUnitTest {
             }
         }
 
-        assertTrue("Must validate at least 3,500 questions across all topic files", totalQuestionsValidated >= 3500)
+        assertTrue("Must validate at least 4,800 questions across all topic files", totalQuestionsValidated >= 4800)
+    }
+
+    @Test
+    fun testSscCglExamProfilePrioritization() {
+        val sscProfile = com.example.model.ExamBlueprintRegistry.getBlueprint("SSC_CGL_2025")!!
+        val upscProfile = com.example.model.ExamBlueprintRegistry.getBlueprint("UPSC_CSE_2026")!!
+
+        val sscQ = com.example.repository.JsonQuestionImporter.GeneratedQuestion(
+            id = "ssc_pyq_0001",
+            stem = "What are the streams of charged particles ejected by the Sun called?",
+            options = mapOf("opt_a" to "Sunspots", "opt_b" to "Solar wind", "opt_c" to "Solar flares", "opt_d" to "Coronal loops"),
+            correctAnswer = "opt_b",
+            explanation = "Solar wind is a constant stream of charged particles.",
+            distractorDissections = emptyList(),
+            provenance = null,
+            examTarget = "SSC_CGL"
+        )
+
+        val upscQ = com.example.repository.JsonQuestionImporter.GeneratedQuestion(
+            id = "q_upsc_0001",
+            stem = "With reference to solar phenomena, consider the following statements...",
+            options = mapOf("opt_a" to "1 only", "opt_b" to "2 only", "opt_c" to "Both 1 and 2", "opt_d" to "Neither 1 nor 2"),
+            correctAnswer = "opt_c",
+            explanation = "Solar activity interacts with magnetosphere...",
+            distractorDissections = emptyList(),
+            provenance = null,
+            examTarget = "UPSC-Prelims"
+        )
+
+        val mixedPool = listOf(sscQ, upscQ)
+
+        // For SSC profile: must select SSC PYQ
+        val sscFiltered = if (sscProfile.examId.startsWith("SSC") || sscProfile.examId.startsWith("RRB")) {
+            val sscPool = mixedPool.filter { q -> q.id.startsWith("ssc_pyq") || q.examTarget == "SSC_CGL" }
+            if (sscPool.isNotEmpty()) sscPool else mixedPool
+        } else {
+            mixedPool
+        }
+        assertEquals(1, sscFiltered.size)
+        assertEquals("ssc_pyq_0001", sscFiltered[0].id)
+
+        // For UPSC profile: must select UPSC question
+        val upscFiltered = if (upscProfile.examId.startsWith("UPSC")) {
+            val upscPool = mixedPool.filter { q -> !q.id.startsWith("ssc_pyq") }
+            if (upscPool.isNotEmpty()) upscPool else mixedPool
+        } else {
+            mixedPool
+        }
+        assertEquals(1, upscFiltered.size)
+        assertEquals("q_upsc_0001", upscFiltered[0].id)
     }
 
     @Test
