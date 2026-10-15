@@ -81,9 +81,9 @@ object CloudQuestionSyncService {
     private val topicCounts = ConcurrentHashMap<Int, Int>()
 
     private val defaultTopicCounts = mapOf(
-        1 to 116, 2 to 135, 3 to 83, 4 to 317, 5 to 279, 6 to 113, 7 to 295, 8 to 132,
-        9 to 130, 10 to 209, 11 to 244, 12 to 120, 13 to 132, 14 to 126, 15 to 171, 16 to 100,
-        17 to 147, 18 to 122, 19 to 142, 20 to 124, 21 to 103, 22 to 120, 23 to 62,
+        1 to 150, 2 to 143, 3 to 83, 4 to 328, 5 to 295, 6 to 155, 7 to 312, 8 to 134,
+        9 to 139, 10 to 403, 11 to 410, 12 to 145, 13 to 159, 14 to 126, 15 to 327, 16 to 115,
+        17 to 250, 18 to 122, 19 to 153, 20 to 197, 21 to 103, 22 to 120, 23 to 62,
         24 to 60, 25 to 60, 26 to 60, 27 to 60, 28 to 60, 29 to 60, 30 to 60
     )
 
@@ -171,11 +171,14 @@ object CloudQuestionSyncService {
 
     fun getModuleForTopic(topicId: Int): String {
         return when (topicId) {
-            in 1..8 -> "Physical Geography"
-            in 9..19, 23 -> "Indian Geography"
-            in 20..22 -> "World & Human Geography"
-            in 24..30 -> "🎓 UPSC Geography Optional"
-            else -> "Physical Geography"
+            in 1..5 -> "📘 Stage 1: Foundation Physical Geography"
+            in 6..8 -> "🌪️ Stage 2: Climatology, Oceanography & Biomes"
+            in 9..14 -> "🇮🇳 Stage 3: Indian Physical & Environmental Geography"
+            in 15..20 -> "🌾 Stage 4: Indian Economic, Resource & Human Geography"
+            in 21..22 -> "🌐 Stage 5: Global Regional Geography & Trade"
+            23 -> "📍 Stage 5: State PCS Special Drills (Bihar Focus)"
+            in 24..30 -> "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery"
+            else -> "📘 Stage 1: Foundation Physical Geography"
         }
     }
 
@@ -221,8 +224,8 @@ object CloudQuestionSyncService {
                 dao.clearAllQuestions()
             }
 
-            val totalOnlineQuestions = manifest?.totalQuestions ?: 3942
-            val version = manifest?.version ?: 19
+            val totalOnlineQuestions = manifest?.totalQuestions ?: 4851
+            val version = manifest?.version ?: 24
             val successMsg = "Pure Online Stream (v$version • $totalOnlineQuestions MCQs) • Zero Local Asset"
             syncStatusMessage.value = successMsg
             isSyncing.value = false

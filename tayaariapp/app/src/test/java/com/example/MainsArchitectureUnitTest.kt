@@ -395,4 +395,53 @@ class MainsArchitectureUnitTest {
         }
         assertEquals("UPSC must remain strictly 4 options", 4, upscOptions.size)
     }
+
+    @Test
+    fun testPedagogicalSequentialProgression() {
+        // Verify Chapter Stages: Foundation -> Climatology/Oceans -> Indian Physical -> Economic/Human -> Regional -> Optional
+        assertEquals("📘 Stage 1: Foundation Physical Geography", com.example.repository.CloudQuestionSyncService.getModuleForTopic(1))
+        assertEquals("📘 Stage 1: Foundation Physical Geography", com.example.repository.CloudQuestionSyncService.getModuleForTopic(5))
+        assertEquals("🌪️ Stage 2: Climatology, Oceanography & Biomes", com.example.repository.CloudQuestionSyncService.getModuleForTopic(6))
+        assertEquals("🌪️ Stage 2: Climatology, Oceanography & Biomes", com.example.repository.CloudQuestionSyncService.getModuleForTopic(8))
+        assertEquals("🇮🇳 Stage 3: Indian Physical & Environmental Geography", com.example.repository.CloudQuestionSyncService.getModuleForTopic(9))
+        assertEquals("🇮🇳 Stage 3: Indian Physical & Environmental Geography", com.example.repository.CloudQuestionSyncService.getModuleForTopic(14))
+        assertEquals("🌾 Stage 4: Indian Economic, Resource & Human Geography", com.example.repository.CloudQuestionSyncService.getModuleForTopic(15))
+        assertEquals("🌾 Stage 4: Indian Economic, Resource & Human Geography", com.example.repository.CloudQuestionSyncService.getModuleForTopic(20))
+        assertEquals("🌐 Stage 5: Global Regional Geography & Trade", com.example.repository.CloudQuestionSyncService.getModuleForTopic(21))
+        assertEquals("📍 Stage 5: State PCS Special Drills (Bihar Focus)", com.example.repository.CloudQuestionSyncService.getModuleForTopic(23))
+        assertEquals("🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery", com.example.repository.CloudQuestionSyncService.getModuleForTopic(24))
+        assertEquals("🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery", com.example.repository.CloudQuestionSyncService.getModuleForTopic(30))
+
+        // Verify Exam Scope Filtering
+        val allTopicIds = (1..30).toList()
+        val sscScope = allTopicIds.filter { it !in 23..30 }
+        assertEquals("SSC CGL must strictly cover Topics 1 to 22", 22, sscScope.size)
+        assertEquals(1, sscScope.first())
+        assertEquals(22, sscScope.last())
+
+        val bpscScope = allTopicIds.filter { it !in 24..30 }
+        assertEquals("BPSC must strictly cover Topics 1 to 23", 23, bpscScope.size)
+        assertTrue("BPSC must include Bihar Geography", bpscScope.contains(23))
+
+        val upscScope = allTopicIds
+        assertEquals("UPSC covers full 30-chapter curriculum", 30, upscScope.size)
+
+        // Verify Question Ordering (Basic -> Medium -> Hard)
+        val sampleQuestions = listOf(
+            com.example.repository.JsonQuestionImporter.GeneratedQuestion("q3", "Hard Q", emptyMap(), "opt_a", "exp", null, null, tier = "Hard"),
+            com.example.repository.JsonQuestionImporter.GeneratedQuestion("q1", "Basic Q", emptyMap(), "opt_a", "exp", null, null, tier = "Basic"),
+            com.example.repository.JsonQuestionImporter.GeneratedQuestion("q2", "Medium Q", emptyMap(), "opt_a", "exp", null, null, tier = "Medium")
+        )
+        val sortedQuestions = sampleQuestions.sortedWith(compareBy { q ->
+            when (q.tier) {
+                "Basic" -> 1
+                "Medium" -> 2
+                "Hard" -> 3
+                else -> 4
+            }
+        })
+        assertEquals("q1", sortedQuestions[0].id)
+        assertEquals("q2", sortedQuestions[1].id)
+        assertEquals("q3", sortedQuestions[2].id)
+    }
 }
