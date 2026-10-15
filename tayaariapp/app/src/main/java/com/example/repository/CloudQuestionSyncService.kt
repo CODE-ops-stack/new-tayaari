@@ -307,21 +307,6 @@ object CloudQuestionSyncService {
 
         val pool = if (filteredByTier.isNotEmpty()) filteredByTier else generatedList
 
-        val filteredByFormat = if (format.isNotBlank() && format != "Smart Practice") {
-            if (format.startsWith("Trap Training:")) {
-                val targetTrap = format.substringAfter("Trap Training:").trim()
-                pool.filter { q ->
-                    q.distractorDissections?.any { it.trapType.equals(targetTrap, ignoreCase = true) } == true
-                }
-            } else {
-                pool.filter { q ->
-                    q.format?.contains(format, ignoreCase = true) == true
-                }
-            }
-        } else {
-            emptyList()
-        }
-
         val candidatesByExam = if (profile.examId.startsWith("SSC") || profile.examId.startsWith("RRB")) {
             val sscPool = pool.filter { q -> q.id.startsWith("ssc_pyq") || q.examTarget == "SSC_CGL" }
             if (sscPool.isNotEmpty()) sscPool else pool
@@ -330,6 +315,21 @@ object CloudQuestionSyncService {
             if (upscPool.isNotEmpty()) upscPool else pool
         } else {
             pool
+        }
+
+        val filteredByFormat = if (format.isNotBlank() && format != "Smart Practice") {
+            if (format.startsWith("Trap Training:")) {
+                val targetTrap = format.substringAfter("Trap Training:").trim()
+                candidatesByExam.filter { q ->
+                    q.distractorDissections?.any { it.trapType.equals(targetTrap, ignoreCase = true) } == true
+                }
+            } else {
+                candidatesByExam.filter { q ->
+                    q.format?.contains(format, ignoreCase = true) == true
+                }
+            }
+        } else {
+            emptyList()
         }
 
         val finalCandidates = if (filteredByFormat.isNotEmpty()) filteredByFormat else candidatesByExam

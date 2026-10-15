@@ -79,6 +79,12 @@ class MainViewModel(
         }
     }
 
+    fun setActiveProfile(examId: String) {
+        viewModelScope.launch {
+            userPreferencesRepository.setActiveExam(examId)
+        }
+    }
+
     fun clearProfile() {
         viewModelScope.launch {
             userPreferencesRepository.clearExamProfile()

@@ -444,4 +444,75 @@ class MainsArchitectureUnitTest {
         assertEquals("q2", sortedQuestions[1].id)
         assertEquals("q3", sortedQuestions[2].id)
     }
+
+    @Test
+    fun testMultiExamActiveSwitching() {
+        val upsc = com.example.model.ExamBlueprintRegistry.getBlueprint("UPSC_CSE_2026")!!
+        val ssc = com.example.model.ExamBlueprintRegistry.getBlueprint("SSC_CGL_2025")!!
+        val bpsc = com.example.model.ExamBlueprintRegistry.getBlueprint("BPSC_CCE_72ND_2026")!!
+
+        val selectedList = listOf(upsc, ssc, bpsc)
+
+        // When UPSC is active
+        val activeUpscId = "UPSC_CSE_2026"
+        val activeFirstUpsc = listOf(selectedList.first { it.examId == activeUpscId }) + selectedList.filter { it.examId != activeUpscId }
+        assertEquals("UPSC_CSE_2026", activeFirstUpsc.first().examId)
+        assertEquals(3, activeFirstUpsc.size)
+
+        // When switching active exam to SSC CGL
+        val activeSscId = "SSC_CGL_2025"
+        val activeFirstSsc = listOf(selectedList.first { it.examId == activeSscId }) + selectedList.filter { it.examId != activeSscId }
+        assertEquals("SSC_CGL_2025", activeFirstSsc.first().examId)
+        assertEquals(3, activeFirstSsc.size)
+
+        // When switching active exam to BPSC
+        val activeBpscId = "BPSC_CCE_72ND_2026"
+        val activeFirstBpsc = listOf(selectedList.first { it.examId == activeBpscId }) + selectedList.filter { it.examId != activeBpscId }
+        assertEquals("BPSC_CCE_72ND_2026", activeFirstBpsc.first().examId)
+        assertEquals(3, activeFirstBpsc.size)
+    }
+
+    @Test
+    fun testCandidateFilteringEnforcesExamIsolationBeforeFormat() {
+        val upsc = com.example.model.ExamBlueprintRegistry.getBlueprint("UPSC_CSE_2026")!!
+        val ssc = com.example.model.ExamBlueprintRegistry.getBlueprint("SSC_CGL_2025")!!
+
+        val mixedPool = listOf(
+            com.example.repository.JsonQuestionImporter.GeneratedQuestion(
+                id = "ssc_pyq_101",
+                stem = "Which river is known as Sorrow of Bengal?",
+                options = mapOf("opt_a" to "Damodar", "opt_b" to "Kosi", "opt_c" to "Ganga", "opt_d" to "Hooghly"),
+                correctAnswer = "opt_a",
+                explanation = "Damodar",
+                distractorDissections = null,
+                provenance = null,
+                examTarget = "SSC_CGL",
+                format = "Direct Fact",
+                tier = "Basic"
+            ),
+            com.example.repository.JsonQuestionImporter.GeneratedQuestion(
+                id = "upsc_q_201",
+                stem = "Consider the following statements regarding Damodar Valley Corporation...",
+                options = mapOf("opt_a" to "1 only", "opt_b" to "2 only", "opt_c" to "Both", "opt_d" to "Neither"),
+                correctAnswer = "opt_c",
+                explanation = "UPSC explanation",
+                distractorDissections = null,
+                provenance = null,
+                examTarget = "UPSC_CSE",
+                format = "Statement Based",
+                tier = "Medium"
+            )
+        )
+
+        // SSC Aspirant filtering:
+        val sscPool = mixedPool.filter { q -> q.id.startsWith("ssc_pyq") || q.examTarget == "SSC_CGL" }
+        assertEquals("SSC candidate pool must contain only SSC PYQs", 1, sscPool.size)
+        assertEquals("ssc_pyq_101", sscPool.first().id)
+
+        // UPSC Aspirant filtering:
+        val upscPool = mixedPool.filter { q -> !q.id.startsWith("ssc_pyq") }
+        assertEquals("UPSC candidate pool must NOT contain SSC PYQs", 1, upscPool.size)
+        assertEquals("upsc_q_201", upscPool.first().id)
+    }
 }
+

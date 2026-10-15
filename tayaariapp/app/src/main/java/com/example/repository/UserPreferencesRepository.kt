@@ -17,16 +17,28 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "us
 class UserPreferencesRepository(private val context: Context) {
 
     private val EXAM_PROFILE_KEY = stringPreferencesKey("exam_profile")
+    private val ACTIVE_EXAM_KEY = stringPreferencesKey("active_exam_id")
     private val LOGGED_IN_USER_KEY = intPreferencesKey("logged_in_user_id")
 
     val selectedExamProfiles: Flow<List<ExamBlueprint>> = context.dataStore.data
         .map { preferences ->
             val examIdsStr = preferences[EXAM_PROFILE_KEY]
+            val activeExamId = preferences[ACTIVE_EXAM_KEY]
             if (examIdsStr.isNullOrEmpty()) {
                 emptyList()
             } else {
                 val ids = examIdsStr.split(",")
-                ids.mapNotNull { ExamBlueprintRegistry.getBlueprint(it) }
+                val blueprints = ids.mapNotNull { ExamBlueprintRegistry.getBlueprint(it.trim()) }
+                if (activeExamId != null) {
+                    val active = blueprints.find { it.examId == activeExamId }
+                    if (active != null) {
+                        listOf(active) + blueprints.filter { it.examId != activeExamId }
+                    } else {
+                        blueprints
+                    }
+                } else {
+                    blueprints
+                }
             }
         }
 
@@ -50,12 +62,25 @@ class UserPreferencesRepository(private val context: Context) {
     suspend fun saveExamProfiles(blueprints: List<ExamBlueprint>) {
         context.dataStore.edit { preferences ->
             preferences[EXAM_PROFILE_KEY] = blueprints.joinToString(",") { it.examId }
+            if (blueprints.isNotEmpty()) {
+                val currentActive = preferences[ACTIVE_EXAM_KEY]
+                if (currentActive == null || blueprints.none { it.examId == currentActive }) {
+                    preferences[ACTIVE_EXAM_KEY] = blueprints.first().examId
+                }
+            }
+        }
+    }
+
+    suspend fun setActiveExam(examId: String) {
+        context.dataStore.edit { preferences ->
+            preferences[ACTIVE_EXAM_KEY] = examId
         }
     }
 
     suspend fun clearExamProfile() {
         context.dataStore.edit { preferences ->
             preferences.remove(EXAM_PROFILE_KEY)
+            preferences.remove(ACTIVE_EXAM_KEY)
         }
     }
 }

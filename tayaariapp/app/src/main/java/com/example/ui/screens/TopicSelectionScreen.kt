@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddCircleOutline
 import androidx.compose.material.icons.filled.Analytics
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.CheckCircle
@@ -20,6 +21,7 @@ import androidx.compose.material.icons.filled.FlashOn
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.Psychology
+import androidx.compose.material.icons.filled.RadioButtonUnchecked
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Warning
@@ -46,6 +48,8 @@ fun TopicSelectionScreen(
     topics: List<TopicUIModel>,
     nextAction: com.example.model.RecommendedAction?,
     profile: ExamBlueprint?,
+    allSelectedProfiles: List<ExamBlueprint> = emptyList(),
+    onSelectActiveProfile: (ExamBlueprint) -> Unit = {},
     isSyncing: Boolean = false,
     syncStatusMessage: String = "Online Stream (v24.0 • 4,851 MCQs) • Zero Local Asset",
     updateState: com.example.updater.AppUpdateManager.UpdateState = com.example.updater.AppUpdateManager.UpdateState.Idle,
@@ -67,6 +71,7 @@ fun TopicSelectionScreen(
     val accentGold = MaterialTheme.colorScheme.tertiary
 
     var isHardcoreMode by remember { mutableStateOf(false) }
+    var showExamSwitcherDialog by remember { mutableStateOf(false) }
 
     // Group topics by module
     val groupedTopics = remember(topics) {
@@ -120,12 +125,12 @@ fun TopicSelectionScreen(
                             }
                         },
                         actions = {
-                            // Target Examination Expedition Switcher Chip
+                            // Target Examination Expedition Switcher Chip (Tap to Switch Active Commission)
                             Surface(
                                 color = DeepBasalt.copy(alpha = 0.9f),
                                 shape = RoundedCornerShape(20.dp),
-                                border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.5f)),
-                                modifier = Modifier.clickable { onChangeExam() }
+                                border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.6f)),
+                                modifier = Modifier.clickable { showExamSwitcherDialog = true }
                             ) {
                                 Row(
                                     modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
@@ -139,6 +144,13 @@ fun TopicSelectionScreen(
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.Bold,
                                         maxLines = 1
+                                    )
+                                    Spacer(modifier = Modifier.width(2.dp))
+                                    Icon(
+                                        imageVector = Icons.Default.KeyboardArrowDown,
+                                        contentDescription = "Switch Commission",
+                                        tint = SunstoneGold,
+                                        modifier = Modifier.size(16.dp)
                                     )
                                 }
                             }
@@ -671,6 +683,138 @@ fun TopicSelectionScreen(
                 }
             }
         }
+    }
+
+    if (showExamSwitcherDialog) {
+        AlertDialog(
+            onDismissRequest = { showExamSwitcherDialog = false },
+            containerColor = DeepBasalt,
+            title = {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("🧭", fontSize = 22.sp)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Column {
+                        Text(
+                            "Target Commission Calibration",
+                            fontFamily = CartographicSerif,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 17.sp,
+                            color = SunstoneGold
+                        )
+                        Text(
+                            "Switch active curriculum transect & syllabus",
+                            fontSize = 11.sp,
+                            color = TopoContourMuted
+                        )
+                    }
+                }
+            },
+            text = {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    val displayList = if (allSelectedProfiles.isNotEmpty()) allSelectedProfiles else listOfNotNull(profile)
+                    displayList.forEach { bp ->
+                        val isActive = bp.examId == profile?.examId
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    onSelectActiveProfile(bp)
+                                    showExamSwitcherDialog = false
+                                },
+                            shape = RoundedCornerShape(12.dp),
+                            color = if (isActive) SunstoneGold.copy(alpha = 0.12f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f),
+                            border = BorderStroke(
+                                1.5.dp,
+                                if (isActive) SunstoneGold else TopoContourMuted.copy(alpha = 0.3f)
+                            )
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(12.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Text(
+                                            text = bp.displayName,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 13.sp,
+                                            color = if (isActive) SunstoneGold else Color.White
+                                        )
+                                        if (isActive) {
+                                            Spacer(modifier = Modifier.width(6.dp))
+                                            Surface(
+                                                color = ContourEmerald.copy(alpha = 0.2f),
+                                                shape = RoundedCornerShape(4.dp)
+                                            ) {
+                                                Text(
+                                                    text = "ACTIVE",
+                                                    color = ContourEmerald,
+                                                    fontSize = 9.sp,
+                                                    fontWeight = FontWeight.ExtraBold,
+                                                    modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                                                )
+                                            }
+                                        }
+                                    }
+                                    Spacer(modifier = Modifier.height(3.dp))
+                                    Text(
+                                        text = bp.recommendedPracticeMode,
+                                        fontSize = 10.sp,
+                                        color = TopoContourMuted,
+                                        maxLines = 2,
+                                        overflow = TextOverflow.Ellipsis
+                                    )
+                                }
+                                Icon(
+                                    imageVector = if (isActive) Icons.Default.CheckCircle else Icons.Default.RadioButtonUnchecked,
+                                    contentDescription = null,
+                                    tint = if (isActive) SunstoneGold else TopoContourMuted.copy(alpha = 0.6f),
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(4.dp))
+                    OutlinedButton(
+                        onClick = {
+                            showExamSwitcherDialog = false
+                            onChangeExam()
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(10.dp),
+                        border = BorderStroke(1.dp, GlacierAzure.copy(alpha = 0.6f))
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.AddCircleOutline,
+                            contentDescription = null,
+                            tint = GlacierAzure,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "Add / Change Selected Exams",
+                            color = GlacierAzure,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showExamSwitcherDialog = false }) {
+                    Text("Close", color = TopoContourMuted, fontWeight = FontWeight.Bold)
+                }
+            }
+        )
     }
 }
 

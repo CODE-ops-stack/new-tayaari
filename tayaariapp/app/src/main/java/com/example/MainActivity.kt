@@ -222,6 +222,10 @@ class MainActivity : ComponentActivity() {
                                 topics = topics,
                                 nextAction = nextAction,
                                 profile = selectedProfiles.firstOrNull(),
+                                allSelectedProfiles = selectedProfiles,
+                                onSelectActiveProfile = { bp ->
+                                    mainViewModel.setActiveProfile(bp.examId)
+                                },
                                 isSyncing = isSyncing,
                                 syncStatusMessage = syncStatusMessage,
                                 updateState = updateState,

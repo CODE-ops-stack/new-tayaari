@@ -154,7 +154,7 @@ fun OnboardingScreen(
                 colors = ButtonDefaults.buttonColors(containerColor = com.example.ui.theme.ContourEmerald)
             ) {
                 Text(
-                    "🧭 Embark on Geographic Expedition", 
+                    if (selectedExams.size > 1) "🧭 Embark on Expedition (${selectedExams.size} Selected)" else "🧭 Embark on Geographic Expedition", 
                     fontSize = 16.sp, 
                     fontWeight = FontWeight.Bold,
                     color = com.example.ui.theme.AbyssNavy
