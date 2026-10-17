@@ -77,14 +77,24 @@ abstract class AppDatabase : RoomDatabase() {
                 
                 .addMigrations(MIGRATION_17_18, MIGRATION_18_19, MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24)
                 .addCallback(object : RoomDatabase.Callback() {
+                    override fun onCreate(db: androidx.sqlite.db.SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        // Pre-populate default Guest Aspirant in SQLite on initial database creation
+                        db.execSQL("INSERT OR IGNORE INTO `users` (`id`, `username`, `passwordHash`, `targetExamIds`) VALUES (1, 'Guest Aspirant', 'guest', 'UPSC_CSE_2026')")
+                    }
                     override fun onOpen(db: androidx.sqlite.db.SupportSQLiteDatabase) {
                         super.onOpen(db)
                         kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
                             try {
-                                val dao = getDatabase(context).appDao()
-                                // Populate if topics OR questions are empty
+                                val dbInstance = getDatabase(context)
+                                val dao = dbInstance.appDao()
+                                val userDao = dbInstance.userDao()
+                                if (userDao.getUserById(1) == null) {
+                                    userDao.insertUser(UserEntity(id = 1, username = "Guest Aspirant", passwordHash = "guest", targetExamIds = "UPSC_CSE_2026"))
+                                }
                                 val topicCount = dao.getTopicsCount()
                                 if (topicCount == 0) {
+                                    dao.insertTopics(com.example.repository.CloudQuestionSyncService.canonicalTopicsList)
                                     com.example.repository.CloudQuestionSyncService.syncWithCloud(context, force = true)
                                 }
                             } catch (e: Exception) {

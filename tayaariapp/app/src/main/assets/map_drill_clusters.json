@@ -1,0 +1,137 @@
+[
+  {
+    "id": "q_drill_blks_base",
+    "stem": "Which of the following countries does NOT share a border with the Black Sea?",
+    "options": {
+      "opt_a": "Romania",
+      "opt_b": "Bulgaria",
+      "opt_c": "Greece",
+      "opt_d": "Georgia"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Greece borders the Aegean and Ionian seas, not the Black Sea.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Black Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 1,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_blks_trap",
+    "stem": "Consider the following pairs of countries and seas:\n1. Turkey - Black Sea\n2. Ukraine - Black Sea\n3. Moldova - Black Sea\nHow many of the above pairs are correctly matched?",
+    "options": {
+      "opt_a": "Only one pair",
+      "opt_b": "Only two pairs",
+      "opt_c": "All three pairs",
+      "opt_d": "None"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Moldova is landlocked and does not border the Black Sea. Only Turkey and Ukraine are correct.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Black Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 3,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_blks_seq",
+    "stem": "Arrange the following countries bordering the Black Sea in a clockwise direction starting from the North (Russia):",
+    "options": {
+      "opt_a": "Russia - Georgia - Turkey - Bulgaria - Romania - Ukraine",
+      "opt_b": "Russia - Ukraine - Romania - Bulgaria - Turkey - Georgia",
+      "opt_c": "Russia - Turkey - Georgia - Romania - Bulgaria - Ukraine",
+      "opt_d": "Russia - Georgia - Ukraine - Romania - Bulgaria - Turkey"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Clockwise from North: Russia, Georgia (East), Turkey (South), Bulgaria (West), Romania (West), Ukraine (North/Northwest).\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Black Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 2,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_casp_base",
+    "stem": "Which of the following countries shares a border with the Caspian Sea?",
+    "options": {
+      "opt_a": "Uzbekistan",
+      "opt_b": "Turkmenistan",
+      "opt_c": "Armenia",
+      "opt_d": "Afghanistan"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "Remember TARIK: Turkmenistan, Azerbaijan, Russia, Iran, Kazakhstan.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Caspian Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 1,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_casp_trap",
+    "stem": "Consider the following countries:\n1. Kazakhstan\n2. Iran\n3. Iraq\n4. Azerbaijan\nHow many of these border the Caspian Sea?",
+    "options": {
+      "opt_a": "Only one",
+      "opt_b": "Only two",
+      "opt_c": "Only three",
+      "opt_d": "All four"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Iraq does not border the Caspian Sea. Kazakhstan, Iran, and Azerbaijan do.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Caspian Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 3,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_casp_seq",
+    "stem": "Arrange the capitals of the following Caspian Sea bordering nations from North to South:\n1. Baku (Azerbaijan)\n2. Tehran (Iran)\n3. Astana (Kazakhstan)",
+    "options": {
+      "opt_a": "3 - 1 - 2",
+      "opt_b": "1 - 3 - 2",
+      "opt_c": "3 - 2 - 1",
+      "opt_d": "1 - 2 - 3"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "Astana is in the far North. Baku is central on the western shore. Tehran is South of the Caspian Sea.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Caspian Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 2,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_rds_base",
+    "stem": "The Red Sea is a narrow strip of water separating which two regions?",
+    "options": {
+      "opt_a": "North Africa and the Arabian Peninsula",
+      "opt_b": "East Africa and the Arabian Peninsula",
+      "opt_c": "Central Africa and the Middle East",
+      "opt_d": "North Africa and Southern Europe"
+    },
+    "correctAnswer": "opt_b",
+    "explanation": "It separates the eastern coast of Africa from the Arabian Peninsula.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Red Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 1,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_rds_trap",
+    "stem": "How many of the following countries border the Red Sea?\n1. Egypt\n2. Sudan\n3. Ethiopia\n4. Yemen",
+    "options": {
+      "opt_a": "Only one",
+      "opt_b": "Only two",
+      "opt_c": "Only three",
+      "opt_d": "All four"
+    },
+    "correctAnswer": "opt_c",
+    "explanation": "Ethiopia is landlocked and does NOT border the Red Sea (Eritrea blocks it). Egypt, Sudan, and Yemen do.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Red Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 3,
+    "tier": "Elite"
+  },
+  {
+    "id": "q_drill_rds_seq",
+    "stem": "Arrange the following choke points from North to South along the Red Sea route:",
+    "options": {
+      "opt_a": "Suez Canal - Bab el-Mandeb - Gulf of Aden",
+      "opt_b": "Gulf of Aden - Bab el-Mandeb - Suez Canal",
+      "opt_c": "Suez Canal - Gulf of Aden - Bab el-Mandeb",
+      "opt_d": "Bab el-Mandeb - Suez Canal - Gulf of Aden"
+    },
+    "correctAnswer": "opt_a",
+    "explanation": "North to South: Suez Canal (entering Red Sea) -> Bab el-Mandeb (exiting Red Sea) -> Gulf of Aden.\n\n\ud83d\udca1 DRILL REINFORCEMENT: Notice how this tests the exact same Red Sea map you saw previously, but from a different angle. By visualizing this, you lock the borders into your long-term memory.",
+    "topicName": "\ud83d\uddfa\ufe0f Map Practice & Spatial Visualisation",
+    "difficulty_level": 2,
+    "tier": "Elite"
+  }
+]

@@ -192,8 +192,7 @@ class MainActivity : ComponentActivity() {
                             }
                         },
                         onGuestLogin = {
-                            mainViewModel.loginUser(1)
-                            mainViewModel.saveProfiles(listOf(com.example.model.ExamBlueprintRegistry.blueprints.first()))
+                            mainViewModel.loginAsGuest(listOf(com.example.model.ExamBlueprintRegistry.blueprints.first()))
                         }
                     )
                 } else if (selectedProfiles.isEmpty()) {
@@ -400,6 +399,7 @@ class MainActivity : ComponentActivity() {
                                 topicName = "Paper Twin",
                                 tier = "Mixed",
                                 format = "Mixed",
+                                profile = profile,
                                 uiState = uiState,
                                 onOptionSelected = practiceViewModel::onOptionPending,
                                 onOptionCrossOut = practiceViewModel::toggleOptionCrossedOut,

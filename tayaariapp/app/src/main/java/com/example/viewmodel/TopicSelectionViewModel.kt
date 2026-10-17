@@ -96,19 +96,24 @@ class TopicSelectionViewModel(
         topicsJob?.cancel()
         topicsJob = viewModelScope.launch {
             localRepository.getAllTopics().collectLatest { topicsList ->
+                val effectiveTopicsList = if (topicsList.isNotEmpty()) {
+                    topicsList
+                } else {
+                    com.example.repository.CloudQuestionSyncService.canonicalTopicsList
+                }
                 val isUpsc = p.examId.contains("UPSC", ignoreCase = true)
                 val isBpsc = p.examId.contains("BPSC", ignoreCase = true)
                 val filteredTopics = when {
-                    isUpsc -> topicsList
+                    isUpsc -> effectiveTopicsList
                     isBpsc -> {
                         // BPSC candidates focus on General Geography and Bihar Geography (Topic 23),
                         // excluding UPSC Geography Optional theoretical models (Topics 24..30)
-                        topicsList.filter { it.id !in 24..30 }
+                        effectiveTopicsList.filter { it.id !in 24..30 }
                     }
                     else -> {
                         // SSC CGL / RRB NTPC candidates focus strictly on General Studies Geography (Topics 1..22),
                         // excluding State-specific Bihar Geography (Topic 23) and UPSC Optional (Topics 24..30)
-                        topicsList.filter { it.id !in 23..30 }
+                        effectiveTopicsList.filter { it.id !in 23..30 }
                     }
                 }
                 val uiModels = filteredTopics.map { topic ->

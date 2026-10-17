@@ -242,8 +242,36 @@ fun TopicSelectionScreen(
                 }
             ) { paddingValues ->
                 if (topics.isEmpty()) {
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        CircularProgressIndicator(color = accentGold)
+                    Box(modifier = Modifier.fillMaxSize().padding(paddingValues), contentAlignment = Alignment.Center) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center,
+                            modifier = Modifier.padding(32.dp)
+                        ) {
+                            CircularProgressIndicator(color = accentGold)
+                            Spacer(modifier = Modifier.height(20.dp))
+                            Text(
+                                text = "Connecting to Geography Network...",
+                                color = deepBlue,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = "Synchronizing syllabus catalog & high-yield question streams.",
+                                color = TopoContourMuted,
+                                fontSize = 13.sp,
+                                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                            )
+                            Spacer(modifier = Modifier.height(24.dp))
+                            OutlinedButton(
+                                onClick = onRefreshSync,
+                                border = androidx.compose.foundation.BorderStroke(1.dp, accentGold),
+                                shape = RoundedCornerShape(12.dp)
+                            ) {
+                                Text("Tap to Retry Cloud Stream 🔄", color = accentGold, fontWeight = FontWeight.Bold)
+                            }
+                        }
                     }
                 } else {
                     LazyColumn(

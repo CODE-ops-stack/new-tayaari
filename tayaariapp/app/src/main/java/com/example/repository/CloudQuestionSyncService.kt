@@ -182,6 +182,39 @@ object CloudQuestionSyncService {
         }
     }
 
+    val canonicalTopicsList: List<Topic> = listOf(
+        Topic(1, "Universe, Solar System & Motions of the Earth", "Cloud-CDN", "📘 Stage 1: Foundation Physical Geography"),
+        Topic(2, "Globe, Latitudes, Longitudes & Time", "Cloud-CDN", "📘 Stage 1: Foundation Physical Geography"),
+        Topic(3, "Maps, Scale, Projections & GIS", "Cloud-CDN", "📘 Stage 1: Foundation Physical Geography"),
+        Topic(4, "Earth's Interior, Rocks & Plate Tectonics", "Cloud-CDN", "📘 Stage 1: Foundation Physical Geography"),
+        Topic(5, "Geomorphic Processes & Landforms", "Cloud-CDN", "📘 Stage 1: Foundation Physical Geography"),
+        Topic(6, "Atmosphere, Winds & Climate Systems", "Cloud-CDN", "🌪️ Stage 2: Climatology, Oceanography & Biomes"),
+        Topic(7, "Oceanography", "Cloud-CDN", "🌪️ Stage 2: Climatology, Oceanography & Biomes"),
+        Topic(8, "Biogeography, Ecosystems & Biodiversity", "Cloud-CDN", "🌪️ Stage 2: Climatology, Oceanography & Biomes"),
+        Topic(9, "India: Location, Size & Neighbours", "Cloud-CDN", "🇮🇳 Stage 3: Indian Physical & Environmental Geography"),
+        Topic(10, "Physiography of India", "Cloud-CDN", "🇮🇳 Stage 3: Indian Physical & Environmental Geography"),
+        Topic(11, "Drainage System of India", "Cloud-CDN", "🇮🇳 Stage 3: Indian Physical & Environmental Geography"),
+        Topic(12, "Indian Climate & Monsoon", "Cloud-CDN", "🇮🇳 Stage 3: Indian Physical & Environmental Geography"),
+        Topic(13, "Soils & Natural Vegetation of India", "Cloud-CDN", "🇮🇳 Stage 3: Indian Physical & Environmental Geography"),
+        Topic(14, "Wildlife, Protected Areas & Conservation", "Cloud-CDN", "🇮🇳 Stage 3: Indian Physical & Environmental Geography"),
+        Topic(15, "Agriculture", "Cloud-CDN", "🌾 Stage 4: Indian Economic, Resource & Human Geography"),
+        Topic(16, "Water Resources, Irrigation & Dams", "Cloud-CDN", "🌾 Stage 4: Indian Economic, Resource & Human Geography"),
+        Topic(17, "Minerals & Energy Resources", "Cloud-CDN", "🌾 Stage 4: Indian Economic, Resource & Human Geography"),
+        Topic(18, "Industries", "Cloud-CDN", "🌾 Stage 4: Indian Economic, Resource & Human Geography"),
+        Topic(19, "Transport, Communication & Trade", "Cloud-CDN", "🌾 Stage 4: Indian Economic, Resource & Human Geography"),
+        Topic(20, "Population, Migration & Settlements", "Cloud-CDN", "🌾 Stage 4: Indian Economic, Resource & Human Geography"),
+        Topic(21, "Human Development & Economic Activities", "Cloud-CDN", "🌐 Stage 5: Global Regional Geography & Trade"),
+        Topic(22, "World Regional Geography", "Cloud-CDN", "🌐 Stage 5: Global Regional Geography & Trade"),
+        Topic(23, "Bihar Geography: Physiography, Rivers & Resources", "Cloud-CDN", "📍 Stage 5: State PCS Special Drills (Bihar Focus)"),
+        Topic(24, "Perspectives in Human Geography (Geographical Thought)", "Cloud-CDN", "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery"),
+        Topic(25, "Models, Theories & Laws in Human Geography", "Cloud-CDN", "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery"),
+        Topic(26, "Regional Planning & Regionalisation", "Cloud-CDN", "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery"),
+        Topic(27, "Cultural Setting of India", "Cloud-CDN", "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery"),
+        Topic(28, "Political Aspects of Indian Geography", "Cloud-CDN", "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery"),
+        Topic(29, "Advanced Geomorphology & Landscape Evolution", "Cloud-CDN", "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery"),
+        Topic(30, "Advanced Ocean Topography & Climatology Models", "Cloud-CDN", "🎓 Stage 6: UPSC Geography Optional & Theoretical Mastery")
+    )
+
     /**
      * Boot-time catalog sync:
      * Downloads the 3 KB manifest to populate the topic catalog and live counts.
@@ -211,10 +244,7 @@ object CloudQuestionSyncService {
                 for ((id, count) in defaultTopicCounts) {
                     topicCounts[id] = count
                 }
-                for ((name, id) in topicNameToIdMap) {
-                    val module = getModuleForTopic(id)
-                    topicsToInsert.add(Topic(id, name, "Cloud-CDN", module))
-                }
+                topicsToInsert.addAll(canonicalTopicsList)
             }
 
             database.withTransaction {
@@ -236,32 +266,15 @@ object CloudQuestionSyncService {
     }
 
     /**
-     * Pure On-Demand Network Fetch:
-     * Connects live to Cloud CDN to fetch questions directly into RAM for active practice.
-     * Throws an IOException if offline (e.g. Airplane Mode).
-     * Never writes questions to SQLite database.
+     * Sliced On-Demand Fetch:
+     * Downloads an ultra-lightweight single topic slice (~100-300 KB) in RAM.
      */
-    suspend fun fetchQuestionsOnline(
-        topicName: String,
-        profile: ExamBlueprint,
-        limit: Int = 20,
-        format: String = ""
-    ): List<ExamQuestion> = withContext(Dispatchers.IO) {
-        val topicId = getTopicIdByName(topicName)
-        val urls = if (topicId in 1..30) {
-            listOf(
-                String.format(RAW_TOPIC_URL_TEMPLATE, topicId),
-                String.format(CDN_TOPIC_URL_TEMPLATE, topicId)
-            )
-        } else {
-            listOf(RAW_QUESTIONS_URL, CDN_QUESTIONS_URL)
-        }
-
-        var jsonReader: InputStreamReader? = null
-        var lastException: Exception? = null
-
-        val cacheBuster = System.currentTimeMillis() / 60000 // fresh every minute
-
+    suspend fun fetchSliceQuestions(targetTopicId: Int): List<JsonQuestionImporter.GeneratedQuestion> = withContext(Dispatchers.IO) {
+        val urls = listOf(
+            String.format(RAW_TOPIC_URL_TEMPLATE, targetTopicId),
+            String.format(CDN_TOPIC_URL_TEMPLATE, targetTopicId)
+        )
+        val cacheBuster = System.currentTimeMillis() / 60000
         for (baseUrl in urls) {
             try {
                 val url = "$baseUrl?cb=$cacheBuster"
@@ -274,27 +287,69 @@ object CloudQuestionSyncService {
                 if (resp.isSuccessful) {
                     val stream = resp.body?.byteStream()
                     if (stream != null) {
-                        jsonReader = InputStreamReader(stream, "UTF-8")
-                        break
+                        val reader = InputStreamReader(stream, "UTF-8")
+                        val gson = JsonQuestionImporter.createSafeGson()
+                        val type = object : TypeToken<List<JsonQuestionImporter.GeneratedQuestion>>() {}.type
+                        val list: List<JsonQuestionImporter.GeneratedQuestion> = gson.fromJson(reader, type)
+                        reader.close()
+                        return@withContext list
                     }
                 }
             } catch (e: Exception) {
-                lastException = e
-                Log.w(TAG, "Failed to fetch from $baseUrl: ${e.message}")
+                Log.w(TAG, "Slice fetch failed for topic $targetTopicId at $baseUrl: ${e.message}")
             }
         }
+        emptyList()
+    }
 
-        if (jsonReader == null) {
-            throw java.io.IOException(
-                "No Internet Connection detected. Questions are served 100% on-demand from the online database. Please connect to Wi-Fi or mobile data to practice.",
-                lastException
-            )
+    /**
+     * Pure On-Demand Network Fetch:
+     * Connects live to Cloud CDN to fetch questions directly into RAM for active practice.
+     * Uses ultra-fast topic slices (~150 KB) to eliminate 17 MB monolithic download timeouts.
+     * Throws an IOException if offline (e.g. Airplane Mode).
+     * Never writes questions to SQLite database.
+     */
+    suspend fun fetchQuestionsOnline(
+        topicName: String,
+        profile: ExamBlueprint,
+        limit: Int = 20,
+        format: String = ""
+    ): List<ExamQuestion> = withContext(Dispatchers.IO) {
+        val topicId = getTopicIdByName(topicName)
+        val generatedList: List<JsonQuestionImporter.GeneratedQuestion> = if (topicId in 1..30) {
+            val slice = fetchSliceQuestions(topicId)
+            if (slice.isEmpty()) {
+                throw java.io.IOException(
+                    "No Internet Connection detected. Questions are served 100% on-demand from the online database. Please connect to Wi-Fi or mobile data to practice."
+                )
+            }
+            slice
+        } else {
+            // Multi-topic slice blend for Global, Mixed, Paper Twin, Revision, Trap Training:
+            // Samples 3-4 diverse topic slices across Foundation, Climatology, Indian, and Human Geography
+            val candidateTopicIds = when {
+                profile.examId.startsWith("SSC") || profile.examId.startsWith("RRB") -> 
+                    listOf(1, 4, 9, 10, 11, 15).shuffled().take(3)
+                profile.examId.startsWith("BPSC") -> 
+                    listOf(4, 10, 11, 12, 15, 23).shuffled().take(3)
+                else -> 
+                    listOf(4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 21, 22).shuffled().take(4)
+            }
+            val blended = mutableListOf<JsonQuestionImporter.GeneratedQuestion>()
+            for (tid in candidateTopicIds) {
+                blended.addAll(fetchSliceQuestions(tid))
+            }
+            if (blended.isEmpty()) {
+                blended.addAll(fetchSliceQuestions(4))
+                blended.addAll(fetchSliceQuestions(10))
+            }
+            if (blended.isEmpty()) {
+                throw java.io.IOException(
+                    "No Internet Connection detected. Questions are served 100% on-demand from the online database. Please connect to Wi-Fi or mobile data to practice."
+                )
+            }
+            blended
         }
-
-        val gson = JsonQuestionImporter.createSafeGson()
-        val type = object : TypeToken<List<JsonQuestionImporter.GeneratedQuestion>>() {}.type
-        val generatedList: List<JsonQuestionImporter.GeneratedQuestion> = gson.fromJson(jsonReader, type)
-        jsonReader.close()
 
         val rawTiers = profile.allowedTiers
         val combinedTiers = if (rawTiers.contains("Advanced") || rawTiers.contains("Elite")) (rawTiers + "Hard").distinct() else rawTiers
