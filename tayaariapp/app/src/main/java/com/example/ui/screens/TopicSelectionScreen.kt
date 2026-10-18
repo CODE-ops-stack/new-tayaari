@@ -64,7 +64,8 @@ fun TopicSelectionScreen(
     onChangeExam: () -> Unit = {},
     onRefreshSync: () -> Unit = {},
     onCheckUpdate: () -> Unit = {},
-    onInvestorPreviewClick: () -> Unit = {}
+    onInvestorPreviewClick: () -> Unit = {},
+    onRoadmapClick: () -> Unit = {}
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
     val cardColor = MaterialTheme.colorScheme.background
@@ -198,6 +199,17 @@ fun TopicSelectionScreen(
                                 indicatorColor = SunstoneGold.copy(alpha = 0.2f),
                                 unselectedIconColor = TopoContourMuted,
                                 unselectedTextColor = TopoContourMuted
+                            )
+                        )
+                        NavigationBarItem(
+                            selected = false,
+                            onClick = onRoadmapClick,
+                            icon = { Icon(Icons.Default.Psychology, contentDescription = "Master Roadmap") },
+                            label = { Text("Roadmap", fontSize = 10.sp, fontWeight = FontWeight.Bold) },
+                            colors = NavigationBarItemDefaults.colors(
+                                unselectedIconColor = HydrosphereCyan,
+                                unselectedTextColor = HydrosphereCyan,
+                                indicatorColor = HydrosphereCyan.copy(alpha = 0.15f)
                             )
                         )
                         NavigationBarItem(
@@ -359,6 +371,207 @@ fun TopicSelectionScreen(
                                             fontSize = 10.sp,
                                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                                         )
+                                    }
+                                }
+                            }
+                        }
+
+                        // ==========================================
+                        // ZERO-TO-HERO MASTER ROADMAP HERO BANNER
+                        // ==========================================
+                        item {
+                            Surface(
+                                color = DeepBasalt,
+                                shape = RoundedCornerShape(16.dp),
+                                border = BorderStroke(1.5.dp, SunstoneGold.copy(alpha = 0.8f)),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { onRoadmapClick() }
+                            ) {
+                                Column(modifier = Modifier.padding(14.dp)) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Surface(
+                                                color = SunstoneGold.copy(alpha = 0.2f),
+                                                shape = RoundedCornerShape(8.dp)
+                                            ) {
+                                                Text(
+                                                    text = "🗺️ ZERO-TO-HERO",
+                                                    color = SunstoneGold,
+                                                    fontSize = 10.sp,
+                                                    fontWeight = FontWeight.Black,
+                                                    letterSpacing = 0.8.sp,
+                                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                                )
+                                            }
+                                            Spacer(modifier = Modifier.width(8.dp))
+                                            Surface(
+                                                color = ContourEmerald.copy(alpha = 0.2f),
+                                                shape = RoundedCornerShape(8.dp)
+                                            ) {
+                                                Text(
+                                                    text = "90%+ BLUEPRINT",
+                                                    color = ContourEmerald,
+                                                    fontSize = 10.sp,
+                                                    fontWeight = FontWeight.Black,
+                                                    letterSpacing = 0.8.sp,
+                                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                                )
+                                            }
+                                        }
+                                        Icon(
+                                            imageVector = Icons.Default.Explore,
+                                            contentDescription = null,
+                                            tint = SunstoneGold,
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                    }
+
+                                    Spacer(modifier = Modifier.height(10.dp))
+
+                                    Text(
+                                        text = "The One-Stop NCERT Chapter Study Order",
+                                        color = AtlasParchment,
+                                        fontSize = 15.sp,
+                                        fontWeight = FontWeight.Black
+                                    )
+                                    Spacer(modifier = Modifier.height(3.dp))
+                                    Text(
+                                        text = "Not a random quiz app. Follow our verified 4-stage pedagogical sequence (Physical ➔ Indian ➔ Economic ➔ Maps) to complete your syllabus chapter-by-chapter.",
+                                        color = TopoContourMuted,
+                                        fontSize = 11.5.sp,
+                                        lineHeight = 16.sp
+                                    )
+
+                                    Spacer(modifier = Modifier.height(12.dp))
+
+                                    Button(
+                                        onClick = onRoadmapClick,
+                                        colors = ButtonDefaults.buttonColors(containerColor = SunstoneGold),
+                                        shape = RoundedCornerShape(10.dp),
+                                        modifier = Modifier.fillMaxWidth()
+                                    ) {
+                                        Text(
+                                            text = "Open Interactive Roadmap & Chapter Sequence ➔",
+                                            color = AbyssNavy,
+                                            fontWeight = FontWeight.Black,
+                                            fontSize = 12.sp
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        // ==========================================
+                        // DAILY GEOGRAPHIC MYSTERY / CURIOSITY HOOK
+                        // ==========================================
+                        item {
+                            val mysteries = remember {
+                                listOf(
+                                    Triple(
+                                        "🌊 THE ATACAMA PARADOX",
+                                        "Why is the Atacama Desert on the Pacific Ocean the driest non-polar desert on Earth, despite sitting next to millions of square miles of ocean water?",
+                                        "🌧️ Indian Climate & Monsoon" to "🌧️ Indian Climate & Monsoon"
+                                    ),
+                                    Triple(
+                                        "⚡ THE REVERSING RIVERS",
+                                        "Why do Narmada and Tapi flow West into the Arabian Sea while Godavari, Krishna, and Mahanadi flow East to build massive deltas?",
+                                        "🏞️ Drainage System of India" to "🏞️ Drainage System of India"
+                                    ),
+                                    Triple(
+                                        "🌧️ THE CHERRAPUNJI ENIGMA",
+                                        "Why does Cherrapunji receive 11,000 mm of rain while Shillong just 50 km away on the plateau receives less than 2,000 mm?",
+                                        "🌧️ Indian Climate & Monsoon" to "🌧️ Indian Climate & Monsoon"
+                                    ),
+                                    Triple(
+                                        "🌋 THE TECTONIC SHADOW",
+                                        "Why do seismic S-waves abruptly vanish at 2,900 km depth, proving the Earth's outer core is a boiling sea of molten iron?",
+                                        "🌋 Earth's Interior, Rocks & Plate Tectonics" to "🌋 Earth's Interior, Rocks & Plate Tectonics"
+                                    )
+                                )
+                            }
+                            var activeMysteryIdx by remember { mutableIntStateOf(0) }
+                            val currentMystery = mysteries[activeMysteryIdx % mysteries.size]
+
+                            Surface(
+                                color = OceanicDark,
+                                shape = RoundedCornerShape(14.dp),
+                                border = BorderStroke(1.dp, HydrosphereCyan.copy(alpha = 0.5f)),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Column(modifier = Modifier.padding(14.dp)) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Text(text = "🔍", fontSize = 14.sp)
+                                            Spacer(modifier = Modifier.width(6.dp))
+                                            Text(
+                                                text = currentMystery.first,
+                                                color = HydrosphereCyan,
+                                                fontSize = 10.5.sp,
+                                                fontWeight = FontWeight.Black,
+                                                letterSpacing = 0.8.sp
+                                            )
+                                        }
+                                        Text(
+                                            text = "Next Mystery ❯",
+                                            color = TopoContourMuted,
+                                            fontSize = 10.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            modifier = Modifier.clickable { activeMysteryIdx = (activeMysteryIdx + 1) % mysteries.size }
+                                        )
+                                    }
+
+                                    Spacer(modifier = Modifier.height(6.dp))
+
+                                    Text(
+                                        text = currentMystery.second,
+                                        color = AtlasParchment,
+                                        fontSize = 12.sp,
+                                        lineHeight = 17.sp,
+                                        fontWeight = FontWeight.Medium
+                                    )
+
+                                    Spacer(modifier = Modifier.height(10.dp))
+
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Surface(
+                                            color = HydrosphereCyan.copy(alpha = 0.15f),
+                                            shape = RoundedCornerShape(6.dp)
+                                        ) {
+                                            Text(
+                                                text = "Curiosity Drill",
+                                                color = HydrosphereCyan,
+                                                fontSize = 9.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                                            )
+                                        }
+
+                                        TextButton(
+                                            onClick = {
+                                                onTopicSelected(currentMystery.third.first, "Basic", "All")
+                                            },
+                                            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
+                                        ) {
+                                            Text(
+                                                text = "Solve This Mystery ➔",
+                                                color = SunstoneGold,
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 11.5.sp
+                                            )
+                                        }
                                     }
                                 }
                             }

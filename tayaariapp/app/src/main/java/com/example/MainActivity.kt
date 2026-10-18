@@ -33,6 +33,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModel
 import com.example.ui.screens.InsightsDashboardScreen
 import com.example.ui.screens.InvestorPreviewScreen
+import com.example.ui.screens.MasterRoadmapScreen
 import com.example.ui.screens.TrapDashboardScreen
 import com.example.ui.screens.BookmarksScreen
 import com.example.ui.screens.RevisionDashboardScreen
@@ -274,6 +275,22 @@ class MainActivity : ComponentActivity() {
                                 },
                                 onInvestorPreviewClick = {
                                     navController.navigate("investor_preview")
+                                },
+                                onRoadmapClick = {
+                                    navController.navigate("master_roadmap")
+                                }
+                            )
+                        }
+                        composable("master_roadmap") {
+                            MasterRoadmapScreen(
+                                onBackClick = { navController.popBackStack() },
+                                onTopicSelect = { topicName, tier, format ->
+                                    topicViewModel.onPracticeIntent(topicName, tier, format) { t, r, f ->
+                                        val encT = android.net.Uri.encode(t)
+                                        val encR = android.net.Uri.encode(r)
+                                        val encF = android.net.Uri.encode(f)
+                                        navController.navigate("practice/$encT/$encR/$encF")
+                                    }
                                 }
                             )
                         }
