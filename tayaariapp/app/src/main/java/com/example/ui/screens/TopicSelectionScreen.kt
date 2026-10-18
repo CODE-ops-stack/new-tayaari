@@ -33,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -575,6 +576,24 @@ fun TopicSelectionScreen(
                                     }
                                 }
                             }
+                        }
+
+                        // ==========================================
+                        // SUMMIT ASCENT EXPEDITION PROGRESS STRIP
+                        // ==========================================
+                        item {
+                            val totalCount = topics.sumOf { it.availableCount }.let { if (it > 0) it else 5551 }
+                            SummitAscentProgressStrip(
+                                totalQuestions = totalCount,
+                                profile = profile
+                            )
+                        }
+
+                        // ==========================================
+                        // CADRE FIRE // TOPPER & LEADER INSPIRATION
+                        // ==========================================
+                        item {
+                            DailyFireTopperWidget(profile = profile)
                         }
 
                         // ==========================================
@@ -1279,3 +1298,172 @@ fun PremiumTopicCard(
         }
     }
 }
+
+@Composable
+fun SummitAscentProgressStrip(
+    totalQuestions: Int,
+    profile: ExamBlueprint?
+) {
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(14.dp),
+        border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🏔️", fontSize = 16.sp)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Column {
+                        Text(
+                            text = "EXPEDITION ALTITUDE // SUMMIT ASCENT",
+                            color = SunstoneGold,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Black,
+                            letterSpacing = 0.8.sp
+                        )
+                        Text(
+                            text = "Everest Geo-Summit (8,848m Target)",
+                            color = AtlasParchment,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                }
+                Surface(
+                    color = SunstoneGold.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(6.dp)
+                ) {
+                    Text(
+                        text = "5,364m ➔ 8,848m",
+                        color = SunstoneGold,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 10.sp,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            LinearProgressIndicator(
+                progress = { 0.22f },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(6.dp)
+                    .clip(RoundedCornerShape(3.dp)),
+                color = SunstoneGold,
+                trackColor = DeepBasalt.copy(alpha = 0.6f)
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "🏕️ Base Camp (5,364m)",
+                    color = ContourEmerald,
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Text(
+                    text = "❄️ South Col (7,920m)",
+                    color = TopoContourMuted,
+                    fontSize = 10.sp
+                )
+                Text(
+                    text = "🚩 Summit (8,848m)",
+                    color = SunstoneGold,
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun DailyFireTopperWidget(profile: ExamBlueprint?) {
+    val quotes = remember {
+        listOf(
+            Triple(
+                "DR. B.R. AMBEDKAR",
+                "Cultivation of mind should be the ultimate aim of human existence.",
+                "🏛️ Constitution Architect • Discipline of Steel"
+            ),
+            Triple(
+                "SARDAR VALLABHBHAI PATEL",
+                "Along with your intellect, let your heart be strong and courageous. You are the steel frame of this country.",
+                "⚔️ Iron Man of India • LBSNAA Legacy"
+            ),
+            Triple(
+                "DR. A.P.J. ABDUL KALAM",
+                "Excellence is a continuous process and not an accident. Conquer geography before conquering governance.",
+                "🚀 People's President • Relentless Pursuit"
+            ),
+            Triple(
+                "LAL BAHADUR SHASTRI",
+                "True discipline is that which leads to self-mastery and selfless service to the nation.",
+                "🌾 Mussoorie Academy Foundation • Utmost Integrity"
+            )
+        )
+    }
+    var activeIdx by remember { mutableIntStateOf(0) }
+    val currentQuote = quotes[activeIdx % quotes.size]
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.35f)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+            .clickable {
+                activeIdx = (activeIdx + 1) % quotes.size
+            }
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🔥", fontSize = 14.sp)
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "CADRE FIRE // ${currentQuote.first}",
+                        color = SunstoneGold,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.8.sp
+                    )
+                }
+                Text(
+                    text = "Tap to rotate ↻",
+                    color = TopoContourMuted,
+                    fontSize = 9.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = "\"${currentQuote.second}\"",
+                color = AtlasParchment,
+                fontSize = 11.5.sp,
+                fontStyle = FontStyle.Italic,
+                lineHeight = 16.sp
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = currentQuote.third,
+                color = ContourEmerald,
+                fontSize = 10.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+    }
+}
+

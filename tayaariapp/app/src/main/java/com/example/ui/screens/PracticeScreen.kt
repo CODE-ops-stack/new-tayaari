@@ -47,10 +47,12 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ui.theme.*
 import com.example.model.DistractorDissection
 import com.example.model.ExamQuestion
 import com.example.model.MCQQuestion
@@ -79,6 +81,7 @@ fun PracticeScreen(
     onBack: () -> Unit
 ) {
     var showSummitModal by remember { mutableStateOf(false) }
+    var dismissedChillForQuestion by remember { mutableIntStateOf(-1) }
     LaunchedEffect(uiState.summitReached) {
         if (uiState.summitReached) {
             showSummitModal = true
@@ -509,6 +512,11 @@ fun PracticeScreen(
                             contentPadding = PaddingValues(horizontal = 20.dp, vertical = 24.dp),
                             verticalArrangement = Arrangement.spacedBy(24.dp)
                         ) {
+                            val effectiveExam = profile?.examId ?: targetQuestion.chapterCode
+                            item {
+                                ExamGloryHeader(examTarget = effectiveExam, tier = tier)
+                            }
+
                             item {
                                 PremiumQuestionCard(
                                     question = targetQuestion,
@@ -549,7 +557,8 @@ fun PracticeScreen(
                                         DopamineCognitiveFeedbackBanner(
                                             isCorrect = isUserCorrect,
                                             streak = uiState.currentStreak,
-                                            points = if (isUserCorrect) 15 else 5
+                                            points = if (isUserCorrect) 15 else 5,
+                                            examTarget = effectiveExam
                                         )
                                     }
                                     item {
@@ -559,6 +568,11 @@ fun PracticeScreen(
                                             deepBlue = deepBlue,
                                             successGreen = successGreen
                                         )
+                                    }
+                                    if (uiState.questionNumber > 0 && uiState.questionNumber % 5 == 0 && dismissedChillForQuestion != uiState.questionNumber) {
+                                        item {
+                                            BrainChillCard(onDismiss = { dismissedChillForQuestion = uiState.questionNumber })
+                                        }
                                     }
                                 }
                             }
@@ -820,10 +834,81 @@ fun PremiumQuestionCard(
 }
 
 @Composable
+fun ExamGloryHeader(examTarget: String?, tier: String) {
+    val (badgeText, gloryQuote, badgeColor) = when {
+        examTarget?.contains("UPSC", ignoreCase = true) == true -> Triple(
+            "🏛️ MISSION LBSNAA • CIVIL SERVICES CADRE",
+            "Sardar Patel's Steel Frame: 1 MCQ mastered today = 1 step closer to Mussoorie.",
+            SunstoneGold
+        )
+        examTarget?.contains("BPSC", ignoreCase = true) == true -> Triple(
+            "🌾 70TH BPSC CCE • BIHAR ADMINISTRATIVE (SDM/DSP)",
+            "From Patna Secretariat to Sub-Divisional Magistrate: Every question builds your rank.",
+            ContourEmerald
+        )
+        examTarget?.contains("SSC", ignoreCase = true) == true -> Triple(
+            "⭐ CENTRAL SECRETARIAT (ASO) • MERIT RANK CORPS",
+            "High-Speed Precision: 1 question saved from negative penalty = 5,000 ranks gained.",
+            HydrosphereCyan
+        )
+        examTarget?.contains("RRB", ignoreCase = true) == true || examTarget?.contains("RAILWAY", ignoreCase = true) == true -> Triple(
+            "🚆 INDIAN RAILWAYS EXECUTIVE CORPS • APEX SPEED",
+            "The Lifeline of the Nation: Master India's terrain to command the tracks.",
+            SunstoneGold
+        )
+        else -> Triple(
+            "🏛️ PREMIER EXAMINATIONS CADRE",
+            "Relentless Consistency: Build conceptual mastery one question at a time.",
+            SunstoneGold
+        )
+    }
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(10.dp),
+        border = BorderStroke(1.dp, badgeColor.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)
+    ) {
+        Column(modifier = Modifier.padding(10.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = badgeText,
+                    color = badgeColor,
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Black,
+                    letterSpacing = 0.8.sp
+                )
+                Spacer(modifier = Modifier.weight(1f))
+                Surface(
+                    color = badgeColor.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(4.dp)
+                ) {
+                    Text(
+                        text = tier.uppercase(),
+                        color = badgeColor,
+                        fontSize = 9.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = gloryQuote,
+                color = TopoContourMuted,
+                fontSize = 11.sp,
+                fontStyle = FontStyle.Italic
+            )
+        }
+    }
+}
+
+@Composable
 fun DopamineCognitiveFeedbackBanner(
     isCorrect: Boolean,
     streak: Int,
-    points: Int
+    points: Int,
+    examTarget: String? = null
 ) {
     val borderColor = if (isCorrect) Color(0xFF10B981) else Color(0xFFF59E0B)
     val bgColor = if (isCorrect) Color(0xFF10B981).copy(alpha = 0.12f) else Color(0xFFF59E0B).copy(alpha = 0.12f)
@@ -841,13 +926,13 @@ fun DopamineCognitiveFeedbackBanner(
         ) {
             Box(
                 modifier = Modifier
-                    .size(44.dp)
+                    .size(46.dp)
                     .clip(CircleShape)
                     .background(borderColor.copy(alpha = 0.2f)),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = if (isCorrect) "🧭" else "🛡️",
+                    text = if (isCorrect) "🔥" else "🛡️",
                     fontSize = 22.sp
                 )
             }
@@ -855,11 +940,17 @@ fun DopamineCognitiveFeedbackBanner(
             Column(modifier = Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = if (isCorrect) "TRUE NORTH CONFIRMED // KNOWLEDGE LOCKED" else "GEOGRAPHY TRAP NEUTRALIZED // COURSE CORRECTION",
+                        text = if (isCorrect) {
+                            if (streak >= 5) "🏆 5-STREAK TOAST // TOP 1% ACCURACY"
+                            else if (streak >= 3) "🔥 3-IN-A-ROW // DOPAMINE SURGE"
+                            else "TRUE NORTH CONFIRMED // KNOWLEDGE LOCKED"
+                        } else {
+                            "🛡️ RANK SHIELD ACTIVATED // TRAP DEFUSED"
+                        },
                         color = titleColor,
                         fontWeight = FontWeight.ExtraBold,
-                        fontSize = 12.sp,
-                        letterSpacing = 0.8.sp
+                        fontSize = 11.5.sp,
+                        letterSpacing = 0.6.sp
                     )
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
@@ -869,18 +960,132 @@ fun DopamineCognitiveFeedbackBanner(
                         fontSize = 12.sp
                     )
                 }
-                Spacer(modifier = Modifier.height(2.dp))
+                Spacer(modifier = Modifier.height(3.dp))
                 Text(
                     text = if (isCorrect) {
-                        if (streak >= 2) "🔥 $streak Waypoint Streak! Topographic memory locked."
-                        else "Geographic concept firmly anchored in active memory."
+                        if (streak >= 3) "🔥 $streak Waypoint Streak! Neural pathways firing with lightning speed."
+                        else "Geographic concept firmly locked in active working memory."
                     } else {
-                        "Cognitive immunity acquired. Review the cartographic trap dissection below!"
+                        "Toppers don't avoid mistakes—they make them HERE so they never lose marks on exam day. You just saved -0.66 penalty in the real hall! 🎯 Estimated Rank Defense: +1,420 positions."
                     },
-                    color = Color.White.copy(alpha = 0.85f),
-                    fontSize = 12.sp,
+                    color = Color.White.copy(alpha = 0.9f),
+                    fontSize = 11.5.sp,
                     lineHeight = 16.sp
                 )
+                if (!isCorrect) {
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "⚡ Cognitive trap defused! Inspect the examiner dissection below to seal this gap permanently.",
+                        color = SunstoneGold,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun BrainChillCard(
+    onDismiss: () -> Unit
+) {
+    val curiosities = remember {
+        listOf(
+            Pair("🌊 The Boiling River of Mayantuyacu", "Deep in the Peruvian Amazon flows Shanay-Timpishka, a 6.4 km river where water temperatures reach up to 100°C due to deep geothermal faults, boiling small animals instantly!"),
+            Pair("🏜️ The Singing Sands of the Thar", "When high desert winds shear dry sand dunes at specific angles, acoustic resonance creates a low, eerie humming drone between 60-105 Hz known as 'singing sands'."),
+            Pair("⚡ Catatumbo Everlasting Lightning", "At the mouth of Lake Maracaibo in Venezuela, atmospheric conditions ignite lightning storms for up to 300 nights a year, flashing 280 times per hour without thunder."),
+            Pair("🌋 The Blue Lava of Kawah Ijen", "In East Java, sulfuric gases combust upon contact with air at 360°C, producing majestic electric-blue neon flames cascading down the volcanic caldera at night."),
+            Pair("❄️ The Sailing Stones of Racetrack Playa", "In Death Valley, heavy rocks weighing hundreds of pounds slide across dry lake beds leaving long trails, propelled by thin melting ice sheets pushed by gentle winter winds.")
+        )
+    }
+    val randomCuriosity = remember { curiosities.random() }
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(14.dp),
+        border = BorderStroke(1.2.dp, HydrosphereCyan.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clip(CircleShape)
+                        .background(HydrosphereCyan.copy(alpha = 0.15f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(text = "🧠", fontSize = 18.sp)
+                }
+                Spacer(modifier = Modifier.width(10.dp))
+                Column {
+                    Text(
+                        text = "20-SECOND BRAIN CHILL // COGNITIVE RESET",
+                        color = HydrosphereCyan,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.8.sp
+                    )
+                    Text(
+                        text = "Pause for 10 seconds to recharge neural pathways before the next climb.",
+                        color = TopoContourMuted,
+                        fontSize = 10.sp
+                    )
+                }
+                Spacer(modifier = Modifier.weight(1f))
+                IconButton(onClick = onDismiss, modifier = Modifier.size(28.dp)) {
+                    Icon(Icons.Default.Close, contentDescription = "Close", tint = TopoContourMuted, modifier = Modifier.size(16.dp))
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(10.dp),
+                border = BorderStroke(0.8.dp, HydrosphereCyan.copy(alpha = 0.2f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = randomCuriosity.first,
+                        color = SunstoneGold,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 12.5.sp
+                    )
+                    Spacer(modifier = Modifier.height(3.dp))
+                    Text(
+                        text = randomCuriosity.second,
+                        color = AtlasParchment.copy(alpha = 0.9f),
+                        fontSize = 11.sp,
+                        lineHeight = 15.sp
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "🫁 4-7-8 Reset: Inhale calm, exhale doubt.",
+                    color = ContourEmerald,
+                    fontSize = 10.5.sp,
+                    fontWeight = FontWeight.Medium
+                )
+                Button(
+                    onClick = onDismiss,
+                    colors = ButtonDefaults.buttonColors(containerColor = SunstoneGold),
+                    shape = RoundedCornerShape(8.dp),
+                    contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        text = "Mind Refreshed ⚡",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 11.sp
+                    )
+                }
             }
         }
     }
