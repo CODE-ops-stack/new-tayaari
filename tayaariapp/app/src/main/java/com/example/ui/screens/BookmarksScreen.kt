@@ -1,7 +1,9 @@
 package com.example.ui.screens
 
+import androidx.compose.animation.*
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,20 +13,22 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.CheckCircleOutline
-import androidx.compose.material.icons.filled.DeleteOutline
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.model.ExamQuestion
 import com.example.model.MCQQuestion
+import com.example.ui.theme.*
 import com.example.viewmodel.BookmarksViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,24 +42,24 @@ fun BookmarksScreen(
     val selectedTopic by viewModel.selectedTopic.collectAsState()
 
     com.example.ui.components.AtlasBackground {
-        com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.035f)) {
+        com.example.ui.components.TopographicBackground(lineColor = ContourEmerald.copy(alpha = 0.035f)) {
             Scaffold(
                 containerColor = Color.Transparent,
                 topBar = {
                     TopAppBar(
-                        title = { 
+                        title = {
                             Column {
                                 Text(
                                     "Saved Folios & Waypoints 📍",
-                                    color = com.example.ui.theme.SummitGold,
-                                    fontFamily = com.example.ui.theme.CartographicSerif,
+                                    color = SummitGold,
+                                    fontFamily = CartographicSerif,
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 18.sp
                                 )
                                 Text(
-                                    "FIELD CADASTRE REPOSITORY",
-                                    color = com.example.ui.theme.GlacierAzure,
-                                    fontFamily = com.example.ui.theme.CoordinatesMonospace,
+                                    "FIELD CADASTRE & ACTIVE RECALL DECK",
+                                    color = GlacierAzure,
+                                    fontFamily = CoordinatesMonospace,
                                     fontSize = 10.sp,
                                     letterSpacing = 1.sp
                                 )
@@ -64,14 +68,14 @@ fun BookmarksScreen(
                         navigationIcon = {
                             IconButton(onClick = onBack) {
                                 Icon(
-                                    Icons.AutoMirrored.Filled.ArrowBack, 
-                                    contentDescription = "Back", 
-                                    tint = com.example.ui.theme.AtlasParchment
+                                    Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = "Back",
+                                    tint = AtlasParchment
                                 )
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = com.example.ui.theme.OceanicDark.copy(alpha = 0.95f)
+                            containerColor = OceanicDark.copy(alpha = 0.95f)
                         )
                     )
                 }
@@ -90,23 +94,25 @@ fun BookmarksScreen(
 
                     if (availableTopics.size > 1) {
                         LazyRow(
-                            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 10.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 10.dp),
                             horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
                             items(availableTopics) { topic ->
                                 val isSelected = topic == selectedTopic
                                 Surface(
-                                    color = if (isSelected) com.example.ui.theme.DeepBasalt else com.example.ui.theme.OceanicDark,
+                                    color = if (isSelected) DeepBasalt else OceanicDark,
                                     shape = RoundedCornerShape(8.dp),
                                     border = BorderStroke(
-                                        1.dp, 
-                                        if (isSelected) com.example.ui.theme.SunstoneGold else com.example.ui.theme.SlateBedrock
+                                        1.dp,
+                                        if (isSelected) SunstoneGold else SlateBedrock
                                     ),
                                     modifier = Modifier.clickable { viewModel.filterByTopic(topic) }
                                 ) {
                                     Text(
                                         text = "🗺️ $topic",
-                                        color = if (isSelected) com.example.ui.theme.SummitGold else com.example.ui.theme.TopoContourMuted,
+                                        color = if (isSelected) SummitGold else TopoContourMuted,
                                         fontSize = 12.sp,
                                         fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
@@ -117,7 +123,12 @@ fun BookmarksScreen(
                     }
 
                     if (questions.isEmpty()) {
-                        Box(modifier = Modifier.fillMaxSize().padding(32.dp), contentAlignment = Alignment.Center) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(32.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(
                                     text = "🧭",
@@ -125,25 +136,27 @@ fun BookmarksScreen(
                                 )
                                 Spacer(modifier = Modifier.height(12.dp))
                                 Text(
-                                    text = "No Field Waypoints Recorded", 
-                                    fontFamily = com.example.ui.theme.CartographicSerif,
-                                    color = com.example.ui.theme.AtlasParchment,
+                                    text = "No Field Waypoints Recorded",
+                                    fontFamily = CartographicSerif,
+                                    color = AtlasParchment,
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold
                                 )
                                 Spacer(modifier = Modifier.height(6.dp))
                                 Text(
                                     text = "Tap the bookmark ribbon (🔖) during any expedition transect to save crucial map questions, diagrams, and memory keys to your folio.",
-                                    color = com.example.ui.theme.TopoContourMuted,
+                                    color = TopoContourMuted,
                                     fontSize = 13.sp,
                                     lineHeight = 18.sp,
-                                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                                    textAlign = TextAlign.Center
                                 )
                             }
                         }
                     } else {
                         LazyColumn(
-                            modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(horizontal = 16.dp),
                             contentPadding = PaddingValues(top = 8.dp, bottom = 24.dp),
                             verticalArrangement = Arrangement.spacedBy(14.dp)
                         ) {
@@ -161,105 +174,251 @@ fun BookmarksScreen(
     }
 }
 
+/**
+ * Interactive Bookmark Card with Active Recall Flashcard Test Mode
+ */
 @Composable
 fun PremiumBookmarkCard(
     question: ExamQuestion,
     onRemove: () -> Unit
 ) {
+    val haptic = LocalHapticFeedback.current
+    var isTestRecallMode by remember { mutableStateOf(false) }
+    var selectedOptionId by remember { mutableStateOf<String?>(null) }
+    val mcq = question as? MCQQuestion
+    val formatText = mcq?.questionFormatType ?: "Direct Cartography"
+
     com.example.ui.components.AtlasCard(
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
+            // Header Row: Format Tag, Chapter Code, and Actions
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.Top
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Column(modifier = Modifier.weight(1f)) {
-                    val formatText = (question as? MCQQuestion)?.questionFormatType ?: "Direct Cartography"
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(8.dp), 
-                        verticalAlignment = Alignment.CenterVertically
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Surface(
+                        color = OceanicDark,
+                        shape = RoundedCornerShape(4.dp),
+                        border = BorderStroke(1.dp, SlateBedrock)
                     ) {
-                        Surface(
-                            color = com.example.ui.theme.OceanicDark,
-                            shape = RoundedCornerShape(4.dp),
-                            border = BorderStroke(1.dp, com.example.ui.theme.SlateBedrock)
-                        ) {
-                            Text(
-                                text = "🧭 ${formatText.uppercase()}",
-                                color = com.example.ui.theme.GlacierAzure,
-                                fontSize = 10.sp,
-                                fontFamily = com.example.ui.theme.CoordinatesMonospace,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                            )
-                        }
                         Text(
-                            text = "📍 ${question.chapterCode}",
-                            color = com.example.ui.theme.SunstoneGold,
-                            fontSize = 11.sp,
-                            fontFamily = com.example.ui.theme.CoordinatesMonospace,
-                            fontWeight = FontWeight.Bold
+                            text = "🧭 ${formatText.uppercase()}",
+                            color = GlacierAzure,
+                            fontSize = 10.sp,
+                            fontFamily = CoordinatesMonospace,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                    Text(
+                        text = "📍 ${question.chapterCode}",
+                        color = SunstoneGold,
+                        fontSize = 11.sp,
+                        fontFamily = CoordinatesMonospace,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    // Active Recall Drill Toggle
+                    Surface(
+                        color = if (isTestRecallMode) SunstoneGold else OceanicDark,
+                        shape = RoundedCornerShape(6.dp),
+                        border = BorderStroke(0.8.dp, SunstoneGold.copy(alpha = 0.5f)),
+                        modifier = Modifier
+                            .clickable {
+                                isTestRecallMode = !isTestRecallMode
+                                selectedOptionId = null
+                            }
+                    ) {
+                        Text(
+                            text = if (isTestRecallMode) "📖 Show Key" else "🧠 Test Recall",
+                            color = if (isTestRecallMode) Color.Black else SunstoneGold,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(6.dp))
+
+                    IconButton(onClick = onRemove, modifier = Modifier.size(28.dp)) {
+                        Icon(
+                            Icons.Default.DeleteOutline,
+                            contentDescription = "Remove Bookmark",
+                            tint = MagmaCrimson,
+                            modifier = Modifier.size(18.dp)
                         )
                     }
                 }
-                IconButton(onClick = onRemove, modifier = Modifier.size(24.dp)) {
-                    Icon(
-                        Icons.Filled.DeleteOutline, 
-                        contentDescription = "Remove Bookmark", 
-                        tint = com.example.ui.theme.MagmaCrimson
-                    )
-                }
             }
-            
+
             Spacer(modifier = Modifier.height(12.dp))
-            
+
+            // Question Stem
             Text(
                 text = question.questionText.trim(),
-                color = com.example.ui.theme.AtlasParchment,
-                fontFamily = com.example.ui.theme.CartographicSerif,
+                color = AtlasParchment,
+                fontFamily = CartographicSerif,
                 fontSize = 15.sp,
                 fontWeight = FontWeight.SemiBold,
                 lineHeight = 22.sp
             )
 
-            val mcq = question as? MCQQuestion
             if (mcq != null) {
                 Spacer(modifier = Modifier.height(14.dp))
                 val correctOption = mcq.options.find { it.id == mcq.correctAnswerId }
-                
-                Surface(
-                    color = com.example.ui.theme.OceanicDark,
-                    shape = RoundedCornerShape(10.dp),
-                    border = BorderStroke(1.dp, com.example.ui.theme.ContourEmerald.copy(alpha = 0.5f)),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Column(modifier = Modifier.padding(12.dp)) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(
-                                Icons.Filled.CheckCircleOutline, 
-                                contentDescription = null, 
-                                tint = com.example.ui.theme.ContourEmerald, 
-                                modifier = Modifier.size(16.dp)
-                            )
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text(
-                                text = "SURVEYOR GENERAL KEY: ${correctOption?.text ?: "Unknown"}",
-                                color = com.example.ui.theme.ContourEmerald,
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight.Bold,
-                                lineHeight = 18.sp
-                            )
+
+                if (isTestRecallMode) {
+                    // Active Recall Test Mode: Interactive Options (Zero spoilers until tapped!)
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Text(
+                            text = "⚡ Tap an option to test your retrieval memory:",
+                            color = TopoContourMuted,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+
+                        mcq.options.forEachIndexed { idx, opt ->
+                            val isSelected = selectedOptionId == opt.id
+                            val isCorrect = opt.id == mcq.correctAnswerId
+                            val hasTested = selectedOptionId != null
+
+                            val optionBorderColor = when {
+                                !hasTested -> SlateBedrock
+                                isSelected && isCorrect -> ContourEmerald
+                                isSelected && !isCorrect -> MagmaCrimson
+                                isCorrect -> ContourEmerald.copy(alpha = 0.6f)
+                                else -> SlateBedrock.copy(alpha = 0.3f)
+                            }
+
+                            val optionBgColor = when {
+                                !hasTested -> OceanicDark
+                                isSelected && isCorrect -> ContourEmerald.copy(alpha = 0.15f)
+                                isSelected && !isCorrect -> MagmaCrimson.copy(alpha = 0.15f)
+                                isCorrect -> ContourEmerald.copy(alpha = 0.1f)
+                                else -> OceanicDark
+                            }
+
+                            Surface(
+                                color = optionBgColor,
+                                shape = RoundedCornerShape(8.dp),
+                                border = BorderStroke(1.dp, optionBorderColor),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable(enabled = !hasTested) {
+                                        haptic.performHapticFeedback(
+                                            if (opt.id == mcq.correctAnswerId) HapticFeedbackType.LongPress
+                                            else HapticFeedbackType.TextHandleMove
+                                        )
+                                        selectedOptionId = opt.id
+                                    }
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(10.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(24.dp)
+                                            .clip(CircleShape)
+                                            .background(DeepBasalt),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Text(
+                                            text = listOf("A", "B", "C", "D").getOrElse(idx) { "" },
+                                            color = if (isSelected && isCorrect) ContourEmerald else AtlasParchment,
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    Text(
+                                        text = opt.text,
+                                        color = AtlasParchment,
+                                        fontSize = 12.5.sp,
+                                        modifier = Modifier.weight(1f)
+                                    )
+                                    if (hasTested && isCorrect) {
+                                        Icon(
+                                            Icons.Default.CheckCircle,
+                                            contentDescription = null,
+                                            tint = ContourEmerald,
+                                            modifier = Modifier.size(16.dp)
+                                        )
+                                    }
+                                }
+                            }
                         }
-                        if (mcq.correctExplanation.isNotBlank()) {
+
+                        if (selectedOptionId != null) {
                             Spacer(modifier = Modifier.height(6.dp))
-                            Text(
-                                text = "🗺️ ${mcq.correctExplanation}",
-                                color = com.example.ui.theme.TopoContourMuted,
-                                fontSize = 12.sp,
-                                lineHeight = 17.sp
-                            )
+                            val recallSuccess = selectedOptionId == mcq.correctAnswerId
+                            Surface(
+                                color = if (recallSuccess) ContourEmerald.copy(alpha = 0.15f) else MagmaCrimson.copy(alpha = 0.15f),
+                                shape = RoundedCornerShape(8.dp),
+                                border = BorderStroke(0.8.dp, if (recallSuccess) ContourEmerald else MagmaCrimson)
+                            ) {
+                                Column(modifier = Modifier.padding(10.dp)) {
+                                    Text(
+                                        text = if (recallSuccess) "🎯 RETRIEVAL MASTERED: Correct!" else "⚠️ REVIEW TRIGGER: Misaligned bearing",
+                                        color = if (recallSuccess) ContourEmerald else MagmaCrimson,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 11.5.sp
+                                    )
+                                    if (mcq.correctExplanation.isNotBlank()) {
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Text(
+                                            text = "🗺️ Cadastre Key: ${mcq.correctExplanation}",
+                                            color = AtlasParchment,
+                                            fontSize = 11.5.sp,
+                                            lineHeight = 16.sp
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    // Default Folio View: Surveyor General Key & Deep Explanation
+                    Surface(
+                        color = OceanicDark,
+                        shape = RoundedCornerShape(10.dp),
+                        border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.5f)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(12.dp)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(
+                                    Icons.Default.CheckCircleOutline,
+                                    contentDescription = null,
+                                    tint = ContourEmerald,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(
+                                    text = "SURVEYOR GENERAL KEY: ${correctOption?.text ?: "Unknown"}",
+                                    color = ContourEmerald,
+                                    fontSize = 13.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    lineHeight = 18.sp
+                                )
+                            }
+                            if (mcq.correctExplanation.isNotBlank()) {
+                                Spacer(modifier = Modifier.height(6.dp))
+                                Text(
+                                    text = "🗺️ ${mcq.correctExplanation}",
+                                    color = TopoContourMuted,
+                                    fontSize = 12.sp,
+                                    lineHeight = 17.sp
+                                )
+                            }
                         }
                     }
                 }

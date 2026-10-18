@@ -41,7 +41,7 @@ import androidx.compose.material.icons.filled.HighlightOff
 import androidx.compose.material.icons.filled.SearchOff
 import androidx.compose.material.icons.filled.WarningAmber
 import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material.icons.filled.CompareArrows
+import androidx.compose.material.icons.automirrored.filled.CompareArrows
 import androidx.compose.material3.*
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
@@ -2444,7 +2444,7 @@ fun PremiumOptionsList(
                             .padding(16.dp)
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(Icons.Filled.CompareArrows, contentDescription = "Confusion Pair", tint = color)
+                            Icon(Icons.AutoMirrored.Filled.CompareArrows, contentDescription = "Confusion Pair", tint = color)
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(titleText, fontWeight = FontWeight.Bold, color = color)
                         }

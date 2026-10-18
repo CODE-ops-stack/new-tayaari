@@ -38,6 +38,7 @@ fun InsightsDashboardScreen(
     var blindSpots by remember { mutableStateOf<List<LocalRepository.BlindSpotDetail>>(emptyList()) }
     var confidenceReport by remember { mutableStateOf<LocalRepository.ConfidenceCalibrationReport?>(null) }
     var studyPlans by remember { mutableStateOf<Map<Int, com.example.repository.StudyPlan>>(emptyMap()) }
+    var learnerProfile by remember { mutableStateOf<com.example.repository.LearnerProfile?>(null) }
     var selectedPlan by remember { mutableStateOf<com.example.repository.StudyPlan?>(null) }
     var isLoading by remember { mutableStateOf(true) }
     
@@ -46,6 +47,7 @@ fun InsightsDashboardScreen(
             blindSpots = localRepository.getBlindSpots()
             confidenceReport = localRepository.getConfidenceCalibrationReport()
             studyPlans = localRepository.getStudyPlans()
+            learnerProfile = localRepository.getLearnerProfile()
             isLoading = false
         }
     }
@@ -223,9 +225,21 @@ fun InsightsDashboardScreen(
                                         )
                                         Spacer(modifier = Modifier.height(10.dp))
                                         
-                                        // Mastery Progress Bar
-                                        val masteryPercent = 0.75f
-                                        val barColor = com.example.ui.theme.ContourEmerald
+                                        // Dynamic Telemetry Mastery Progress Bar
+                                        val matchedPerf = learnerProfile?.topicPerformances?.values?.firstOrNull {
+                                            theme.themeName.contains(it.topicName, ignoreCase = true) || it.topicName.contains(theme.themeName, ignoreCase = true)
+                                        }
+                                        val masteryPercent = when {
+                                            matchedPerf != null && matchedPerf.total > 0 -> matchedPerf.accuracy.toFloat().coerceIn(0.10f, 1.0f)
+                                            learnerProfile != null && learnerProfile!!.totalQuestionsAttempted > 0 -> learnerProfile!!.overallAccuracy.toFloat().coerceIn(0.15f, 0.95f)
+                                            else -> 0.40f
+                                        }
+                                        val (tierLabel, barColor) = when {
+                                            masteryPercent >= 0.80f -> "Summit Tier (${(masteryPercent * 100).toInt()}%)" to com.example.ui.theme.ContourEmerald
+                                            masteryPercent >= 0.60f -> "Mid-Ridge (${(masteryPercent * 100).toInt()}%)" to com.example.ui.theme.SunstoneGold
+                                            masteryPercent >= 0.35f -> "Ascent Phase (${(masteryPercent * 100).toInt()}%)" to com.example.ui.theme.GlacierAzure
+                                            else -> "Base Camp (${(masteryPercent * 100).toInt()}%)" to com.example.ui.theme.MagmaCrimson
+                                        }
                                         
                                         Row(
                                             modifier = Modifier.fillMaxWidth(),
@@ -238,10 +252,10 @@ fun InsightsDashboardScreen(
                                                 color = com.example.ui.theme.GlacierAzure
                                             )
                                             Text(
-                                                "Summit Tier", 
+                                                tierLabel, 
                                                 style = MaterialTheme.typography.labelSmall, 
                                                 fontFamily = com.example.ui.theme.CoordinatesMonospace,
-                                                color = com.example.ui.theme.ContourEmerald
+                                                color = barColor
                                             )
                                         }
                                         Spacer(modifier = Modifier.height(4.dp))
@@ -350,21 +364,50 @@ fun InsightsDashboardScreen(
                         }
                     
                         // === TOPOGRAPHIC BLIND SPOTS ===
-                        if (blindSpots.isNotEmpty()) {
+                        item {
+                            Text(
+                                text = "Topographic Blind Spots & Hazards ⚠️",
+                                style = MaterialTheme.typography.titleMedium,
+                                fontFamily = com.example.ui.theme.CartographicSerif,
+                                fontWeight = FontWeight.Bold,
+                                color = com.example.ui.theme.SummitGold
+                            )
+                            Text(
+                                text = "Discrepancy audit between direct recall and multi-statement terrain questions.",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = com.example.ui.theme.TopoContourMuted,
+                                modifier = Modifier.padding(bottom = 6.dp)
+                            )
+                        }
+
+                        if (blindSpots.isEmpty()) {
                             item {
-                                Text(
-                                    text = "Topographic Blind Spots & Hazards ⚠️",
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontFamily = com.example.ui.theme.CartographicSerif,
-                                    fontWeight = FontWeight.Bold,
-                                    color = com.example.ui.theme.SummitGold
-                                )
-                                Text(
-                                    text = "Discrepancy detected between direct recall and multi-statement terrain questions.",
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = com.example.ui.theme.TopoContourMuted,
-                                    modifier = Modifier.padding(bottom = 6.dp)
-                                )
+                                com.example.ui.components.AtlasCard(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    borderColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.5f)
+                                ) {
+                                    Row(
+                                        modifier = Modifier.padding(14.dp),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Text("🛡️", fontSize = 24.sp)
+                                        Spacer(modifier = Modifier.width(12.dp))
+                                        Column {
+                                            Text(
+                                                "Zero Topographic Blind Spots Detected",
+                                                style = MaterialTheme.typography.titleSmall,
+                                                fontFamily = com.example.ui.theme.CartographicSerif,
+                                                color = com.example.ui.theme.ContourEmerald,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                            Text(
+                                                "No significant divergence between simple fact retrieval and complex statement analysis. Your cartographic intuition is balanced.",
+                                                style = MaterialTheme.typography.bodySmall,
+                                                color = com.example.ui.theme.TopoContourMuted
+                                            )
+                                        }
+                                    }
+                                }
                             }
                         }
                         

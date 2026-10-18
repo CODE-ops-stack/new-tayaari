@@ -287,7 +287,7 @@ fun EnhancedTrapStatCard(
                 exit = shrinkVertically()
             ) {
                 Column(modifier = Modifier.padding(top = 16.dp)) {
-                    Divider(color = Color.LightGray.copy(alpha = 0.5f), thickness = 1.dp)
+                    HorizontalDivider(color = Color.LightGray.copy(alpha = 0.5f), thickness = 1.dp)
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     if (failedQuestions.isEmpty()) {

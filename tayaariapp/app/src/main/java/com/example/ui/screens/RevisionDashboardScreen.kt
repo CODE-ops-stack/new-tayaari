@@ -323,8 +323,8 @@ fun EbbinghausMemoryVaultCanvas() {
                     // 1. Natural Decay Curve (Red Dashed Path)
                     val decayPath = Path().apply {
                         moveTo(0f, 0f) // 100%
-                        quadraticBezierTo(w * 0.25f, h * 0.58f, w * 0.5f, h * 0.72f)
-                        quadraticBezierTo(w * 0.75f, h * 0.82f, w, h * 0.86f) // 14%
+                        quadraticTo(w * 0.25f, h * 0.58f, w * 0.5f, h * 0.72f)
+                        quadraticTo(w * 0.75f, h * 0.82f, w, h * 0.86f) // 14%
                     }
                     drawPath(
                         path = decayPath,
