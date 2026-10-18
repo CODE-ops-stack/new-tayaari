@@ -32,6 +32,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.drawscope.Stroke
 import kotlin.math.cos
 import kotlin.math.sin
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import com.example.ui.theme.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -473,6 +475,7 @@ fun TrapDefusalSimulator() {
     var activeTrapIndex by remember { mutableIntStateOf(0) }
     var selectedOption by remember { mutableStateOf<Int?>(null) }
     var score by remember { mutableIntStateOf(0) }
+    val haptic = LocalHapticFeedback.current
 
     data class TrapChallenge(
         val category: String,
@@ -638,7 +641,10 @@ fun TrapDefusalSimulator() {
                             .clickable(enabled = !hasAnswered) {
                                 selectedOption = optIdx
                                 if (optIdx == currentChallenge.correctIndex) {
+                                    haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                                     score += 15
+                                } else {
+                                    haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                                 }
                             }
                     ) {

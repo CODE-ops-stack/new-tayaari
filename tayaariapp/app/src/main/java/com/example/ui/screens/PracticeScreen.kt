@@ -18,7 +18,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.Stroke
 import kotlin.math.cos
 import kotlin.math.sin
 import androidx.compose.foundation.lazy.LazyColumn
@@ -38,6 +43,8 @@ import androidx.compose.material.icons.filled.WarningAmber
 import androidx.compose.material.icons.filled.Lightbulb
 import androidx.compose.material.icons.filled.CompareArrows
 import androidx.compose.material3.*
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.alpha
@@ -804,6 +811,7 @@ fun InteractiveGeographicModelSandbox(explanation: String) {
     val isRiver = lower.contains("river") || lower.contains("meander") || lower.contains("delta") || lower.contains("drainage") || lower.contains("oxbow")
     val isCurrents = lower.contains("current") || lower.contains("ocean") || lower.contains("gyre") || lower.contains("gulf stream") || lower.contains("upwelling") || lower.contains("benguela") || lower.contains("humboldt") || lower.contains("kuroshio")
     val isMonsoon = lower.contains("monsoon") || lower.contains("enso") || lower.contains("el niño") || lower.contains("la niña") || lower.contains("iod") || lower.contains("walker") || lower.contains("western disturbance") || lower.contains("itcz")
+    val isKoppen = lower.contains("koppen") || lower.contains("köppen") || lower.contains("amw") || lower.contains("bshw") || lower.contains("bwhw") || lower.contains("cwa") || lower.contains("cwg") || lower.contains("dfc") || lower.contains("savanna") || lower.contains("tundra") || lower.contains("climatic classification") || lower.contains("climatic zone")
 
     if (isTectonics) {
         TectonicBoundarySandbox()
@@ -815,6 +823,8 @@ fun InteractiveGeographicModelSandbox(explanation: String) {
         OceanCurrentsSandbox()
     } else if (isMonsoon) {
         MonsoonTeleconnectionSandbox()
+    } else if (isKoppen) {
+        KoppenClimateDialSandbox()
     }
 }
 
@@ -1196,6 +1206,204 @@ fun MonsoonTeleconnectionSandbox() {
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Bold,
                         lineHeight = 15.sp
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun KoppenClimateDialSandbox() {
+    var selectedRealm by remember { mutableIntStateOf(0) }
+    val realms = listOf("Amw (Monsoon)", "BWh (Desert)", "Cs (Mediter.)", "Cwg (Gangetic)", "ET (Tundra)")
+    val titles = listOf(
+        "Amw: Tropical Monsoon (Windward Western Ghats & Northeast)",
+        "BWhw: Hot Low-Latitude Desert (Thar Desert & Marusthali)",
+        "Cs: Dry Summer Mediterranean (Winter Rain Westerlies)",
+        "Cwg: Humid Subtropical with Dry Winter (Gangetic Plains)",
+        "ET: Polar Tundra & Alpine Cold Desert (Trans-Himalaya & Ladakh)"
+    )
+    val thermalRegimes = listOf(
+        "Mean monthly temperature > 18°C year-round. No winter season.",
+        "Extreme diurnal temperature range (45°C day / 5°C night). P < 25 cm/yr.",
+        "Warm dry summer (> 22°C), mild wet winter. Westerlies bring winter rain.",
+        "Summer high > 40°C ('Loo' winds); cold dry winter with Western Disturbances.",
+        "Warmest month between 0°C and 10°C. Continuous sub-zero winter freeze."
+    )
+    val pedologyFlora = listOf(
+        "Vegetation: Tropical Wet Evergreen & Semi-Evergreen • Soils: Heavily leached Laterite & Red soils.",
+        "Vegetation: Xerophytic thorny shrubs, Acacias, Cacti • Soils: Arid sandy soil with high soluble salts.",
+        "Vegetation: Sclerophyllous scrub (Chaparral/Maquis), Cork oak, Olive • Soils: Terra Rossa / Brown earths.",
+        "Vegetation: Tropical Moist & Dry Deciduous (Sal, Teak) • Soils: Fertile Khadar & Bhangar Alluvium.",
+        "Vegetation: Mosses, lichens, alpine meadows (Bugyals) • Soils: Skeletal mountain soils with permafrost."
+    )
+    val prelimsTraps = listOf(
+        "UPSC Trap: Examiner confuses 'Amw' with 'As' (Coromandel coast with dry summer & retreat monsoon rain)!",
+        "UPSC Trap: Examiner claims deserts form due to distance from sea; reality: Subtropical High Pressure + Cold Offshore Currents!",
+        "UPSC Trap: Mediterranean Cs has DRY summers, NOT wet summers—rainfall is strictly cyclonic winter Westerlies!",
+        "UPSC Trap: Northern plains are 'Cwg', NOT 'Aw'. The 'w' denotes dry winter, 'g' denotes Gangetic temperature curve!",
+        "UPSC Trap: Ladakh cold desert has low rainfall due to rain-shadow barrier of Greater Himalayas, NOT cold alone!"
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🌐", fontSize = 15.sp)
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "KÖPPEN CLIMATIC REALM DIAL // SCHEMATIC CANVAS",
+                        color = SunstoneGold,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.6.sp
+                    )
+                }
+                Text(
+                    text = "Tap Realm ➔",
+                    color = TopoContourMuted,
+                    fontSize = 9.sp
+                )
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // 5-Realm Tabs
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                realms.forEachIndexed { idx, name ->
+                    val isSelected = selectedRealm == idx
+                    Surface(
+                        color = if (isSelected) SunstoneGold else OceanicDark,
+                        shape = RoundedCornerShape(6.dp),
+                        border = BorderStroke(0.8.dp, SunstoneGold.copy(alpha = 0.4f)),
+                        modifier = Modifier.clickable { selectedRealm = idx }
+                    ) {
+                        Text(
+                            text = name,
+                            color = if (isSelected) Color.Black else AtlasParchment,
+                            fontSize = 10.5.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Climograph Canvas: Monthly Temperature Curve & Precipitation Bars
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(110.dp)
+                    .background(OceanicDark, RoundedCornerShape(8.dp))
+                    .border(0.8.dp, SlateBedrock, RoundedCornerShape(8.dp))
+                    .padding(8.dp)
+            ) {
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    val w = size.width
+                    val h = size.height
+
+                    // Grid baselines
+                    drawLine(color = SlateBedrock.copy(alpha = 0.6f), start = Offset(0f, h * 0.5f), end = Offset(w, h * 0.5f), strokeWidth = 0.8f)
+                    drawLine(color = SlateBedrock.copy(alpha = 0.6f), start = Offset(0f, h * 0.85f), end = Offset(w, h * 0.85f), strokeWidth = 0.8f)
+
+                    // 12 Monthly Precipitation Bars (Jan to Dec)
+                    val barWidth = (w / 12f) * 0.6f
+                    val rainfallProfiles = listOf(
+                        listOf(5f, 5f, 10f, 25f, 80f, 280f, 320f, 240f, 150f, 60f, 20f, 8f),
+                        listOf(3f, 4f, 2f, 1f, 1f, 5f, 12f, 15f, 6f, 2f, 1f, 2f),
+                        listOf(90f, 75f, 60f, 35f, 15f, 4f, 1f, 3f, 20f, 65f, 95f, 110f),
+                        listOf(15f, 12f, 8f, 6f, 18f, 110f, 260f, 230f, 120f, 20f, 5f, 8f),
+                        listOf(8f, 10f, 12f, 15f, 18f, 22f, 25f, 20f, 15f, 10f, 8f, 8f)
+                    )
+                    val currentRain = rainfallProfiles[selectedRealm]
+                    val maxRain = currentRain.maxOrNull()?.coerceAtLeast(1f) ?: 1f
+
+                    for (m in 0 until 12) {
+                        val barHeight = (currentRain[m] / maxRain) * (h * 0.75f)
+                        val x = (m + 0.5f) * (w / 12f) - (barWidth / 2f)
+                        val y = h - barHeight
+                        drawRect(
+                            color = HydrosphereCyan.copy(alpha = 0.75f),
+                            topLeft = Offset(x, y),
+                            size = Size(barWidth, barHeight)
+                        )
+                    }
+
+                    // Temperature curve
+                    val tempProfiles = listOf(
+                        listOf(0.7f, 0.72f, 0.78f, 0.85f, 0.82f, 0.75f, 0.72f, 0.72f, 0.74f, 0.75f, 0.73f, 0.7f),
+                        listOf(0.35f, 0.45f, 0.65f, 0.85f, 0.95f, 0.92f, 0.88f, 0.85f, 0.8f, 0.68f, 0.48f, 0.38f),
+                        listOf(0.4f, 0.45f, 0.52f, 0.6f, 0.72f, 0.82f, 0.9f, 0.88f, 0.78f, 0.65f, 0.52f, 0.42f),
+                        listOf(0.35f, 0.42f, 0.6f, 0.82f, 0.94f, 0.9f, 0.82f, 0.8f, 0.78f, 0.68f, 0.5f, 0.38f),
+                        listOf(0.1f, 0.12f, 0.18f, 0.25f, 0.35f, 0.48f, 0.52f, 0.5f, 0.4f, 0.25f, 0.15f, 0.1f)
+                    )
+                    val currentTemp = tempProfiles[selectedRealm]
+                    val tempPath = Path()
+                    for (m in 0 until 12) {
+                        val px = (m + 0.5f) * (w / 12f)
+                        val py = h * (1f - currentTemp[m] * 0.85f)
+                        if (m == 0) tempPath.moveTo(px, py) else tempPath.lineTo(px, py)
+                    }
+                    drawPath(
+                        path = tempPath,
+                        color = SunstoneGold,
+                        style = Stroke(width = 2.5f)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = titles[selectedRealm],
+                        color = SunstoneGold,
+                        fontSize = 11.5.sp,
+                        fontWeight = FontWeight.Black
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "• Thermal Regime: ${thermalRegimes[selectedRealm]}",
+                        color = AtlasParchment,
+                        fontSize = 11.sp,
+                        lineHeight = 15.sp
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "• Flora & Pedology: ${pedologyFlora[selectedRealm]}",
+                        color = ContourEmerald,
+                        fontSize = 11.sp,
+                        lineHeight = 15.sp
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Text(
+                        text = prelimsTraps[selectedRealm],
+                        color = HydrosphereCyan,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        lineHeight = 14.sp
                     )
                 }
             }
@@ -2065,6 +2273,7 @@ fun PremiumOptionsList(
     trapBackground: Color
 ) {
     val labels = listOf("A", "B", "C", "D", "E")
+    val haptic = LocalHapticFeedback.current
 
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         options.forEachIndexed { index, option ->
@@ -2105,7 +2314,10 @@ fun PremiumOptionsList(
                     modifier = Modifier
                         .alpha(if (isCrossedOut) 0.55f else 1f)
                         .fillMaxWidth()
-                        .clickable(enabled = !isAnswerSubmitted && !isCrossedOut) { onOptionSelected(option.id) }
+                        .clickable(enabled = !isAnswerSubmitted && !isCrossedOut) { 
+                            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                            onOptionSelected(option.id) 
+                        }
                 ) {
                     Box(modifier = Modifier.fillMaxWidth()) {
                         Row(
@@ -2137,7 +2349,10 @@ fun PremiumOptionsList(
                             )
                             if (!isAnswerSubmitted) {
                                 IconButton(
-                                    onClick = { onOptionCrossOut(option.id) },
+                                    onClick = { 
+                                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                                        onOptionCrossOut(option.id) 
+                                    },
                                     modifier = Modifier.size(36.dp)
                                 ) {
                                     Icon(

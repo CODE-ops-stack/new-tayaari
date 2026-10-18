@@ -17,8 +17,8 @@ android {
     applicationId = "com.aistudio.tayaaripakki.testapp"
     minSdk = 24
     targetSdk = 36
-    versionCode = 25
-    versionName = "25.0"
+    versionCode = 33
+    versionName = "33.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
