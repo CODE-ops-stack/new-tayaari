@@ -15,6 +15,8 @@ import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Analytics
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.WarningAmber
 import androidx.compose.material3.*
@@ -95,65 +97,75 @@ fun TrapDashboardScreen(
                 )
             }
         ) { paddingValues ->
-            if (trapAnalytics.isEmpty()) {
-                // Premium Empty State
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                        .padding(32.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(120.dp)
-                            .background(deepBlue.copy(alpha = 0.05f), CircleShape),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text("🛡️", fontSize = 54.sp)
-                    }
-                    Spacer(modifier = Modifier.height(24.dp))
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .padding(horizontal = 16.dp),
+                contentPadding = PaddingValues(vertical = 16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                // 1. Sonar Trap Radar Canvas (Always sweeping & active)
+                item {
+                    SonarTrapRadarCanvas(trapsCount = trapAnalytics.size)
+                }
+
+                // 2. Interactive Examiner Trap Defusal Simulator
+                item {
+                    TrapDefusalSimulator()
+                }
+
+                // 3. Cadre Merit Trophy Room
+                item {
+                    CadreMedalTrophyShowcase()
+                }
+
+                item {
                     Text(
-                        text = "Zero Geographic Pitfalls Encountered",
-                        fontSize = 20.sp,
-                        fontFamily = com.example.ui.theme.CartographicSerif,
-                        fontWeight = FontWeight.Bold,
-                        color = deepBlue
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = "You have navigated through all geographic waypoints without succumbing to examiner traps. Keep your expedition compass calibrated!",
-                        fontSize = 15.sp,
+                        text = "Identify cognitive vulnerabilities across Physical, Indian & World Geography. The higher the frequency, the more susceptible you are to that specific trap format.",
+                        fontSize = 13.sp,
                         color = deepBlue.copy(alpha = 0.7f),
-                        textAlign = TextAlign.Center
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    HorizontalDivider(
+                        color = deepBlue.copy(alpha = 0.1f)
                     )
                 }
-            } else {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(paddingValues)
-                        .padding(horizontal = 16.dp),
-                    contentPadding = PaddingValues(vertical = 16.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    item {
-                        SonarTrapRadarCanvas(trapsCount = trapAnalytics.size)
-                    }
 
+                if (trapAnalytics.isEmpty()) {
                     item {
-                        Text(
-                            text = "Identify cognitive vulnerabilities across Physical, Indian & World Geography. The higher the frequency, the more susceptible you are to that specific trap format.",
-                            fontSize = 13.sp,
-                            color = deepBlue.copy(alpha = 0.7f),
-                            modifier = Modifier.padding(bottom = 8.dp)
-                        )
-                        HorizontalDivider(
-                            color = deepBlue.copy(alpha = 0.1f)
-                        )
+                        Surface(
+                            color = DeepBasalt,
+                            shape = RoundedCornerShape(14.dp),
+                            border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.4f)),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(16.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text("🛡️", fontSize = 28.sp)
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Column {
+                                    Text(
+                                        text = "ALL RADAR SECTORS SECURED",
+                                        color = ContourEmerald,
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Black,
+                                        letterSpacing = 0.8.sp
+                                    )
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Text(
+                                        text = "Zero recurring conceptual conflation traps logged yet. Sharpen your defusal instincts above, or dive into questions to detect new pitfalls.",
+                                        color = AtlasParchment,
+                                        fontSize = 11.5.sp,
+                                        lineHeight = 16.sp
+                                    )
+                                }
+                            }
+                        }
                     }
-
+                } else {
                     val maxFreq = trapAnalytics.maxOfOrNull { it.frequency } ?: 1
                     items(trapAnalytics.sortedByDescending { it.frequency }) { trap ->
                         EnhancedTrapStatCard(
@@ -452,6 +464,350 @@ fun SonarTrapRadarCanvas(
                 fontSize = 10.5.sp,
                 textAlign = TextAlign.Center
             )
+        }
+    }
+}
+
+@Composable
+fun TrapDefusalSimulator() {
+    var activeTrapIndex by remember { mutableIntStateOf(0) }
+    var selectedOption by remember { mutableStateOf<Int?>(null) }
+    var score by remember { mutableIntStateOf(0) }
+
+    data class TrapChallenge(
+        val category: String,
+        val stem: String,
+        val question: String,
+        val options: List<String>,
+        val correctIndex: Int,
+        val trickDissection: String,
+        val penaltySaved: String
+    )
+
+    val challenges = listOf(
+        TrapChallenge(
+            category = "⚠️ EXTREME QUALIFIER TRAP",
+            stem = "Statement: 'All rivers draining into the Arabian Sea originate exclusively in the Western Ghats mountain range.'",
+            question = "Spot the examiner's trap in this statement:",
+            options = listOf(
+                "Extreme Qualifier ('All' / 'Exclusively' ignores Narmada & Tapi from Satpura/Maikal)",
+                "Latitudinal Inversion (Arabian Sea swapped with Bay of Bengal)",
+                "Causal Fallacy (Rainfall mechanics confused with drainage origin)"
+            ),
+            correctIndex = 0,
+            trickDissection = "Examiners frequently deploy absolute words ('all', 'only', 'never', 'drastically') to make statements factually false. Narmada and Tapi flow into the Arabian Sea through central rift valleys, originating far inland in Madhya Pradesh (Amarkantak & Betul)!",
+            penaltySaved = "+1,420 Ranks Protected (-0.66 Penalty Defused)"
+        ),
+        TrapChallenge(
+            category = "⚠️ SPATIAL INVERSION TRAP",
+            stem = "Statement: 'The 9-Degree Channel separates the Andaman group of islands from the Nicobar group in the Bay of Bengal.'",
+            question = "Identify the subtle geographical inversion:",
+            options = listOf(
+                "Degree Channel Inversion (10-Degree Channel separates Andaman & Nicobar; 9-Degree separates Minicoy & Lakshadweep)",
+                "Oceanic Basin Inversion (Bay of Bengal swapped with Arabian Sea)",
+                "Geological Age Inversion (Tertiary orogeny swapped with Archean)"
+            ),
+            correctIndex = 0,
+            trickDissection = "Examiners deliberately substitute adjacent numeric markers: 8°N (Maldives-Minicoy), 9°N (Minicoy-Lakshadweep), 10°N (Little Andaman-Car Nicobar), and Great Channel 6°N (Great Nicobar-Sumatra). Memorize the mnemonic: '8-M-M, 9-M-L, 10-A-N'!",
+            penaltySaved = "+2,850 Ranks Protected (-0.66 Penalty Defused)"
+        ),
+        TrapChallenge(
+            category = "⚠️ CAUSE & EFFECT INVERSION",
+            stem = "Statement: 'The hyper-arid Atacama Desert is caused exclusively by the rain-shadow effect of the Andes, with no influence from marine currents.'",
+            question = "What critical physical geography factor was omitted to trap you?",
+            options = listOf(
+                "Cold Ocean Current Omission (Cold Humboldt/Peru Current causes intense atmospheric desiccation)",
+                "Soil Texture Misdirection (Sand salinity confused with moisture)",
+                "Coriolis Force Misalignment (Trade wind deflection ignored)"
+            ),
+            correctIndex = 0,
+            trickDissection = "All major western continental deserts (Atacama, Namib, Kalahari, Mohave, Great Australian) are dual-factor: Offshore Trade Winds + Cold Coastal Currents creating thermal inversions that suppress cloud convection!",
+            penaltySaved = "+1,980 Ranks Protected (-0.66 Penalty Defused)"
+        )
+    )
+
+    val currentChallenge = challenges[activeTrapIndex % challenges.size]
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("🎯", fontSize = 16.sp)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Column {
+                        Text(
+                            text = "EXAMINER TRAP DEFUSAL DRILL",
+                            color = SunstoneGold,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Black,
+                            letterSpacing = 0.8.sp
+                        )
+                        Text(
+                            text = "Sharpen your instinct to spot deceptive MCQ phrasing",
+                            color = TopoContourMuted,
+                            fontSize = 10.sp
+                        )
+                    }
+                }
+                Surface(
+                    color = SunstoneGold.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(6.dp)
+                ) {
+                    Text(
+                        text = "SCORE: +$score 🛡️",
+                        color = SunstoneGold,
+                        fontSize = 9.5.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                border = BorderStroke(0.8.dp, Color(0xFFEF4444).copy(alpha = 0.35f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = currentChallenge.category,
+                        color = Color(0xFFEF4444),
+                        fontSize = 9.5.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.5.sp
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = currentChallenge.stem,
+                        color = AtlasParchment,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        lineHeight = 17.sp
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = currentChallenge.question,
+                color = SunstoneGold,
+                fontSize = 11.5.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                currentChallenge.options.forEachIndexed { optIdx, optText ->
+                    val isChosen = selectedOption == optIdx
+                    val isCorrect = optIdx == currentChallenge.correctIndex
+                    val hasAnswered = selectedOption != null
+
+                    val bgColor = when {
+                        !hasAnswered -> OceanicDark
+                        isChosen && isCorrect -> ContourEmerald.copy(alpha = 0.15f)
+                        isChosen && !isCorrect -> Color(0xFFEF4444).copy(alpha = 0.15f)
+                        isCorrect -> ContourEmerald.copy(alpha = 0.15f)
+                        else -> OceanicDark
+                    }
+                    val borderColor = when {
+                        !hasAnswered -> HydrosphereCyan.copy(alpha = 0.3f)
+                        isChosen && isCorrect -> ContourEmerald
+                        isChosen && !isCorrect -> Color(0xFFEF4444)
+                        isCorrect -> ContourEmerald.copy(alpha = 0.6f)
+                        else -> Color.Transparent
+                    }
+
+                    Surface(
+                        color = bgColor,
+                        shape = RoundedCornerShape(8.dp),
+                        border = BorderStroke(0.8.dp, borderColor),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(enabled = !hasAnswered) {
+                                selectedOption = optIdx
+                                if (optIdx == currentChallenge.correctIndex) {
+                                    score += 15
+                                }
+                            }
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = listOf("A", "B", "C")[optIdx],
+                                color = SunstoneGold,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 11.sp
+                            )
+                            Spacer(modifier = Modifier.width(10.dp))
+                            Text(
+                                text = optText,
+                                color = AtlasParchment,
+                                fontSize = 11.5.sp,
+                                modifier = Modifier.weight(1f),
+                                lineHeight = 16.sp
+                            )
+                        }
+                    }
+                }
+            }
+
+            if (selectedOption != null) {
+                Spacer(modifier = Modifier.height(10.dp))
+                Surface(
+                    color = OceanicDark,
+                    shape = RoundedCornerShape(8.dp),
+                    border = BorderStroke(0.8.dp, if (selectedOption == currentChallenge.correctIndex) ContourEmerald.copy(alpha = 0.5f) else Color(0xFFEF4444).copy(alpha = 0.5f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = if (selectedOption == currentChallenge.correctIndex) "🛡️ TRAP DEFUSED! +15 GP" else "⚠️ TRAP TRIGGERED",
+                                color = if (selectedOption == currentChallenge.correctIndex) ContourEmerald else Color(0xFFEF4444),
+                                fontSize = 10.5.sp,
+                                fontWeight = FontWeight.Black
+                            )
+                            Text(
+                                text = currentChallenge.penaltySaved,
+                                color = SunstoneGold,
+                                fontSize = 9.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = currentChallenge.trickDissection,
+                            color = AtlasParchment,
+                            fontSize = 11.sp,
+                            lineHeight = 15.sp
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Button(
+                            onClick = {
+                                selectedOption = null
+                                activeTrapIndex++
+                            },
+                            colors = ButtonDefaults.buttonColors(containerColor = SunstoneGold),
+                            shape = RoundedCornerShape(6.dp),
+                            contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp),
+                            modifier = Modifier.align(Alignment.End)
+                        ) {
+                            Text("Next Examiner Trap ➔", color = AbyssNavy, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun CadreMedalTrophyShowcase() {
+    val medals = listOf(
+        Triple("🏛️ LBSNAA", "Civil Services Steel Frame", SunstoneGold),
+        Triple("🌾 BIHAR SDM", "Patna Secretariat Corps", ContourEmerald),
+        Triple("⭐ CSS ASO", "Central Secretariat Merit Star", HydrosphereCyan),
+        Triple("🚆 RAILWAY", "Indian Railways Speed Corps", SunstoneGold)
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🏆", fontSize = 16.sp)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Column {
+                        Text(
+                            text = "CADRE MERIT TROPHY ROOM",
+                            color = SunstoneGold,
+                            fontSize = 10.5.sp,
+                            fontWeight = FontWeight.Black,
+                            letterSpacing = 0.8.sp
+                        )
+                        Text(
+                            text = "Every trap defused in practice protects your merit list rank",
+                            color = TopoContourMuted,
+                            fontSize = 10.sp
+                        )
+                    }
+                }
+                Surface(
+                    color = SunstoneGold.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(4.dp)
+                ) {
+                    Text(
+                        text = "HALL OF FAME",
+                        color = SunstoneGold,
+                        fontSize = 9.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                medals.forEach { (title, subtitle, color) ->
+                    Surface(
+                        color = OceanicDark,
+                        shape = RoundedCornerShape(8.dp),
+                        border = BorderStroke(0.8.dp, color.copy(alpha = 0.45f)),
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(8.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                text = title,
+                                color = color,
+                                fontSize = 10.5.sp,
+                                fontWeight = FontWeight.Black,
+                                textAlign = TextAlign.Center
+                            )
+                            Spacer(modifier = Modifier.height(3.dp))
+                            Text(
+                                text = subtitle,
+                                color = AtlasParchment.copy(alpha = 0.75f),
+                                fontSize = 8.sp,
+                                textAlign = TextAlign.Center,
+                                lineHeight = 10.5.sp
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 }
