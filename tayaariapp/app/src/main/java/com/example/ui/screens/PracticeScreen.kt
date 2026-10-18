@@ -802,6 +802,8 @@ fun InteractiveGeographicModelSandbox(explanation: String) {
     val isTectonics = lower.contains("tectonic") || lower.contains("plate") || lower.contains("fault") || lower.contains("subduction") || lower.contains("divergent")
     val isAtmosphere = lower.contains("troposphere") || lower.contains("stratosphere") || lower.contains("atmosphere") || lower.contains("ozone") || lower.contains("lapse rate")
     val isRiver = lower.contains("river") || lower.contains("meander") || lower.contains("delta") || lower.contains("drainage") || lower.contains("oxbow")
+    val isCurrents = lower.contains("current") || lower.contains("ocean") || lower.contains("gyre") || lower.contains("gulf stream") || lower.contains("upwelling") || lower.contains("benguela") || lower.contains("humboldt") || lower.contains("kuroshio")
+    val isMonsoon = lower.contains("monsoon") || lower.contains("enso") || lower.contains("el niño") || lower.contains("la niña") || lower.contains("iod") || lower.contains("walker") || lower.contains("western disturbance") || lower.contains("itcz")
 
     if (isTectonics) {
         TectonicBoundarySandbox()
@@ -809,6 +811,395 @@ fun InteractiveGeographicModelSandbox(explanation: String) {
         AtmosphericProfileSandbox()
     } else if (isRiver) {
         RiverCourseSandbox()
+    } else if (isCurrents) {
+        OceanCurrentsSandbox()
+    } else if (isMonsoon) {
+        MonsoonTeleconnectionSandbox()
+    }
+}
+
+@Composable
+fun OceanCurrentsSandbox() {
+    var selectedOcean by remember { mutableIntStateOf(0) }
+    val oceans = listOf("Atlantic Gyre", "Pacific Gyre", "Indian Ocean", "Desert Link")
+    val warmCurrents = listOf(
+        "Gulf Stream, North Atlantic Drift, Brazil Current, Florida Current",
+        "Kuroshio (Japan Current), East Australian Current, North Equatorial",
+        "Agulhas Current, Mozambique Current, South Equatorial Current",
+        "Warm currents carry high moisture & heat -> heavy precipitation on Eastern margins of continents"
+    )
+    val coldCurrents = listOf(
+        "Canary Current, Labrador Current, Benguela Current, Falkland Current",
+        "California Current, Oyashio (Kuril) Current, Peru (Humboldt) Current",
+        "West Australian Current, Somali Current (Upwelling phase in summer)",
+        "Cold currents cause atmospheric stability (inversion) & low humidity -> form Atacama, Namib & Kalahari Deserts!"
+    )
+    val signaturePhenomena = listOf(
+        "Grand Banks Fog & Fishery: Where warm Gulf Stream collides with freezing Labrador Current, plankton blooms create world-class fishing grounds.",
+        "El Niño Teleconnection: Humboldt Current weakening triggers anomalous warm pool in Eastern Pacific, disrupting global atmospheric Walker Circulation.",
+        "Reversal of Currents: North Indian Ocean currents reverse direction completely between SW Monsoon (clockwise) and NE Monsoon (counter-clockwise).",
+        "West Coast Deserts Mystery: Cold offshore currents chill surface air, suppressing convection. Paired with offshore Trade Winds, rainfall is near zero (Atacama < 1mm/yr)."
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, HydrosphereCyan.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🌊", fontSize = 15.sp)
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "INTERACTIVE OCEANIC GYRE & CURRENTS MODEL",
+                        color = HydrosphereCyan,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.6.sp
+                    )
+                }
+                Text(
+                    text = "Tap Ocean ➔",
+                    color = TopoContourMuted,
+                    fontSize = 9.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                oceans.forEachIndexed { idx, name ->
+                    val isTabSelected = selectedOcean == idx
+                    Surface(
+                        color = if (isTabSelected) HydrosphereCyan else OceanicDark,
+                        shape = RoundedCornerShape(6.dp),
+                        border = BorderStroke(0.8.dp, HydrosphereCyan.copy(alpha = 0.4f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedOcean = idx }
+                    ) {
+                        Text(
+                            text = name.replace(" Gyre", "").replace(" Ocean", ""),
+                            color = if (isTabSelected) Color.Black else AtlasParchment,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(vertical = 5.dp)
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            // Interactive Circulation Schematic Canvas
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(95.dp)
+                    .background(OceanicDark, RoundedCornerShape(8.dp))
+                    .border(0.8.dp, HydrosphereCyan.copy(alpha = 0.25f), RoundedCornerShape(8.dp))
+            ) {
+                Canvas(modifier = Modifier.fillMaxSize().padding(8.dp)) {
+                    val w = size.width
+                    val h = size.height
+                    val cx = w / 2f
+                    val cy = h / 2f
+
+                    // Draw Equatorial line
+                    drawLine(
+                        color = Color.White.copy(alpha = 0.2f),
+                        start = Offset(0f, cy),
+                        end = Offset(w, cy),
+                        strokeWidth = 1f
+                    )
+
+                    // Draw Northern Gyre (Clockwise in NH)
+                    drawArc(
+                        color = Color(0xFFEF4444).copy(alpha = 0.75f),
+                        startAngle = 180f,
+                        sweepAngle = 90f,
+                        useCenter = false,
+                        topLeft = Offset(cx - 70.dp.toPx(), cy - 35.dp.toPx()),
+                        size = androidx.compose.ui.geometry.Size(140.dp.toPx(), 32.dp.toPx()),
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(width = 3.dp.toPx())
+                    )
+                    drawArc(
+                        color = Color(0xFF00F0FF).copy(alpha = 0.75f),
+                        startAngle = 270f,
+                        sweepAngle = 90f,
+                        useCenter = false,
+                        topLeft = Offset(cx - 70.dp.toPx(), cy - 35.dp.toPx()),
+                        size = androidx.compose.ui.geometry.Size(140.dp.toPx(), 32.dp.toPx()),
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(width = 3.dp.toPx())
+                    )
+
+                    // Draw Southern Gyre (Counter-Clockwise in SH)
+                    drawArc(
+                        color = Color(0xFF00F0FF).copy(alpha = 0.75f),
+                        startAngle = 0f,
+                        sweepAngle = 90f,
+                        useCenter = false,
+                        topLeft = Offset(cx - 70.dp.toPx(), cy + 3.dp.toPx()),
+                        size = androidx.compose.ui.geometry.Size(140.dp.toPx(), 32.dp.toPx()),
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(width = 3.dp.toPx())
+                    )
+                    drawArc(
+                        color = Color(0xFFEF4444).copy(alpha = 0.75f),
+                        startAngle = 90f,
+                        sweepAngle = 90f,
+                        useCenter = false,
+                        topLeft = Offset(cx - 70.dp.toPx(), cy + 3.dp.toPx()),
+                        size = androidx.compose.ui.geometry.Size(140.dp.toPx(), 32.dp.toPx()),
+                        style = androidx.compose.ui.graphics.drawscope.Stroke(width = 3.dp.toPx())
+                    )
+                }
+                Row(
+                    modifier = Modifier.fillMaxSize().padding(horizontal = 12.dp, vertical = 6.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column {
+                        Text("WESTERN MARGIN", fontSize = 9.sp, color = Color(0xFFEF4444), fontWeight = FontWeight.Black)
+                        Text("🔥 WARM DRIFT", fontSize = 8.sp, color = Color(0xFFFCA5A5))
+                        Text("High Rainfall", fontSize = 8.sp, color = AtlasParchment.copy(alpha = 0.7f))
+                    }
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text("EQUATOR (0°)", fontSize = 8.5.sp, color = Color.White.copy(alpha = 0.7f), fontWeight = FontWeight.Bold)
+                        Text("NH: Clockwise ↻\nSH: Counter-Clockwise ↺", fontSize = 7.5.sp, color = SunstoneGold, textAlign = TextAlign.Center)
+                    }
+                    Column(horizontalAlignment = Alignment.End) {
+                        Text("EASTERN MARGIN", fontSize = 9.sp, color = Color(0xFF00F0FF), fontWeight = FontWeight.Black)
+                        Text("❄️ COLD UPWELLING", fontSize = 8.sp, color = Color(0xFF67E8F9))
+                        Text("Desiccation & Aridity", fontSize = 8.sp, color = AtlasParchment.copy(alpha = 0.7f))
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = "🔥 Warm: ${warmCurrents[selectedOcean]}",
+                        color = Color(0xFFFCA5A5),
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "❄️ Cold: ${coldCurrents[selectedOcean]}",
+                        color = Color(0xFF67E8F9),
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Text(
+                        text = "💡 Concept: ${signaturePhenomena[selectedOcean]}",
+                        color = AtlasParchment,
+                        fontSize = 11.sp,
+                        lineHeight = 15.sp
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun MonsoonTeleconnectionSandbox() {
+    var selectedPhase by remember { mutableIntStateOf(0) }
+    val phases = listOf("Normal Walker", "El Niño (Drought)", "La Niña (Bountiful)", "Positive IOD")
+    val walkerStates = listOf(
+        "Strong Trade Winds push warm water to Western Pacific (Indo-Pacific Warm Pool). Upwelling along Peru coast.",
+        "Trade winds weaken or reverse. Warm pool shifts eastward to Central/East Pacific. Convection relocates away from India.",
+        "Intense Trade Winds reinforce cold tongue in East Pacific. Extreme warm pool over Indonesia/Bay of Bengal with hyper-active convection.",
+        "Western Indian Ocean becomes anomalously warmer than Eastern Indian Ocean. Creates robust low pressure fueling Indian Monsoon."
+    )
+    val monsoonImpacts = listOf(
+        "🟢 Normal Monsoon: Balanced Tibetan anticyclone and Mascarene High drive 100% of Long Period Average (LPA) precipitation.",
+        "🔴 Drought Threat: Sinking air over India suppresses cloud formation. ~60% of historic Indian droughts coincide with El Niño years.",
+        "🌊 Bountiful Surplus: Abundant convective rainfall across Indian plains, enhanced flood frequency in Brahmaputra & Gangetic basins.",
+        "⭐ Monsoon Booster: Acts as an atmospheric shield; can completely offset an El Niño's negative impact on Indian agriculture!"
+    )
+    val sstLabels = listOf(
+        "West Pacific: 29°C Warm Pool  |  East Pacific: 22°C Cold Tongue",
+        "West Pacific: 25°C Cooler   |  East Pacific: 29°C Anomalous Warm Pool",
+        "West Pacific: 31°C Super Warm |  East Pacific: 19°C Deep Upwelling",
+        "Arabian Sea: +1.5°C Positive Anomaly | Sumatra: -1.0°C Negative Anomaly"
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🌪️", fontSize = 15.sp)
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "MONSOON & TELECONNECTIONS ENGINE // ENSO / IOD",
+                        color = SunstoneGold,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.6.sp
+                    )
+                }
+                Text(
+                    text = "Tap Phase ➔",
+                    color = TopoContourMuted,
+                    fontSize = 9.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                phases.forEachIndexed { idx, name ->
+                    val isTabSelected = selectedPhase == idx
+                    Surface(
+                        color = if (isTabSelected) SunstoneGold else OceanicDark,
+                        shape = RoundedCornerShape(6.dp),
+                        border = BorderStroke(0.8.dp, SunstoneGold.copy(alpha = 0.4f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedPhase = idx }
+                    ) {
+                        Text(
+                            text = name.split(" ")[0],
+                            color = if (isTabSelected) Color.Black else AtlasParchment,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(vertical = 5.dp)
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            // Interactive Teleconnection Diagram Canvas
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(95.dp)
+                    .background(OceanicDark, RoundedCornerShape(8.dp))
+                    .border(0.8.dp, SunstoneGold.copy(alpha = 0.25f), RoundedCornerShape(8.dp))
+            ) {
+                Canvas(modifier = Modifier.fillMaxSize().padding(8.dp)) {
+                    val w = size.width
+                    val h = size.height
+
+                    // Sea level base line
+                    drawLine(
+                        color = Color(0xFF0284C7).copy(alpha = 0.4f),
+                        start = Offset(0f, h * 0.75f),
+                        end = Offset(w, h * 0.75f),
+                        strokeWidth = 2.dp.toPx()
+                    )
+
+                    val isElNino = selectedPhase == 1
+                    val isPositiveIod = selectedPhase == 3
+
+                    val warmX = when {
+                        isElNino -> w * 0.75f
+                        isPositiveIod -> w * 0.25f
+                        else -> w * 0.25f
+                    }
+                    val coldX = when {
+                        isElNino -> w * 0.25f
+                        else -> w * 0.75f
+                    }
+
+                    // Rising air plume at warm pool
+                    drawLine(
+                        color = Color(0xFFEF4444).copy(alpha = 0.8f),
+                        start = Offset(warmX, h * 0.75f),
+                        end = Offset(warmX, h * 0.25f),
+                        strokeWidth = 3.dp.toPx()
+                    )
+                    drawCircle(
+                        color = Color(0xFFEF4444).copy(alpha = 0.9f),
+                        radius = 4.dp.toPx(),
+                        center = Offset(warmX, h * 0.25f)
+                    )
+
+                    // Sinking air plume at cold pool
+                    drawLine(
+                        color = Color(0xFF38BDF8).copy(alpha = 0.8f),
+                        start = Offset(coldX, h * 0.25f),
+                        end = Offset(coldX, h * 0.75f),
+                        strokeWidth = 3.dp.toPx()
+                    )
+                    drawCircle(
+                        color = Color(0xFF38BDF8).copy(alpha = 0.9f),
+                        radius = 4.dp.toPx(),
+                        center = Offset(coldX, h * 0.75f)
+                    )
+
+                    // Upper tropospheric connecting wind
+                    drawLine(
+                        color = Color.White.copy(alpha = 0.35f),
+                        start = Offset(warmX, h * 0.25f),
+                        end = Offset(coldX, h * 0.25f),
+                        strokeWidth = 1.5.dp.toPx()
+                    )
+                }
+
+                Row(
+                    modifier = Modifier.fillMaxSize().padding(horizontal = 12.dp, vertical = 6.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column {
+                        Text("WEST (INDIA / ASIA)", fontSize = 8.5.sp, color = SunstoneGold, fontWeight = FontWeight.Bold)
+                        Text(if (selectedPhase == 1) "Sinking Air ⬇️ (Suppressed)" else "Rising Air ⬆️ (Convective)", fontSize = 8.sp, color = AtlasParchment)
+                    }
+                    Column(horizontalAlignment = Alignment.End) {
+                        Text("EAST (PACIFIC / AMERICAS)", fontSize = 8.5.sp, color = HydrosphereCyan, fontWeight = FontWeight.Bold)
+                        Text(if (selectedPhase == 1) "Rising Air ⬆️ (Warm Pool)" else "Sinking Air ⬇️ (Cold Tongue)", fontSize = 8.sp, color = AtlasParchment)
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = "🌡️ SST Thermal State: ${sstLabels[selectedPhase]}",
+                        color = SunstoneGold,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = "💨 Dynamics: ${walkerStates[selectedPhase]}",
+                        color = AtlasParchment,
+                        fontSize = 11.sp,
+                        lineHeight = 15.sp
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Text(
+                        text = "🇮🇳 Indian Monsoon: ${monsoonImpacts[selectedPhase]}",
+                        color = if (selectedPhase == 1) Color(0xFFF87171) else Color(0xFF4ADE80),
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        lineHeight = 15.sp
+                    )
+                }
+            }
+        }
     }
 }
 

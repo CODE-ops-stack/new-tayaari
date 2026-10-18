@@ -4,13 +4,21 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircleOutline
 import androidx.compose.material.icons.filled.Analytics
@@ -1513,6 +1521,15 @@ fun IndiaPhysiographyMapSelector(
         Triple("RIVERS", "🌊 Hydro Systems", "Himalayan & Peninsular Drainage")
     )
 
+    val provinceDetails = mapOf(
+        "ALL" to "Complete 30-Chapter Spatial Syllabus active across all physiographic provinces.",
+        "HIMALAYAS" to "Tertiary Alpine Orogeny • 8,848m Peak Datum • Great Himalayan Arc • Trans-Himalayan Zanskar & Ladakh Ranges • High Strategic Passes.",
+        "PLAINS" to "Pleistocene Foreland Depression • 150m-2000m Alluvial Aggradation • Bhabhar Boulders, Terai Marshes, Bhangar Kankar & Khadar Silt.",
+        "PLATEAU" to "Pre-Cambrian Gondwana Shield • Cretaceous Deccan Basalt Traps • Sahyadri Western Ghats Escarpment • Relict Eastern Ghats Residual Hills.",
+        "COASTS" to "Submergent Malabar/Konkan Ria Coasts • Emergent Coromandel Deltaic Plain • Lakshadweep Coral Atolls • Andaman Volcanic Arc.",
+        "RIVERS" to "Antecedent Himalayan Gorge Cutters (Indus, Brahmaputra) • Rift Valley Superimposed Flows (Narmada, Tapi) • Peninsular Gradients."
+    )
+
     Surface(
         color = DeepBasalt,
         shape = RoundedCornerShape(16.dp),
@@ -1537,7 +1554,7 @@ fun IndiaPhysiographyMapSelector(
                             letterSpacing = 0.8.sp
                         )
                         Text(
-                            text = "Filter chapters by India's natural geomorphic provinces",
+                            text = "Touch map or chips to filter curriculum by geomorphic zone",
                             color = TopoContourMuted,
                             fontSize = 10.sp
                         )
@@ -1548,7 +1565,7 @@ fun IndiaPhysiographyMapSelector(
                     shape = RoundedCornerShape(6.dp)
                 ) {
                     Text(
-                        text = "SPATIAL ATLAS",
+                        text = "VECTOR ATLAS",
                         color = SunstoneGold,
                         fontSize = 9.sp,
                         fontWeight = FontWeight.ExtraBold,
@@ -1557,9 +1574,306 @@ fun IndiaPhysiographyMapSelector(
                 }
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
-            // Interactive Physiographic Zone Chips (Row 1)
+            // Interactive Vector India Relief Canvas
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(165.dp)
+                    .background(OceanicDark, RoundedCornerShape(12.dp))
+                    .border(1.dp, HydrosphereCyan.copy(alpha = 0.35f), RoundedCornerShape(12.dp))
+                    .pointerInput(Unit) {
+                        detectTapGestures { offset ->
+                            val h = size.height.toFloat()
+                            val w = size.width.toFloat()
+                            val normY = offset.y / h
+                            val normX = offset.x / w
+
+                            when {
+                                normY < 0.34f -> onZoneSelected("HIMALAYAS")
+                                normY in 0.34f..0.54f -> onZoneSelected("PLAINS")
+                                normY > 0.54f && normX in 0.28f..0.72f -> onZoneSelected("PLATEAU")
+                                normY > 0.54f && (normX < 0.28f || normX > 0.72f) -> onZoneSelected("COASTS")
+                                else -> onZoneSelected("RIVERS")
+                            }
+                        }
+                    }
+            ) {
+                Canvas(modifier = Modifier.fillMaxSize().padding(8.dp)) {
+                    val w = size.width
+                    val h = size.height
+
+                    // 1. Graticule coordinate grid
+                    for (i in 1..4) {
+                        val gx = w * (i * 0.2f)
+                        drawLine(
+                            color = Color.White.copy(alpha = 0.05f),
+                            start = Offset(gx, 0f),
+                            end = Offset(gx, h),
+                            strokeWidth = 0.8f
+                        )
+                    }
+                    for (j in 1..3) {
+                        val gy = h * (j * 0.25f)
+                        drawLine(
+                            color = Color.White.copy(alpha = 0.05f),
+                            start = Offset(0f, gy),
+                            end = Offset(w, gy),
+                            strokeWidth = 0.8f
+                        )
+                    }
+
+                    // 2. Northern Arc (Himalayas)
+                    val himalayanPath = Path().apply {
+                        moveTo(w * 0.20f, h * 0.30f)
+                        lineTo(w * 0.30f, h * 0.12f) // Pamir / Karakoram
+                        lineTo(w * 0.42f, h * 0.08f) // Ladakh
+                        lineTo(w * 0.55f, h * 0.16f) // Nepal Himalaya
+                        lineTo(w * 0.68f, h * 0.18f) // Sikkim / Bhutan
+                        lineTo(w * 0.82f, h * 0.26f) // Arunachal Syntaxis
+                        lineTo(w * 0.75f, h * 0.34f)
+                        lineTo(w * 0.48f, h * 0.26f)
+                        close()
+                    }
+                    val isHimSelected = selectedZone == "HIMALAYAS"
+                    drawPath(
+                        path = himalayanPath,
+                        color = if (isHimSelected) Color(0xFF38BDF8) else Color(0xFF0284C7).copy(alpha = 0.45f)
+                    )
+                    if (isHimSelected) {
+                        drawPath(
+                            path = himalayanPath,
+                            color = Color(0xFFF59E0B),
+                            style = Stroke(width = 2.5.dp.toPx())
+                        )
+                    }
+
+                    // 3. Great Plains (Indo-Gangetic Basin)
+                    val plainsPath = Path().apply {
+                        moveTo(w * 0.18f, h * 0.36f) // Punjab
+                        lineTo(w * 0.48f, h * 0.28f)
+                        lineTo(w * 0.74f, h * 0.35f)
+                        lineTo(w * 0.82f, h * 0.44f) // Assam / Brahmaputra
+                        lineTo(w * 0.72f, h * 0.52f) // Bengal Delta
+                        lineTo(w * 0.50f, h * 0.50f) // UP / Bihar
+                        lineTo(w * 0.26f, h * 0.46f) // Rajasthan fringe
+                        close()
+                    }
+                    val isPlainSelected = selectedZone == "PLAINS"
+                    drawPath(
+                        path = plainsPath,
+                        color = if (isPlainSelected) Color(0xFF10B981) else Color(0xFF059669).copy(alpha = 0.4f)
+                    )
+                    if (isPlainSelected) {
+                        drawPath(
+                            path = plainsPath,
+                            color = Color(0xFFF59E0B),
+                            style = Stroke(width = 2.5.dp.toPx())
+                        )
+                    }
+
+                    // Meandering Ganga & Brahmaputra river vectors
+                    drawLine(
+                        color = Color(0xFF67E8F9).copy(alpha = 0.85f),
+                        start = Offset(w * 0.42f, h * 0.30f),
+                        end = Offset(w * 0.71f, h * 0.52f),
+                        strokeWidth = 1.8.dp.toPx()
+                    )
+                    drawLine(
+                        color = Color(0xFF67E8F9).copy(alpha = 0.85f),
+                        start = Offset(w * 0.80f, h * 0.28f),
+                        end = Offset(w * 0.73f, h * 0.52f),
+                        strokeWidth = 1.8.dp.toPx()
+                    )
+
+                    // 4. Peninsular Core / Plateau (Deccan Shield)
+                    val plateauPath = Path().apply {
+                        moveTo(w * 0.28f, h * 0.52f) // Malwa / Gujarat fringe
+                        lineTo(w * 0.68f, h * 0.54f) // Chota Nagpur
+                        lineTo(w * 0.62f, h * 0.76f) // Andhra / Telangana
+                        lineTo(w * 0.50f, h * 0.88f) // Kanyakumari Apex
+                        lineTo(w * 0.34f, h * 0.74f) // Karnataka / Kerala
+                        close()
+                    }
+                    val isPlateauSelected = selectedZone == "PLATEAU"
+                    drawPath(
+                        path = plateauPath,
+                        color = if (isPlateauSelected) Color(0xFFF59E0B) else Color(0xFFD97706).copy(alpha = 0.4f)
+                    )
+                    if (isPlateauSelected) {
+                        drawPath(
+                            path = plateauPath,
+                            color = Color(0xFFF59E0B),
+                            style = Stroke(width = 2.5.dp.toPx())
+                        )
+                    }
+
+                    // Western Ghats ridge line (Sahyadri)
+                    drawLine(
+                        color = Color(0xFFEF4444).copy(alpha = 0.9f),
+                        start = Offset(w * 0.32f, h * 0.56f),
+                        end = Offset(w * 0.48f, h * 0.86f),
+                        strokeWidth = 2.2.dp.toPx()
+                    )
+
+                    // 5. Coasts & Island Archipelagos
+                    val isCoastSelected = selectedZone == "COASTS"
+                    val coastColor = if (isCoastSelected) Color(0xFF00F0FF) else Color(0xFF06B6D4).copy(alpha = 0.45f)
+
+                    // Malabar / Konkan coastal strip
+                    drawLine(
+                        color = coastColor,
+                        start = Offset(w * 0.28f, h * 0.54f),
+                        end = Offset(w * 0.46f, h * 0.88f),
+                        strokeWidth = 3.dp.toPx()
+                    )
+                    // Coromandel coastal strip
+                    drawLine(
+                        color = coastColor,
+                        start = Offset(w * 0.70f, h * 0.54f),
+                        end = Offset(w * 0.52f, h * 0.88f),
+                        strokeWidth = 3.dp.toPx()
+                    )
+
+                    // Andaman & Nicobar Archipelago dots
+                    drawCircle(color = coastColor, radius = 3.dp.toPx(), center = Offset(w * 0.84f, h * 0.74f))
+                    drawCircle(color = coastColor, radius = 2.5.dp.toPx(), center = Offset(w * 0.85f, h * 0.80f))
+                    drawCircle(color = coastColor, radius = 2.dp.toPx(), center = Offset(w * 0.86f, h * 0.86f))
+
+                    // Lakshadweep Atoll dots
+                    drawCircle(color = coastColor, radius = 2.5.dp.toPx(), center = Offset(w * 0.22f, h * 0.78f))
+                    drawCircle(color = coastColor, radius = 2.dp.toPx(), center = Offset(w * 0.24f, h * 0.83f))
+                }
+
+                // Interactive Region Legend Overlays
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(10.dp),
+                    verticalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Surface(
+                            color = Color.Black.copy(alpha = 0.55f),
+                            shape = RoundedCornerShape(4.dp)
+                        ) {
+                            Text(
+                                text = "▲ NORTHERN ARC [Himalayas 8,848m]",
+                                color = Color(0xFF38BDF8),
+                                fontSize = 8.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                            )
+                        }
+                        Surface(
+                            color = Color.Black.copy(alpha = 0.55f),
+                            shape = RoundedCornerShape(4.dp)
+                        ) {
+                            Text(
+                                text = "🌾 GREAT PLAINS [Alluvium]",
+                                color = Color(0xFF10B981),
+                                fontSize = 8.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.Bottom
+                    ) {
+                        Surface(
+                            color = Color.Black.copy(alpha = 0.55f),
+                            shape = RoundedCornerShape(4.dp)
+                        ) {
+                            Text(
+                                text = "🏖️ LAKSHADWEEP",
+                                color = Color(0xFF00F0FF),
+                                fontSize = 8.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                            )
+                        }
+                        Surface(
+                            color = Color.Black.copy(alpha = 0.55f),
+                            shape = RoundedCornerShape(4.dp)
+                        ) {
+                            Text(
+                                text = "▼ DECCAN TRAPS [Gondwana]",
+                                color = Color(0xFFF59E0B),
+                                fontSize = 8.5.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                            )
+                        }
+                        Surface(
+                            color = Color.Black.copy(alpha = 0.55f),
+                            shape = RoundedCornerShape(4.dp)
+                        ) {
+                            Text(
+                                text = "🏝️ ANDAMAN & NICOBAR",
+                                color = Color(0xFF00F0FF),
+                                fontSize = 8.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                            )
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Active Province Geomorphic Inspector Card
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                border = BorderStroke(0.8.dp, SunstoneGold.copy(alpha = 0.35f)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Row(
+                    modifier = Modifier.padding(10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = when (selectedZone) {
+                            "HIMALAYAS" -> "🏔️"
+                            "PLAINS" -> "🌾"
+                            "PLATEAU" -> "🌋"
+                            "COASTS" -> "🏖️"
+                            "RIVERS" -> "🌊"
+                            else -> "🇮🇳"
+                        },
+                        fontSize = 18.sp
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "ACTIVE ZONE: ${selectedZone}",
+                            color = SunstoneGold,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            letterSpacing = 0.5.sp
+                        )
+                        Text(
+                            text = provinceDetails[selectedZone] ?: provinceDetails["ALL"]!!,
+                            color = AtlasParchment,
+                            fontSize = 10.5.sp,
+                            lineHeight = 14.5.sp
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Interactive Physiographic Zone Quick Chips (Row 1)
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
@@ -1588,7 +1902,7 @@ fun IndiaPhysiographyMapSelector(
 
             Spacer(modifier = Modifier.height(6.dp))
 
-            // Interactive Physiographic Zone Chips (Row 2)
+            // Interactive Physiographic Zone Quick Chips (Row 2)
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(6.dp)
