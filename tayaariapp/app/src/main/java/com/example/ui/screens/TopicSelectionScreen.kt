@@ -62,7 +62,7 @@ fun TopicSelectionScreen(
     allSelectedProfiles: List<ExamBlueprint> = emptyList(),
     onSelectActiveProfile: (ExamBlueprint) -> Unit = {},
     isSyncing: Boolean = false,
-    syncStatusMessage: String = "Online Stream (v26.0 • 5,551 MCQs) • Zero Local Asset",
+    syncStatusMessage: String = "Online Stream (v${com.example.BuildConfig.VERSION_NAME} • 5,551 MCQs) • Zero Local Asset",
     updateState: com.example.updater.AppUpdateManager.UpdateState = com.example.updater.AppUpdateManager.UpdateState.Idle,
     onTopicSelected: (topicName: String, tier: String, format: String) -> Unit,
     onBookmarksClick: () -> Unit = {},
@@ -129,7 +129,7 @@ fun TopicSelectionScreen(
                                         overflow = TextOverflow.Ellipsis
                                     )
                                     Text(
-                                        "Civil Services Geography Cadastre • v24.0",
+                                        "Civil Services Geography Cadastre • v${com.example.BuildConfig.VERSION_NAME}",
                                         color = deepBlue.copy(alpha = 0.7f),
                                         fontSize = 10.sp,
                                         fontWeight = FontWeight.Medium,

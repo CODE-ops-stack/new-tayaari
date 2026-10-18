@@ -230,7 +230,7 @@ fun InvestorPreviewScreen(
     val accentBlue = Color(0xFF3B82F6)
 
     Box(modifier = Modifier.fillMaxSize().background(bgColor)) {
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
             // ── TOP BAR ──────────────────────────────────────────────────────
             Surface(color = Color(0xFF0D1117), shadowElevation = 8.dp) {
                 Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp)) {
@@ -334,7 +334,7 @@ fun InvestorPreviewScreen(
                             }
                         }
 
-                        Divider(color = Color(0xFF1F2937))
+                        HorizontalDivider(color = Color(0xFF1F2937))
 
                         LazyColumn {
                             if (topicMeta.isEmpty() && !isLoading) {
@@ -510,7 +510,7 @@ private fun TopicSidebarItem(
             }
         }
     }
-    Divider(color = Color(0xFF1A2030), thickness = 0.5.dp)
+    HorizontalDivider(color = Color(0xFF1A2030), thickness = 0.5.dp)
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -854,7 +854,7 @@ private fun QuestionPreviewCard(
                             )
                         }
 
-                        Divider(color = Color(0xFF16A34A).copy(alpha = 0.2f))
+                        HorizontalDivider(color = Color(0xFF16A34A).copy(alpha = 0.2f))
 
                         // Expert Explanation
                         Column {

@@ -59,6 +59,7 @@ fun SplashScreen() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .systemBarsPadding()
                 .background(androidx.compose.ui.graphics.Color.Transparent),
             contentAlignment = Alignment.Center
         ) {

@@ -124,7 +124,7 @@ fun PracticeScreen(
         Scaffold(
             containerColor = androidx.compose.ui.graphics.Color.Transparent,
             topBar = {
-            Column {
+            Column(modifier = Modifier.statusBarsPadding()) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -242,7 +242,8 @@ fun PracticeScreen(
                 Surface(
                     color = cardColor,
                     shadowElevation = 8.dp,
-                    shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
+                    shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
+                    modifier = Modifier.navigationBarsPadding()
                 ) {
                     Row(
                         modifier = Modifier
