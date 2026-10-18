@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.Psychology
 import androidx.compose.material.icons.filled.RadioButtonUnchecked
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Schedule
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -51,7 +52,7 @@ fun TopicSelectionScreen(
     allSelectedProfiles: List<ExamBlueprint> = emptyList(),
     onSelectActiveProfile: (ExamBlueprint) -> Unit = {},
     isSyncing: Boolean = false,
-    syncStatusMessage: String = "Online Stream (v24.0 • 4,851 MCQs) • Zero Local Asset",
+    syncStatusMessage: String = "Online Stream (v26.0 • 5,551 MCQs) • Zero Local Asset",
     updateState: com.example.updater.AppUpdateManager.UpdateState = com.example.updater.AppUpdateManager.UpdateState.Idle,
     onTopicSelected: (topicName: String, tier: String, format: String) -> Unit,
     onBookmarksClick: () -> Unit = {},
@@ -62,7 +63,8 @@ fun TopicSelectionScreen(
     onMainsPracticeClick: () -> Unit = {},
     onChangeExam: () -> Unit = {},
     onRefreshSync: () -> Unit = {},
-    onCheckUpdate: () -> Unit = {}
+    onCheckUpdate: () -> Unit = {},
+    onInvestorPreviewClick: () -> Unit = {}
 ) {
     val surfaceColor = MaterialTheme.colorScheme.surface
     val cardColor = MaterialTheme.colorScheme.background
@@ -236,6 +238,17 @@ fun TopicSelectionScreen(
                             colors = NavigationBarItemDefaults.colors(
                                 unselectedIconColor = TopoContourMuted,
                                 unselectedTextColor = TopoContourMuted
+                            )
+                        )
+                        NavigationBarItem(
+                            selected = false,
+                            onClick = onInvestorPreviewClick,
+                            icon = { Icon(Icons.Default.Star, contentDescription = "Expert Preview") },
+                            label = { Text("Preview", fontSize = 10.sp, fontWeight = FontWeight.Bold) },
+                            colors = NavigationBarItemDefaults.colors(
+                                unselectedIconColor = SunstoneGold,
+                                unselectedTextColor = SunstoneGold,
+                                indicatorColor = SunstoneGold.copy(alpha = 0.15f)
                             )
                         )
                     }

@@ -32,6 +32,7 @@ import com.example.repository.JsonQuestionImporter
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModel
 import com.example.ui.screens.InsightsDashboardScreen
+import com.example.ui.screens.InvestorPreviewScreen
 import com.example.ui.screens.TrapDashboardScreen
 import com.example.ui.screens.BookmarksScreen
 import com.example.ui.screens.RevisionDashboardScreen
@@ -270,7 +271,15 @@ class MainActivity : ComponentActivity() {
                                     lifecycleScope.launch(Dispatchers.IO) {
                                         com.example.updater.AppUpdateManager.checkForUpdates(applicationContext, autoDownload = true)
                                     }
+                                },
+                                onInvestorPreviewClick = {
+                                    navController.navigate("investor_preview")
                                 }
+                            )
+                        }
+                        composable("investor_preview") {
+                            InvestorPreviewScreen(
+                                onBack = { navController.popBackStack() }
                             )
                         }
                         composable("mains_practice") {
