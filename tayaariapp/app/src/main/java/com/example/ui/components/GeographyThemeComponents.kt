@@ -27,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ui.theme.*
+import com.example.repository.AppThemeMode
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -39,13 +40,18 @@ fun AtlasBackground(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
-    val oceanGradient = Brush.verticalGradient(
-        colors = listOf(
-            AbyssNavy,
-            OceanicDark,
-            AbyssNavy
+    val themeMode = LocalAppThemeMode.current
+    val oceanGradient = when (themeMode) {
+        AppThemeMode.DARK -> Brush.verticalGradient(
+            colors = listOf(AbyssNavy, OceanicDark, AbyssNavy)
         )
-    )
+        AppThemeMode.LIGHT -> Brush.verticalGradient(
+            colors = listOf(Color(0xFFFBF8F1), Color(0xFFF4EDE2), Color(0xFFFBF8F1))
+        )
+        AppThemeMode.SEPIA -> Brush.verticalGradient(
+            colors = listOf(Color(0xFF1C140A), Color(0xFF291E10), Color(0xFF1C140A))
+        )
+    }
 
     Box(
         modifier = modifier
@@ -54,8 +60,16 @@ fun AtlasBackground(
     ) {
         // 1. Graticule Lat/Long Grid & Intersection Ticks
         Canvas(modifier = Modifier.fillMaxSize()) {
-            val gridColor = HydrosphereCyan.copy(alpha = 0.035f)
-            val tickColor = HydrosphereCyan.copy(alpha = 0.08f)
+            val gridColor = when (themeMode) {
+                AppThemeMode.DARK -> HydrosphereCyan.copy(alpha = 0.035f)
+                AppThemeMode.LIGHT -> Color(0xFF475569).copy(alpha = 0.045f)
+                AppThemeMode.SEPIA -> Color(0xFFF59E0B).copy(alpha = 0.04f)
+            }
+            val tickColor = when (themeMode) {
+                AppThemeMode.DARK -> HydrosphereCyan.copy(alpha = 0.08f)
+                AppThemeMode.LIGHT -> Color(0xFF475569).copy(alpha = 0.09f)
+                AppThemeMode.SEPIA -> Color(0xFFF59E0B).copy(alpha = 0.08f)
+            }
             val stepX = 56.dp.toPx()
             val stepY = 56.dp.toPx()
 
@@ -190,12 +204,28 @@ fun AtlasCard(
     borderColor: Color = CartographicBorder,
     content: @Composable () -> Unit
 ) {
+    val themeMode = LocalAppThemeMode.current
     val cardShape = RoundedCornerShape(16.dp)
+    val containerColor = when (themeMode) {
+        AppThemeMode.DARK -> DeepBasalt.copy(alpha = 0.94f)
+        AppThemeMode.LIGHT -> Color(0xFFFFFFFF)
+        AppThemeMode.SEPIA -> Color(0xFF291E10)
+    }
+    val contentColor = when (themeMode) {
+        AppThemeMode.DARK -> AtlasParchment
+        AppThemeMode.LIGHT -> Color(0xFF0F172A)
+        AppThemeMode.SEPIA -> Color(0xFFF5E6D3)
+    }
+    val resolvedBorder = when (themeMode) {
+        AppThemeMode.DARK -> borderColor
+        AppThemeMode.LIGHT -> if (borderColor == CartographicBorder) Color(0xFFE2D9C8) else borderColor
+        AppThemeMode.SEPIA -> if (borderColor == CartographicBorder) Color(0xFF4A3820) else borderColor
+    }
     val cardColors = CardDefaults.cardColors(
-        containerColor = DeepBasalt.copy(alpha = 0.94f),
-        contentColor = AtlasParchment
+        containerColor = containerColor,
+        contentColor = contentColor
     )
-    val borderStroke = BorderStroke(1.dp, borderColor)
+    val borderStroke = BorderStroke(1.dp, resolvedBorder)
 
     if (onClick != null) {
         Card(
@@ -308,10 +338,30 @@ fun CartographicCoordinatesBanner(
     } else {
         coordinates
     }
+
+    val currentTheme = LocalAppThemeMode.current
+    val (bannerBg, bannerBorder, textColor) = when (currentTheme) {
+        AppThemeMode.LIGHT -> Triple(
+            Color(0xFFEDE8D0).copy(alpha = 0.85f),
+            Color(0xFFCBD5E1),
+            Color(0xFF475569)
+        )
+        AppThemeMode.SEPIA -> Triple(
+            Color(0xFF281D10).copy(alpha = 0.85f),
+            Color(0xFF6B4E2B).copy(alpha = 0.4f),
+            Color(0xFFD4B483)
+        )
+        else -> Triple(
+            OceanicDark.copy(alpha = 0.65f),
+            HydrosphereCyan.copy(alpha = 0.2f),
+            MeridianMuted
+        )
+    }
+
     Surface(
-        color = OceanicDark.copy(alpha = 0.65f),
+        color = bannerBg,
         shape = RoundedCornerShape(6.dp),
-        border = BorderStroke(1.dp, HydrosphereCyan.copy(alpha = 0.2f)),
+        border = BorderStroke(1.dp, bannerBorder),
         modifier = modifier
     ) {
         Row(
@@ -320,7 +370,7 @@ fun CartographicCoordinatesBanner(
         ) {
             Text(
                 text = if (displayCoordinates.startsWith("📍")) displayCoordinates else "📍 $displayCoordinates",
-                color = MeridianMuted,
+                color = textColor,
                 fontSize = 10.sp,
                 fontFamily = CoordinatesMonospace,
                 fontWeight = FontWeight.Medium,

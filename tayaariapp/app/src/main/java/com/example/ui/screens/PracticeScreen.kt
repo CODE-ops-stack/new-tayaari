@@ -160,21 +160,39 @@ fun PracticeScreen(
                             }
                             com.example.ui.components.ElevationTierPill(tier = tier)
                             BadgeChip(text = "🗺️ $format", color = deepBlue.copy(alpha = 0.1f), textColor = deepBlue)
-                            if (uiState.currentStreak >= 2) {
+                            val isZen = LocalZenMode.current
+                            if (uiState.currentStreak >= 2 && !isZen) {
                                 BadgeChip(text = "🧭 ${uiState.currentStreak} COMBO", color = com.example.ui.theme.SunstoneGold, textColor = Color.Black)
                             }
                             BadgeChip(text = "📍 ${uiState.mindPowerPoints} GP", color = com.example.ui.theme.HydrosphereCyan.copy(alpha = 0.15f), textColor = com.example.ui.theme.HydrosphereCyan)
                         }
                     }
+                    val isZen = LocalZenMode.current
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        if (!uiState.isTestFinished && !uiState.isLoading && uiState.timeRemaining > 0) {
-                            Text(
-                                text = String.format("%02d:%02d", uiState.timeRemaining / 60, uiState.timeRemaining % 60),
-                                color = deepBlue,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 16.sp
-                            )
-                            Spacer(modifier = Modifier.width(16.dp))
+                        if (!uiState.isTestFinished && !uiState.isLoading) {
+                            if (isZen) {
+                                Surface(
+                                    color = Color(0xFF10B981).copy(alpha = 0.15f),
+                                    shape = RoundedCornerShape(12.dp)
+                                ) {
+                                    Text(
+                                        text = "🧘 Zen Focus",
+                                        color = Color(0xFF10B981),
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 12.sp,
+                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                    )
+                                }
+                                Spacer(modifier = Modifier.width(12.dp))
+                            } else if (uiState.timeRemaining > 0) {
+                                Text(
+                                    text = String.format("%02d:%02d", uiState.timeRemaining / 60, uiState.timeRemaining % 60),
+                                    color = deepBlue,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                            }
                         }
                         IconButton(onClick = onDashboardClick) {
                             Icon(Icons.Filled.Assessment, contentDescription = "Dashboard", tint = deepBlue)
@@ -2123,6 +2141,14 @@ fun StructuredQuestionContent(
     questionText: String,
     textColor: Color
 ) {
+    val fontScale = LocalFontScale.current
+    val currentTheme = LocalAppThemeMode.current
+    val statementBoxBg = when (currentTheme) {
+        com.example.repository.AppThemeMode.LIGHT -> Color(0xFFF1F5F9)
+        com.example.repository.AppThemeMode.SEPIA -> Color(0xFF281D10)
+        else -> Color(0xFF1E293B).copy(alpha = 0.6f)
+    }
+
     val lines = remember(questionText) {
         questionText.trim().split("\n").map { it.trim() }.filter { it.isNotEmpty() }
     }
@@ -2135,9 +2161,9 @@ fun StructuredQuestionContent(
         Text(
             text = questionText.trim(),
             color = textColor,
-            fontSize = 17.sp,
+            fontSize = (17 * fontScale).sp,
             fontWeight = FontWeight.SemiBold,
-            lineHeight = 25.sp,
+            lineHeight = (25 * fontScale).sp,
             letterSpacing = 0.2.sp
         )
     } else {
@@ -2161,7 +2187,7 @@ fun StructuredQuestionContent(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(10.dp))
-                                .background(Color(0xFF1E293B).copy(alpha = 0.6f))
+                                .background(statementBoxBg)
                                 .padding(horizontal = 12.dp, vertical = 8.dp),
                             verticalAlignment = Alignment.Top
                         ) {
@@ -2175,7 +2201,7 @@ fun StructuredQuestionContent(
                                 Text(
                                     text = num,
                                     color = Color(0xFF00F0FF),
-                                    fontSize = 12.sp,
+                                    fontSize = (12 * fontScale).sp,
                                     fontWeight = FontWeight.ExtraBold
                                 )
                             }
@@ -2183,9 +2209,9 @@ fun StructuredQuestionContent(
                             Text(
                                 text = content,
                                 color = textColor,
-                                fontSize = 15.sp,
+                                fontSize = (15 * fontScale).sp,
                                 fontWeight = FontWeight.Medium,
-                                lineHeight = 22.sp,
+                                lineHeight = (22 * fontScale).sp,
                                 modifier = Modifier.weight(1f)
                             )
                         }
@@ -2197,13 +2223,13 @@ fun StructuredQuestionContent(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(10.dp))
-                                .background(Color(0xFF1E293B).copy(alpha = 0.6f))
+                                .background(statementBoxBg)
                                 .padding(horizontal = 12.dp, vertical = 8.dp)
                         ) {
                             Text(
                                 text = label.uppercase(),
                                 color = Color(0xFFF59E0B),
-                                fontSize = 11.sp,
+                                fontSize = (11 * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
                                 letterSpacing = 0.8.sp
                             )
@@ -2211,9 +2237,9 @@ fun StructuredQuestionContent(
                             Text(
                                 text = content,
                                 color = textColor,
-                                fontSize = 15.sp,
+                                fontSize = (15 * fontScale).sp,
                                 fontWeight = FontWeight.Medium,
-                                lineHeight = 22.sp
+                                lineHeight = (22 * fontScale).sp
                             )
                         }
                     }
@@ -2231,10 +2257,10 @@ fun StructuredQuestionContent(
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = line,
-                                    color = Color(0xFF00F0FF),
-                                    fontSize = 15.sp,
+                                    color = if (currentTheme == com.example.repository.AppThemeMode.LIGHT) Color(0xFF0284C7) else Color(0xFF00F0FF),
+                                    fontSize = (15 * fontScale).sp,
                                     fontWeight = FontWeight.Bold,
-                                    lineHeight = 22.sp
+                                    lineHeight = (22 * fontScale).sp
                                 )
                             }
                         }
@@ -2243,9 +2269,9 @@ fun StructuredQuestionContent(
                         Text(
                             text = line,
                             color = textColor.copy(alpha = 0.95f),
-                            fontSize = 16.sp,
+                            fontSize = (16 * fontScale).sp,
                             fontWeight = FontWeight.SemiBold,
-                            lineHeight = 24.sp
+                            lineHeight = (24 * fontScale).sp
                         )
                     }
                 }
@@ -2275,6 +2301,7 @@ fun PremiumOptionsList(
 ) {
     val labels = listOf("A", "B", "C", "D", "E")
     val haptic = LocalHapticFeedback.current
+    val fontScale = LocalFontScale.current
 
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         options.forEachIndexed { index, option ->
@@ -2336,7 +2363,7 @@ fun PremiumOptionsList(
                                     text = labels.getOrElse(index) { "" },
                                     color = if (isCrossedOut) errorRed else deepBlue,
                                     fontWeight = FontWeight.Bold,
-                                    fontSize = 14.sp
+                                    fontSize = (14 * fontScale).sp
                                 )
                             }
                             Spacer(modifier = Modifier.width(16.dp))
@@ -2345,8 +2372,8 @@ fun PremiumOptionsList(
                                 textDecoration = if (isCrossedOut) androidx.compose.ui.text.style.TextDecoration.LineThrough else null,
                                 modifier = Modifier.weight(1f),
                                 color = if (isCrossedOut) deepBlue.copy(alpha = 0.5f) else deepBlue.copy(alpha = 0.9f),
-                                fontSize = 16.sp,
-                                lineHeight = 22.sp
+                                fontSize = (16 * fontScale).sp,
+                                lineHeight = (22 * fontScale).sp
                             )
                             if (!isAnswerSubmitted) {
                                 IconButton(
@@ -2473,6 +2500,7 @@ fun PremiumOptionsList(
 
 @Composable
 fun FeedbackBox(title: String, message: String, color: Color, bgColor: Color) {
+    val fontScale = LocalFontScale.current
     Surface(
         color = bgColor,
         shape = RoundedCornerShape(12.dp),
@@ -2495,15 +2523,15 @@ fun FeedbackBox(title: String, message: String, color: Color, bgColor: Color) {
                     text = title,
                     color = color,
                     fontWeight = FontWeight.Black,
-                    fontSize = 12.sp,
+                    fontSize = (12 * fontScale).sp,
                     letterSpacing = 1.sp
                 )
                 Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = message,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
-                    fontSize = 14.sp,
-                    lineHeight = 20.sp
+                    fontSize = (14 * fontScale).sp,
+                    lineHeight = (20 * fontScale).sp
                 )
             }
         }

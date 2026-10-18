@@ -164,8 +164,18 @@ class MainActivity : ComponentActivity() {
         }
         
         setContent {
-            MyApplicationTheme {
-                val mainViewModel: MainViewModel = viewModel(factory = mainFactory)
+            val mainViewModel: MainViewModel = viewModel(factory = mainFactory)
+            val themeMode by mainViewModel.themeMode.collectAsStateWithLifecycle()
+            val fontScaleOption by mainViewModel.fontScaleOption.collectAsStateWithLifecycle()
+            val isZenMode by mainViewModel.isZenMode.collectAsStateWithLifecycle()
+            val dailyTarget by mainViewModel.dailyTarget.collectAsStateWithLifecycle()
+            val todaySolvedCount by mainViewModel.todaySolvedCount.collectAsStateWithLifecycle()
+
+            MyApplicationTheme(
+                themeMode = themeMode,
+                fontScale = fontScaleOption.scale,
+                zenMode = isZenMode
+            ) {
                 val isLoading by mainViewModel.isLoading.collectAsStateWithLifecycle()
                 val selectedProfiles by mainViewModel.selectedProfiles.collectAsStateWithLifecycle()
 
@@ -230,6 +240,15 @@ class MainActivity : ComponentActivity() {
                                 isSyncing = isSyncing,
                                 syncStatusMessage = syncStatusMessage,
                                 updateState = updateState,
+                                themeMode = themeMode,
+                                onThemeModeChange = mainViewModel::setThemeMode,
+                                fontScaleOption = fontScaleOption,
+                                onFontScaleOptionChange = mainViewModel::setFontScaleOption,
+                                isZenMode = isZenMode,
+                                onZenModeChange = mainViewModel::setZenMode,
+                                dailyTarget = dailyTarget,
+                                onDailyTargetChange = mainViewModel::setDailyTarget,
+                                todaySolvedCount = todaySolvedCount,
                                 onTopicSelected = { topicName, tier, format ->
                                       topicViewModel.onPracticeIntent(topicName, tier, format) { t, r, f ->
                                           val encT = android.net.Uri.encode(t)
@@ -366,7 +385,10 @@ class MainActivity : ComponentActivity() {
                                 format = format,
                                 profile = activeProfile,
                                 uiState = uiState,
-                                onOptionSelected = viewModel::onOptionPending,
+                                onOptionSelected = { optId ->
+                                    viewModel.onOptionPending(optId)
+                                    mainViewModel.incrementTodaySolved()
+                                },
                                 onOptionCrossOut = viewModel::toggleOptionCrossedOut,
                                 onSubmitAnswer = viewModel::submitAnswer,
                                 onBookmarkToggle = viewModel::toggleBookmark,

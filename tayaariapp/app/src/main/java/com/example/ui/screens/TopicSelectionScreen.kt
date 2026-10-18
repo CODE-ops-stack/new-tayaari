@@ -33,6 +33,9 @@ import androidx.compose.material.icons.filled.RadioButtonUnchecked
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -49,6 +52,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.R
 import com.example.model.ExamBlueprint
+import com.example.repository.AppThemeMode
+import com.example.repository.FontScaleOption
 import com.example.ui.theme.*
 import com.example.viewmodel.TopicUIModel
 
@@ -64,6 +69,15 @@ fun TopicSelectionScreen(
     isSyncing: Boolean = false,
     syncStatusMessage: String = "Online Stream (v${com.example.BuildConfig.VERSION_NAME} • 5,551 MCQs) • Zero Local Asset",
     updateState: com.example.updater.AppUpdateManager.UpdateState = com.example.updater.AppUpdateManager.UpdateState.Idle,
+    themeMode: AppThemeMode = AppThemeMode.DARK,
+    onThemeModeChange: (AppThemeMode) -> Unit = {},
+    fontScaleOption: FontScaleOption = FontScaleOption.NORMAL,
+    onFontScaleOptionChange: (FontScaleOption) -> Unit = {},
+    isZenMode: Boolean = false,
+    onZenModeChange: (Boolean) -> Unit = {},
+    dailyTarget: Int = 20,
+    onDailyTargetChange: (Int) -> Unit = {},
+    todaySolvedCount: Int = 0,
     onTopicSelected: (topicName: String, tier: String, format: String) -> Unit,
     onBookmarksClick: () -> Unit = {},
     onAnalyticsClick: () -> Unit = {},
@@ -85,10 +99,24 @@ fun TopicSelectionScreen(
 
     var isHardcoreMode by remember { mutableStateOf(false) }
     var showExamSwitcherDialog by remember { mutableStateOf(false) }
+    var showSettingsDialog by remember { mutableStateOf(false) }
+    var searchQuery by remember { mutableStateOf("") }
 
-    // Group topics by module
-    val groupedTopics = remember(topics) {
-        topics.groupBy { it.topic.module }
+    // Group topics by module, filtering by search query if present
+    val filteredTopics = remember(topics, searchQuery) {
+        if (searchQuery.isBlank()) {
+            topics
+        } else {
+            val q = searchQuery.trim().lowercase()
+            topics.filter {
+                it.topic.name.lowercase().contains(q) ||
+                it.topic.module.lowercase().contains(q)
+            }
+        }
+    }
+
+    val groupedTopics = remember(filteredTopics) {
+        filteredTopics.groupBy { it.topic.module }
     }
 
     // Expand all modules by default so all 30 chapters are visible immediately
@@ -177,6 +205,15 @@ fun TopicSelectionScreen(
                                     imageVector = Icons.Default.CheckCircle,
                                     contentDescription = "Field Readiness Radar",
                                     tint = ContourEmerald
+                                )
+                            }
+
+                            // Aspirant Field Ergonomics Settings Shortcut
+                            IconButton(onClick = { showSettingsDialog = true }) {
+                                Icon(
+                                    imageVector = Icons.Default.Settings,
+                                    contentDescription = "Aspirant Field Ergonomics",
+                                    tint = SunstoneGold
                                 )
                             }
 
@@ -472,6 +509,133 @@ fun TopicSelectionScreen(
                                             fontWeight = FontWeight.Black,
                                             fontSize = 12.sp
                                         )
+                                    }
+                                }
+                            }
+                        }
+
+                        // ==========================================
+                        // PRELIMS COUNTDOWN & DAILY TARGET QUOTA HUD CARD
+                        // ==========================================
+                        item {
+                            val (examName, daysLeft, examCenter) = getExamCountdownInfo(profile?.examId)
+                            val quotaProgress = (todaySolvedCount.toFloat() / dailyTarget.coerceAtLeast(1).toFloat()).coerceIn(0f, 1f)
+
+                            Surface(
+                                color = DeepBasalt,
+                                shape = RoundedCornerShape(16.dp),
+                                border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.5f)),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 2.dp)
+                            ) {
+                                Column(modifier = Modifier.padding(14.dp)) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Text("⏳", fontSize = 16.sp)
+                                            Spacer(modifier = Modifier.width(6.dp))
+                                            Column {
+                                                Text(
+                                                    text = examName,
+                                                    color = SunstoneGold,
+                                                    fontSize = 12.sp,
+                                                    fontWeight = FontWeight.Bold
+                                                )
+                                                Text(
+                                                    text = examCenter,
+                                                    color = TopoContourMuted,
+                                                    fontSize = 9.sp,
+                                                    fontWeight = FontWeight.Medium,
+                                                    letterSpacing = 0.6.sp
+                                                )
+                                            }
+                                        }
+                                        Surface(
+                                            color = MagmaCrimson.copy(alpha = 0.2f),
+                                            shape = RoundedCornerShape(8.dp),
+                                            border = BorderStroke(1.dp, MagmaCrimson.copy(alpha = 0.4f))
+                                        ) {
+                                            Text(
+                                                text = "$daysLeft DAYS REMAINING",
+                                                color = Color(0xFFFF6B6B),
+                                                fontWeight = FontWeight.Black,
+                                                fontSize = 11.sp,
+                                                letterSpacing = 0.6.sp,
+                                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                            )
+                                        }
+                                    }
+
+                                    Spacer(modifier = Modifier.height(12.dp))
+                                    HorizontalDivider(color = TopoContourMuted.copy(alpha = 0.2f), thickness = 1.dp)
+                                    Spacer(modifier = Modifier.height(10.dp))
+
+                                    // Daily Quota Progress
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Text("🎯", fontSize = 14.sp)
+                                            Spacer(modifier = Modifier.width(6.dp))
+                                            Text(
+                                                text = "Today's Target Quota",
+                                                color = Color.White,
+                                                fontSize = 11.sp,
+                                                fontWeight = FontWeight.SemiBold
+                                            )
+                                        }
+                                        Text(
+                                            text = "$todaySolvedCount / $dailyTarget MCQs Solved",
+                                            color = if (todaySolvedCount >= dailyTarget) ContourEmerald else SunstoneGold,
+                                            fontSize = 11.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
+
+                                    Spacer(modifier = Modifier.height(8.dp))
+
+                                    // Progress bar
+                                    LinearProgressIndicator(
+                                        progress = { quotaProgress },
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(6.dp)
+                                            .clip(RoundedCornerShape(3.dp)),
+                                        color = if (todaySolvedCount >= dailyTarget) ContourEmerald else SunstoneGold,
+                                        trackColor = DeepBasalt.copy(alpha = 0.8f)
+                                    )
+
+                                    Spacer(modifier = Modifier.height(8.dp))
+
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Text(
+                                            text = if (todaySolvedCount >= dailyTarget) "🎉 Daily target achieved! Unstoppable discipline." else "💡 1 question every morning builds civil services rank.",
+                                            color = if (todaySolvedCount >= dailyTarget) ContourEmerald else TopoContourMuted,
+                                            fontSize = 10.sp,
+                                            fontWeight = FontWeight.Medium
+                                        )
+                                        TextButton(
+                                            onClick = { showSettingsDialog = true },
+                                            contentPadding = PaddingValues(0.dp),
+                                            modifier = Modifier.height(24.dp)
+                                        ) {
+                                            Text(
+                                                text = "Customize Target ⚙️",
+                                                color = HydrosphereCyan,
+                                                fontSize = 10.sp,
+                                                fontWeight = FontWeight.Bold
+                                            )
+                                        }
                                     }
                                 }
                             }
@@ -869,6 +1033,94 @@ fun TopicSelectionScreen(
                         )
                         val allModules = (orderedModules + (groupedTopics.keys - orderedModules.toSet())).distinct()
                         // ==========================================
+                        // INSTANT CADRE CHAPTER SEARCH BAR
+                        // ==========================================
+                        item {
+                            OutlinedTextField(
+                                value = searchQuery,
+                                onValueChange = { searchQuery = it },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 4.dp),
+                                placeholder = {
+                                    Text(
+                                        "🔍 Search 30 chapters (e.g. Monsoon, Soils, Rocks)...",
+                                        color = TopoContourMuted,
+                                        fontSize = 12.5.sp
+                                    )
+                                },
+                                leadingIcon = {
+                                    Icon(
+                                        imageVector = Icons.Default.Search,
+                                        contentDescription = "Search",
+                                        tint = SunstoneGold
+                                    )
+                                },
+                                trailingIcon = {
+                                    if (searchQuery.isNotEmpty()) {
+                                        IconButton(onClick = { searchQuery = "" }) {
+                                            Icon(
+                                                imageVector = Icons.Default.Clear,
+                                                contentDescription = "Clear",
+                                                tint = TopoContourMuted
+                                            )
+                                        }
+                                    }
+                                },
+                                singleLine = true,
+                                shape = RoundedCornerShape(12.dp),
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    focusedBorderColor = SunstoneGold,
+                                    unfocusedBorderColor = TopoContourMuted.copy(alpha = 0.4f),
+                                    focusedTextColor = if (themeMode == AppThemeMode.LIGHT) Color(0xFF0F172A) else Color.White,
+                                    unfocusedTextColor = if (themeMode == AppThemeMode.LIGHT) Color(0xFF0F172A) else Color.White,
+                                    focusedContainerColor = if (themeMode == AppThemeMode.LIGHT) Color(0xFFFFFFFF) else DeepBasalt,
+                                    unfocusedContainerColor = if (themeMode == AppThemeMode.LIGHT) Color(0xFFFFFFFF) else DeepBasalt
+                                )
+                            )
+                        }
+
+                        if (filteredTopics.isEmpty()) {
+                            item {
+                                Surface(
+                                    color = DeepBasalt,
+                                    shape = RoundedCornerShape(14.dp),
+                                    border = BorderStroke(1.dp, TopoContourMuted.copy(alpha = 0.3f)),
+                                    modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp)
+                                ) {
+                                    Column(
+                                        modifier = Modifier.padding(20.dp),
+                                        horizontalAlignment = Alignment.CenterHorizontally
+                                    ) {
+                                        Text("🔍", fontSize = 28.sp)
+                                        Spacer(modifier = Modifier.height(8.dp))
+                                        Text(
+                                            text = "No chapters found matching \"$searchQuery\"",
+                                            color = Color.White,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 14.sp
+                                        )
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Text(
+                                            text = "Try searching for Monsoon, Drainage, Rocks, Agriculture, or Census",
+                                            color = TopoContourMuted,
+                                            fontSize = 11.sp,
+                                            textAlign = TextAlign.Center
+                                        )
+                                        Spacer(modifier = Modifier.height(12.dp))
+                                        OutlinedButton(
+                                            onClick = { searchQuery = "" },
+                                            border = BorderStroke(1.dp, SunstoneGold),
+                                            shape = RoundedCornerShape(8.dp)
+                                        ) {
+                                            Text("Clear Search & Show All Chapters", color = SunstoneGold, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // ==========================================
                         // INTERACTIVE INDIA PHYSIOGRAPHY MAP SELECTOR
                         // ==========================================
                         item {
@@ -1129,6 +1381,288 @@ fun TopicSelectionScreen(
             }
         )
     }
+
+    if (showSettingsDialog) {
+        AspirantSettingsDialog(
+            themeMode = themeMode,
+            onThemeModeChange = onThemeModeChange,
+            fontScaleOption = fontScaleOption,
+            onFontScaleOptionChange = onFontScaleOptionChange,
+            isZenMode = isZenMode,
+            onZenModeChange = onZenModeChange,
+            dailyTarget = dailyTarget,
+            onDailyTargetChange = onDailyTargetChange,
+            onDismiss = { showSettingsDialog = false }
+        )
+    }
+}
+
+fun getExamCountdownInfo(examId: String?): Triple<String, Int, String> {
+    val (name, targetDateStr, badge) = when {
+        examId?.contains("BPSC", ignoreCase = true) == true -> Triple("BPSC 72nd CCE", "2026-12-13", "BPSC PATNA")
+        examId?.contains("SSC", ignoreCase = true) == true -> Triple("SSC CGL Tier 1", "2026-09-15", "SSC NEW DELHI")
+        examId?.contains("RRB", ignoreCase = true) == true -> Triple("RRB NTPC CBT", "2026-11-10", "RAILWAYS CEN")
+        else -> Triple("UPSC CSE Prelims 2026", "2026-05-24", "DHOLPUR HOUSE")
+    }
+    val diffDays = try {
+        val sdf = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+        val targetTime = sdf.parse(targetDateStr)?.time ?: System.currentTimeMillis()
+        val now = System.currentTimeMillis()
+        ((targetTime - now) / (1000 * 60 * 60 * 24)).toInt().coerceAtLeast(0)
+    } catch (e: Exception) {
+        180
+    }
+    return Triple(name, diffDays, badge)
+}
+
+@Composable
+fun AspirantSettingsDialog(
+    themeMode: AppThemeMode,
+    onThemeModeChange: (AppThemeMode) -> Unit,
+    fontScaleOption: FontScaleOption,
+    onFontScaleOptionChange: (FontScaleOption) -> Unit,
+    isZenMode: Boolean,
+    onZenModeChange: (Boolean) -> Unit,
+    dailyTarget: Int,
+    onDailyTargetChange: (Int) -> Unit,
+    onDismiss: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        containerColor = DeepBasalt,
+        title = {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("⚙️", fontSize = 22.sp)
+                Spacer(modifier = Modifier.width(8.dp))
+                Column {
+                    Text(
+                        text = "Aspirant Field Ergonomics",
+                        fontFamily = CartographicSerif,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 17.sp,
+                        color = SunstoneGold
+                    )
+                    Text(
+                        text = "Reading theme, typography & anti-panic focus",
+                        fontSize = 11.sp,
+                        color = TopoContourMuted
+                    )
+                }
+            }
+        },
+        text = {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp)
+            ) {
+                // Section 1: Reading Theme
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(
+                        text = "CARTOGRAPHIC READING THEME",
+                        color = SunstoneGold,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.8.sp
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        val themes = listOf(
+                            Triple(AppThemeMode.DARK, "🌑 Dark", "Basalt"),
+                            Triple(AppThemeMode.LIGHT, "📜 Light", "Parchment"),
+                            Triple(AppThemeMode.SEPIA, "🕯️ Sepia", "Lamp-Light")
+                        )
+                        themes.forEach { (mode, title, sub) ->
+                            val isSelected = themeMode == mode
+                            Surface(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { onThemeModeChange(mode) },
+                                shape = RoundedCornerShape(10.dp),
+                                color = if (isSelected) SunstoneGold.copy(alpha = 0.18f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
+                                border = BorderStroke(
+                                    1.5.dp,
+                                    if (isSelected) SunstoneGold else TopoContourMuted.copy(alpha = 0.3f)
+                                )
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(vertical = 10.dp, horizontal = 4.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Text(
+                                        text = title,
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = if (isSelected) SunstoneGold else Color.White
+                                    )
+                                    Spacer(modifier = Modifier.height(2.dp))
+                                    Text(
+                                        text = sub,
+                                        fontSize = 9.sp,
+                                        color = TopoContourMuted
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Section 2: Typography Scaler
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(
+                        text = "TYPOGRAPHY ZOOM (LEGIBILITY)",
+                        color = SunstoneGold,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.8.sp
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        val fontOptions = listOf(
+                            Triple(FontScaleOption.NORMAL, "100%", "Standard"),
+                            Triple(FontScaleOption.COMFORT, "115%", "Comfort"),
+                            Triple(FontScaleOption.LARGE, "130%", "Enlarged")
+                        )
+                        fontOptions.forEach { (opt, percent, desc) ->
+                            val isSelected = fontScaleOption == opt
+                            Surface(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { onFontScaleOptionChange(opt) },
+                                shape = RoundedCornerShape(10.dp),
+                                color = if (isSelected) HydrosphereCyan.copy(alpha = 0.18f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
+                                border = BorderStroke(
+                                    1.5.dp,
+                                    if (isSelected) HydrosphereCyan else TopoContourMuted.copy(alpha = 0.3f)
+                                )
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(vertical = 10.dp, horizontal = 4.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Text(
+                                        text = percent,
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = if (isSelected) HydrosphereCyan else Color.White
+                                    )
+                                    Spacer(modifier = Modifier.height(2.dp))
+                                    Text(
+                                        text = desc,
+                                        fontSize = 9.sp,
+                                        color = TopoContourMuted
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Section 3: Zen Focus Mode (Anti-Panic)
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = if (isZenMode) ContourEmerald.copy(alpha = 0.12f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.25f),
+                    border = BorderStroke(1.dp, if (isZenMode) ContourEmerald.copy(alpha = 0.5f) else TopoContourMuted.copy(alpha = 0.3f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("🧘", fontSize = 14.sp)
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(
+                                    text = "Zen Focus (Anti-Panic)",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 12.sp,
+                                    color = if (isZenMode) ContourEmerald else Color.White
+                                )
+                            }
+                            Spacer(modifier = Modifier.height(3.dp))
+                            Text(
+                                text = "Hides countdown timer & combo streaks during practice to eliminate test anxiety.",
+                                fontSize = 10.sp,
+                                color = TopoContourMuted,
+                                lineHeight = 14.sp
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Switch(
+                            checked = isZenMode,
+                            onCheckedChange = onZenModeChange,
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = ContourEmerald,
+                                checkedTrackColor = ContourEmerald.copy(alpha = 0.3f),
+                                uncheckedThumbColor = TopoContourMuted,
+                                uncheckedTrackColor = DeepBasalt
+                            )
+                        )
+                    }
+                }
+
+                // Section 4: Daily Target Quota
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(
+                        text = "DAILY QUESTION QUOTA",
+                        color = SunstoneGold,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.8.sp
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        val targets = listOf(10, 20, 30, 50)
+                        targets.forEach { target ->
+                            val isSelected = dailyTarget == target
+                            Surface(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { onDailyTargetChange(target) },
+                                shape = RoundedCornerShape(8.dp),
+                                color = if (isSelected) SunstoneGold.copy(alpha = 0.2f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.25f),
+                                border = BorderStroke(
+                                    1.dp,
+                                    if (isSelected) SunstoneGold else TopoContourMuted.copy(alpha = 0.3f)
+                                )
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(vertical = 8.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Text(
+                                        text = "$target",
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 13.sp,
+                                        color = if (isSelected) SunstoneGold else Color.White
+                                    )
+                                    Text(
+                                        text = "MCQs",
+                                        fontSize = 8.sp,
+                                        color = TopoContourMuted
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Done", color = SunstoneGold, fontWeight = FontWeight.Bold)
+            }
+        }
+    )
 }
 
 /**

@@ -5,10 +5,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.database.UserDao
 import com.example.model.ExamBlueprint
 import com.example.model.ExamBlueprintRegistry
+import com.example.repository.AppThemeMode
+import com.example.repository.FontScaleOption
 import com.example.repository.UserPreferencesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class MainViewModel(
@@ -24,6 +28,21 @@ class MainViewModel(
 
     private val _loggedInUserId = MutableStateFlow<Int?>(null)
     val loggedInUserId: StateFlow<Int?> = _loggedInUserId
+
+    val themeMode: StateFlow<AppThemeMode> = userPreferencesRepository.themeMode
+        .stateIn(viewModelScope, SharingStarted.Eagerly, AppThemeMode.DARK)
+
+    val fontScaleOption: StateFlow<FontScaleOption> = userPreferencesRepository.fontScaleOption
+        .stateIn(viewModelScope, SharingStarted.Eagerly, FontScaleOption.NORMAL)
+
+    val isZenMode: StateFlow<Boolean> = userPreferencesRepository.isZenMode
+        .stateIn(viewModelScope, SharingStarted.Eagerly, false)
+
+    val dailyTarget: StateFlow<Int> = userPreferencesRepository.dailyTarget
+        .stateIn(viewModelScope, SharingStarted.Eagerly, 20)
+
+    val todaySolvedCount: StateFlow<Int> = userPreferencesRepository.todaySolvedCount
+        .stateIn(viewModelScope, SharingStarted.Eagerly, 0)
 
     init {
         viewModelScope.launch {
@@ -129,6 +148,36 @@ class MainViewModel(
             if (userId != null && userDao != null) {
                 userDao.updateTargetExams(userId, null)
             }
+        }
+    }
+
+    fun setThemeMode(mode: AppThemeMode) {
+        viewModelScope.launch {
+            userPreferencesRepository.setThemeMode(mode)
+        }
+    }
+
+    fun setFontScaleOption(option: FontScaleOption) {
+        viewModelScope.launch {
+            userPreferencesRepository.setFontScaleOption(option)
+        }
+    }
+
+    fun setZenMode(enabled: Boolean) {
+        viewModelScope.launch {
+            userPreferencesRepository.setZenMode(enabled)
+        }
+    }
+
+    fun setDailyTarget(target: Int) {
+        viewModelScope.launch {
+            userPreferencesRepository.setDailyTarget(target)
+        }
+    }
+
+    fun incrementTodaySolved() {
+        viewModelScope.launch {
+            userPreferencesRepository.incrementTodaySolved()
         }
     }
 }
