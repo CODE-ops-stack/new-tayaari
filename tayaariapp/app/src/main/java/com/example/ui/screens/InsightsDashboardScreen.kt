@@ -81,12 +81,12 @@ fun InsightsDashboardScreen(
                                 Icon(
                                     Icons.AutoMirrored.Filled.ArrowBack, 
                                     contentDescription = "Back",
-                                    tint = com.example.ui.theme.AtlasParchment
+                                    tint = MaterialTheme.colorScheme.onSurface
                                 )
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = com.example.ui.theme.OceanicDark.copy(alpha = 0.95f)
+                            containerColor = Color.Transparent
                         )
                     )
                 }
@@ -154,7 +154,7 @@ fun InsightsDashboardScreen(
                                                     Text(
                                                         "• ${task.title} (${task.expectedMinutes}m)", 
                                                         style = MaterialTheme.typography.bodySmall,
-                                                        color = com.example.ui.theme.AtlasParchment.copy(alpha = 0.85f),
+                                                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
                                                         fontSize = 11.sp
                                                     )
                                                 }
@@ -205,7 +205,7 @@ fun InsightsDashboardScreen(
                                                     theme.themeName, 
                                                     fontWeight = FontWeight.Bold, 
                                                     fontFamily = com.example.ui.theme.CartographicSerif,
-                                                    color = com.example.ui.theme.AtlasParchment,
+                                                    color = MaterialTheme.colorScheme.onSurface,
                                                     fontSize = 15.sp
                                                 )
                                             }
@@ -264,7 +264,7 @@ fun InsightsDashboardScreen(
                                                 .fillMaxWidth()
                                                 .height(6.dp)
                                                 .clip(RoundedCornerShape(3.dp))
-                                                .background(com.example.ui.theme.OceanicDark)
+                                                .background(MaterialTheme.colorScheme.surfaceVariant)
                                         ) {
                                             Box(
                                                 modifier = Modifier
@@ -432,7 +432,7 @@ fun InsightsDashboardScreen(
                                             "📍 ${stat.topicName}", 
                                             style = MaterialTheme.typography.titleSmall,
                                             fontFamily = com.example.ui.theme.CartographicSerif,
-                                            color = com.example.ui.theme.AtlasParchment,
+                                            color = MaterialTheme.colorScheme.onSurface,
                                             fontWeight = FontWeight.Bold
                                         )
                                         

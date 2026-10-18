@@ -76,11 +76,11 @@ fun PaperTwinScreen(
                         },
                         navigationIcon = {
                             IconButton(onClick = onBack) {
-                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = AtlasParchment)
+                                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = MaterialTheme.colorScheme.onSurface)
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = OceanicDark.copy(alpha = 0.95f)
+                            containerColor = Color.Transparent
                         )
                     )
                 }
@@ -180,7 +180,7 @@ fun PaperTwinScreen(
                             Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text("⚠️ SYNTHESIS ERROR", color = MagmaCrimson, fontWeight = FontWeight.Black, fontSize = 14.sp)
                                 Spacer(modifier = Modifier.height(6.dp))
-                                Text(text = uiState.error ?: "Unknown error", color = AtlasParchment, fontSize = 12.sp, textAlign = TextAlign.Center)
+                                Text(text = uiState.error ?: "Unknown error", color = MaterialTheme.colorScheme.onSurface, fontSize = 12.sp, textAlign = TextAlign.Center)
                                 Spacer(modifier = Modifier.height(12.dp))
                                 OutlinedButton(
                                     onClick = { viewModel.generatePaper(examId, 50) },
@@ -197,7 +197,7 @@ fun PaperTwinScreen(
                         // Paper Generated: Validation Certificate & Hall Seal Ready
                         Card(
                             modifier = Modifier.fillMaxWidth(),
-                            colors = CardDefaults.cardColors(containerColor = DeepBasalt),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
                             shape = RoundedCornerShape(16.dp),
                             border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.5f))
                         ) {
@@ -224,7 +224,7 @@ fun PaperTwinScreen(
                                 Spacer(modifier = Modifier.height(8.dp))
                                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                                     Text("Target Question Quota:", color = TopoContourMuted, fontSize = 12.sp)
-                                    Text("${paper.report.targetCount} MCQs", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                                    Text("${paper.report.targetCount} MCQs", color = MaterialTheme.colorScheme.onSurface, fontWeight = FontWeight.Bold, fontSize = 12.sp)
                                 }
                                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                                     Text("Synthesized in Paper:", color = TopoContourMuted, fontSize = 12.sp)
@@ -254,9 +254,9 @@ fun PaperTwinScreen(
                         // Examination Transect Specifications
                         Card(
                             modifier = Modifier.fillMaxWidth(),
-                            colors = CardDefaults.cardColors(containerColor = OceanicDark),
+                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
                             shape = RoundedCornerShape(12.dp),
-                            border = BorderStroke(1.dp, SlateBedrock)
+                            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.5f))
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
                                 Text(
@@ -266,10 +266,10 @@ fun PaperTwinScreen(
                                     fontSize = 13.sp
                                 )
                                 Spacer(modifier = Modifier.height(6.dp))
-                                Text("• Total Time Allotted: 60 Minutes (Strict Speed Training)", color = AtlasParchment, fontSize = 11.5.sp)
-                                Text("• Marking Scheme: +2.00 for Correct, -0.66 for Wrong", color = AtlasParchment, fontSize = 11.5.sp)
-                                Text("• Zero-Clue Integrity: Atmospheric instruments active, zero hints", color = AtlasParchment, fontSize = 11.5.sp)
-                                Text("• Tactile Elimination: Long-press options to strike through distractors", color = AtlasParchment, fontSize = 11.5.sp)
+                                Text("• Total Time Allotted: 60 Minutes (Strict Speed Training)", color = MaterialTheme.colorScheme.onSurface, fontSize = 11.5.sp)
+                                Text("• Marking Scheme: +2.00 for Correct, -0.66 for Wrong", color = MaterialTheme.colorScheme.onSurface, fontSize = 11.5.sp)
+                                Text("• Zero-Clue Integrity: Atmospheric instruments active, zero hints", color = MaterialTheme.colorScheme.onSurface, fontSize = 11.5.sp)
+                                Text("• Tactile Elimination: Long-press options to strike through distractors", color = MaterialTheme.colorScheme.onSurface, fontSize = 11.5.sp)
                             }
                         }
 
@@ -323,7 +323,7 @@ fun ExaminationCadreSealCanvas(examId: String) {
     }
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
         modifier = Modifier.fillMaxWidth()
@@ -336,7 +336,7 @@ fun ExaminationCadreSealCanvas(examId: String) {
                 modifier = Modifier
                     .size(90.dp)
                     .clip(CircleShape)
-                    .background(OceanicDark),
+                    .background(MaterialTheme.colorScheme.surface),
                 contentAlignment = Alignment.Center
             ) {
                 Canvas(modifier = Modifier.size(86.dp)) {
@@ -422,7 +422,7 @@ fun ExaminationCadreSealCanvas(examId: String) {
 fun ExaminationBlueprintCard(examId: String) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = DeepBasalt),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
         shape = RoundedCornerShape(14.dp),
         border = BorderStroke(1.dp, HydrosphereCyan.copy(alpha = 0.35f))
     ) {
@@ -456,11 +456,11 @@ fun ExaminationBlueprintCard(examId: String) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(topic, color = AtlasParchment, fontSize = 11.5.sp, modifier = Modifier.weight(1f))
+                    Text(topic, color = MaterialTheme.colorScheme.onSurface, fontSize = 11.5.sp, modifier = Modifier.weight(1f))
                     Text(count, color = SunstoneGold, fontWeight = FontWeight.Bold, fontSize = 11.5.sp)
                     Spacer(modifier = Modifier.width(8.dp))
                     Surface(
-                        color = OceanicDark,
+                        color = MaterialTheme.colorScheme.surface,
                         shape = RoundedCornerShape(4.dp),
                         border = BorderStroke(0.6.dp, HydrosphereCyan.copy(alpha = 0.4f))
                     ) {
@@ -492,7 +492,7 @@ fun InteractiveOmrBubblePracticeCard() {
     var omrWarningMessage by remember { mutableStateOf<String?>(null) }
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(14.dp),
         border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.45f)),
         modifier = Modifier.fillMaxWidth()
@@ -532,7 +532,7 @@ fun InteractiveOmrBubblePracticeCard() {
 
             Text(
                 text = "Train muscle memory for authentic 2B pencil / black ballpoint darkening. Tap bubbles below to simulate official hall bubbling:",
-                color = AtlasParchment,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 11.sp,
                 lineHeight = 15.sp
             )
@@ -546,7 +546,7 @@ fun InteractiveOmrBubblePracticeCard() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(OceanicDark, RoundedCornerShape(8.dp))
+                            .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(8.dp))
                             .padding(horizontal = 12.dp, vertical = 6.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
@@ -567,7 +567,7 @@ fun InteractiveOmrBubblePracticeCard() {
                                 modifier = Modifier
                                     .size(32.dp)
                                     .clip(CircleShape)
-                                    .background(if (isDarkened) Color(0xFF1E293B) else DeepBasalt)
+                                    .background(if (isDarkened) Color(0xFF1E293B) else MaterialTheme.colorScheme.surfaceVariant)
                                     .border(
                                         width = if (isDarkened) 2.dp else 1.2.dp,
                                         color = if (isDarkened) SunstoneGold else TopoContourMuted.copy(alpha = 0.6f),
@@ -598,7 +598,7 @@ fun InteractiveOmrBubblePracticeCard() {
                                 }
                                 Text(
                                     text = optLetter,
-                                    color = if (isDarkened) SunstoneGold else AtlasParchment,
+                                    color = if (isDarkened) SunstoneGold else MaterialTheme.colorScheme.onSurface,
                                     fontWeight = if (isDarkened) FontWeight.Black else FontWeight.Bold,
                                     fontSize = 11.sp
                                 )
@@ -636,7 +636,7 @@ fun ExaminationHallProtocolCard() {
     var isExpanded by remember { mutableStateOf(false) }
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(14.dp),
         border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.35f)),
         modifier = Modifier.fillMaxWidth()
@@ -678,7 +678,7 @@ fun ExaminationHallProtocolCard() {
                     )
                     Text(
                         text = "• Pass 1 (0-35 mins): Solve only 100% sure-shot questions (approx 25-30). Bubble immediately.\n• Pass 2 (35-50 mins): 50-50 eliminated questions. Statistically guaranteed net positive marks!\n• Pass 3 (50-60 mins): Guard against negative penalty traps. Never blind guess on 4 unknowns.",
-                        color = AtlasParchment,
+                        color = MaterialTheme.colorScheme.onSurface,
                         fontSize = 11.sp,
                         lineHeight = 16.sp,
                         modifier = Modifier.padding(top = 2.dp, bottom = 8.dp)
@@ -692,7 +692,7 @@ fun ExaminationHallProtocolCard() {
                     )
                     Text(
                         text = "If you encounter 2 tough questions in a row, take a 5-second breath. The cut-off for Prelims is typically 45-50%—you do NOT need to score 100% to qualify!",
-                        color = AtlasParchment,
+                        color = MaterialTheme.colorScheme.onSurface,
                         fontSize = 11.sp,
                         lineHeight = 16.sp,
                         modifier = Modifier.padding(top = 2.dp)

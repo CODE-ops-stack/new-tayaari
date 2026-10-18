@@ -70,12 +70,12 @@ fun BookmarksScreen(
                                 Icon(
                                     Icons.AutoMirrored.Filled.ArrowBack,
                                     contentDescription = "Back",
-                                    tint = AtlasParchment
+                                    tint = MaterialTheme.colorScheme.onSurface
                                 )
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = OceanicDark.copy(alpha = 0.95f)
+                            containerColor = Color.Transparent
                         )
                     )
                 }
@@ -102,17 +102,17 @@ fun BookmarksScreen(
                             items(availableTopics) { topic ->
                                 val isSelected = topic == selectedTopic
                                 Surface(
-                                    color = if (isSelected) DeepBasalt else OceanicDark,
+                                    color = if (isSelected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant,
                                     shape = RoundedCornerShape(8.dp),
                                     border = BorderStroke(
                                         1.dp,
-                                        if (isSelected) SunstoneGold else SlateBedrock
+                                        if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
                                     ),
                                     modifier = Modifier.clickable { viewModel.filterByTopic(topic) }
                                 ) {
                                     Text(
                                         text = "🗺️ $topic",
-                                        color = if (isSelected) SummitGold else TopoContourMuted,
+                                        color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
                                         fontSize = 12.sp,
                                         fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
                                         modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
@@ -138,14 +138,14 @@ fun BookmarksScreen(
                                 Text(
                                     text = "No Field Waypoints Recorded",
                                     fontFamily = CartographicSerif,
-                                    color = AtlasParchment,
+                                    color = MaterialTheme.colorScheme.onBackground,
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold
                                 )
                                 Spacer(modifier = Modifier.height(6.dp))
                                 Text(
                                     text = "Tap the bookmark ribbon (🔖) during any expedition transect to save crucial map questions, diagrams, and memory keys to your folio.",
-                                    color = TopoContourMuted,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     fontSize = 13.sp,
                                     lineHeight = 18.sp,
                                     textAlign = TextAlign.Center
@@ -183,6 +183,7 @@ fun PremiumBookmarkCard(
     onRemove: () -> Unit
 ) {
     val haptic = LocalHapticFeedback.current
+    val fontScale = LocalFontScale.current
     var isTestRecallMode by remember { mutableStateOf(false) }
     var selectedOptionId by remember { mutableStateOf<String?>(null) }
     val mcq = question as? MCQQuestion
@@ -203,9 +204,9 @@ fun PremiumBookmarkCard(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Surface(
-                        color = OceanicDark,
+                        color = MaterialTheme.colorScheme.surfaceVariant,
                         shape = RoundedCornerShape(4.dp),
-                        border = BorderStroke(1.dp, SlateBedrock)
+                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.5f))
                     ) {
                         Text(
                             text = "🧭 ${formatText.uppercase()}",
@@ -228,7 +229,7 @@ fun PremiumBookmarkCard(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     // Active Recall Drill Toggle
                     Surface(
-                        color = if (isTestRecallMode) SunstoneGold else OceanicDark,
+                        color = if (isTestRecallMode) SunstoneGold else MaterialTheme.colorScheme.surfaceVariant,
                         shape = RoundedCornerShape(6.dp),
                         border = BorderStroke(0.8.dp, SunstoneGold.copy(alpha = 0.5f)),
                         modifier = Modifier
@@ -264,11 +265,11 @@ fun PremiumBookmarkCard(
             // Question Stem
             Text(
                 text = question.questionText.trim(),
-                color = AtlasParchment,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontFamily = CartographicSerif,
-                fontSize = 15.sp,
+                fontSize = (15 * fontScale).sp,
                 fontWeight = FontWeight.SemiBold,
-                lineHeight = 22.sp
+                lineHeight = (22 * fontScale).sp
             )
 
             if (mcq != null) {
@@ -280,8 +281,8 @@ fun PremiumBookmarkCard(
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         Text(
                             text = "⚡ Tap an option to test your retrieval memory:",
-                            color = TopoContourMuted,
-                            fontSize = 11.sp,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontSize = (11 * fontScale).sp,
                             fontWeight = FontWeight.Bold
                         )
 
@@ -291,19 +292,19 @@ fun PremiumBookmarkCard(
                             val hasTested = selectedOptionId != null
 
                             val optionBorderColor = when {
-                                !hasTested -> SlateBedrock
+                                !hasTested -> MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
                                 isSelected && isCorrect -> ContourEmerald
                                 isSelected && !isCorrect -> MagmaCrimson
                                 isCorrect -> ContourEmerald.copy(alpha = 0.6f)
-                                else -> SlateBedrock.copy(alpha = 0.3f)
+                                else -> MaterialTheme.colorScheme.outline.copy(alpha = 0.2f)
                             }
 
                             val optionBgColor = when {
-                                !hasTested -> OceanicDark
+                                !hasTested -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
                                 isSelected && isCorrect -> ContourEmerald.copy(alpha = 0.15f)
                                 isSelected && !isCorrect -> MagmaCrimson.copy(alpha = 0.15f)
                                 isCorrect -> ContourEmerald.copy(alpha = 0.1f)
-                                else -> OceanicDark
+                                else -> MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.25f)
                             }
 
                             Surface(
@@ -328,21 +329,21 @@ fun PremiumBookmarkCard(
                                         modifier = Modifier
                                             .size(24.dp)
                                             .clip(CircleShape)
-                                            .background(DeepBasalt),
+                                            .background(MaterialTheme.colorScheme.surfaceVariant),
                                         contentAlignment = Alignment.Center
                                     ) {
                                         Text(
                                             text = listOf("A", "B", "C", "D").getOrElse(idx) { "" },
-                                            color = if (isSelected && isCorrect) ContourEmerald else AtlasParchment,
-                                            fontSize = 11.sp,
+                                            color = if (isSelected && isCorrect) ContourEmerald else MaterialTheme.colorScheme.onSurface,
+                                            fontSize = (11 * fontScale).sp,
                                             fontWeight = FontWeight.Bold
                                         )
                                     }
                                     Spacer(modifier = Modifier.width(10.dp))
                                     Text(
                                         text = opt.text,
-                                        color = AtlasParchment,
-                                        fontSize = 12.5.sp,
+                                        color = MaterialTheme.colorScheme.onSurface,
+                                        fontSize = (12.5 * fontScale).sp,
                                         modifier = Modifier.weight(1f)
                                     )
                                     if (hasTested && isCorrect) {
@@ -370,15 +371,15 @@ fun PremiumBookmarkCard(
                                         text = if (recallSuccess) "🎯 RETRIEVAL MASTERED: Correct!" else "⚠️ REVIEW TRIGGER: Misaligned bearing",
                                         color = if (recallSuccess) ContourEmerald else MagmaCrimson,
                                         fontWeight = FontWeight.Bold,
-                                        fontSize = 11.5.sp
+                                        fontSize = (11.5 * fontScale).sp
                                     )
                                     if (mcq.correctExplanation.isNotBlank()) {
                                         Spacer(modifier = Modifier.height(4.dp))
                                         Text(
                                             text = "🗺️ Cadastre Key: ${mcq.correctExplanation}",
-                                            color = AtlasParchment,
-                                            fontSize = 11.5.sp,
-                                            lineHeight = 16.sp
+                                            color = MaterialTheme.colorScheme.onSurface,
+                                            fontSize = (11.5 * fontScale).sp,
+                                            lineHeight = (16 * fontScale).sp
                                         )
                                     }
                                 }
@@ -388,7 +389,7 @@ fun PremiumBookmarkCard(
                 } else {
                     // Default Folio View: Surveyor General Key & Deep Explanation
                     Surface(
-                        color = OceanicDark,
+                        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.6f),
                         shape = RoundedCornerShape(10.dp),
                         border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.5f)),
                         modifier = Modifier.fillMaxWidth()
@@ -405,18 +406,18 @@ fun PremiumBookmarkCard(
                                 Text(
                                     text = "SURVEYOR GENERAL KEY: ${correctOption?.text ?: "Unknown"}",
                                     color = ContourEmerald,
-                                    fontSize = 13.sp,
+                                    fontSize = (13 * fontScale).sp,
                                     fontWeight = FontWeight.Bold,
-                                    lineHeight = 18.sp
+                                    lineHeight = (18 * fontScale).sp
                                 )
                             }
                             if (mcq.correctExplanation.isNotBlank()) {
                                 Spacer(modifier = Modifier.height(6.dp))
                                 Text(
                                     text = "🗺️ ${mcq.correctExplanation}",
-                                    color = TopoContourMuted,
-                                    fontSize = 12.sp,
-                                    lineHeight = 17.sp
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    fontSize = (12 * fontScale).sp,
+                                    lineHeight = (17 * fontScale).sp
                                 )
                             }
                         }

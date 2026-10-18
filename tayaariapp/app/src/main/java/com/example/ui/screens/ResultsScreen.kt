@@ -82,7 +82,7 @@ fun ResultsScreen(
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = OceanicDark.copy(alpha = 0.95f)
+                            containerColor = Color.Transparent
                         )
                     )
                 }
@@ -226,9 +226,9 @@ fun ScoreHeader(score: java.math.BigDecimal, total: Int, percentage: Int) {
             )
             Spacer(modifier = Modifier.height(6.dp))
             Surface(
-                color = OceanicDark,
+                color = MaterialTheme.colorScheme.surfaceVariant,
                 shape = RoundedCornerShape(6.dp),
-                border = BorderStroke(1.dp, SlateBedrock)
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.5f))
             ) {
                 Text(
                     text = "🧭 Field Mastery: $percentage% // Summit Transect",
@@ -263,7 +263,7 @@ fun CadrePeakAscentCanvas(percentage: Int) {
     }
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.4f)),
         modifier = Modifier.fillMaxWidth()
@@ -286,7 +286,7 @@ fun CadrePeakAscentCanvas(percentage: Int) {
                         letterSpacing = 0.8.sp
                     )
                 }
-                Surface(color = OceanicDark, shape = RoundedCornerShape(4.dp)) {
+                Surface(color = MaterialTheme.colorScheme.primaryContainer, shape = RoundedCornerShape(4.dp)) {
                     Text(
                         text = "$altitudeMeters ELEV",
                         color = campColor,
@@ -399,7 +399,7 @@ fun RankShieldSummaryCard(correctCount: Int, wrongCount: Int, totalCount: Int) {
     val penaltyDefended = String.format("%.2f", wrongCount * 0.66)
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(14.dp),
         border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.45f)),
         modifier = Modifier.fillMaxWidth()
@@ -440,7 +440,7 @@ fun RankShieldSummaryCard(correctCount: Int, wrongCount: Int, totalCount: Int) {
 
             Text(
                 text = "💡 Topper Wisdom: Mistakes discovered and understood here in practice are 100% immune from tripping you on exam day.",
-                color = AtlasParchment,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 11.sp,
                 lineHeight = 15.sp,
                 fontStyle = androidx.compose.ui.text.font.FontStyle.Italic
@@ -557,7 +557,7 @@ fun BreakdownSection(
                     Text(
                         "📍 $format",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = AtlasParchment
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     val percentage = if (stats.second > 0) (stats.first * 100 / stats.second) else 0
                     Text(
@@ -620,7 +620,7 @@ fun ReviewCard(
                 style = MaterialTheme.typography.bodyMedium,
                 fontFamily = CartographicSerif,
                 fontWeight = FontWeight.Medium,
-                color = AtlasParchment,
+                color = MaterialTheme.colorScheme.onSurface,
                 lineHeight = 22.sp
             )
 
@@ -658,15 +658,15 @@ fun ReviewCard(
             Spacer(modifier = Modifier.height(8.dp))
 
             Surface(
-                color = OceanicDark,
+                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
                 shape = RoundedCornerShape(8.dp),
-                border = BorderStroke(1.dp, SlateBedrock)
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.5f))
             ) {
                 Text(
                     text = "🗺️ Cadastre Key: ${question.correctExplanation}",
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier.padding(10.dp),
-                    color = TopoContourMuted,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     lineHeight = 16.sp
                 )
             }
@@ -680,7 +680,7 @@ fun ReviewCard(
 @Composable
 fun CertifiedExpeditionSealStamp() {
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(1.dp, SunstoneGold.copy(alpha = 0.35f)),
         modifier = Modifier.fillMaxWidth()
@@ -693,7 +693,7 @@ fun CertifiedExpeditionSealStamp() {
                 modifier = Modifier
                     .size(48.dp)
                     .clip(CircleShape)
-                    .background(OceanicDark)
+                    .background(MaterialTheme.colorScheme.surface)
                     .border(1.2.dp, SunstoneGold, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
@@ -718,7 +718,7 @@ fun CertifiedExpeditionSealStamp() {
                 )
                 Text(
                     text = "Expedition Verified • Transect Logged in Memory Vault",
-                    color = TopoContourMuted,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontSize = 10.sp
                 )
             }

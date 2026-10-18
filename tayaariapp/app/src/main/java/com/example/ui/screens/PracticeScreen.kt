@@ -41,6 +41,10 @@ import androidx.compose.material.icons.filled.HighlightOff
 import androidx.compose.material.icons.filled.SearchOff
 import androidx.compose.material.icons.filled.WarningAmber
 import androidx.compose.material.icons.filled.Lightbulb
+import androidx.compose.material.icons.filled.Explore
+import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material.icons.filled.VolumeUp
+import androidx.compose.material.icons.filled.VolumeOff
 import androidx.compose.material.icons.automirrored.filled.CompareArrows
 import androidx.compose.material3.*
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -78,6 +82,12 @@ fun PracticeScreen(
     format: String,
     profile: com.example.model.ExamBlueprint? = null,
     uiState: TestUiState,
+    themeMode: com.example.repository.AppThemeMode = com.example.repository.AppThemeMode.DARK,
+    onThemeModeChange: (com.example.repository.AppThemeMode) -> Unit = {},
+    fontScaleOption: com.example.repository.FontScaleOption = com.example.repository.FontScaleOption.NORMAL,
+    onFontScaleOptionChange: (com.example.repository.FontScaleOption) -> Unit = {},
+    isZenMode: Boolean = false,
+    onZenModeChange: (Boolean) -> Unit = {},
     onOptionSelected: (String) -> Unit,
     onOptionCrossOut: (String) -> Unit = {},
     onSubmitAnswer: () -> Unit = {},
@@ -93,6 +103,9 @@ fun PracticeScreen(
 ) {
     var showSummitModal by remember { mutableStateOf(false) }
     var dismissedChillForQuestion by remember { mutableIntStateOf(-1) }
+    var showAtlasDialog by remember { mutableStateOf(false) }
+    var showSettingsDialog by remember { mutableStateOf(false) }
+
     LaunchedEffect(uiState.summitReached) {
         if (uiState.summitReached) {
             showSummitModal = true
@@ -107,6 +120,25 @@ fun PracticeScreen(
                 showSummitModal = false
                 onRestart()
             }
+        )
+    }
+
+    if (showAtlasDialog) {
+        com.example.ui.components.CartographicAtlasSheetDialog(
+            onDismissRequest = { showAtlasDialog = false }
+        )
+    }
+
+    if (showSettingsDialog) {
+        com.example.ui.components.AspirantSettingsDialog(
+            themeMode = themeMode,
+            onThemeModeChange = onThemeModeChange,
+            fontScaleOption = fontScaleOption,
+            onFontScaleOptionChange = onFontScaleOptionChange,
+            isZenMode = isZenMode,
+            onZenModeChange = onZenModeChange,
+            showQuotaSection = false,
+            onDismiss = { showSettingsDialog = false }
         )
     }
 
@@ -193,6 +225,12 @@ fun PracticeScreen(
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
                             }
+                        }
+                        IconButton(onClick = { showAtlasDialog = true }) {
+                            Icon(Icons.Filled.Explore, contentDescription = "Cartographic Atlas", tint = deepBlue)
+                        }
+                        IconButton(onClick = { showSettingsDialog = true }) {
+                            Icon(Icons.Filled.Tune, contentDescription = "Ergonomics & Themes", tint = deepBlue)
                         }
                         IconButton(onClick = onDashboardClick) {
                             Icon(Icons.Filled.Assessment, contentDescription = "Dashboard", tint = deepBlue)
@@ -1708,6 +1746,47 @@ fun PremiumQuestionCard(
     accentGold: Color,
     cardColor: Color
 ) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    var isSpeaking by remember { mutableStateOf(false) }
+    var ttsInstance by remember { mutableStateOf<android.speech.tts.TextToSpeech?>(null) }
+    val mainHandler = remember { android.os.Handler(android.os.Looper.getMainLooper()) }
+
+    DisposableEffect(context) {
+        val tts = android.speech.tts.TextToSpeech(context) { status ->
+            if (status == android.speech.tts.TextToSpeech.SUCCESS) {
+                // Initialized successfully
+            }
+        }
+        tts.setOnUtteranceProgressListener(object : android.speech.tts.UtteranceProgressListener() {
+            override fun onStart(utteranceId: String?) {
+                mainHandler.post { isSpeaking = true }
+            }
+            override fun onDone(utteranceId: String?) {
+                mainHandler.post { isSpeaking = false }
+            }
+            @Deprecated("Deprecated in Java")
+            override fun onError(utteranceId: String?) {
+                mainHandler.post { isSpeaking = false }
+            }
+        })
+        ttsInstance = tts
+        onDispose {
+            try {
+                tts.stop()
+                tts.shutdown()
+            } catch (e: Exception) {
+                // ignore
+            }
+        }
+    }
+
+    LaunchedEffect(question.id) {
+        if (isSpeaking) {
+            ttsInstance?.stop()
+            isSpeaking = false
+        }
+    }
+
     Surface(
         color = cardColor,
         shape = RoundedCornerShape(16.dp),
@@ -1727,12 +1806,37 @@ fun PremiumQuestionCard(
                     fontWeight = FontWeight.Black,
                     letterSpacing = 1.2.sp
                 )
-                Icon(
-                    imageVector = if (isBookmarked) Icons.Filled.Bookmark else Icons.Filled.BookmarkBorder,
-                    contentDescription = "Bookmark",
-                    tint = if (isBookmarked) accentGold else deepBlue.copy(alpha = 0.3f),
-                    modifier = Modifier.clickable { onBookmarkClick() }.size(28.dp)
-                )
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    IconButton(
+                        onClick = {
+                            val tts = ttsInstance
+                            if (tts != null) {
+                                if (isSpeaking) {
+                                    tts.stop()
+                                    isSpeaking = false
+                                } else {
+                                    val textToRead = question.questionText.replace("\n", ". ")
+                                    tts.speak(textToRead, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, "QuestionTTS_${question.id}")
+                                    isSpeaking = true
+                                }
+                            }
+                        },
+                        modifier = Modifier.size(32.dp)
+                    ) {
+                        Icon(
+                            imageVector = if (isSpeaking) Icons.Filled.VolumeUp else Icons.Filled.VolumeOff,
+                            contentDescription = if (isSpeaking) "Stop Narration" else "Read Question Aloud",
+                            tint = if (isSpeaking) accentGold else deepBlue.copy(alpha = 0.5f),
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+                    Icon(
+                        imageVector = if (isBookmarked) Icons.Filled.Bookmark else Icons.Filled.BookmarkBorder,
+                        contentDescription = "Bookmark",
+                        tint = if (isBookmarked) accentGold else deepBlue.copy(alpha = 0.3f),
+                        modifier = Modifier.clickable { onBookmarkClick() }.size(26.dp)
+                    )
+                }
             }
             Spacer(modifier = Modifier.height(16.dp))
             var showImageDialog by remember { mutableStateOf(false) }

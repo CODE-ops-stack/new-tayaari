@@ -48,7 +48,7 @@ fun RevisionDashboardScreen(
     onStartRevision: () -> Unit,
     onBack: () -> Unit
 ) {
-    val lightText = Color(0xFFF8FAFC)
+    val lightText = MaterialTheme.colorScheme.onBackground
 
     com.example.ui.components.AtlasBackground {
       com.example.ui.components.TopographicBackground(lineColor = ContourEmerald.copy(alpha = 0.035f)) {
@@ -102,7 +102,7 @@ fun RevisionDashboardScreen(
                         reason = "Reinforce vulnerable physical, Indian, and climatic concepts before neural forgetting occurs.",
                         count = dueCount,
                         icon = Icons.Filled.Schedule,
-                        cardColor = DeepBasalt,
+                        cardColor = MaterialTheme.colorScheme.surfaceVariant,
                         lightText = lightText,
                         accentGold = SunstoneGold,
                         onClick = {
@@ -117,7 +117,7 @@ fun RevisionDashboardScreen(
                         reason = "Prioritized because you previously tripped on adjacent concepts or spatial inversion traps.",
                         count = null,
                         icon = Icons.Filled.Warning,
-                        cardColor = DeepBasalt,
+                        cardColor = MaterialTheme.colorScheme.surfaceVariant,
                         lightText = lightText,
                         accentGold = SunstoneGold,
                         onClick = onStartRevision
@@ -130,7 +130,7 @@ fun RevisionDashboardScreen(
                         reason = "Solidify conceptual mastery of recently studied river basins, biomes, and rock strata.",
                         count = null,
                         icon = Icons.Filled.PlayCircle,
-                        cardColor = DeepBasalt,
+                        cardColor = MaterialTheme.colorScheme.surfaceVariant,
                         lightText = lightText,
                         accentGold = SunstoneGold,
                         onClick = onStartRevision
@@ -152,7 +152,7 @@ fun MemoryVaultRetentionGauge(
     }
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
         modifier = Modifier.fillMaxWidth()
@@ -230,7 +230,7 @@ fun MemoryVaultRetentionGauge(
                     }
                     Text(
                         text = if (dueCount > 0) "$dueCount waypoints require review before memory decay." else "All geographic waypoints fortified in crystalline memory.",
-                        color = AtlasParchment,
+                        color = MaterialTheme.colorScheme.onSurface,
                         fontSize = 11.sp
                     )
                 }
@@ -269,7 +269,7 @@ fun EbbinghausMemoryVaultCanvas() {
     )
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.2.dp, HydrosphereCyan.copy(alpha = 0.4f)),
         modifier = Modifier.fillMaxWidth()
@@ -308,7 +308,7 @@ fun EbbinghausMemoryVaultCanvas() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(115.dp)
-                    .background(OceanicDark, RoundedCornerShape(10.dp))
+                    .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(10.dp))
                     .border(0.8.dp, HydrosphereCyan.copy(alpha = 0.25f), RoundedCornerShape(10.dp))
             ) {
                 Canvas(modifier = Modifier.fillMaxSize().padding(12.dp)) {
@@ -390,7 +390,7 @@ fun EbbinghausMemoryVaultCanvas() {
                 days.forEachIndexed { idx, name ->
                     val isTabSelected = selectedDay == idx
                     Surface(
-                        color = if (isTabSelected) HydrosphereCyan else OceanicDark,
+                        color = if (isTabSelected) HydrosphereCyan else MaterialTheme.colorScheme.surface,
                         shape = RoundedCornerShape(8.dp),
                         border = BorderStroke(0.8.dp, if (isTabSelected) HydrosphereCyan else HydrosphereCyan.copy(alpha = 0.3f)),
                         modifier = Modifier
@@ -399,7 +399,7 @@ fun EbbinghausMemoryVaultCanvas() {
                     ) {
                         Text(
                             text = name,
-                            color = if (isTabSelected) AbyssNavy else AtlasParchment,
+                            color = if (isTabSelected) AbyssNavy else MaterialTheme.colorScheme.onSurface,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center,
@@ -413,7 +413,7 @@ fun EbbinghausMemoryVaultCanvas() {
 
             // Scientific Insight Box
             Surface(
-                color = OceanicDark,
+                color = MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(8.dp),
                 border = BorderStroke(0.8.dp, HydrosphereCyan.copy(alpha = 0.25f)),
                 modifier = Modifier.fillMaxWidth()
@@ -433,7 +433,7 @@ fun EbbinghausMemoryVaultCanvas() {
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = scientificInsights[selectedDay],
-                        color = AtlasParchment,
+                        color = MaterialTheme.colorScheme.onSurface,
                         fontSize = 11.sp,
                         lineHeight = 15.sp
                     )
@@ -479,7 +479,7 @@ fun CompassMemoryWarmupDrill() {
     val currentDrill = drills[drillIndex % drills.size]
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.2.dp, ContourEmerald.copy(alpha = 0.45f)),
         modifier = Modifier.fillMaxWidth()
@@ -523,7 +523,7 @@ fun CompassMemoryWarmupDrill() {
 
             Text(
                 text = currentDrill.prompt,
-                color = AtlasParchment,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
                 lineHeight = 18.sp
@@ -538,11 +538,11 @@ fun CompassMemoryWarmupDrill() {
                     val hasAnswered = selectedOption != null
 
                     val bgColor = when {
-                        !hasAnswered -> OceanicDark
+                        !hasAnswered -> MaterialTheme.colorScheme.surface
                         isChosen && isCorrect -> ContourEmerald.copy(alpha = 0.15f)
                         isChosen && !isCorrect -> Color(0xFFEF4444).copy(alpha = 0.15f)
                         isCorrect -> ContourEmerald.copy(alpha = 0.15f)
-                        else -> OceanicDark
+                        else -> MaterialTheme.colorScheme.surface
                     }
                     val borderColor = when {
                         !hasAnswered -> HydrosphereCyan.copy(alpha = 0.3f)
@@ -573,7 +573,7 @@ fun CompassMemoryWarmupDrill() {
                             Spacer(modifier = Modifier.width(10.dp))
                             Text(
                                 text = optText,
-                                color = AtlasParchment,
+                                color = MaterialTheme.colorScheme.onSurface,
                                 fontSize = 12.sp,
                                 modifier = Modifier.weight(1f)
                             )
@@ -592,7 +592,7 @@ fun CompassMemoryWarmupDrill() {
             if (selectedOption != null) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Surface(
-                    color = OceanicDark,
+                    color = MaterialTheme.colorScheme.surface,
                     shape = RoundedCornerShape(8.dp),
                     border = BorderStroke(0.8.dp, SunstoneGold.copy(alpha = 0.35f)),
                     modifier = Modifier.fillMaxWidth()
@@ -607,7 +607,7 @@ fun CompassMemoryWarmupDrill() {
                         Spacer(modifier = Modifier.height(2.dp))
                         Text(
                             text = currentDrill.rationale,
-                            color = AtlasParchment,
+                            color = MaterialTheme.colorScheme.onSurface,
                             fontSize = 11.sp,
                             lineHeight = 15.sp
                         )

@@ -137,7 +137,7 @@ fun TrapDashboardScreen(
                 if (trapAnalytics.isEmpty()) {
                     item {
                         Surface(
-                            color = DeepBasalt,
+                            color = MaterialTheme.colorScheme.surfaceVariant,
                             shape = RoundedCornerShape(14.dp),
                             border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.4f)),
                             modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
@@ -159,7 +159,7 @@ fun TrapDashboardScreen(
                                     Spacer(modifier = Modifier.height(4.dp))
                                     Text(
                                         text = "Zero recurring conceptual conflation traps logged yet. Sharpen your defusal instincts above, or dive into questions to detect new pitfalls.",
-                                        color = AtlasParchment,
+                                        color = MaterialTheme.colorScheme.onSurface,
                                         fontSize = 11.5.sp,
                                         lineHeight = 16.sp
                                     )
@@ -368,7 +368,7 @@ fun SonarTrapRadarCanvas(
     )
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.2.dp, ContourEmerald.copy(alpha = 0.5f)),
         modifier = modifier.fillMaxWidth().padding(bottom = 8.dp)
@@ -418,7 +418,7 @@ fun SonarTrapRadarCanvas(
                 modifier = Modifier
                     .size(160.dp)
                     .clip(CircleShape)
-                    .background(OceanicDark)
+                    .background(MaterialTheme.colorScheme.surface)
                     .border(1.5.dp, ContourEmerald.copy(alpha = 0.4f), CircleShape),
                 contentAlignment = Alignment.Center
             ) {
@@ -462,7 +462,7 @@ fun SonarTrapRadarCanvas(
             Spacer(modifier = Modifier.height(10.dp))
             Text(
                 text = "Sonar Pulse: Factual Inversion, Extreme Qualifiers & Causality Traps Mapped",
-                color = TopoContourMuted,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 10.5.sp,
                 textAlign = TextAlign.Center
             )
@@ -532,7 +532,7 @@ fun TrapDefusalSimulator() {
     val currentChallenge = challenges[activeTrapIndex % challenges.size]
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
         modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
@@ -556,7 +556,7 @@ fun TrapDefusalSimulator() {
                         )
                         Text(
                             text = "Sharpen your instinct to spot deceptive MCQ phrasing",
-                            color = TopoContourMuted,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                             fontSize = 10.sp
                         )
                     }
@@ -578,7 +578,7 @@ fun TrapDefusalSimulator() {
             Spacer(modifier = Modifier.height(10.dp))
 
             Surface(
-                color = OceanicDark,
+                color = MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(8.dp),
                 border = BorderStroke(0.8.dp, Color(0xFFEF4444).copy(alpha = 0.35f)),
                 modifier = Modifier.fillMaxWidth()
@@ -594,7 +594,7 @@ fun TrapDefusalSimulator() {
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = currentChallenge.stem,
-                        color = AtlasParchment,
+                        color = MaterialTheme.colorScheme.onSurface,
                         fontSize = 12.sp,
                         fontWeight = FontWeight.SemiBold,
                         lineHeight = 17.sp
@@ -618,11 +618,11 @@ fun TrapDefusalSimulator() {
                     val hasAnswered = selectedOption != null
 
                     val bgColor = when {
-                        !hasAnswered -> OceanicDark
+                        !hasAnswered -> MaterialTheme.colorScheme.surface
                         isChosen && isCorrect -> ContourEmerald.copy(alpha = 0.15f)
                         isChosen && !isCorrect -> Color(0xFFEF4444).copy(alpha = 0.15f)
                         isCorrect -> ContourEmerald.copy(alpha = 0.15f)
-                        else -> OceanicDark
+                        else -> MaterialTheme.colorScheme.surface
                     }
                     val borderColor = when {
                         !hasAnswered -> HydrosphereCyan.copy(alpha = 0.3f)
@@ -661,7 +661,7 @@ fun TrapDefusalSimulator() {
                             Spacer(modifier = Modifier.width(10.dp))
                             Text(
                                 text = optText,
-                                color = AtlasParchment,
+                                color = MaterialTheme.colorScheme.onSurface,
                                 fontSize = 11.5.sp,
                                 modifier = Modifier.weight(1f),
                                 lineHeight = 16.sp
@@ -674,7 +674,7 @@ fun TrapDefusalSimulator() {
             if (selectedOption != null) {
                 Spacer(modifier = Modifier.height(10.dp))
                 Surface(
-                    color = OceanicDark,
+                    color = MaterialTheme.colorScheme.surface,
                     shape = RoundedCornerShape(8.dp),
                     border = BorderStroke(0.8.dp, if (selectedOption == currentChallenge.correctIndex) ContourEmerald.copy(alpha = 0.5f) else Color(0xFFEF4444).copy(alpha = 0.5f)),
                     modifier = Modifier.fillMaxWidth()
@@ -701,7 +701,7 @@ fun TrapDefusalSimulator() {
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
                             text = currentChallenge.trickDissection,
-                            color = AtlasParchment,
+                            color = MaterialTheme.colorScheme.onSurface,
                             fontSize = 11.sp,
                             lineHeight = 15.sp
                         )
@@ -735,7 +735,7 @@ fun CadreMedalTrophyShowcase() {
     )
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
         modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
@@ -759,7 +759,7 @@ fun CadreMedalTrophyShowcase() {
                         )
                         Text(
                             text = "Every trap defused in practice protects your merit list rank",
-                            color = TopoContourMuted,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                             fontSize = 10.sp
                         )
                     }
@@ -786,7 +786,7 @@ fun CadreMedalTrophyShowcase() {
             ) {
                 medals.forEach { (title, subtitle, color) ->
                     Surface(
-                        color = OceanicDark,
+                        color = MaterialTheme.colorScheme.surface,
                         shape = RoundedCornerShape(8.dp),
                         border = BorderStroke(0.8.dp, color.copy(alpha = 0.45f)),
                         modifier = Modifier.weight(1f)
@@ -805,7 +805,7 @@ fun CadreMedalTrophyShowcase() {
                             Spacer(modifier = Modifier.height(3.dp))
                             Text(
                                 text = subtitle,
-                                color = AtlasParchment.copy(alpha = 0.75f),
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.75f),
                                 fontSize = 8.sp,
                                 textAlign = TextAlign.Center,
                                 lineHeight = 10.5.sp

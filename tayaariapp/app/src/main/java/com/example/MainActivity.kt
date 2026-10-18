@@ -385,6 +385,12 @@ class MainActivity : ComponentActivity() {
                                 format = format,
                                 profile = activeProfile,
                                 uiState = uiState,
+                                themeMode = themeMode,
+                                onThemeModeChange = mainViewModel::setThemeMode,
+                                fontScaleOption = fontScaleOption,
+                                onFontScaleOptionChange = mainViewModel::setFontScaleOption,
+                                isZenMode = isZenMode,
+                                onZenModeChange = mainViewModel::setZenMode,
                                 onOptionSelected = { optId ->
                                     viewModel.onOptionPending(optId)
                                     mainViewModel.incrementTodaySolved()
@@ -449,6 +455,12 @@ class MainActivity : ComponentActivity() {
                                 format = "Mixed",
                                 profile = profile,
                                 uiState = uiState,
+                                themeMode = themeMode,
+                                onThemeModeChange = mainViewModel::setThemeMode,
+                                fontScaleOption = fontScaleOption,
+                                onFontScaleOptionChange = mainViewModel::setFontScaleOption,
+                                isZenMode = isZenMode,
+                                onZenModeChange = mainViewModel::setZenMode,
                                 onOptionSelected = practiceViewModel::onOptionPending,
                                 onOptionCrossOut = practiceViewModel::toggleOptionCrossedOut,
                                 onSubmitAnswer = practiceViewModel::submitAnswer,

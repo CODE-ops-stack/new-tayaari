@@ -340,40 +340,44 @@ fun MasterRoadmapScreen(
     var selectedStageIndex by remember { mutableIntStateOf(0) }
     var expandedFaqIndex by remember { mutableIntStateOf(-1) }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Column {
-                        Text(
-                            text = "Interactive Master Roadmap",
-                            color = AtlasParchment,
-                            fontWeight = FontWeight.Black,
-                            fontSize = 18.sp
+    val fontScale = LocalFontScale.current
+
+    com.example.ui.components.AtlasBackground {
+        com.example.ui.components.TopographicBackground(lineColor = ContourEmerald.copy(alpha = 0.035f)) {
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        title = {
+                            Column {
+                                Text(
+                                    text = "Interactive Master Roadmap",
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    fontWeight = FontWeight.Black,
+                                    fontSize = 18.sp
+                                )
+                                Text(
+                                    text = "Zero-Knowledge to 90%+ Exam Mastery Blueprint",
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    fontSize = 11.sp
+                                )
+                            }
+                        },
+                        navigationIcon = {
+                            IconButton(onClick = onBackClick) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = "Back",
+                                    tint = MaterialTheme.colorScheme.onSurface
+                                )
+                            }
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = Color.Transparent
                         )
-                        Text(
-                            text = "Zero-Knowledge to 90%+ Exam Mastery Blueprint",
-                            color = TopoContourMuted,
-                            fontSize = 11.sp
-                        )
-                    }
+                    )
                 },
-                navigationIcon = {
-                    IconButton(onClick = onBackClick) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
-                            tint = SunstoneGold
-                        )
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = OceanicDark
-                )
-            )
-        },
-        containerColor = AbyssNavy
-    ) { paddingValues ->
+                containerColor = Color.Transparent
+            ) { paddingValues ->
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -387,7 +391,7 @@ fun MasterRoadmapScreen(
             // ─────────────────────────────────────────────────────────────────
             item {
                 Surface(
-                    color = DeepBasalt,
+                    color = MaterialTheme.colorScheme.surfaceVariant,
                     shape = RoundedCornerShape(16.dp),
                     border = BorderStroke(1.5.dp, SunstoneGold.copy(alpha = 0.6f)),
                     modifier = Modifier.fillMaxWidth()
@@ -415,9 +419,9 @@ fun MasterRoadmapScreen(
                                 )
                                 Text(
                                     text = "Your Definitive One-Stop NCERT Companion",
-                                    color = AtlasParchment,
+                                    color = MaterialTheme.colorScheme.onSurface,
                                     fontWeight = FontWeight.Bold,
-                                    fontSize = 15.sp
+                                    fontSize = (15 * fontScale).sp
                                 )
                             }
                         }
@@ -426,9 +430,9 @@ fun MasterRoadmapScreen(
 
                         Text(
                             text = "Every question in this platform is reverse-engineered from NCERT Classes 6–12 and standard reference textbooks (GC Leong, Majid Husain, Khullar). Follow our recommended 4-stage chapter order below for guaranteed conceptual dominance.",
-                            color = TopoContourMuted,
-                            fontSize = 13.sp,
-                            lineHeight = 18.sp
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontSize = (13 * fontScale).sp,
+                            lineHeight = (18 * fontScale).sp
                         )
 
                         Spacer(modifier = Modifier.height(14.dp))
@@ -468,11 +472,11 @@ fun MasterRoadmapScreen(
                     ROADMAP_STAGES.forEachIndexed { index, stage ->
                         val isSelected = selectedStageIndex == index
                         Surface(
-                            color = if (isSelected) stage.badgeColor.copy(alpha = 0.2f) else DeepBasalt,
+                            color = if (isSelected) stage.badgeColor.copy(alpha = 0.2f) else MaterialTheme.colorScheme.surfaceVariant,
                             shape = RoundedCornerShape(10.dp),
                             border = BorderStroke(
                                 1.dp,
-                                if (isSelected) stage.badgeColor else SlateBedrock
+                                if (isSelected) stage.badgeColor else MaterialTheme.colorScheme.outline.copy(alpha = 0.35f)
                             ),
                             modifier = Modifier.clickable { selectedStageIndex = index }
                         ) {
@@ -482,13 +486,13 @@ fun MasterRoadmapScreen(
                             ) {
                                 Text(
                                     text = "STAGE ${stage.stageNumber}",
-                                    color = if (isSelected) stage.badgeColor else MeridianMuted,
+                                    color = if (isSelected) stage.badgeColor else MaterialTheme.colorScheme.onSurfaceVariant,
                                     fontSize = 10.sp,
                                     fontWeight = FontWeight.Black
                                 )
                                 Text(
                                     text = stage.title.substringAfter(": "),
-                                    color = if (isSelected) AtlasParchment else TopoContourMuted,
+                                    color = if (isSelected) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant,
                                     fontSize = 12.sp,
                                     fontWeight = FontWeight.Bold
                                 )
@@ -504,7 +508,7 @@ fun MasterRoadmapScreen(
             item {
                 val activeStage = ROADMAP_STAGES[selectedStageIndex]
                 Surface(
-                    color = OceanicDark,
+                    color = MaterialTheme.colorScheme.surfaceVariant,
                     shape = RoundedCornerShape(12.dp),
                     border = BorderStroke(1.dp, activeStage.badgeColor.copy(alpha = 0.35f)),
                     modifier = Modifier.fillMaxWidth()
@@ -531,14 +535,14 @@ fun MasterRoadmapScreen(
                         Column {
                             Text(
                                 text = activeStage.title,
-                                color = AtlasParchment,
+                                color = MaterialTheme.colorScheme.onSurface,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 14.sp
+                                fontSize = (14 * fontScale).sp
                             )
                             Text(
                                 text = activeStage.subtitle,
-                                color = TopoContourMuted,
-                                fontSize = 12.sp
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                fontSize = (12 * fontScale).sp
                             )
                         }
                     }
@@ -581,9 +585,9 @@ fun MasterRoadmapScreen(
             itemsIndexed(ROADMAP_FAQS) { index, faq ->
                 val isExpanded = expandedFaqIndex == index
                 Surface(
-                    color = DeepBasalt,
+                    color = MaterialTheme.colorScheme.surfaceVariant,
                     shape = RoundedCornerShape(12.dp),
-                    border = BorderStroke(1.dp, if (isExpanded) ContourEmerald else SlateBedrock),
+                    border = BorderStroke(1.dp, if (isExpanded) ContourEmerald else MaterialTheme.colorScheme.outline.copy(alpha = 0.35f)),
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
@@ -615,15 +619,15 @@ fun MasterRoadmapScreen(
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = faq.question,
-                                    color = AtlasParchment,
-                                    fontSize = 13.sp,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    fontSize = (13 * fontScale).sp,
                                     fontWeight = FontWeight.SemiBold
                                 )
                             }
                             Icon(
                                 imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
                                 contentDescription = "Toggle",
-                                tint = if (isExpanded) ContourEmerald else TopoContourMuted
+                                tint = if (isExpanded) ContourEmerald else MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
 
@@ -633,19 +637,21 @@ fun MasterRoadmapScreen(
                             exit = shrinkVertically() + fadeOut()
                         ) {
                             Column(modifier = Modifier.padding(top = 10.dp)) {
-                                HorizontalDivider(color = SlateBedrock, thickness = 0.5.dp)
+                                HorizontalDivider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f), thickness = 0.5.dp)
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Text(
                                     text = faq.answer,
-                                    color = TopoContourMuted,
-                                    fontSize = 12.5.sp,
-                                    lineHeight = 18.sp
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    fontSize = (12.5 * fontScale).sp,
+                                    lineHeight = (18 * fontScale).sp
                                 )
                             }
                         }
                     }
                 }
             }
+        }
+    }
         }
     }
 }
@@ -660,10 +666,11 @@ fun RoadmapTopicCard(
     badgeColor: Color,
     onPracticeClick: () -> Unit
 ) {
+    val fontScale = LocalFontScale.current
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(14.dp),
-        border = BorderStroke(1.dp, SlateBedrock),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.35f)),
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(14.dp)) {
@@ -702,7 +709,7 @@ fun RoadmapTopicCard(
 
                 Text(
                     text = "${topic.questionCount} MCQs",
-                    color = TopoContourMuted,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontSize = 11.sp,
                     fontWeight = FontWeight.Medium
                 )
@@ -712,8 +719,8 @@ fun RoadmapTopicCard(
 
             Text(
                 text = topic.topicName,
-                color = AtlasParchment,
-                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onSurface,
+                fontSize = (14 * fontScale).sp,
                 fontWeight = FontWeight.Bold
             )
 
@@ -722,16 +729,16 @@ fun RoadmapTopicCard(
             Text(
                 text = "📚 ${topic.ncertMapping}",
                 color = HydrosphereCyan,
-                fontSize = 11.sp,
+                fontSize = (11 * fontScale).sp,
                 fontWeight = FontWeight.Medium
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Surface(
-                color = OceanicDark,
+                color = MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(8.dp),
-                border = BorderStroke(0.5.dp, CartographicBorder),
+                border = BorderStroke(0.5.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Row(
@@ -742,9 +749,9 @@ fun RoadmapTopicCard(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = topic.curiosityHook,
-                        color = TopoContourMuted,
-                        fontSize = 11.5.sp,
-                        lineHeight = 16.sp
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = (11.5 * fontScale).sp,
+                        lineHeight = (16 * fontScale).sp
                     )
                 }
             }
@@ -774,9 +781,9 @@ fun RoadmapTopicCard(
 @Composable
 fun RoadmapStatChip(label: String, value: String) {
     Surface(
-        color = OceanicDark,
+        color = MaterialTheme.colorScheme.surface,
         shape = RoundedCornerShape(8.dp),
-        border = BorderStroke(0.5.dp, SlateBedrock)
+        border = BorderStroke(0.5.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.35f))
     ) {
         Column(
             modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
@@ -784,13 +791,13 @@ fun RoadmapStatChip(label: String, value: String) {
         ) {
             Text(
                 text = value,
-                color = AtlasParchment,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontWeight = FontWeight.Black,
                 fontSize = 13.sp
             )
             Text(
                 text = label,
-                color = TopoContourMuted,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 9.sp
             )
         }

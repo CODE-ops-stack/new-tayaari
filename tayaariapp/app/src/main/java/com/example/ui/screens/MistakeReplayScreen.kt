@@ -26,6 +26,7 @@ fun MistakeReplayScreen(
     onBack: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val fontScale = com.example.ui.theme.LocalFontScale.current
 
     com.example.ui.components.AtlasBackground {
         com.example.ui.components.TopographicBackground(lineColor = com.example.ui.theme.ContourEmerald.copy(alpha = 0.035f)) {
@@ -56,12 +57,12 @@ fun MistakeReplayScreen(
                                 Icon(
                                     Icons.AutoMirrored.Filled.ArrowBack, 
                                     contentDescription = "Back",
-                                    tint = com.example.ui.theme.AtlasParchment
+                                    tint = MaterialTheme.colorScheme.onSurface
                                 )
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = com.example.ui.theme.OceanicDark.copy(alpha = 0.95f)
+                            containerColor = Color.Transparent
                         )
                     )
                 }
@@ -80,9 +81,9 @@ fun MistakeReplayScreen(
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
                                 "Scanning geodetic field logs for course deviations...",
-                                color = com.example.ui.theme.AtlasParchment,
+                                color = MaterialTheme.colorScheme.onSurface,
                                 fontFamily = com.example.ui.theme.CartographicSerif,
-                                fontSize = 15.sp
+                                fontSize = (15 * fontScale).sp
                             )
                         }
                         ReplayState.NO_CANDIDATES -> {
@@ -123,7 +124,7 @@ fun MistakeReplayScreen(
                             ) {
                                 Column(modifier = Modifier.padding(16.dp)) {
                                     Surface(
-                                        color = com.example.ui.theme.OceanicDark,
+                                        color = MaterialTheme.colorScheme.surfaceVariant,
                                         shape = RoundedCornerShape(6.dp),
                                         border = androidx.compose.foundation.BorderStroke(1.dp, com.example.ui.theme.MagmaCrimson)
                                     ) {
@@ -131,7 +132,7 @@ fun MistakeReplayScreen(
                                             "TRAP TYPE: ${candidate.evidenceType}", 
                                             fontWeight = FontWeight.Bold,
                                             fontFamily = com.example.ui.theme.CoordinatesMonospace,
-                                            fontSize = 11.sp,
+                                            fontSize = (11 * fontScale).sp,
                                             color = com.example.ui.theme.MagmaCrimson,
                                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                                         )
@@ -139,23 +140,23 @@ fun MistakeReplayScreen(
                                     Spacer(modifier = Modifier.height(8.dp))
                                     Text(
                                         "Context: ${candidate.context}",
-                                        color = com.example.ui.theme.TopoContourMuted,
-                                        fontSize = 12.sp
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        fontSize = (12 * fontScale).sp
                                     )
                                     Spacer(modifier = Modifier.height(14.dp))
                                     Text(
                                         "Original Waypoint Question:", 
                                         fontWeight = FontWeight.Bold,
                                         color = com.example.ui.theme.SunstoneGold,
-                                        fontSize = 13.sp
+                                        fontSize = (13 * fontScale).sp
                                     )
                                     Spacer(modifier = Modifier.height(4.dp))
                                     Text(
                                         candidate.originalQuestion.questionText,
-                                        color = com.example.ui.theme.AtlasParchment,
+                                        color = MaterialTheme.colorScheme.onSurface,
                                         fontFamily = com.example.ui.theme.CartographicSerif,
-                                        fontSize = 15.sp,
-                                        lineHeight = 22.sp
+                                        fontSize = (15 * fontScale).sp,
+                                        lineHeight = (22 * fontScale).sp
                                     )
                                 }
                             }
@@ -196,15 +197,15 @@ fun MistakeReplayScreen(
                                         "Verified Atlas Cadastre Principle:", 
                                         fontWeight = FontWeight.Bold,
                                         color = com.example.ui.theme.ContourEmerald,
-                                        fontSize = 13.sp
+                                        fontSize = (13 * fontScale).sp
                                     )
                                     Spacer(modifier = Modifier.height(8.dp))
                                     Text(
                                         candidate.originalQuestion.explanation ?: "Review the standard cartographic dissection for this topic.",
-                                        color = com.example.ui.theme.AtlasParchment,
+                                        color = MaterialTheme.colorScheme.onSurface,
                                         fontFamily = com.example.ui.theme.CartographicSerif,
-                                        fontSize = 15.sp,
-                                        lineHeight = 22.sp
+                                        fontSize = (15 * fontScale).sp,
+                                        lineHeight = (22 * fontScale).sp
                                     )
                                 }
                             }
@@ -242,10 +243,10 @@ fun MistakeReplayScreen(
                                 Column(modifier = Modifier.padding(16.dp)) {
                                     Text(
                                         altQuestion.questionText,
-                                        color = com.example.ui.theme.AtlasParchment,
+                                        color = MaterialTheme.colorScheme.onSurface,
                                         fontFamily = com.example.ui.theme.CartographicSerif,
-                                        fontSize = 15.sp,
-                                        lineHeight = 22.sp
+                                        fontSize = (15 * fontScale).sp,
+                                        lineHeight = (22 * fontScale).sp
                                     )
                                     Spacer(modifier = Modifier.height(16.dp))
                                     val options = uiState.altOptions
@@ -255,11 +256,11 @@ fun MistakeReplayScreen(
                                                 .fillMaxWidth()
                                                 .padding(vertical = 4.dp)
                                                 .clickable { viewModel.selectOption(index) },
-                                            color = if (uiState.selectedOptionIndex == index) com.example.ui.theme.OceanicDark else Color.Transparent,
+                                            color = if (uiState.selectedOptionIndex == index) MaterialTheme.colorScheme.surfaceVariant else Color.Transparent,
                                             shape = RoundedCornerShape(8.dp),
                                             border = androidx.compose.foundation.BorderStroke(
                                                 1.dp, 
-                                                if (uiState.selectedOptionIndex == index) com.example.ui.theme.SunstoneGold else com.example.ui.theme.SlateBedrock
+                                                if (uiState.selectedOptionIndex == index) com.example.ui.theme.SunstoneGold else MaterialTheme.colorScheme.outline.copy(alpha = 0.4f)
                                             )
                                         ) {
                                             Row(
@@ -274,8 +275,8 @@ fun MistakeReplayScreen(
                                                 Spacer(modifier = Modifier.width(8.dp))
                                                 Text(
                                                     opt,
-                                                    color = if (uiState.selectedOptionIndex == index) com.example.ui.theme.SummitGold else com.example.ui.theme.AtlasParchment,
-                                                    fontSize = 14.sp
+                                                    color = if (uiState.selectedOptionIndex == index) com.example.ui.theme.SummitGold else MaterialTheme.colorScheme.onSurface,
+                                                    fontSize = (14 * fontScale).sp
                                                 )
                                             }
                                         }

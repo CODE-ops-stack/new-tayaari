@@ -39,6 +39,7 @@ fun ReadinessEvidenceScreen(
     onBack: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val fontScale = LocalFontScale.current
 
     com.example.ui.components.AtlasBackground {
         com.example.ui.components.TopographicBackground(lineColor = ContourEmerald.copy(alpha = 0.035f)) {
@@ -69,14 +70,14 @@ fun ReadinessEvidenceScreen(
                                 Icon(
                                     Icons.AutoMirrored.Filled.ArrowBack,
                                     contentDescription = "Back",
-                                    tint = AtlasParchment
+                                    tint = MaterialTheme.colorScheme.onSurface
                                 )
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = OceanicDark.copy(alpha = 0.95f),
+                            containerColor = Color.Transparent,
                             titleContentColor = SummitGold,
-                            navigationIconContentColor = AtlasParchment
+                            navigationIconContentColor = MaterialTheme.colorScheme.onSurface
                         )
                     )
                 }
@@ -110,13 +111,15 @@ fun ReadinessEvidenceScreen(
                                 style = MaterialTheme.typography.titleLarge,
                                 fontFamily = CartographicSerif,
                                 fontWeight = FontWeight.Bold,
-                                color = AtlasParchment
+                                color = MaterialTheme.colorScheme.onSurface,
+                                fontSize = (18 * fontScale).sp
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
                                 "Forget rank speculation. This radar tracks empirical behavioral evidence of your real geodetic readiness across 4 crucial field pillars.",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = TopoContourMuted
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                fontSize = (12 * fontScale).sp
                             )
                         }
 
@@ -166,7 +169,8 @@ fun ReadinessEvidenceScreen(
                                                 style = MaterialTheme.typography.titleMedium,
                                                 fontFamily = CartographicSerif,
                                                 fontWeight = FontWeight.Bold,
-                                                color = AtlasParchment
+                                                color = MaterialTheme.colorScheme.onSurface,
+                                                fontSize = (15 * fontScale).sp
                                             )
                                         }
                                         Surface(
@@ -178,7 +182,7 @@ fun ReadinessEvidenceScreen(
                                                 text = statusText,
                                                 color = statusColor,
                                                 fontFamily = CoordinatesMonospace,
-                                                fontSize = 10.sp,
+                                                fontSize = (10 * fontScale).sp,
                                                 fontWeight = FontWeight.Bold,
                                                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
                                             )
@@ -188,14 +192,16 @@ fun ReadinessEvidenceScreen(
                                     Text(
                                         pillar.description,
                                         style = MaterialTheme.typography.bodySmall,
-                                        color = TopoContourMuted
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        fontSize = (12 * fontScale).sp
                                     )
                                     Spacer(modifier = Modifier.height(12.dp))
                                     pillar.evidence.forEach { ev ->
                                         Text(
                                             "🧭 $ev",
                                             style = MaterialTheme.typography.bodySmall,
-                                            color = AtlasParchment.copy(alpha = 0.9f),
+                                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
+                                            fontSize = (12 * fontScale).sp,
                                             modifier = Modifier.padding(bottom = 4.dp)
                                         )
                                     }
@@ -233,7 +239,7 @@ fun ReadinessRadarPolygonCanvas(pillars: List<ReadinessPillar>) {
     val avgScore = (pillarScores.average() * 100).toInt()
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.45f)),
         modifier = Modifier.fillMaxWidth()
@@ -260,7 +266,7 @@ fun ReadinessRadarPolygonCanvas(pillars: List<ReadinessPillar>) {
                     )
                 }
                 Surface(
-                    color = OceanicDark,
+                    color = MaterialTheme.colorScheme.surface,
                     shape = RoundedCornerShape(4.dp),
                     border = BorderStroke(0.8.dp, ContourEmerald.copy(alpha = 0.5f))
                 ) {
@@ -282,7 +288,7 @@ fun ReadinessRadarPolygonCanvas(pillars: List<ReadinessPillar>) {
                 modifier = Modifier
                     .size(160.dp)
                     .clip(CircleShape)
-                    .background(OceanicDark),
+                    .background(MaterialTheme.colorScheme.surface),
                 contentAlignment = Alignment.Center
             ) {
                 Canvas(modifier = Modifier.size(150.dp)) {
@@ -356,10 +362,10 @@ fun ReadinessRadarPolygonCanvas(pillars: List<ReadinessPillar>) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                Text("↑ Coverage", color = AtlasParchment, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
-                Text("→ Retention", color = AtlasParchment, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
-                Text("↓ Traps", color = AtlasParchment, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
-                Text("← Confidence", color = AtlasParchment, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
+                Text("↑ Coverage", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
+                Text("→ Retention", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
+                Text("↓ Traps", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
+                Text("← Confidence", color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 9.5.sp, fontFamily = CoordinatesMonospace)
             }
         }
     }
