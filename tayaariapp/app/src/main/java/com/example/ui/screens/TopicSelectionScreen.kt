@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -84,6 +85,7 @@ fun TopicSelectionScreen(
 
     // Expand all modules by default so all 30 chapters are visible immediately
     val expandedStates = remember { mutableStateMapOf<String, Boolean>() }
+    var selectedPhysiographyFilter by remember { mutableStateOf("ALL") }
     LaunchedEffect(groupedTopics) {
         groupedTopics.keys.forEach { moduleName ->
             if (!expandedStates.containsKey(moduleName)) {
@@ -702,6 +704,13 @@ fun TopicSelectionScreen(
                         }
 
                         // ==========================================
+                        // CADRE MEDAL TROPHY SHOWCASE
+                        // ==========================================
+                        item {
+                            CadreMedalTrophyShowcase(profile = profile)
+                        }
+
+                        // ==========================================
                         // NEXT BEST ACTION RECOMMENDER CARD
                         // ==========================================
                         if (nextAction != null) {
@@ -851,9 +860,32 @@ fun TopicSelectionScreen(
                             "🎓 UPSC Geography Optional"
                         )
                         val allModules = (orderedModules + (groupedTopics.keys - orderedModules.toSet())).distinct()
+                        // ==========================================
+                        // INTERACTIVE INDIA PHYSIOGRAPHY MAP SELECTOR
+                        // ==========================================
+                        item {
+                            IndiaPhysiographyMapSelector(
+                                selectedZone = selectedPhysiographyFilter,
+                                onZoneSelected = { selectedPhysiographyFilter = it }
+                            )
+                        }
 
                         allModules.forEach { moduleName ->
-                            val moduleTopics = groupedTopics[moduleName]
+                            val rawTopics = groupedTopics[moduleName]
+                            val moduleTopics = if (rawTopics == null || selectedPhysiographyFilter == "ALL") rawTopics
+                            else {
+                                rawTopics.filter { item ->
+                                    val name = item.topic.name.lowercase()
+                                    when (selectedPhysiographyFilter) {
+                                        "HIMALAYAS" -> name.contains("physiography") || name.contains("interior") || name.contains("landforms") || name.contains("geomorphic")
+                                        "PLAINS" -> name.contains("plain") || name.contains("soil") || name.contains("vegetation") || name.contains("agriculture")
+                                        "PLATEAU" -> name.contains("plateau") || name.contains("minerals") || name.contains("energy") || name.contains("industries")
+                                        "COASTS" -> name.contains("location") || name.contains("neighbours") || name.contains("ocean") || name.contains("coastal")
+                                        "RIVERS" -> name.contains("drainage") || name.contains("water") || name.contains("climate") || name.contains("monsoon")
+                                        else -> true
+                                    }
+                                }
+                            }
                             if (moduleTopics != null && moduleTopics.isNotEmpty()) {
                                 item {
                                     val isExpanded = expandedStates[moduleName] != false
@@ -1463,6 +1495,221 @@ fun DailyFireTopperWidget(profile: ExamBlueprint?) {
                 fontSize = 10.sp,
                 fontWeight = FontWeight.SemiBold
             )
+        }
+    }
+}
+
+@Composable
+fun IndiaPhysiographyMapSelector(
+    selectedZone: String,
+    onZoneSelected: (String) -> Unit
+) {
+    val zones = listOf(
+        Triple("ALL", "🗺️ All India", "Complete NCERT Syllabus"),
+        Triple("HIMALAYAS", "🏔️ Northern Arc", "Shiwalik, Himadri & Passes"),
+        Triple("PLAINS", "🌾 Great Plains", "Bhabhar, Terai, Khadar & Alluvium"),
+        Triple("PLATEAU", "🌋 Peninsular Core", "Deccan Traps & Central Highlands"),
+        Triple("COASTS", "🏖️ Coasts & Islands", "Konkan, Malabar, Coromandel & Andamans"),
+        Triple("RIVERS", "🌊 Hydro Systems", "Himalayan & Peninsular Drainage")
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🇮🇳", fontSize = 16.sp)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Column {
+                        Text(
+                            text = "INTERACTIVE PHYSIOGRAPHY MAP SELECTOR",
+                            color = SunstoneGold,
+                            fontSize = 10.5.sp,
+                            fontWeight = FontWeight.Black,
+                            letterSpacing = 0.8.sp
+                        )
+                        Text(
+                            text = "Filter chapters by India's natural geomorphic provinces",
+                            color = TopoContourMuted,
+                            fontSize = 10.sp
+                        )
+                    }
+                }
+                Surface(
+                    color = SunstoneGold.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(6.dp)
+                ) {
+                    Text(
+                        text = "SPATIAL ATLAS",
+                        color = SunstoneGold,
+                        fontSize = 9.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Interactive Physiographic Zone Chips (Row 1)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                zones.take(3).forEach { (key, label, _) ->
+                    val isSelected = selectedZone == key
+                    Surface(
+                        color = if (isSelected) SunstoneGold else OceanicDark,
+                        shape = RoundedCornerShape(8.dp),
+                        border = BorderStroke(0.8.dp, if (isSelected) SunstoneGold else HydrosphereCyan.copy(alpha = 0.3f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { onZoneSelected(key) }
+                    ) {
+                        Text(
+                            text = label,
+                            color = if (isSelected) AbyssNavy else AtlasParchment,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(vertical = 8.dp)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(6.dp))
+
+            // Interactive Physiographic Zone Chips (Row 2)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                zones.drop(3).forEach { (key, label, _) ->
+                    val isSelected = selectedZone == key
+                    Surface(
+                        color = if (isSelected) SunstoneGold else OceanicDark,
+                        shape = RoundedCornerShape(8.dp),
+                        border = BorderStroke(0.8.dp, if (isSelected) SunstoneGold else HydrosphereCyan.copy(alpha = 0.3f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { onZoneSelected(key) }
+                    ) {
+                        Text(
+                            text = label,
+                            color = if (isSelected) AbyssNavy else AtlasParchment,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(vertical = 8.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun CadreMedalTrophyShowcase(profile: ExamBlueprint?) {
+    val medals = listOf(
+        Triple("🏛️ LBSNAA", "Civil Services Steel Frame", SunstoneGold),
+        Triple("🌾 BIHAR SDM", "Patna Secretariat Corps", ContourEmerald),
+        Triple("⭐ CSS ASO", "Central Secretariat Merit Star", HydrosphereCyan),
+        Triple("🚆 RAILWAY", "Indian Railways Speed Corps", SunstoneGold)
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.2.dp, SunstoneGold.copy(alpha = 0.5f)),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🎖️", fontSize = 16.sp)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Column {
+                        Text(
+                            text = "CADRE GLORY MEDAL SHOWCASE // TROPHY ROOM",
+                            color = SunstoneGold,
+                            fontSize = 10.5.sp,
+                            fontWeight = FontWeight.Black,
+                            letterSpacing = 0.8.sp
+                        )
+                        Text(
+                            text = "Conquer questions to permanently etch your name in the service roll",
+                            color = TopoContourMuted,
+                            fontSize = 10.sp
+                        )
+                    }
+                }
+                Surface(
+                    color = SunstoneGold.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(4.dp)
+                ) {
+                    Text(
+                        text = "4 CADRES",
+                        color = SunstoneGold,
+                        fontSize = 9.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                medals.forEach { (name, desc, color) ->
+                    val isActive = profile?.displayName?.contains(name.substringAfter(" ").take(4), ignoreCase = true) == true || (name.contains("LBSNAA") && profile?.examId?.contains("UPSC", ignoreCase = true) == true)
+                    Surface(
+                        color = if (isActive) OceanicDark else DeepBasalt.copy(alpha = 0.6f),
+                        shape = RoundedCornerShape(10.dp),
+                        border = BorderStroke(1.dp, if (isActive) color else TopoContourMuted.copy(alpha = 0.25f)),
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(8.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(text = name.substringBefore(" "), fontSize = 20.sp)
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = name.substringAfter(" "),
+                                color = if (isActive) color else TopoContourMuted,
+                                fontSize = 9.sp,
+                                fontWeight = FontWeight.Black,
+                                textAlign = TextAlign.Center,
+                                maxLines = 1
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = if (isActive) "ACTIVE" else "LOCKED",
+                                color = if (isActive) ContourEmerald else TopoContourMuted.copy(alpha = 0.6f),
+                                fontSize = 8.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 }

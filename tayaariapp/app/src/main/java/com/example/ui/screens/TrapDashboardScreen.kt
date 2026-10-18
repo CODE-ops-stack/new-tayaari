@@ -22,6 +22,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.border
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.drawscope.Stroke
+import kotlin.math.cos
+import kotlin.math.sin
+import com.example.ui.theme.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -129,6 +138,10 @@ fun TrapDashboardScreen(
                     contentPadding = PaddingValues(vertical = 16.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
+                    item {
+                        SonarTrapRadarCanvas(trapsCount = trapAnalytics.size)
+                    }
+
                     item {
                         Text(
                             text = "Identify cognitive vulnerabilities across Physical, Indian & World Geography. The higher the frequency, the more susceptible you are to that specific trap format.",
@@ -320,6 +333,125 @@ fun EnhancedTrapStatCard(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun SonarTrapRadarCanvas(
+    trapsCount: Int,
+    modifier: Modifier = Modifier
+) {
+    val infiniteTransition = rememberInfiniteTransition(label = "radarSweep")
+    val sweepAngle by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 360f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(4000, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        ),
+        label = "sweep"
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(1.2.dp, ContourEmerald.copy(alpha = 0.5f)),
+        modifier = modifier.fillMaxWidth().padding(bottom = 8.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(14.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(10.dp)
+                            .clip(CircleShape)
+                            .background(Color(0xFFEF4444))
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = "SONAR TRAP RADAR // 360° SWEEP",
+                        color = ContourEmerald,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.8.sp
+                    )
+                }
+                Surface(
+                    color = ContourEmerald.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(4.dp)
+                ) {
+                    Text(
+                        text = "$trapsCount DETECTED",
+                        color = ContourEmerald,
+                        fontSize = 9.5.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Box(
+                modifier = Modifier
+                    .size(160.dp)
+                    .clip(CircleShape)
+                    .background(OceanicDark)
+                    .border(1.5.dp, ContourEmerald.copy(alpha = 0.4f), CircleShape),
+                contentAlignment = Alignment.Center
+            ) {
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    val center = Offset(size.width / 2f, size.height / 2f)
+                    val radius = size.width / 2f
+
+                    // Concentric Range Rings
+                    drawCircle(color = ContourEmerald.copy(alpha = 0.15f), radius = radius * 0.33f, center = center, style = Stroke(1.2f))
+                    drawCircle(color = ContourEmerald.copy(alpha = 0.2f), radius = radius * 0.66f, center = center, style = Stroke(1.2f))
+                    drawCircle(color = ContourEmerald.copy(alpha = 0.3f), radius = radius * 0.95f, center = center, style = Stroke(1.5f))
+
+                    // Crosshair grid lines
+                    drawLine(color = ContourEmerald.copy(alpha = 0.2f), start = Offset(0f, center.y), end = Offset(size.width, center.y), strokeWidth = 1f)
+                    drawLine(color = ContourEmerald.copy(alpha = 0.2f), start = Offset(center.x, 0f), end = Offset(center.x, size.height), strokeWidth = 1f)
+
+                    // Sweeping Sonar Beam
+                    val rad = sweepAngle * (Math.PI / 180f)
+                    val endX = center.x + radius * cos(rad).toFloat()
+                    val endY = center.y + radius * sin(rad).toFloat()
+                    drawLine(
+                        color = ContourEmerald,
+                        start = center,
+                        end = Offset(endX, endY),
+                        strokeWidth = 2.5f
+                    )
+
+                    // Draw trap blips
+                    val blipAngles = listOf(45f, 130f, 210f, 315f)
+                    val blipDists = listOf(0.45f, 0.72f, 0.58f, 0.85f)
+                    for (i in 0 until minOf(trapsCount, 4)) {
+                        val bAngle = blipAngles[i] * (Math.PI / 180f)
+                        val bx = center.x + radius * blipDists[i] * cos(bAngle).toFloat()
+                        val by = center.y + radius * blipDists[i] * sin(bAngle).toFloat()
+                        drawCircle(color = Color(0xFFEF4444), radius = 5f, center = Offset(bx, by))
+                        drawCircle(color = Color(0xFFEF4444).copy(alpha = 0.3f), radius = 9f, center = Offset(bx, by))
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = "Sonar Pulse: Factual Inversion, Extreme Qualifiers & Causality Traps Mapped",
+                color = TopoContourMuted,
+                fontSize = 10.5.sp,
+                textAlign = TextAlign.Center
+            )
         }
     }
 }

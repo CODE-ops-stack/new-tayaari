@@ -13,10 +13,14 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.ui.geometry.Offset
+import kotlin.math.cos
+import kotlin.math.sin
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -514,6 +518,14 @@ fun PracticeScreen(
                         ) {
                             val effectiveExam = profile?.examId ?: targetQuestion.chapterCode
                             item {
+                                GeodeticSurveyHudStrip(
+                                    questionNumber = uiState.questionNumber,
+                                    totalQuestions = uiState.totalQuestionsInSet,
+                                    tier = tier,
+                                    altitudeMeters = uiState.currentAltitudeMeters
+                                )
+                            }
+                            item {
                                 ExamGloryHeader(examTarget = effectiveExam, tier = tier)
                             }
 
@@ -709,38 +721,360 @@ fun CorrectExplanationCard(
                 }
             }
 
-            // High-Yield Ranker's Takeaway Banner
+            // High-Yield Ranker's Takeaway Banner (Interactive Tap-to-Unlock)
             if (takeawayText.isNotBlank()) {
                 Spacer(modifier = Modifier.height(14.dp))
+                InteractiveMnemonicCard(takeawayText = takeawayText)
+            }
+
+            // Interactive Geographic Science Sandbox
+            InteractiveGeographicModelSandbox(explanation = explanation)
+        }
+    }
+}
+
+@Composable
+fun InteractiveMnemonicCard(takeawayText: String) {
+    var isRevealed by remember { mutableStateOf(false) }
+
+    Surface(
+        color = if (isRevealed) Color(0xFFF59E0B).copy(alpha = 0.12f) else DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.2.dp, if (isRevealed) SunstoneGold.copy(alpha = 0.6f) else SunstoneGold.copy(alpha = 0.3f)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { isRevealed = !isRevealed }
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = if (isRevealed) "🔓" else "🔒", fontSize = 16.sp)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = if (isRevealed) "ACTIVE RECALL UNLOCKED // TOPPER MNEMONIC" else "TAP TO UNLOCK // ACTIVE RECALL DRILL",
+                        color = SunstoneGold,
+                        fontWeight = FontWeight.Black,
+                        fontSize = 10.5.sp,
+                        letterSpacing = 0.8.sp
+                    )
+                }
                 Surface(
-                    color = Color(0xFFF59E0B).copy(alpha = 0.12f),
-                    shape = RoundedCornerShape(10.dp),
-                    border = BorderStroke(1.dp, Color(0xFFF59E0B).copy(alpha = 0.35f)),
-                    modifier = Modifier.fillMaxWidth()
+                    color = SunstoneGold.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(4.dp)
                 ) {
-                    Row(
-                        modifier = Modifier.padding(12.dp),
-                        verticalAlignment = Alignment.Top
+                    Text(
+                        text = if (isRevealed) "REVEALED" else "TAP TO REVEAL 👁️",
+                        color = SunstoneGold,
+                        fontSize = 9.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.height(6.dp))
+            if (isRevealed) {
+                Text(
+                    text = takeawayText,
+                    color = Color(0xFFFDE68A),
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium,
+                    lineHeight = 19.sp
+                )
+            } else {
+                Text(
+                    text = "Test your memory first! Can you recall the key exam formula before tapping?",
+                    color = TopoContourMuted,
+                    fontSize = 11.sp,
+                    fontStyle = FontStyle.Italic
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun InteractiveGeographicModelSandbox(explanation: String) {
+    val lower = explanation.lowercase()
+    val isTectonics = lower.contains("tectonic") || lower.contains("plate") || lower.contains("fault") || lower.contains("subduction") || lower.contains("divergent")
+    val isAtmosphere = lower.contains("troposphere") || lower.contains("stratosphere") || lower.contains("atmosphere") || lower.contains("ozone") || lower.contains("lapse rate")
+    val isRiver = lower.contains("river") || lower.contains("meander") || lower.contains("delta") || lower.contains("drainage") || lower.contains("oxbow")
+
+    if (isTectonics) {
+        TectonicBoundarySandbox()
+    } else if (isAtmosphere) {
+        AtmosphericProfileSandbox()
+    } else if (isRiver) {
+        RiverCourseSandbox()
+    }
+}
+
+@Composable
+fun TectonicBoundarySandbox() {
+    var selectedBoundary by remember { mutableIntStateOf(0) }
+    val titles = listOf("CONVERGENT (COLLISION)", "DIVERGENT (SPREADING)", "TRANSFORM (SHEAR)")
+    val arrows = listOf("➡️  COLLISION  ⬅️", "⬅️  UPWELLING  ➡️", "⬆️  LATERAL SLIP  ⬇️")
+    val landforms = listOf(
+        "Fold Mountains (Himalayas), Volcanic Arcs, Deep Oceanic Trenches (Mariana)",
+        "Mid-Oceanic Ridges (Mid-Atlantic), Rift Valleys (East Africa), Basaltic Magma",
+        "San Andreas Fault, Strike-Slip Earthquakes, No Volcanism, Crust Preserved"
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, HydrosphereCyan.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🌋", fontSize = 15.sp)
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "INTERACTIVE TECTONIC MODEL // SLIDE & DISCOVER",
+                        color = HydrosphereCyan,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.6.sp
+                    )
+                }
+                Text(
+                    text = "Tap Tabs ➔",
+                    color = TopoContourMuted,
+                    fontSize = 9.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                listOf("Convergent", "Divergent", "Transform").forEachIndexed { idx, tabName ->
+                    val isTabSelected = selectedBoundary == idx
+                    Surface(
+                        color = if (isTabSelected) HydrosphereCyan else OceanicDark,
+                        shape = RoundedCornerShape(6.dp),
+                        border = BorderStroke(0.8.dp, HydrosphereCyan.copy(alpha = 0.4f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedBoundary = idx }
                     ) {
-                        Text(text = "🗺️", fontSize = 16.sp, modifier = Modifier.padding(end = 8.dp))
-                        Column {
-                            Text(
-                                text = "GEOGRAPHER'S MEMORY LOCK / ATLAS MNEMONIC",
-                                color = Color(0xFFF59E0B),
-                                fontWeight = FontWeight.Black,
-                                fontSize = 10.sp,
-                                letterSpacing = 0.8.sp
-                            )
-                            Spacer(modifier = Modifier.height(4.dp))
-                            Text(
-                                text = takeawayText,
-                                color = Color(0xFFFDE68A),
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight.Medium,
-                                lineHeight = 19.sp
-                            )
-                        }
+                        Text(
+                            text = tabName,
+                            color = if (isTabSelected) Color.Black else AtlasParchment,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(vertical = 6.dp)
+                        )
                     }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = arrows[selectedBoundary],
+                        color = SunstoneGold,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Black,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+                    Text(
+                        text = "Signature Geography: ${landforms[selectedBoundary]}",
+                        color = AtlasParchment,
+                        fontSize = 11.sp,
+                        lineHeight = 16.sp
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun AtmosphericProfileSandbox() {
+    var selectedLayer by remember { mutableIntStateOf(0) }
+    val layers = listOf("Troposphere", "Stratosphere", "Mesosphere", "Thermosphere")
+    val altitudes = listOf("0 - 12 km (Datum to Tropopause)", "12 - 50 km (Ozone Maximum)", "50 - 80 km (Coldest Layer -100°C)", "80 - 500 km (Ionosphere & Auroras)")
+    val lapses = listOf(
+        "Temperature DECREASES with height (-6.5°C/km Normal Lapse Rate). All weather phenomena occur here.",
+        "Temperature INCREASES with height (Inversion) due to Ozone (O3) UV absorption. Ideal for supersonic jets.",
+        "Temperature PLUMMETS to -100°C. Meteors burn up upon atmospheric entry in this layer.",
+        "Temperature SURGES past 1,000°C due to high-energy solar X-rays. Ionized plasma enables global radio bounce."
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🌤️", fontSize = 15.sp)
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "INTERACTIVE ATMOSPHERE BAROMETER // PROFILE",
+                        color = ContourEmerald,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.6.sp
+                    )
+                }
+                Text(
+                    text = "Tap Layer ➔",
+                    color = TopoContourMuted,
+                    fontSize = 9.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                layers.forEachIndexed { idx, layerName ->
+                    val isLayerSelected = selectedLayer == idx
+                    Surface(
+                        color = if (isLayerSelected) ContourEmerald else OceanicDark,
+                        shape = RoundedCornerShape(6.dp),
+                        border = BorderStroke(0.8.dp, ContourEmerald.copy(alpha = 0.4f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedLayer = idx }
+                    ) {
+                        Text(
+                            text = layerName.take(6),
+                            color = if (isLayerSelected) Color.Black else AtlasParchment,
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(vertical = 5.dp)
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = "${layers[selectedLayer]}: ${altitudes[selectedLayer]}",
+                        color = SunstoneGold,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = lapses[selectedLayer],
+                        color = AtlasParchment,
+                        fontSize = 11.sp,
+                        lineHeight = 16.sp
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun RiverCourseSandbox() {
+    var selectedStage by remember { mutableIntStateOf(0) }
+    val stages = listOf("Youth (Upper)", "Mature (Middle)", "Old (Lower)")
+    val profiles = listOf(
+        "Steep V-Shaped Valleys, Gorges & Canyons, Waterfalls (Vertical Downcutting)",
+        "Moderate Gradient, Meanders, Alluvial Fans, Floodplains (Lateral Erosion Dominant)",
+        "Gentle Plain, Oxbow Lakes, Natural Levees, Braided Channels & Massive Deltas (Deposition)"
+    )
+
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, HydrosphereCyan.copy(alpha = 0.45f)),
+        modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(text = "🏞️", fontSize = 15.sp)
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Text(
+                        text = "INTERACTIVE FLUVIAL VALLEY PROFILE // COURSE",
+                        color = HydrosphereCyan,
+                        fontSize = 10.5.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.6.sp
+                    )
+                }
+                Text(
+                    text = "Tap Stage ➔",
+                    color = TopoContourMuted,
+                    fontSize = 9.sp
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                stages.forEachIndexed { idx, stageName ->
+                    val isStageSelected = selectedStage == idx
+                    Surface(
+                        color = if (isStageSelected) HydrosphereCyan else OceanicDark,
+                        shape = RoundedCornerShape(6.dp),
+                        border = BorderStroke(0.8.dp, HydrosphereCyan.copy(alpha = 0.4f)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickable { selectedStage = idx }
+                    ) {
+                        Text(
+                            text = stageName,
+                            color = if (isStageSelected) Color.Black else AtlasParchment,
+                            fontSize = 10.5.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(vertical = 6.dp)
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Surface(
+                color = OceanicDark,
+                shape = RoundedCornerShape(8.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Text(
+                        text = "Stage Action & Landforms:",
+                        color = SunstoneGold,
+                        fontSize = 11.5.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = profiles[selectedStage],
+                        color = AtlasParchment,
+                        fontSize = 11.sp,
+                        lineHeight = 16.sp
+                    )
                 }
             }
         }
@@ -829,6 +1163,99 @@ fun PremiumQuestionCard(
                 questionText = question.questionText.trim(),
                 textColor = deepBlue
             )
+        }
+    }
+}
+
+@Composable
+fun GeodeticSurveyHudStrip(
+    questionNumber: Int,
+    totalQuestions: Int,
+    tier: String,
+    altitudeMeters: Int
+) {
+    Surface(
+        color = DeepBasalt,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.35f)),
+        modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            // 1. Compass dial
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Box(
+                    modifier = Modifier
+                        .size(28.dp)
+                        .clip(CircleShape)
+                        .background(OceanicDark)
+                        .border(1.dp, SunstoneGold.copy(alpha = 0.6f), CircleShape),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Canvas(modifier = Modifier.size(20.dp)) {
+                        val center = Offset(size.width / 2f, size.height / 2f)
+                        val angle = (questionNumber * 42.5f) * (Math.PI / 180f)
+                        val nx = center.x + (size.width * 0.42f) * sin(angle).toFloat()
+                        val ny = center.y - (size.height * 0.42f) * cos(angle).toFloat()
+                        val sx = center.x - (size.width * 0.35f) * sin(angle).toFloat()
+                        val sy = center.y + (size.height * 0.35f) * cos(angle).toFloat()
+                        // North needle (Red)
+                        drawLine(
+                            color = Color(0xFFEF4444),
+                            start = center,
+                            end = Offset(nx, ny),
+                            strokeWidth = 2.5f
+                        )
+                        // South needle (Muted Cyan)
+                        drawLine(
+                            color = HydrosphereCyan.copy(alpha = 0.7f),
+                            start = center,
+                            end = Offset(sx, sy),
+                            strokeWidth = 2f
+                        )
+                        drawCircle(color = SunstoneGold, radius = 2.5f, center = center)
+                    }
+                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Column {
+                    Text(
+                        text = "FIELD STATION $questionNumber/$totalQuestions",
+                        color = SunstoneGold,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = 0.6.sp
+                    )
+                    Text(
+                        text = "Barometer: ${if (tier.equals("Hard", ignoreCase = true)) "500 hPa (Apex)" else if (tier.equals("Medium", ignoreCase = true)) "850 hPa (Ridge)" else "1,013 hPa (Datum)"}",
+                        color = TopoContourMuted,
+                        fontSize = 9.sp
+                    )
+                }
+            }
+
+            // 2. Altimeter / Elevation indicator
+            Surface(
+                color = ContourEmerald.copy(alpha = 0.12f),
+                shape = RoundedCornerShape(6.dp),
+                border = BorderStroke(0.8.dp, ContourEmerald.copy(alpha = 0.3f))
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(text = "⛰️", fontSize = 11.sp)
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text(
+                        text = "${altitudeMeters.coerceAtLeast(500)}m ELEV",
+                        color = ContourEmerald,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Black
+                    )
+                }
+            }
         }
     }
 }
@@ -1284,59 +1711,90 @@ fun PremiumOptionsList(
                     shape = RoundedCornerShape(12.dp),
                     border = if ((isAnswerSubmitted && (isSelected || isCorrect)) || isPending) BorderStroke(2.dp, animatedBorderColor) else null,
                     shadowElevation = if (isAnswerSubmitted) 0.dp else 2.dp,
-                    modifier = Modifier.alpha(if (isCrossedOut) 0.5f else 1f)
+                    modifier = Modifier
+                        .alpha(if (isCrossedOut) 0.55f else 1f)
                         .fillMaxWidth()
                         .clickable(enabled = !isAnswerSubmitted && !isCrossedOut) { onOptionSelected(option.id) }
                 ) {
-                    Row(
-                        modifier = Modifier.padding(16.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(36.dp)
-                                .background(deepBlue.copy(alpha = 0.05f), CircleShape)
-                                .border(1.dp, deepBlue.copy(alpha = 0.1f), CircleShape),
-                            contentAlignment = Alignment.Center
+                    Box(modifier = Modifier.fillMaxWidth()) {
+                        Row(
+                            modifier = Modifier.padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Text(
-                                text = labels.getOrElse(index) { "" },
-                                color = deepBlue,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 14.sp
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(16.dp))
-                        Text(
-                            text = option.text,
-                            textDecoration = if (isCrossedOut) androidx.compose.ui.text.style.TextDecoration.LineThrough else null,
-                            modifier = Modifier.weight(1f),
-                            color = deepBlue.copy(alpha = 0.9f),
-                            fontSize = 16.sp,
-                            lineHeight = 22.sp
-                        )
-                        if (!isAnswerSubmitted) {
-                            IconButton(
-                                onClick = { onOptionCrossOut(option.id) },
-                                modifier = Modifier.size(36.dp)
+                            Box(
+                                modifier = Modifier
+                                    .size(36.dp)
+                                    .background(deepBlue.copy(alpha = 0.05f), CircleShape)
+                                    .border(1.dp, deepBlue.copy(alpha = 0.1f), CircleShape),
+                                contentAlignment = Alignment.Center
                             ) {
-                                Icon(
-                                    imageVector = Icons.Default.Close,
-                                    contentDescription = "Cross out",
-                                    tint = if (isCrossedOut) errorRed else deepBlue.copy(alpha = 0.3f)
+                                Text(
+                                    text = labels.getOrElse(index) { "" },
+                                    color = if (isCrossedOut) errorRed else deepBlue,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 14.sp
                                 )
                             }
+                            Spacer(modifier = Modifier.width(16.dp))
+                            Text(
+                                text = option.text,
+                                textDecoration = if (isCrossedOut) androidx.compose.ui.text.style.TextDecoration.LineThrough else null,
+                                modifier = Modifier.weight(1f),
+                                color = if (isCrossedOut) deepBlue.copy(alpha = 0.5f) else deepBlue.copy(alpha = 0.9f),
+                                fontSize = 16.sp,
+                                lineHeight = 22.sp
+                            )
+                            if (!isAnswerSubmitted) {
+                                IconButton(
+                                    onClick = { onOptionCrossOut(option.id) },
+                                    modifier = Modifier.size(36.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Close,
+                                        contentDescription = "Cross out",
+                                        tint = if (isCrossedOut) errorRed else deepBlue.copy(alpha = 0.3f)
+                                    )
+                                }
+                            }
+                            if (isAnswerSubmitted) {
+                                Spacer(modifier = Modifier.width(8.dp))
+                                if (isSelected && isCorrect) {
+                                    Icon(Icons.Filled.CheckCircleOutline, tint = successGreen, contentDescription = "Correct")
+                                } else if (isSelected && !isCorrect && !isAbstain) {
+                                    Icon(Icons.Filled.HighlightOff, tint = errorRed, contentDescription = "Incorrect")
+                                } else if (isSelected && isAbstain) {
+                                    // no icon for abstain
+                                } else if (isCorrect) {
+                                    Icon(Icons.Filled.CheckCircleOutline, tint = successGreen.copy(alpha = 0.5f), contentDescription = "Correct answer")
+                                }
+                            }
                         }
-                        if (isAnswerSubmitted) {
-                            Spacer(modifier = Modifier.width(8.dp))
-                            if (isSelected && isCorrect) {
-                                Icon(Icons.Filled.CheckCircleOutline, tint = successGreen, contentDescription = "Correct")
-                            } else if (isSelected && !isCorrect && !isAbstain) {
-                                Icon(Icons.Filled.HighlightOff, tint = errorRed, contentDescription = "Incorrect")
-                            } else if (isSelected && isAbstain) {
-                                // no icon for abstain
-                            } else if (isCorrect) {
-                                Icon(Icons.Filled.CheckCircleOutline, tint = successGreen.copy(alpha = 0.5f), contentDescription = "Correct answer")
+
+                        // Tactile red ink diagonal strike line & stamp when eliminated
+                        if (isCrossedOut) {
+                            Canvas(modifier = Modifier.matchParentSize()) {
+                                drawLine(
+                                    color = Color(0xFFEF4444).copy(alpha = 0.45f),
+                                    start = Offset(14.dp.toPx(), size.height * 0.72f),
+                                    end = Offset(size.width - 44.dp.toPx(), size.height * 0.28f),
+                                    strokeWidth = 2.5f
+                                )
+                            }
+                            Surface(
+                                color = Color(0xFFEF4444).copy(alpha = 0.12f),
+                                shape = RoundedCornerShape(4.dp),
+                                border = BorderStroke(0.6.dp, Color(0xFFEF4444).copy(alpha = 0.35f)),
+                                modifier = Modifier
+                                    .align(Alignment.TopEnd)
+                                    .padding(top = 6.dp, end = 40.dp)
+                            ) {
+                                Text(
+                                    text = "ELIMINATED ✂️",
+                                    color = Color(0xFFEF4444),
+                                    fontSize = 8.5.sp,
+                                    fontWeight = FontWeight.Black,
+                                    modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                                )
                             }
                         }
                     }
