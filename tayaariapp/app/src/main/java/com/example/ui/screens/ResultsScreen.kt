@@ -301,12 +301,16 @@ fun CadrePeakAscentCanvas(percentage: Int) {
             Spacer(modifier = Modifier.height(12.dp))
 
             // Mountain Ascent Canvas
+            val slopeBgColor = MaterialTheme.colorScheme.surfaceVariant
+            val slopeOutlineColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
+            val slopeFillColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.8f)
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(130.dp)
-                    .background(OceanicDark, RoundedCornerShape(10.dp))
-                    .border(0.8.dp, SlateBedrock, RoundedCornerShape(10.dp))
+                    .background(slopeBgColor, RoundedCornerShape(10.dp))
+                    .border(0.8.dp, slopeOutlineColor, RoundedCornerShape(10.dp))
                     .padding(8.dp)
             ) {
                 Canvas(modifier = Modifier.fillMaxSize()) {
@@ -326,7 +330,7 @@ fun CadrePeakAscentCanvas(percentage: Int) {
                         lineTo(0f, h)
                         close()
                     }
-                    drawPath(path = slopePath, color = DeepBasalt.copy(alpha = 0.8f))
+                    drawPath(path = slopePath, color = slopeFillColor)
 
                     // Draw ridge crest line
                     val ridgeLine = Path().apply {

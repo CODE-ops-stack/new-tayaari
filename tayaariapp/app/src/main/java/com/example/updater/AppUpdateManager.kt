@@ -63,13 +63,35 @@ object AppUpdateManager {
         .build()
 
     data class CloudMetadata(
-        val version: Int,
-        val totalQuestions: Int,
-        val apkSha256: String?,
-        val apkSizeBytes: Long?,
-        val apkDownloadUrl: String,
-        val releaseNotes: String?
-    )
+        val version: com.google.gson.JsonElement? = null,
+        val versionCode: Int? = null,
+        val totalQuestions: Int = 0,
+        val apkSha256: String? = null,
+        val apkSizeBytes: Long? = null,
+        val apkDownloadUrl: String = "",
+        val releaseNotes: String? = null
+    ) {
+        val resolvedVersionCode: Int
+            get() {
+                if (versionCode != null && versionCode > 0) return versionCode
+                if (version != null) {
+                    try {
+                        if (version.isJsonPrimitive) {
+                            val prim = version.asJsonPrimitive
+                            if (prim.isNumber) return prim.asInt
+                            if (prim.isString) {
+                                val s = prim.asString
+                                val digitsOnly = s.replace(Regex("[^0-9.]"), "").substringBefore(".")
+                                return digitsOnly.toIntOrNull() ?: 1
+                            }
+                        }
+                    } catch (e: Exception) {
+                        Log.w(TAG, "Error parsing version element: ${e.message}")
+                    }
+                }
+                return 1
+            }
+    }
 
     sealed class UpdateState {
         object Idle : UpdateState()
@@ -120,12 +142,13 @@ object AppUpdateManager {
                 return@withContext err
             }
 
+            val cloudVersionCode = metadata.resolvedVersionCode
             val installedVersion = getInstalledVersionCode(context)
-            Log.i(TAG, "Cloud version: ${metadata.version}, Installed version: $installedVersion")
+            Log.i(TAG, "Cloud version: $cloudVersionCode, Installed version: $installedVersion")
 
-            if (metadata.version > installedVersion) {
+            if (cloudVersionCode > installedVersion) {
                 val available = UpdateState.Available(
-                    version = metadata.version,
+                    version = cloudVersionCode,
                     releaseNotes = metadata.releaseNotes ?: "New Geography Learning Platform release available.",
                     sizeBytes = metadata.apkSizeBytes ?: 0L,
                     downloadUrl = metadata.apkDownloadUrl
@@ -152,15 +175,16 @@ object AppUpdateManager {
             val updatesDir = File(context.cacheDir, "updates")
             if (!updatesDir.exists()) updatesDir.mkdirs()
 
-            val apkFile = File(updatesDir, "tayaari-update-v${metadata.version}.apk")
+            val cloudVersionCode = metadata.resolvedVersionCode
+            val apkFile = File(updatesDir, "tayaari-update-v${cloudVersionCode}.apk")
 
             // If already downloaded and matches expected size, mark ready, pop notification and trigger install
             if (apkFile.exists() && metadata.apkSizeBytes != null && apkFile.length() == metadata.apkSizeBytes) {
-                val ready = UpdateState.ReadyToInstall(apkFile, metadata.version)
+                val ready = UpdateState.ReadyToInstall(apkFile, cloudVersionCode)
                 _updateState.value = ready
-                UpdateNotificationHelper.showUpdateNotification(context, metadata.version, metadata.totalQuestions, apkFile)
+                UpdateNotificationHelper.showUpdateNotification(context, cloudVersionCode, metadata.totalQuestions, apkFile)
                 withContext(Dispatchers.Main) {
-                    installApk(context, apkFile, metadata.version)
+                    installApk(context, apkFile, cloudVersionCode)
                 }
                 return@withContext ready
             }
@@ -207,12 +231,12 @@ object AppUpdateManager {
                 }
             }
 
-            val ready = UpdateState.ReadyToInstall(apkFile, metadata.version)
+            val ready = UpdateState.ReadyToInstall(apkFile, metadata.resolvedVersionCode)
             _updateState.value = ready
             Log.i(TAG, "Downloaded APK successfully: ${apkFile.absolutePath} (${apkFile.length()} bytes)")
-            UpdateNotificationHelper.showUpdateNotification(context, metadata.version, metadata.totalQuestions, apkFile)
+            UpdateNotificationHelper.showUpdateNotification(context, metadata.resolvedVersionCode, metadata.totalQuestions, apkFile)
             withContext(Dispatchers.Main) {
-                installApk(context, apkFile, metadata.version)
+                installApk(context, apkFile, metadata.resolvedVersionCode)
             }
             return@withContext ready
 

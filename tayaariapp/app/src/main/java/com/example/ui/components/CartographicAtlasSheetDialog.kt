@@ -32,7 +32,9 @@ enum class AtlasSheetCategory(val title: String, val icon: String) {
     RIVERS("River Drainage", "🌊"),
     SEISMIC("Earth Interior", "🌋"),
     SOILS("Soil Orders", "🌱"),
-    CURRENTS("Ocean Currents", "🌊")
+    CURRENTS("Ocean Currents", "🌊"),
+    PASSES("Mountain Passes", "⛰️"),
+    RAMSAR("Ramsar & Parks", "🦏")
 }
 
 data class AtlasMatrixEntry(
@@ -104,12 +106,38 @@ fun CartographicAtlasSheetDialog(
         )
     }
 
+    val passEntries = remember {
+        listOf(
+            AtlasMatrixEntry("Zoji La", "Zaskar / Greater Himalayas (3,528 m)", "Connects Srinagar with Kargil and Leh (Ladakh)", "Zoji La = Zero winter travel without tunnel; NH-1D gateway", "Situated on the Zaskar range; historic battlefield of Operation Bison (1948)."),
+            AtlasMatrixEntry("Shipki La", "Himachal Pradesh - Tibet Border (3,930 m)", "Kinnaur district, HP; River Sutlej enters India through this gorge", "Shipki = Sutlej highway into India", "Tributary gorge of Sutlej; ancient silk route spur to Tibet."),
+            AtlasMatrixEntry("Nathu La & Jelep La", "Sikkim - Tibet Border", "Nathu La (Dongkya Range) & Jelep La (Chumbi Valley route)", "Nathu La = Reopened border trade post (2006); Jelep La = Passes through Chumbi Valley", "Strategic bottleneck close to Siliguri Corridor (Chicken's Neck)."),
+            AtlasMatrixEntry("Lipulekh", "Uttarakhand (Pithoragarh) - Tibet Tri-junction", "Connects Kumaon with Purang (Tibet); Kailash-Mansarovar Yatra", "Lipulekh = Pilgrimage gateway at Kalapani tri-junction", "Located near the Kali river source; dispute point in Indo-Nepal cartography."),
+            AtlasMatrixEntry("Rohtang & Atal Tunnel", "Pir Panjal Range, HP (3,978 m)", "Connects Kullu Valley with Lahaul and Spiti Valleys", "Rohtang = Pile of corpses; bypassed by world's longest highway tunnel >10,000 ft (Atal Tunnel)", "Separates the Chenab and Beas drainage basins in Himachal Pradesh."),
+            AtlasMatrixEntry("Bomdi La", "Arunachal Pradesh (Himalayas)", "Connects Tezpur/Assam with Tawang near Bhutan border", "Bomdi La = Gateway to Tawang Monastery", "Strategic pass crossing Greater Himalayas into Tibetan plateau."),
+            AtlasMatrixEntry("Thal & Bhor Ghat", "Western Ghats (Sahyadris), Maharashtra", "Thal Ghat (Kasara): Mumbai-Nashik-Kolkata | Bhor Ghat: Mumbai-Pune-Chennai", "Thal = Northbound to Nashik; Bhor = Southbound to Pune", "Historic rail inclines conquering the steep Sahyadri scarp."),
+            AtlasMatrixEntry("Palghat Gap", "Western Ghats Break (Kerala-Tamil Nadu)", "Connects Palakkad (Kerala) with Coimbatore (Tamil Nadu)", "Palghat = 30-40 km wide tectonic shear gap between Nilgiris & Anamalai", "Crucial break allowing Arabian Sea monsoon clouds to penetrate interior Tamil Nadu; vital rail/road freight corridor.")
+        )
+    }
+
+    val ramsarEntries = remember {
+        listOf(
+            AtlasMatrixEntry("Loktak Lake", "Manipur (Montreux Record Ramsar)", "Keibul Lamjao National Park (World's only floating national park)", "Loktak = Floating Phumdis (heterogeneous organic mats)", "Home to endangered Sangai (Dancing Brow-antlered deer); plagued by siltation and hydel dams."),
+            AtlasMatrixEntry("Keoladeo Ghana", "Rajasthan (Bharatpur) (Montreux Record)", "Confluence of Gambhir and Banganga rivers", "Keoladeo = Artificial man-made wetland built by Maharaja Suraj Mal", "Wintering ground for endangered Siberian Crane; placed on Montreux Record due to water shortages."),
+            AtlasMatrixEntry("Chilika Lake", "Odisha Coast (First Indian Ramsar Site 1981)", "Asia's largest brackish water lagoon; Daya river mouth", "Chilika = Successfully removed from Montreux Record after opening new sea mouth", "Home to endangered Irrawaddy Dolphins (Orcaella brevirostris) and Nalabana Bird Sanctuary."),
+            AtlasMatrixEntry("Kabartal / Kanwar", "Begusarai, Bihar (Ramsar Site #39)", "North Gangetic Plain oxbow lake formed by Gandak river migration", "Kabartal = Bihar's premier freshwater wetland", "Vital stopover on Central Asian Flyway; critically endangered vultures (White-rumped, Indian)."),
+            AtlasMatrixEntry("Vembanad-Kol", "Kerala (Longest Lake in India)", "Ramsar wetland fed by Pamba, Periyar, Meenachil, Achankovil, Manimala rivers", "Vembanad = Divided into salt and fresh zones by Thanneermukkom barrage", "Threatened by reclamation; venue of the famous Nehru Trophy Snake Boat Race (Vallam Kali)."),
+            AtlasMatrixEntry("Deepor Beel", "Kamrup, Assam (Brahmaputra Valley)", "Permanent freshwater lake in former channel of Brahmaputra", "Deepor Beel = Only Ramsar site in Assam; elephant foraging sanctuary", "Critical urban wetland bordering Guwahati; threatened by municipal dumping.")
+        )
+    }
+
     val activeEntries = when (selectedCategory) {
         AtlasSheetCategory.KOPPEN -> koppenEntries
         AtlasSheetCategory.RIVERS -> riverEntries
         AtlasSheetCategory.SEISMIC -> seismicEntries
         AtlasSheetCategory.SOILS -> soilEntries
         AtlasSheetCategory.CURRENTS -> currentEntries
+        AtlasSheetCategory.PASSES -> passEntries
+        AtlasSheetCategory.RAMSAR -> ramsarEntries
     }
 
     val filteredEntries = remember(searchQuery, activeEntries) {

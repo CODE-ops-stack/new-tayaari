@@ -21,7 +21,7 @@ class UpdateCheckReceiver : BroadcastReceiver() {
                 if (action == "com.example.TRIGGER_UPDATE_NOTIFICATION") {
                     // Force display update notification immediately
                     val meta = AppUpdateManager.fetchCloudMetadata()
-                    val version = meta?.version ?: 21
+                    val version = meta?.resolvedVersionCode ?: 21
                     val questions = meta?.totalQuestions ?: 3942
 
                     val updatesDir = File(context.cacheDir, "updates")
@@ -38,14 +38,14 @@ class UpdateCheckReceiver : BroadcastReceiver() {
                     val meta = AppUpdateManager.fetchCloudMetadata()
                     if (meta != null) {
                         val installedVersion = AppUpdateManager.getInstalledVersionCode(context)
-                        if (meta.version > installedVersion) {
+                        if (meta.resolvedVersionCode > installedVersion) {
                             // Download APK in background if not already present
                             val state = AppUpdateManager.downloadAndPrepareApk(context, meta)
                             val apkFile = if (state is AppUpdateManager.UpdateState.ReadyToInstall) state.apkFile else null
 
                             UpdateNotificationHelper.showUpdateNotification(
                                 context = context,
-                                version = meta.version,
+                                version = meta.resolvedVersionCode,
                                 totalQuestions = meta.totalQuestions,
                                 apkFile = apkFile
                             )

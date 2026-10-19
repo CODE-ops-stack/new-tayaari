@@ -575,6 +575,17 @@ fun PracticeScreen(
                         },
                         label = "QuestionAnimation"
                     ) { targetQuestion ->
+                        val isZen = LocalZenMode.current
+                        var questionSecondsElapsed by remember(targetQuestion.id) { mutableIntStateOf(0) }
+                        LaunchedEffect(targetQuestion.id, uiState.selectedOptionId) {
+                            if (uiState.selectedOptionId == null) {
+                                while (true) {
+                                    kotlinx.coroutines.delay(1000)
+                                    questionSecondsElapsed++
+                                }
+                            }
+                        }
+
                         LazyColumn(
                             modifier = Modifier.fillMaxSize(),
                             contentPadding = PaddingValues(horizontal = 20.dp, vertical = 24.dp),
@@ -591,6 +602,66 @@ fun PracticeScreen(
                             }
                             item {
                                 ExamGloryHeader(examTarget = effectiveExam, tier = tier)
+                            }
+
+                            if (!isZen) {
+                                item {
+                                    val isSsc = effectiveExam?.contains("SSC", ignoreCase = true) == true
+                                    val targetPace = if (isSsc) 45 else 72
+                                    val paceFraction = (questionSecondsElapsed.toFloat() / targetPace.toFloat()).coerceIn(0f, 1f)
+                                    val isOverBudget = questionSecondsElapsed > targetPace
+                                    val paceColor = when {
+                                        questionSecondsElapsed <= (targetPace * 0.65f).toInt() -> ContourEmerald
+                                        questionSecondsElapsed <= targetPace -> SunstoneGold
+                                        else -> Color(0xFFEF4444)
+                                    }
+
+                                    Surface(
+                                        color = MaterialTheme.colorScheme.surfaceVariant,
+                                        shape = RoundedCornerShape(8.dp),
+                                        modifier = Modifier.fillMaxWidth().padding(bottom = 2.dp)
+                                    ) {
+                                        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)) {
+                                            Row(
+                                                modifier = Modifier.fillMaxWidth(),
+                                                horizontalArrangement = Arrangement.SpaceBetween,
+                                                verticalAlignment = Alignment.CenterVertically
+                                            ) {
+                                                Text(
+                                                    text = if (uiState.selectedOptionId != null) "🎯 Solved in ${questionSecondsElapsed}s"
+                                                           else if (isOverBudget) "⚠️ Decision Zone (${questionSecondsElapsed}s)"
+                                                           else if (questionSecondsElapsed > (targetPace * 0.65f)) "⏱️ Elimination Pace (${questionSecondsElapsed}s)"
+                                                           else "⚡ Optimal Pacing (${questionSecondsElapsed}s)",
+                                                    color = paceColor,
+                                                    fontSize = 10.5.sp,
+                                                    fontWeight = FontWeight.Bold
+                                                )
+                                                Text(
+                                                    text = "Target: ${targetPace}s / MCQ",
+                                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                                    fontSize = 9.5.sp,
+                                                    fontFamily = CoordinatesMonospace
+                                                )
+                                            }
+                                            Spacer(modifier = Modifier.height(4.dp))
+                                            Box(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .height(3.dp)
+                                                    .clip(RoundedCornerShape(2.dp))
+                                                    .background(paceColor.copy(alpha = 0.2f))
+                                            ) {
+                                                Box(
+                                                    modifier = Modifier
+                                                        .fillMaxWidth(paceFraction)
+                                                        .height(3.dp)
+                                                        .clip(RoundedCornerShape(2.dp))
+                                                        .background(paceColor)
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
                             }
 
                             item {
@@ -1897,7 +1968,7 @@ fun GeodeticSurveyHudStrip(
     altitudeMeters: Int
 ) {
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(12.dp),
         border = BorderStroke(1.dp, ContourEmerald.copy(alpha = 0.35f)),
         modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)
@@ -1913,7 +1984,7 @@ fun GeodeticSurveyHudStrip(
                     modifier = Modifier
                         .size(28.dp)
                         .clip(CircleShape)
-                        .background(OceanicDark)
+                        .background(MaterialTheme.colorScheme.surface)
                         .border(1.dp, SunstoneGold.copy(alpha = 0.6f), CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
@@ -1952,7 +2023,7 @@ fun GeodeticSurveyHudStrip(
                     )
                     Text(
                         text = "Barometer: ${if (tier.equals("Hard", ignoreCase = true)) "500 hPa (Apex)" else if (tier.equals("Medium", ignoreCase = true)) "850 hPa (Ridge)" else "1,013 hPa (Datum)"}",
-                        color = TopoContourMuted,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontSize = 9.sp
                     )
                 }
@@ -2013,7 +2084,7 @@ fun ExamGloryHeader(examTarget: String?, tier: String) {
     }
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(10.dp),
         border = BorderStroke(1.dp, badgeColor.copy(alpha = 0.45f)),
         modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)
@@ -2044,7 +2115,7 @@ fun ExamGloryHeader(examTarget: String?, tier: String) {
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = gloryQuote,
-                color = TopoContourMuted,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 11.sp,
                 fontStyle = FontStyle.Italic
             )
@@ -2117,7 +2188,7 @@ fun DopamineCognitiveFeedbackBanner(
                     } else {
                         "Toppers don't avoid mistakes—they make them HERE so they never lose marks on exam day. You just saved -0.66 penalty in the real hall! 🎯 Estimated Rank Defense: +1,420 positions."
                     },
-                    color = Color.White.copy(alpha = 0.9f),
+                    color = MaterialTheme.colorScheme.onSurface,
                     fontSize = 11.5.sp,
                     lineHeight = 16.sp
                 )
@@ -2151,7 +2222,7 @@ fun BrainChillCard(
     val randomCuriosity = remember { curiosities.random() }
 
     Surface(
-        color = DeepBasalt,
+        color = MaterialTheme.colorScheme.surfaceVariant,
         shape = RoundedCornerShape(14.dp),
         border = BorderStroke(1.2.dp, HydrosphereCyan.copy(alpha = 0.5f)),
         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
@@ -2178,18 +2249,18 @@ fun BrainChillCard(
                     )
                     Text(
                         text = "Pause for 10 seconds to recharge neural pathways before the next climb.",
-                        color = TopoContourMuted,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         fontSize = 10.sp
                     )
                 }
                 Spacer(modifier = Modifier.weight(1f))
                 IconButton(onClick = onDismiss, modifier = Modifier.size(28.dp)) {
-                    Icon(Icons.Default.Close, contentDescription = "Close", tint = TopoContourMuted, modifier = Modifier.size(16.dp))
+                    Icon(Icons.Default.Close, contentDescription = "Close", tint = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.size(16.dp))
                 }
             }
             Spacer(modifier = Modifier.height(10.dp))
             Surface(
-                color = OceanicDark,
+                color = MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(10.dp),
                 border = BorderStroke(0.8.dp, HydrosphereCyan.copy(alpha = 0.2f)),
                 modifier = Modifier.fillMaxWidth()
@@ -2204,7 +2275,7 @@ fun BrainChillCard(
                     Spacer(modifier = Modifier.height(3.dp))
                     Text(
                         text = randomCuriosity.second,
-                        color = AtlasParchment.copy(alpha = 0.9f),
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
                         fontSize = 11.sp,
                         lineHeight = 15.sp
                     )

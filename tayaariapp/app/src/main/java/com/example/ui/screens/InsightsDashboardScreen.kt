@@ -486,8 +486,8 @@ fun InsightsDashboardScreen(
                             text = {
                                 Column {
                                     selectedPlan!!.tasks.forEach { task ->
-                                        Text("• ${task.title} (${task.expectedMinutes}m)", fontWeight = FontWeight.Bold, color = com.example.ui.theme.AtlasParchment)
-                                        Text(task.description, style = MaterialTheme.typography.bodySmall, color = com.example.ui.theme.TopoContourMuted, modifier = Modifier.padding(bottom = 8.dp))
+                                        Text("• ${task.title} (${task.expectedMinutes}m)", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onSurface)
+                                        Text(task.description, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(bottom = 8.dp))
                                         if (task.title.contains("Mistake Replay", ignoreCase = true)) {
                                             Button(
                                                 onClick = { 
@@ -508,7 +508,7 @@ fun InsightsDashboardScreen(
                                     Text("Understood", color = com.example.ui.theme.GlacierAzure)
                                 }
                             },
-                            containerColor = com.example.ui.theme.DeepBasalt
+                            containerColor = MaterialTheme.colorScheme.surface
                         )
                     }
                 }
